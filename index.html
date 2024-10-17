@@ -3,9 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INDEX</title>
+    <title>Anna y el misterio de las 4 fuentes</title>
 </head>
+
 <body>
     
+    <header>
+        <div class="language-selector">
+            <!-- Imagen de la bandera principal (idioma actual) -->
+            <img src="media/img_idiomas/cat.png" alt="Seleccionar idioma" id="main-flag" class="flag" onclick="toggleMenu()">
+    
+            <!-- Menú desplegable de idiomas -->
+            <div id="language-menu" class="menu">
+                <img src="media/img_idiomas/eng.png" alt="Inglés" class="flag" onclick="selectLanguage('eng')">
+                <img src="media/img_idiomas/esp.png" alt="Español" class="flag" onclick="selectLanguage('esp')">
+                <img src="media/img_idiomas/cat.png" alt="Catalán" class="flag" onclick="selectLanguage('cat')">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="titulo_principal">
+            <h1>ANNA</h1>
+            <h2>Y EL MISTERIO DE LAS 4 FUENTES</h2>
+        </div>
+    </main>
+
+
+<script src="./js/idiomas.js"></script>
 </body>
 </html>
