@@ -9,6 +9,10 @@ body.fondo-imagen {
     background-image: url('../media/img_landing/escuela.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
 }
 .pagina1{
+    background-image: url('../media/img_landing/escuela.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
+}
+
+.imgPatio{
     background-image: url('../media/img_landing/patio.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
 }
 
