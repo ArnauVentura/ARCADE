@@ -5,15 +5,12 @@ body.fondo-imagen {
     height: 100vh; /* Asegura que el fondo cubra toda la altura de la ventana */
     margin: 0; /* Elimina márgenes por defecto */
 }
-.Index{
-    background-image: url('../media/img_landing/escuela.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
-}
-.pagina1{
+.imgEscuela{
     background-image: url('../media/img_landing/escuela.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
 }
 
-.imgPatio{
-    background-image: url('../media/img_landing/patio.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
+.imgClase{
+    background-image: url('../media/img_landing/clase.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
 }
 
 button, input{
@@ -48,7 +45,7 @@ div.botones {
     justify-content: center;
     margin: 40px;
 }
-div.elementosCentrados{
+.elementosCentrados{
     height: 250px;
     display: flex;
     justify-content: center;
@@ -68,13 +65,42 @@ main .titulo_principal{
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 120px;
     margin: auto;
-    width: 1100px;
+    margin-top: 10px;
+    width: 65%;
     height: auto;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+div.divPersona{
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 60px;
+    margin: auto;
+    margin-top: 10px;
+    width: 13%;
+    height: auto;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+div.divPersona img{
+    width: 15%;
+    margin-bottom: 5%;
+}
+div.divPersona img.persona{
+    width: 50%;
+    margin: 5%;
+}
+.divEquipo{
+    display: flex;
+    justify-content: center;
+    margin-top: 7%;
+}
+main p.titulo_principal{
+    height: 100%;
+    margin-top: 3%;
+    padding: 1%;
+}
 
-h1 {
+h1.handlee {
     color: #0A1576;
     font-size: 90px;
     text-shadow: 
@@ -83,8 +109,6 @@ h1 {
         3px -3px 0 #437CA5,
         3px 3px 0 #437CA5;
     font-weight: 900;
-    margin-bottom: 10px;
-
 }
 
 h2 {
@@ -141,3 +165,4 @@ header{
 .menu.show {
     display: block;
 }
+
