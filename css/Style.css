@@ -1,3 +1,17 @@
+body.fondo-imagen {
+    background-size: cover; /* Cubre todo el fondo */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* No repite la imagen */
+    height: 100vh; /* Asegura que el fondo cubra toda la altura de la ventana */
+    margin: 0; /* Elimina márgenes por defecto */
+}
+.Index{
+    background-image: url('../media/img_landing/escuela.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
+}
+.pagina1{
+    background-image: url('../media/img_landing/patio.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
+}
+
 button, input{
     height: 60px;
     border-radius: 40px;
@@ -6,13 +20,15 @@ button, input{
     background: #C77E5F;
     border: 5px solid #A56C43;
     color: white;
-    text-transform: uppercase;  
+    text-transform: uppercase; 
+    font-size: 130%; 
 }
 input::placeholder{
     color: white;
 }
 input{
     padding-left: 10px;
+    background-color: rgba(199, 126, 95, 0.8);
 }
 button:hover.boton{
     background: #A56C43;
@@ -77,4 +93,47 @@ h2 {
         2px 2px 0 #437CA5;
     font-weight: 900; 
     margin-top: 5px;
+}
+
+
+/* Estilos para el contenedor de la selección de idioma */
+.language-selector {
+    position: relative;
+    display: inline-block;
+}
+
+header{
+    display: flex;
+    justify-content: end;
+    margin: 5px;
+}
+/* Estilos para las banderas */
+.flag {
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+}
+
+
+/* Menú oculto por defecto */
+.menu {
+    display: none;
+    position: absolute;
+    top: 45px; /* Justo debajo de la bandera principal */
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    z-index: 100;
+}
+
+
+.menu .flag {
+    margin: 5px 0;
+}
+
+
+/* Mostrar el menú al estar activo */
+.menu.show {
+    display: block;
 }
