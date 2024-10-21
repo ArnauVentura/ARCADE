@@ -1,3 +1,4 @@
+
 body.fondo-imagen {
     background-size: cover; /* Cubre todo el fondo */
     background-position: center; /* Centra la imagen */
@@ -44,7 +45,8 @@ div.botones {
     justify-content: center;
     margin: 40px;
 }
-div.elementosCentrados{
+
+.formulario{
     height: 250px;
     display: flex;
     justify-content: center;
