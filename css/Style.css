@@ -14,17 +14,11 @@ body.fondo-imagen {
     background-image: url('../media/img_landing/clase.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
 }
 
-.botones, input{
-    height: 60px;
-    border-radius: 40px;
-    width: 20%;
-    margin: 10px;
-    background: #C77E5F;
-    border: 5px solid #A56C43;
-    color: white;
-    text-transform: uppercase; 
-    font-size: 130%; 
+
+.imgPatio{
+    background-image: url('../media/img_landing/patio.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
 }
+
 button, input{
     height: 60px;
     border-radius: 40px;
