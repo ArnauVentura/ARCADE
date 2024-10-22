@@ -14,6 +14,17 @@ body.fondo-imagen {
     background-image: url('../media/img_landing/clase.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
 }
 
+.botones, input{
+    height: 60px;
+    border-radius: 40px;
+    width: 20%;
+    margin: 10px;
+    background: #C77E5F;
+    border: 5px solid #A56C43;
+    color: white;
+    text-transform: uppercase; 
+    font-size: 130%; 
+}
 button, input{
     height: 60px;
     border-radius: 40px;
@@ -27,7 +38,9 @@ button, input{
 }
 input::placeholder{
     color: white;
+    font-style: italic;
 }
+
 input{
     padding-left: 10px;
     background-color: rgba(199, 126, 95, 0.8);
@@ -35,7 +48,8 @@ input{
 button:hover.boton{
     background: #A56C43;
 }
-hr{
+
+.barra-divisora{
     width: 45%;
     height: 5px;
     background: black;
