@@ -14,6 +14,11 @@ body.fondo-imagen {
     background-image: url('../media/img_landing/clase.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
 }
 
+.imgPatio{
+    background-image: url('../media/img_landing/patio.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
+}
+
+
 button, input{
     height: 60px;
     border-radius: 40px;
