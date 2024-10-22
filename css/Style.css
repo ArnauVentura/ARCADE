@@ -14,10 +14,10 @@ body.fondo-imagen {
     background-image: url('../media/img_landing/clase.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
 }
 
+
 .imgPatio{
     background-image: url('../media/img_landing/patio.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
 }
-
 
 button, input{
     height: 60px;
@@ -32,7 +32,9 @@ button, input{
 }
 input::placeholder{
     color: white;
+    font-style: italic;
 }
+
 input{
     padding-left: 10px;
     background-color: rgba(199, 126, 95, 0.8);
@@ -40,7 +42,8 @@ input{
 button:hover.boton{
     background: #A56C43;
 }
-hr{
+
+.barra-divisora{
     width: 45%;
     height: 5px;
     background: black;
