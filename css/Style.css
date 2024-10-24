@@ -14,28 +14,27 @@ body.fondo-imagen {
     background-image: url('../media/img_landing/clase.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
 }
 
-.botones, input{
-    height: 60px;
+.button-boton, .a-boton, .input-boton{
+    padding: 10px;
+    width: 250px;
     border-radius: 40px;
-    width: 20%;
-    margin: 10px;
     background: #C77E5F;
     border: 5px solid #A56C43;
     color: white;
     text-transform: uppercase; 
     font-size: 130%; 
-}
-button, input{
-    height: 60px;
-    border-radius: 40px;
-    width: 20%;
     margin: 10px;
-    background: #C77E5F;
-    border: 5px solid #A56C43;
-    color: white;
-    text-transform: uppercase; 
-    font-size: 130%; 
 }
+.a-boton{
+    text-align: center;
+    text-decoration: none;
+    
+}
+.button-boton:hover, .boton:hover{
+    background: #A56C43;
+}
+
+
 input::placeholder{
     color: white;
     font-style: italic;
@@ -45,7 +44,7 @@ input{
     padding-left: 10px;
     background-color: rgba(199, 126, 95, 0.8);
 }
-button:hover.boton{
+.a-boton:hover, .button-boton:hover{
     background: #A56C43;
 }
 
@@ -55,10 +54,13 @@ button:hover.boton{
     background: black;
 }
 
-div.botones {
+.botones {
     display: flex;
     justify-content: center;
-    margin: 40px;
+    /* margin: 40px; */
+}
+.input-boton{
+    margin-bottom: 20px;
 }
 
 .elementosCentrados{
