@@ -20,36 +20,36 @@ function navegarA(url) {
 
 //Eventos click
 fuenteAmarilla.addEventListener('click', function() {
-  mostrarMensaje('Texto para la fuente amarilla');
+  mostrarMensaje('Texto para la fuente amarilla'); //Texto introductorio de cada juego
 });
 
 fuenteRoja.addEventListener('click', function() {
-  mostrarMensaje('Texto para la fuente roja');
+  mostrarMensaje('Texto para la fuente roja'); //Texto introductorio de cada juego
 });
 
 fuenteAzul.addEventListener('click', function() {
-  mostrarMensaje('Texto para la fuente azul');
+  mostrarMensaje('Texto para la fuente azul'); //Texto introductorio de cada juego
 });
 
 fuenteVerde.addEventListener('click', function() {
-  mostrarMensaje('Texto para la fuente verde');
+  mostrarMensaje('Texto para la fuente verde'); //Texto introductorio de cada juego
 });
 
 //EventosDobleClick
 
 
 fuenteAmarilla.addEventListener('dblclick', function() {
-  navegarA('fuente_amarilla.html');
+  navegarA('fuente_amarilla.html'); //La url de cada juego
 });
 
 fuenteRoja.addEventListener('dblclick', function() {
-  navegarA('fuente_roja.html');
+  navegarA('fuente_roja.html'); //La url de cada juego
 });
 
 fuenteAzul.addEventListener('dblclick', function() {
-  navegarA('fuente_azul.html');
+  navegarA('fuente_azul.html'); //La url de cada juego
 });
 
 fuenteVerde.addEventListener('dblclick', function() {
-  navegarA('fuente_verde.html');
+  navegarA('fuente_verde.html'); //La url de cada juego
 });

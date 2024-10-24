@@ -171,3 +171,36 @@ header{
     display: block;
 }
 
+/* ------------------- Fuentes ------------------ */
+/* Posicion de las fuentes */
+.fuente_amarilla{
+    position: absolute;
+    bottom: 15%;
+    left: 30%;
+}
+
+.fuente_roja {
+    position: absolute;
+    top: 30%;
+    right: 35%;
+}
+
+.fuente_azul {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+}
+
+.fuente_verde {
+    position: absolute;
+    top: 10%;
+    left: 40%;
+
+}
+
+.font-img{
+    width: 250px;
+    height: 250px;
+}
+
+
