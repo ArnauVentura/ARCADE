@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-
-body.fondo-imagen {
-=======
 /* GENERICOS */
 /* --------------------------------------------------------------------------- */
 html{
@@ -9,75 +5,12 @@ html{
 }
 /* Centrar imagenes al tamaño del contenedor */
 .bg_Img{
->>>>>>> Stashed changes
     background-size: cover; /* Cubre todo el fondo */
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat; /* No repite la imagen */
     height: 100vh; /* Asegura que el fondo cubra toda la altura de la ventana */
     margin: 0; /* Elimina márgenes por defecto */
 }
-<<<<<<< Updated upstream
-.imgEscuela{
-    background-image: url('../media/img_landing/escuela.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
-}
-
-.imgClase{
-    background-image: url('../media/img_landing/clase.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
-}
-
-
-.imgPatio{
-    background-image: url('../media/img_landing/patio.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
-}
-
-button, input{
-    height: 60px;
-    border-radius: 40px;
-    width: 20%;
-    margin: 10px;
-    background: #C77E5F;
-    border: 5px solid #A56C43;
-    color: white;
-    text-transform: uppercase; 
-    font-size: 130%; 
-}
-input::placeholder{
-    color: white;
-    font-style: italic;
-}
-
-input{
-    padding-left: 10px;
-    background-color: rgba(199, 126, 95, 0.8);
-}
-button:hover.boton{
-    background: #A56C43;
-}
-
-.barra-divisora{
-    width: 45%;
-    height: 5px;
-    background: black;
-}
-
-div.botones {
-    display: flex;
-    justify-content: center;
-    margin: 40px;
-}
-
-.elementosCentrados{
-    height: 250px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-
-/* titulo */
-.handlee {
-=======
 /* Escoger imagen del body*/
 .Index{
     background-image: url('../media/img_landing/escuela.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
@@ -85,56 +18,11 @@ div.botones {
 
 /* Titulos */
 .styleTitulo {
->>>>>>> Stashed changes
     font-family: "Handlee", cursive;
     font-weight: 900; 
     font-style: bold;
 }
-<<<<<<< Updated upstream
-
-main .titulo_principal{
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 120px;
-    margin: auto;
-    margin-top: 10px;
-    width: 65%;
-    height: auto;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-div.divPersona{
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 60px;
-    margin: auto;
-    margin-top: 10px;
-    width: 13%;
-    height: auto;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-div.divPersona img{
-    width: 15%;
-    margin-bottom: 5%;
-}
-div.divPersona img.persona{
-    width: 50%;
-    margin: 5%;
-}
-.divEquipo{
-    display: flex;
-    justify-content: center;
-    margin-top: 7%;
-}
-main p.titulo_principal{
-    height: 100%;
-    margin-top: 3%;
-    padding: 1%;
-}
-
-h1.handlee {
-=======
 h1.styleTitulo{
->>>>>>> Stashed changes
     color: #0A1576;
     font-size:4.5rem;
     text-shadow: 
@@ -143,10 +31,7 @@ h1.styleTitulo{
         3px -3px 0 #437CA5,
         3px 3px 0 #437CA5;
     font-weight: 900;
-<<<<<<< Updated upstream
-=======
     margin-bottom: 10px;
->>>>>>> Stashed changes
 }
 h2.styleTitulo{
     color: #0A1576;
@@ -291,42 +176,4 @@ header{
 /* Mostrar el menú al estar activo */
 .menu.show {
     display: block;
-<<<<<<< Updated upstream
 }
-
-/* ------------------- Fuentes ------------------ */
-/* Posicion de las fuentes */
-.fuente_amarilla{
-    position: absolute;
-    bottom: 15%;
-    left: 30%;
-}
-
-.fuente_roja {
-    position: absolute;
-    top: 30%;
-    right: 35%;
-}
-
-.fuente_azul {
-    position: absolute;
-    top: 20%;
-    left: 5%;
-}
-
-.fuente_verde {
-    position: absolute;
-    top: 10%;
-    left: 40%;
-
-}
-
-.font-img{
-    width: 250px;
-    height: 250px;
-}
-
-
-=======
-}
->>>>>>> Stashed changes
