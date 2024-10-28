@@ -10,7 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
 </head>
 
+<<<<<<< Updated upstream
 <body class="fondo-imagen imgEscuela">
+=======
+<body class="bg_Img Index" >
+>>>>>>> Stashed changes
     
     <header>
         <div class="language-selector">
@@ -19,18 +23,28 @@
     
             <!-- Menú desplegable de idiomas -->
             <div id="language-menu" class="menu">
-                <img src="media/img_idiomas/eng.png" alt="Inglés" class="flag" onclick="selectLanguage('eng')">
-                <img src="media/img_idiomas/esp.png" alt="Español" class="flag" onclick="selectLanguage('esp')">
-                <img src="media/img_idiomas/cat.png" alt="Catalán" class="flag" onclick="selectLanguage('cat')">
+                <div class="div_Bandera">
+                    <img src="media/img_idiomas/eng.png" alt="Inglés" class="flag" onclick="selectLanguage('eng')">
+                    <p>ENG</p>
+                </div>
+                <div class="div_Bandera">
+                    <img src="media/img_idiomas/esp.png" alt="Español" class="flag" onclick="selectLanguage('esp')">
+                    <p>ESP</p>
+                </div>
+                <div class="div_Bandera">
+                    <img src="media/img_idiomas/cat.png" alt="Catalán" class="flag" onclick="selectLanguage('cat')">
+                    <p>CAT</p>
+                </div>
             </div>
         </div>
     </header>
 
     <main>
-        <div class="titulo_principal elementosCentrados">
-            <h1 class="handlee">ANNA</h1>
-            <h2 class="handlee">Y EL MISTERIO DE LAS 4 FUENTES</h2>
+        <div class="elementosCentrados whiteBG div_SizeTitular">
+            <h1 class="styleTitulo">ANNA</h1>
+            <h2 class="styleTitulo">Y EL MISTERIO DE LAS 4 FUENTES</h2>
         </div>
+<<<<<<< Updated upstream
         <div class="elementosCentrados">
             <form class="elementosCentrados">
                 <input type="text" placeholder="Nombre de usuario" class="boton">
@@ -46,6 +60,23 @@
                     <a class="boton" href="">JUGAR SIN REGISTRO</a>
                     <a class="boton" href="">CONÓCENOS</a>
                 </div>
+=======
+        <form>
+            <div class="elementosCentrados">
+                <input type="text" class="txt_Inputs short_style_a_button" placeholder="Nombre de usuario">
+                <input type="text" class="txt_Inputs short_style_a_button" placeholder="Contraseña">
+            </div>
+
+            <div class="elementosCentrados divButtons_Formulario" id="">
+                <button class="short_style_a_button" href="">INICIAR SESIÓN</button>
+                <button class="short_style_a_button" href="#">REGISTRARSE</button>
+            </div>
+        </form>
+            <hr id="hr_mainMenu">
+            <div class="divButtons_Formulario">
+                <a href="./html/pagina1.html" class="short_style_a_button">JUGAR SIN REGISTRO</a>
+                <a href="" class="short_style_a_button">CONOCENOS</a>
+>>>>>>> Stashed changes
             </div>
         </div>
     </main>

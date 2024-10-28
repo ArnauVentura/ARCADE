@@ -1,11 +1,22 @@
+<<<<<<< Updated upstream
 
 body.fondo-imagen {
+=======
+/* GENERICOS */
+/* --------------------------------------------------------------------------- */
+html{
+    font-size: 16px;
+}
+/* Centrar imagenes al tamaño del contenedor */
+.bg_Img{
+>>>>>>> Stashed changes
     background-size: cover; /* Cubre todo el fondo */
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat; /* No repite la imagen */
     height: 100vh; /* Asegura que el fondo cubra toda la altura de la ventana */
     margin: 0; /* Elimina márgenes por defecto */
 }
+<<<<<<< Updated upstream
 .imgEscuela{
     background-image: url('../media/img_landing/escuela.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
 }
@@ -66,10 +77,20 @@ div.botones {
 
 /* titulo */
 .handlee {
+=======
+/* Escoger imagen del body*/
+.Index{
+    background-image: url('../media/img_landing/escuela.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
+}
+
+/* Titulos */
+.styleTitulo {
+>>>>>>> Stashed changes
     font-family: "Handlee", cursive;
     font-weight: 900; 
     font-style: bold;
 }
+<<<<<<< Updated upstream
 
 main .titulo_principal{
     background-color: rgba(255, 255, 255, 0.7);
@@ -111,19 +132,25 @@ main p.titulo_principal{
 }
 
 h1.handlee {
+=======
+h1.styleTitulo{
+>>>>>>> Stashed changes
     color: #0A1576;
-    font-size: 90px;
+    font-size:4.5rem;
     text-shadow: 
         -3px -3px 0 #437CA5,
         -3px 3px 0 #437CA5,
         3px -3px 0 #437CA5,
         3px 3px 0 #437CA5;
     font-weight: 900;
+<<<<<<< Updated upstream
+=======
+    margin-bottom: 10px;
+>>>>>>> Stashed changes
 }
-
-h2 {
+h2.styleTitulo{
     color: #0A1576;
-    font-size:55px;
+    font-size:2rem;
     text-shadow: 
         -2px -2px 0 #437CA5,
         -2px 2px 0 #437CA5,
@@ -132,12 +159,92 @@ h2 {
     font-weight: 900; 
     margin-top: 5px;
 }
+/* Centra vertical y horizontalmente los elementos del contenedor */
+.elementosCentrados{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+/* Establece el fondo blanco para títulos, etc. */
+.whiteBG{
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Estilos de <button> y <A> */
+.short_style_a_button{
+    display: inline-block;  /* Permite que <a> respete height y width como un <button> */
+    height: 1%;
+    width: 20%;
+    border-radius: 40px;
+    margin: 10px;
+    /* Colores */
+    background: #C77E5F;
+    border: 5px solid #A56C43;
+    color: white;
+    /* Letra */
+    text-transform: uppercase; 
+    font-size: 100%;
+    text-decoration: none;  /* Quita el subrayado de los <a> */
+    font-family: Arial, Helvetica, sans-serif;
+    white-space: nowrap; /* Evita saltos de líneas del texto */
+    box-sizing: border-box; /* Incluye padding y border en el tamaño total */
+    text-align: center;           /* Centra el texto horizontalmente */
+    line-height: 200%;   
+}
+a.short_style_a_button:hover,
+button.short_style_a_button:hover{
+    background-color: #A56C43;
+}
+.txt_Inputs{
+    height: 3rem;
+    width: 18rem;
+    text-align: left;
+    padding-left: 10px;
+    background-color: rgba(199, 126, 95, 0.8);
+
+}
+input::placeholder {
+    color: white;
+}
 
 
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* PERSONALIZADOS */
+.divButtons_Formulario{
+    padding-left: 28%;
+    display: inline;
+    text-align: center;
+}
+/* Container del título */
+.div_SizeTitular{
+    width: 55%;
+    height: 200px;
+    margin:auto;
+    border-radius: 75px;
+}
+/* <hr> main menu */
+#hr_mainMenu{
+    margin:auto;
+    width: 65%;
+    background-color: black;
+    height: 0.4rem;
+}
+
+
+
+
+
+
+/* BANDERAS IDIOMAS */
 /* Estilos para el contenedor de la selección de idioma */
 .language-selector {
     position: relative;
     display: inline-block;
+    margin-top: 5px;
+    margin-right: 5px;
+    padding: 3px;
+    background:  #C77E5F;
 }
 
 header{
@@ -159,12 +266,22 @@ header{
     position: absolute;
     top: 45px; /* Justo debajo de la bandera principal */
     left: 0;
-    background-color: #fff;
+    background:  #C77E5F;
     border: 1px solid #ccc;
     padding: 5px;
     z-index: 100;
+    width: 80px;
+    left: -40px;
 }
-
+.div_Bandera{
+    display: flex;
+    align-items: center;
+    margin: 2px;
+}
+.div_Bandera *{
+    margin: 5px;
+    width: 50%;
+}
 
 .menu .flag {
     margin: 5px 0;
@@ -174,6 +291,7 @@ header{
 /* Mostrar el menú al estar activo */
 .menu.show {
     display: block;
+<<<<<<< Updated upstream
 }
 
 /* ------------------- Fuentes ------------------ */
@@ -209,3 +327,6 @@ header{
 }
 
 
+=======
+}
+>>>>>>> Stashed changes
