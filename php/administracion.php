@@ -34,9 +34,16 @@
                         <td><?php echo $usuario['nombre'] ?></td>
                         <td><?php echo $usuario['contrasenya'] ?></td>
                         <td><?php echo $usuario['id_idROL'] ?></td>
+                        <td>
+                            <button>Modificar</button>
+                            <button>Borrar</button>
+                        </td>
                     </tr>
                 <?php }?>
+
+
             </tbody>
+
         </table>
     </div>
 </body>
