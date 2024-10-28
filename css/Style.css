@@ -5,10 +5,11 @@ html{
 }
 /* Centrar imagenes al tamaño del contenedor */
 .bg_Img{
-    background-size: 100% 100%; /* Cubre todo el fondo */
+    background-size: 100% 100%; /* Estira la imagen para que ocupe todo el contenedor */
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat; /* No repite la imagen */
     height: 100vh; /* Asegura que el fondo cubra toda la altura de la ventana */
+    width: 100%; /* Asegura que el ancho sea del 100% */
     margin: 0; /* Elimina márgenes por defecto */
 }
 /* Escoger imagen del body*/
@@ -119,7 +120,40 @@ input::placeholder {
     background-color: black;
     height: 0.4rem;
 }
-
+/* distribucion de margins elementos del body Main menu*/
+#main_mainMenu div{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+#main_mainMenu div button,
+#main_mainMenu div a,
+#main_mainMenu div input{
+    margin: 25px;
+}
+/* body quienes somos */
+#bodyQuienesSomos *{
+    padding: 1% 0 1% 0;
+}
+#p_resumenQuienesSomos{
+    width: 100px;
+    text-align: center;
+}
+/* Contenedor div miembros del grupo */
+.divEquipo{
+    height: 50%;
+    display: flex;
+    align-items: center;
+}
+.divPersona{
+    width: 20%;
+    margin: 5%;
+    height: auto;
+    padding: 15px;
+    background-color: yellow;
+}
+.divPersona img{
+    height: 10px;
+}
 
 
 
