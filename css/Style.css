@@ -5,7 +5,7 @@ html{
 }
 /* Centrar imagenes al tamaño del contenedor */
 .bg_Img{
-    background-size: cover; /* Cubre todo el fondo */
+    background-size: 100% 100%; /* Cubre todo el fondo */
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat; /* No repite la imagen */
     height: 100vh; /* Asegura que el fondo cubra toda la altura de la ventana */
@@ -13,7 +13,11 @@ html{
 }
 /* Escoger imagen del body*/
 .Index{
-    background-image: url('../media/img_landing/escuela.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
+    background-image: url('../media/img_landing/escuela.jpg');
+}
+
+.imgPatio{
+    background-image: url('../media/img_landing/patio.jpg');  
 }
 
 /* Titulos */
@@ -176,4 +180,13 @@ header{
 /* Mostrar el menú al estar activo */
 .menu.show {
     display: block;
+}
+
+
+/*FUENTES*/
+/* Tamaño de la imagen*/
+.font-img {
+    width: 200px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
 }
