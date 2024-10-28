@@ -14,7 +14,11 @@ html{
 }
 /* Escoger imagen del body*/
 .Index{
-    background-image: url('../media/img_landing/escuela.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
+    background-image: url('../media/img_landing/escuela.jpg');
+}
+
+.imgPatio{
+    background-image: url('../media/img_landing/patio.jpg');  
 }
 
 /* Titulos */
@@ -210,4 +214,13 @@ header{
 /* Mostrar el menú al estar activo */
 .menu.show {
     display: block;
+}
+
+
+/*FUENTES*/
+/* Tamaño de la imagen*/
+.font-img {
+    width: 200px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
 }
