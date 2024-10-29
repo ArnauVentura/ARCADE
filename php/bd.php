@@ -58,7 +58,7 @@ function errorsMessage($e)
 function getUsuario(){
     
     $conexion = openDB();
-    $sentenciaText = "SELECT * FROM anna.usuario";
+    $sentenciaText = "SELECT nombre, contrasenya, rol_idROL, tipo FROM anna.usuario INNER JOIN anna.rol ON anna.rol.idROL = anna.usuario.rol_idROL";
 
     $stmt = $conexion ->prepare($sentenciaText);
     $stmt->execute();
@@ -72,7 +72,7 @@ function getUsuario(){
 function getUsuarioByTipo($userId){
     
     $conexion = openDB();
-    $sentenciaText = 'SELECT * FROM `anna`.`usuario` WHERE `id` = :idTipo';
+    $sentenciaText = 'SELECT * FROM anna.usuario WHERE id = :idTipo';
     $stmt = $conexion->prepare($sentenciaText);
     $stmt->bindParam(':idTipo', $userId);
     $stmt = execute();
@@ -89,7 +89,7 @@ function registro($nombre, $contrasenya){
 
     $conexion = openDB();
 
-    $sentenciaText = "insert into usuario (nombre, contrasenya, rol_idROL) values (:nombre, :contrasenya, 1)";
+    $sentenciaText = "INSERT INTO usuario (nombre, contrasenya, rol_idROL) VALUES (:nombre, :contrasenya, 1)";
     $stmt = $conexion->prepare($sentenciaText);
     $stmt->bindParam(':nombre', $nombre);
     $stmt->bindParam(':contrasenya', $contrasenya);
@@ -102,7 +102,7 @@ function registro($nombre, $contrasenya){
 function modificarUsuario($idUsuario, $nombre, $contrasenya, $rol_idROL){
 
     $conexion = openDB();
-    $sentenciaText = 'UPDATE FROM `anna`.`usuario` SET `nombre` = :nombre, `contrasenya` = :contrasenya, `rol_idROL` = :rol_idROL WHERE `idUSUARIO` = :idUSUARIO';
+    $sentenciaText = "UPDATE FROM anna.usuario SET nombre = :nombre, contrasenya = :contrasenya, rol_idROL = :rol_idROL WHERE idUSUARIO = :idUSUARIO";
 
     $stmt = $conexion->prepare($sentenciaText);
     $stmt->bindParam(':name', $nombre);
