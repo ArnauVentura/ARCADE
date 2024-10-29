@@ -114,7 +114,18 @@ function modificarUsuario($idUsuario, $nombre, $contrasenya, $rol_idROL){
     $conexion = closeDB();
 }
 
-function borrarUsuario(){
+function borrarUsuario($idUsuario){
+
+    $conexion = openDB();
+    $sentenciaText = "DELETE FROM anna.usuario WHERE idUSUARIO = :idUSUARIO";
+
+    $stmt = $conexion->prepare($sentenciaText);
+
+    $stmt->execute();
+    $stmt->bindParam(':idUSUARIO', $idUsuario);
+    $conexion->commit();
+
+    $conexion = closeDB();
     
 }
 
