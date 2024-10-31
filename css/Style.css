@@ -140,7 +140,11 @@ input::placeholder {
 }
 /* body quienes somos */
 #bodyQuienesSomos{
-    background-size: cover;
+    background-size: cover; 
+}
+.flecha img{
+    height: 100px;
+    display: inline;
 }
 #bodyQuienesSomos *{
     padding: 1%;
@@ -193,7 +197,21 @@ input::placeholder {
     align-items: center;
     justify-content: center;
 }
-
+/* footer quienes somos */
+#footer_QuienesSomos{
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide el espacio en dos columnas */
+}
+#footer_QuienesSomos #footer_left{
+    justify-self: start;
+}
+#footer_QuienesSomos #footer_Right{
+    justify-self: end;
+}
+#footer_QuienesSomos img{
+    height: 50px;
+    width: 50px;
+}
 
 
 
