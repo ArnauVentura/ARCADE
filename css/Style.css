@@ -5,19 +5,23 @@ html{
 }
 /* Centrar imagenes al tamaño del contenedor */
 .bg_Img{
-    background-size: 100% 100%; /* Cubre todo el fondo */
+    background-size: 100% 100%; /* Estira la imagen para que ocupe todo el contenedor */
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat; /* No repite la imagen */
     height: 100vh; /* Asegura que el fondo cubra toda la altura de la ventana */
+    width: 100%; /* Asegura que el ancho sea del 100% */
     margin: 0; /* Elimina márgenes por defecto */
 }
 /* Escoger imagen del body*/
-.Index{
+.imgEscuela{
     background-image: url('../media/img_landing/escuela.jpg');
 }
 
 .imgPatio{
     background-image: url('../media/img_landing/patio.jpg');  
+}
+.imgClase{
+    background-image: url('../media/img_landing/clase.jpg');  
 }
 
 /* Titulos */
@@ -25,6 +29,7 @@ html{
     font-family: "Handlee", cursive;
     font-weight: 900; 
     font-style: bold;
+    text-align: center;
 }
 h1.styleTitulo{
     color: #0A1576;
@@ -36,6 +41,7 @@ h1.styleTitulo{
         3px 3px 0 #437CA5;
     font-weight: 900;
     margin-bottom: 10px;
+    margin: 0;  
 }
 h2.styleTitulo{
     color: #0A1576;
@@ -118,6 +124,9 @@ input::placeholder {
 
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* PERSONALIZADOS */
+#body_MainMenu{
+    background-size: cover;
+}
 .divButtons_Formulario{
     padding-left: 28%;
     display: inline;
@@ -137,6 +146,95 @@ input::placeholder {
     background-color: black;
     height: 0.4rem;
 }
+
+
+
+
+/* distribucion de margins elementos del body Main menu*/
+#main_mainMenu div{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+#main_mainMenu div button,
+#main_mainMenu div a,
+#main_mainMenu div input{
+    margin: 25px;
+}
+/* body quienes somos */
+#bodyQuienesSomos{
+    background-size: cover; 
+}
+.flecha img{
+    height: 100px;
+    display: inline;
+}
+#bodyQuienesSomos *{
+    padding: 1%;
+}
+#tituloQuienesSomos{
+    padding: 0;
+    border-radius: 100px;
+    margin: 0 auto;
+    width: 55%;
+    height: 100px;
+    margin-bottom: 2%;
+}
+#p_resumenQuienesSomos{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 50px;
+    font-size:x-large;
+}
+/* Contenedor div miembros del grupo */
+.divEquipo{
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.divPersona{
+    width: 20%;
+    margin: 5%;
+    height: auto;
+    padding: 10%;
+    border-radius: 20px;
+}
+.p_textoPersona{
+    text-align: center;
+}
+.divPersona img.img_foto_persona{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+.divPersona img.logoRedSocial{
+    height: 60px;
+    width:  60px;
+    margin: 10px;
+}
+.div_LogoRedSocial{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* footer quienes somos */
+#footer_QuienesSomos{
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide el espacio en dos columnas */
+}
+#footer_QuienesSomos #footer_left{
+    justify-self: start;
+}
+#footer_QuienesSomos #footer_Right{
+    justify-self: end;
+}
+#footer_QuienesSomos img{
+    height: 50px;
+    width: 50px;
+}
+
 /* Container para la introducción a los juegos */
 .div_SizeFuentes{
     width: 30%;
@@ -147,7 +245,6 @@ input::placeholder {
     bottom: 10%;
     right: 15%;
 }
-
 
 /* BANDERAS IDIOMAS */
 /* Estilos para el contenedor de la selección de idioma */
