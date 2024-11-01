@@ -349,3 +349,21 @@ header{
     bottom: 10%;
     right: 15%;
 }
+
+/* PÁGINAS INTRO JUEGOS*/
+.introduccion{
+    background-color: #437CA5;
+}
+.div_SizeIntros{
+    width: 80%;
+    height: 700px;
+    margin:auto;
+    border-radius: 75px;
+    position: fixed;
+    top: 10%;
+    right: 5%;
+}
+.titulo-juego{
+    text-align: center;
+    color: white;
+}
