@@ -97,6 +97,24 @@ input::placeholder {
     color: white;
 }
 
+.anna-img{
+    position: absolute;
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.atras {
+    position: absolute;
+    top: 5%; /* Ajusta el margen superior */
+    left: 5%; /* Ajusta el margen izquierdo */
+    cursor: pointer;
+}
+
+/* Tamaño de la imagen de la flecha */
+.flecha-img {
+    width: 70px; /* Tamaño de la flecha, ajusta según tus necesidades */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
 
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* PERSONALIZADOS */
@@ -119,10 +137,16 @@ input::placeholder {
     background-color: black;
     height: 0.4rem;
 }
-
-
-
-
+/* Container para la introducción a los juegos */
+.div_SizeFuentes{
+    width: 30%;
+    height: 200px;
+    margin:auto;
+    border-radius: 75px;
+    position: absolute;
+    bottom: 10%;
+    right: 15%;
+}
 
 
 /* BANDERAS IDIOMAS */
@@ -183,10 +207,41 @@ header{
 }
 
 
-/*FUENTES*/
-/* Tamaño de la imagen*/
+/*PÁGINA FUENTES*/
+/* Tamaño de las imagenes y posición*/
 .font-img {
-    width: 200px;
+    width: 10vW;
+    max-width: 250px;
+    max-height: 250px;
     cursor: pointer;
-    transition: transform 0.2s ease-in-out;
+   
+}
+.fuente_amarilla {
+    position: absolute;
+    bottom: 30%; 
+    left: 32%; 
+}
+
+.fuente_roja {
+    position: absolute;
+    top: 30%; 
+    right: 30%; 
+}
+
+.fuente_azul {
+    position: absolute;
+    top: 30%; 
+    left: 5%; /
+}
+
+.fuente_verde {
+    position: absolute;
+    top: 20%; 
+    left: 38%; 
+}
+
+#annaFuente{
+    bottom: 0px; /* Ajusta la distancia desde el borde inferior */
+    right: 0px;  /* Ajusta la distancia desde el borde derecho */
+    width: 400px; /* Ajusta el tamaño de la imagen */
 }
