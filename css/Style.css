@@ -147,9 +147,6 @@ input::placeholder {
     height: 0.4rem;
 }
 
-
-
-
 /* distribucion de margins elementos del body Main menu*/
 #main_mainMenu div{
     margin-top: 30px;
@@ -186,6 +183,7 @@ input::placeholder {
     border-radius: 50px;
     font-size:x-large;
 }
+
 /* Contenedor div miembros del grupo */
 .divEquipo{
     height: auto;
@@ -235,16 +233,7 @@ input::placeholder {
     width: 50px;
 }
 
-/* Container para la introducción a los juegos */
-.div_SizeFuentes{
-    width: 30%;
-    height: 200px;
-    margin:auto;
-    border-radius: 75px;
-    position: absolute;
-    bottom: 10%;
-    right: 15%;
-}
+
 
 /* BANDERAS IDIOMAS */
 /* Estilos para el contenedor de la selección de idioma */
@@ -340,5 +329,23 @@ header{
 #annaFuente{
     bottom: 0px; /* Ajusta la distancia desde el borde inferior */
     right: 0px;  /* Ajusta la distancia desde el borde derecho */
-    width: 400px; /* Ajusta el tamaño de la imagen */
+    width: 380px; /* Ajusta el tamaño de la imagen */
+}
+/* Mensaje introductorio juegos*/
+#p-mensaje{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 50px;
+    font-size:x-large;
+}
+/* Container para la introducción a los juegos */
+.div_SizeFuentes{
+    width: 30%;
+    height: 200px;
+    margin:auto;
+    border-radius: 75px;
+    position: absolute;
+    bottom: 10%;
+    right: 15%;
 }
