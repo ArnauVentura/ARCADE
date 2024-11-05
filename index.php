@@ -10,6 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
 </head>
 
+<?php
+include_once './php/bd.php';
+?>
+
 <body class="bg_Img Index">
     
     <header>
@@ -40,14 +44,14 @@
             <h1 class="styleTitulo">ANNA</h1>
             <h2 class="styleTitulo">Y EL MISTERIO DE LAS 4 FUENTES</h2>
         </div>
-        <form>
+        <form method="POST" action="./php/login.php">
             <div class="elementosCentrados">
-                <input type="text" class="txt_Inputs short_style_a_button" placeholder="Nombre de usuario">
-                <input type="text" class="txt_Inputs short_style_a_button" placeholder="Contraseña">
+                <input type="text" name="nombre" class="txt_Inputs short_style_a_button" placeholder="Nombre de usuario">
+                <input type="text" name="contrasenya" class="txt_Inputs short_style_a_button" placeholder="Contraseña">
             </div>
 
             <div class="elementosCentrados divButtons_Formulario" id="">
-                <button class="short_style_a_button" href="">INICIAR SESIÓN</button>
+                <input type="submit" class="short_style_a_button" value="INICIAR SESSION"></input>
                 <button class="short_style_a_button" href="#">REGISTRARSE</button>
             </div>
         </form>

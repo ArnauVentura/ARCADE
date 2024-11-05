@@ -128,4 +128,3 @@ function borrarUsuario($idUsuario){
     $conexion = closeDB();
     
 }
-
