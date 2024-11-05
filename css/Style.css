@@ -109,6 +109,10 @@ input::placeholder {
     width: 700px;
     height: 60px;
 }
+.extraLarge_style_a_button{
+    width: 100vw;
+    height: 8vh;
+}
 .anna-img{
     position: absolute;
     height: auto; /* Mantiene la proporción de la imagen */
@@ -116,14 +120,14 @@ input::placeholder {
 
 .atras {
     position: absolute;
-    top: 5%; /* Ajusta el margen superior */
-    left: 5%; /* Ajusta el margen izquierdo */
+    top: 3.5%; /* Ajusta el margen superior */
+    left: 3%; /* Ajusta el margen izquierdo */
     cursor: pointer;
 }
 
 /* Tamaño de la imagen de la flecha */
 .flecha-img {
-    width: 70px; /* Tamaño de la flecha, ajusta según tus necesidades */
+    width: 50px; /* Tamaño de la flecha, ajusta según tus necesidades */
     height: auto; /* Mantiene la proporción de la imagen */
 }
 
@@ -368,33 +372,31 @@ header{
 
 /*PÁGINA FUENTES*/
 /* Tamaño de las imagenes y posición*/
-.font-img {
-    width: 10vW;
-    max-width: 250px;
-    max-height: 250px;
-    cursor: pointer;
-   
-}
-.fuente_amarilla {
+
+.fuente_amarilla, .fuente_roja, .fuente_azul, .fuente_verde {
+    width: 200px; /* Tamaño reducido de las imágenes de las fuentes */
+    height: auto; /* Mantiene la proporción de la imagen */
     position: absolute;
+    cursor: pointer;
+}
+.fuente_amarilla { 
     bottom: 30%; 
     left: 32%; 
+    width: 250px;
 }
 
 .fuente_roja {
-    position: absolute;
     top: 30%; 
-    right: 30%; 
+    right: 30%;
+    width: 250px;
 }
 
 .fuente_azul {
-    position: absolute;
     top: 30%; 
-    left: 5%; /
+    left: 4%; /
 }
 
 .fuente_verde {
-    position: absolute;
     top: 20%; 
     left: 38%; 
 }
@@ -404,6 +406,7 @@ header{
     right: 0px;  /* Ajusta la distancia desde el borde derecho */
     width: 380px; /* Ajusta el tamaño de la imagen */
 }
+
 /* Mensaje introductorio juegos*/
 #p-mensaje{
     width: 80%;
@@ -411,16 +414,19 @@ header{
     text-align: center;
     border-radius: 50px;
     font-size:x-large;
+    padding: 10px; 
 }
+
 /* Container para la introducción a los juegos */
 .div_SizeFuentes{
     width: 30%;
-    height: 200px;
-    margin:auto;
+    height: auto;
+    margin: auto;
     border-radius: 75px;
     position: absolute;
-    bottom: 10%;
-    right: 15%;
+    bottom: 15%;
+    right: 18%;
+    padding: 20px;
 }
 
 /* PÁGINAS INTRO JUEGOS*/
@@ -428,15 +434,30 @@ header{
     background-color: #437CA5;
 }
 .div_SizeIntros{
-    width: 80%;
-    height: 700px;
+    width: 70vw;
+    height: 70vh;
     margin:auto;
     border-radius: 75px;
-    position: fixed;
-    top: 10%;
-    right: 5%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-.titulo-juego{
-    text-align: center;
-    color: white;
+
+.barraNavegadora{
+    top: 5%;
+}
+
+.cursor-mano{
+    width: 50px;
+    height: 50px;
+    padding-top: 20px;
+}
+#jugar-button{
+    position: absolute;
+    bottom: 20px; /* Ajusta la distancia desde el borde inferior */
+    right: 20px;
+    cursor: pointer;
+    height: 40px;
+    font-weight: bold;
 }
