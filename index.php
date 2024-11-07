@@ -14,7 +14,7 @@
 include_once './php/bd.php';
 ?>
 
-<body class="bg_Img Index">
+<body class="bg_Img imgEscuela" id="body_MainMenu">
     
     <header>
         <div class="language-selector">
