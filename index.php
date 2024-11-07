@@ -46,8 +46,8 @@ include_once './php/bd.php';
         </div>
         <form method="POST" action="./php/login.php">
             <div class="elementosCentrados">
-                <input type="text" name="nombre" class="txt_Inputs short_style_a_button" placeholder="Nombre de usuario">
-                <input type="text" name="contrasenya" class="txt_Inputs short_style_a_button" placeholder="Contraseña">
+                <input type="text" class="txt_Inputs short_style_a_button" placeholder="Nombre de usuario">
+                <input type="password" class="txt_Inputs short_style_a_button" placeholder="Contraseña">
             </div>
 
             <div class="elementosCentrados divButtons_Formulario" id="">
