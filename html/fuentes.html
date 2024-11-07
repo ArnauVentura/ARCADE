@@ -1,47 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anna y el misterio de las 4 fuentes</title>
+    <link rel="stylesheet" href="../css/Style.css">
 </head>
-<body class="fondo-imagen imgPatio">
+<body class="bg_Img imgPatio">
+
     <header>
         <nav class="barraNavegadora">
-            <a class="atras" href="#">
-                <img src="../media/flecha.png">
+            <a class="atras" href="javascript:history.back()">
+                <img src="../media/flecha.png" alt="Volver" class="flecha-img">
             </a>
         </nav>
     </header>
+    
     <main>
-        <div class="fuente_amarilla">
-            <a href="">
-                <img src="../media/img_fuentes/fuente_amarilla.png" alt="fuente_amarilla" class="font-img" onclick="showMessage('Texto para la fuente amarilla') ">
+        <!--Div de la fuente amarilla-->
+        <div class="font-img">
+            <a href="introEnBuscaDeLasLlaves.html">
+                <img src="../media/img_fuentes/fuente_amarilla.png" alt="fuente_amarilla" class="fuente_amarilla" id="fuenteAmarilla">
             </a>
         </div>
-        <div class="fuente_roja">
-            <a href="">
-                <img src="../media/img_fuentes/fuente_roja.png" alt="fuente_roja" class="font-img" onclick="showMessage('Texto para la fuente roja')">
+
+        <!--Div de la fuente roja-->
+        <div class="font-img">
+            <a href="introLaLiberacionDelAgua.html">
+                <img src="../media/img_fuentes/fuente_roja.png" alt="fuente_roja" class="fuente_roja" id="fuenteRoja">
             </a>
         </div>
-        <div class="fuente_azul">
-            <a href="">
-                <img src="../media/img_fuentes/fuente_azul.png" alt="fuente_azul" class="font-img" onclick="showMessage('Texto para la fuente azul')">
+
+        <!--Div de la fuente verde-->
+        <div class= "font-img">
+            <a href="introRescateDelMar.html">
+                <img src="../media/img_fuentes/fuente_verde.png" alt="fuente_verde" class="fuente_verde"id="fuenteVerde">
             </a>
         </div>
-        <div class="fuente_verde">
-            <a href="">
-                <img src="../media/img_fuentes/fuente_verde.png" alt="fuente_verde" class="font-img" onclick="showMessage('Texto para la fuente verde')">
+
+        <!--Div de la fuente azul-->
+        <div class= "font-img">
+            <a href="introAlRioTroncos.html">
+                <img src="../media/img_fuentes/fuente_azul.png" alt="fuente_azul" class="fuente_azul" id="fuenteAzul">
             </a>
-            
+        </div>
+
+        <!--Div de la imagen de Anna-->
+        <div class="whiteBG elementosCentrados div_SizeFuentes">
+            <p id="p-mensaje"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Donec risus ligula, tempor eu varius ut, ultricies id nisl.
+                Etiam id lacus vitae magna iaculis tristique in feugiat 
+                sem. Mauris facilisis orci eu dolor fringilla, id rhoncus 
+                est posuere. Proin cursus lorem in porta gravida. </p>
         </div>
         <div>
-            <div class="titulo_principal elementosCentrados" id="fuente_amarilla" class="font-img" >
-                <p id="mensaje"> </p>
-            </div>
-            <div>
-                <img src="../media/img_anna/anna.png"> 
-            </div>
+            <img src="../media/img_anna/anna.png" class="anna-img" alt="Anna" id="annaFuente"> 
         </div>
     </main>
 
