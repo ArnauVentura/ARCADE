@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let foundCount = 0;
     const totalObjects = 9;
 
-    // Crear y agregar 9 objetos a gameArea
+    //Crear los objetos.
     for (let i = 0; i < totalObjects; i++) {
         const object = document.createElement('div');
         object.classList.add('hiddenObject');
@@ -14,19 +14,18 @@ document.addEventListener("DOMContentLoaded", () => {
         object.style.backgroundColor = 'blue';
         object.style.cursor = 'pointer';
 
-        // Posicionar el objeto de manera aleatoria dentro del área de juego
+        // Posicion aleatoria dentro del area
         object.style.top = `${Math.random() * 90}%`;
         object.style.left = `${Math.random() * 90}%`;
 
-        // Agregar evento de clic a cada objeto
         object.addEventListener('click', () => {
-            if (!object.classList.contains('found')) { // Verificar que no esté ya deshabilitado
+            if (!object.classList.contains('found')) { 
                 foundCount++;
-                object.classList.add('found'); // Marcar como encontrado
-                object.style.backgroundColor = 'gray'; // Cambiar color para indicar que está deshabilitado
+                object.classList.add('found'); 
+                object.style.backgroundColor = 'gray';
                 message.textContent = `Objetos encontrados: ${foundCount}/${totalObjects}`;
 
-                // Verificar si se encontraron todos los objetos
+                
                 if (foundCount === totalObjects) {
                     alert("¡Felicidades! Encontraste todos los objetos.");
                 }
