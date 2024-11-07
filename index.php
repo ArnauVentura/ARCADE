@@ -46,8 +46,8 @@ include_once './php/bd.php';
         </div>
         <form method="POST" action="./php/login.php">
             <div class="elementosCentrados">
-                <input type="text" class="txt_Inputs short_style_a_button" placeholder="Nombre de usuario">
-                <input type="password" class="txt_Inputs short_style_a_button" placeholder="Contraseña">
+                <input type="text" name="nombre" class="txt_Inputs short_style_a_button" placeholder="Nombre de usuario">
+                <input type="password" name="contrasenya" class="txt_Inputs short_style_a_button" placeholder="Contraseña">
             </div>
 
             <div class="elementosCentrados divButtons_Formulario" id="">
@@ -57,8 +57,13 @@ include_once './php/bd.php';
         </form>
             <hr id="hr_mainMenu">
             <div class="divButtons_Formulario">
+<<<<<<< HEAD:index.html
+                <a href="./html/jugarRanking.html" class="short_style_a_button">JUGAR SIN REGISTRO</a>
+                <a href="./html/quienesSomos.html" class="short_style_a_button">CONOCENOS</a>
+=======
                 <a href="./html/pagina1.html" class="short_style_a_button">JUGAR SIN REGISTRO</a>
                 <a href="" class="short_style_a_button">CONOCENOS</a>
+>>>>>>> f9bd2a6534773c158fd8834063cfa26aa8355e06:index.php
             </div>
         </div>
     </main>

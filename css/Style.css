@@ -174,6 +174,7 @@ input::placeholder {
 .flecha img{
     height: 100px;
     display: inline;
+    margin: 10px;
 }
 #bodyQuienesSomos *{
     padding: 0.3%;
@@ -283,6 +284,45 @@ input::placeholder {
     padding: 10px;
     padding-left: 15px;
 }
+/* Ranking */
+#body_ranking{
+    background-size: cover;
+}
+#mainDiv_Ranking{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+}
+#mainDiv_Ranking .divSecundario{
+    height: 90%;
+    width: auto;
+    margin: 50px;
+}
+#divSecundarioLeft_Ranking *{
+    margin: 20px;
+}
+#divSecundarioRight_Ranking{
+    background: linear-gradient(45deg, rgba(108, 68, 51, 0.8), rgba(160, 99, 74, 0.8), rgba(199, 126, 95, 0.8));
+    margin-right: 10px;
+    border-radius: 25px;
+    padding: 5px;
+}
+#buttonRankning_JuegoTotal{
+    margin-top: 60px;
+}
+.puntosPersonaje, .puntosPersonaje div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.puntosPersonaje img{
+    width: 40px;
+    height: 40px;
+}
+.puntosPersonaje *{
+    margin: 10px;
+}
 
 .puntosPersonaje div{
     border-radius: 25px;
@@ -310,8 +350,6 @@ input::placeholder {
 #buttonRankning_JuegoTotal:hover{
     background-color: blue;
 }
-
-
 /* BANDERAS IDIOMAS */
 /* Estilos para el contenedor de la selección de idioma */
 .language-selector {
