@@ -13,12 +13,18 @@ html{
     margin: 0; /* Elimina márgenes por defecto */
 }
 /* Escoger imagen del body*/
-.Index{
+.imgEscuela{
     background-image: url('../media/img_landing/escuela.jpg');
 }
 
 .imgPatio{
     background-image: url('../media/img_landing/patio.jpg');  
+}
+.imgClase{
+    background-image: url('../media/img_landing/clase.jpg');  
+}
+.imgBaseball{
+    background-image: url('../media/img_landing/baseball.png');  
 }
 
 /* Titulos */
@@ -26,6 +32,7 @@ html{
     font-family: "Handlee", cursive;
     font-weight: 900; 
     font-style: bold;
+    text-align: center;
 }
 h1.styleTitulo{
     color: #0A1576;
@@ -37,6 +44,7 @@ h1.styleTitulo{
         3px 3px 0 #437CA5;
     font-weight: 900;
     margin-bottom: 10px;
+    margin: 0;  
 }
 h2.styleTitulo{
     color: #0A1576;
@@ -97,10 +105,38 @@ button.short_style_a_button:hover{
 input::placeholder {
     color: white;
 }
+.large_style_a_button{
+    width: 700px;
+    height: 60px;
+}
+.extraLarge_style_a_button{
+    width: 100vw;
+    height: 8vh;
+}
+.anna-img{
+    position: absolute;
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.atras {
+    position: absolute;
+    top: 3.5%; /* Ajusta el margen superior */
+    left: 3%; /* Ajusta el margen izquierdo */
+    cursor: pointer;
+}
+
+/* Tamaño de la imagen de la flecha */
+.flecha-img {
+    width: 50px; /* Tamaño de la flecha, ajusta según tus necesidades */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
 
 
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* PERSONALIZADOS */
+#body_MainMenu{
+    background-size: cover;
+}
 .divButtons_Formulario{
     padding-left: 28%;
     display: inline;
@@ -120,6 +156,7 @@ input::placeholder {
     background-color: black;
     height: 0.4rem;
 }
+
 /* distribucion de margins elementos del body Main menu*/
 #main_mainMenu div{
     margin-top: 30px;
@@ -131,16 +168,36 @@ input::placeholder {
     margin: 25px;
 }
 /* body quienes somos */
+#bodyQuienesSomos{
+    background-size: cover; 
+}
+.flecha img{
+    height: 100px;
+    display: inline;
+}
 #bodyQuienesSomos *{
-    padding: 1% 0 1% 0;
+    padding: 0.3%;
+}
+#tituloQuienesSomos{
+    padding: 0;
+    border-radius: 100px;
+    margin: 0 auto;
+    width: 55%;
+    height: 100px;
+    margin-bottom: 2%;
 }
 #p_resumenQuienesSomos{
-    width: 100px;
+    width: 80%;
+    margin: 0 auto;
     text-align: center;
+    border-radius: 50px;
+    font-size:x-large;
 }
+
 /* Contenedor div miembros del grupo */
 .divEquipo{
-    height: 50%;
+    height: auto;
+    width: 100%;
     display: flex;
     align-items: center;
 }
@@ -148,15 +205,111 @@ input::placeholder {
     width: 20%;
     margin: 5%;
     height: auto;
-    padding: 15px;
+    padding: 10%;
+    border-radius: 20px;
+}
+.p_textoPersona{
+    text-align: center;
+}
+.divPersona img.img_foto_persona{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+.divPersona img.logoRedSocial{
+    height: 60px;
+    width:  60px;
+    margin: 10px;
+}
+.div_LogoRedSocial{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* footer quienes somos */
+#footer_QuienesSomos{
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+#footer_QuienesSomos img{
+    height: 70px;
+    width: 70px;
+}
+/* Ranking */
+#body_ranking{
+    background-size: cover;
+}
+#body_ranking *{
+    margin: 5px;
+}
+#mainDiv_Ranking{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    padding-top: 5%;
+}
+#mainDiv_Ranking .divSecundario{
+    margin: 50px;
+}
+#divSecundarioLeft_Ranking{
+    height: 70vh;
+}
+#divSecundarioLeft_Ranking *{
+    margin: 30px;
+}
+#divSecundarioRight_Ranking{
+    background: linear-gradient(45deg, rgba(108, 68, 51, 0.8), rgba(160, 99, 74, 0.8), rgba(199, 126, 95, 0.8));
+    margin-right: 10px;
+    border-radius: 25px;
+    padding: 5px;
+    width: 30%;
+    height: 60vh;
+}
+#buttonRankning_JuegoTotal{
+    margin-top: 150px;
+}
+.puntosPersonaje, .puntosPersonaje div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 45px;
+}
+.puntosPersonaje{
+    padding: 10px;
+    padding-left: 15px;
+}
+
+.puntosPersonaje div{
+    border-radius: 25px;
+}
+.puntosPersonaje img{
+    width: 40px;
+    height: 40px;
+}
+.puntosPersonaje *{
+    margin: 10px;
+}
+
+#buttonRankning_Juego1:hover{
+    background-color: green;
+}
+#buttonRankning_Juego2:hover{
+    background-color: red;
+}
+#buttonRankning_Juego3:hover{
     background-color: yellow;
 }
-.divPersona img{
-    height: 10px;
+#buttonRankning_Juego4:hover{
+    background-color: grey;
 }
-
-
-
+#buttonRankning_JuegoTotal:hover{
+    background-color: blue;
+}
 
 
 /* BANDERAS IDIOMAS */
@@ -217,10 +370,94 @@ header{
 }
 
 
-/*FUENTES*/
-/* Tamaño de la imagen*/
-.font-img {
-    width: 200px;
+/*PÁGINA FUENTES*/
+/* Tamaño de las imagenes y posición*/
+
+.fuente_amarilla, .fuente_roja, .fuente_azul, .fuente_verde {
+    width: 200px; /* Tamaño reducido de las imágenes de las fuentes */
+    height: auto; /* Mantiene la proporción de la imagen */
+    position: absolute;
     cursor: pointer;
-    transition: transform 0.2s ease-in-out;
+}
+.fuente_amarilla { 
+    bottom: 30%; 
+    left: 32%; 
+    width: 250px;
+}
+
+.fuente_roja {
+    top: 30%; 
+    right: 30%;
+    width: 250px;
+}
+
+.fuente_azul {
+    top: 30%; 
+    left: 4%; /
+}
+
+.fuente_verde {
+    top: 20%; 
+    left: 38%; 
+}
+
+#annaFuente{
+    bottom: 0px; /* Ajusta la distancia desde el borde inferior */
+    right: 0px;  /* Ajusta la distancia desde el borde derecho */
+    width: 380px; /* Ajusta el tamaño de la imagen */
+}
+
+/* Mensaje introductorio juegos*/
+#p-mensaje{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 50px;
+    font-size:x-large;
+    padding: 10px; 
+}
+
+/* Container para la introducción a los juegos */
+.div_SizeFuentes{
+    width: 30%;
+    height: auto;
+    margin: auto;
+    border-radius: 75px;
+    position: absolute;
+    bottom: 15%;
+    right: 18%;
+    padding: 20px;
+}
+
+/* PÁGINAS INTRO JUEGOS*/
+.introduccion{
+    background-color: #437CA5;
+}
+.div_SizeIntros{
+    width: 70vw;
+    height: 70vh;
+    margin:auto;
+    border-radius: 75px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.barraNavegadora{
+    top: 5%;
+}
+
+.cursor-mano{
+    width: 50px;
+    height: 50px;
+    padding-top: 20px;
+}
+#jugar-button{
+    position: absolute;
+    bottom: 20px; /* Ajusta la distancia desde el borde inferior */
+    right: 20px;
+    cursor: pointer;
+    height: 40px;
+    font-weight: bold;
 }
