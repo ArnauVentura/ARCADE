@@ -1,0 +1,17 @@
+#gameArea {
+    width: 90%;
+    height: 400px;
+    border: 2px solid #333;
+    margin: 20px auto;
+    position: relative;
+    background-color: #f0f0f0;
+}
+
+.hiddenObject {
+    border-radius: 50%;
+}
+
+.found {
+    pointer-events: none;
+    opacity: 0.5;
+}
