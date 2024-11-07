@@ -10,7 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
 </head>
 
-<body class="bg_Img imgEscuela" id="body_MainMenu">
+<?php
+include_once './php/bd.php';
+?>
+
+<body class="bg_Img Index">
     
     <header>
         <div class="language-selector">
@@ -40,21 +44,21 @@
             <h1 class="styleTitulo">ANNA</h1>
             <h2 class="styleTitulo">Y EL MISTERIO DE LAS 4 FUENTES</h2>
         </div>
-        <form>
+        <form method="POST" action="./php/login.php">
             <div class="elementosCentrados">
                 <input type="text" class="txt_Inputs short_style_a_button" placeholder="Nombre de usuario">
                 <input type="password" class="txt_Inputs short_style_a_button" placeholder="Contraseña">
             </div>
 
             <div class="elementosCentrados divButtons_Formulario" id="">
-                <button class="short_style_a_button" href="">INICIAR SESIÓN</button>
+                <input type="submit" class="short_style_a_button" value="INICIAR SESSION"></input>
                 <button class="short_style_a_button" href="#">REGISTRARSE</button>
             </div>
         </form>
             <hr id="hr_mainMenu">
             <div class="divButtons_Formulario">
-                <a href="./html/fuentes.html" class="short_style_a_button">JUGAR SIN REGISTRO</a>
-                <a href="./html/quienesSomos.html" class="short_style_a_button">CONÓCENOS</a>
+                <a href="./html/pagina1.html" class="short_style_a_button">JUGAR SIN REGISTRO</a>
+                <a href="" class="short_style_a_button">CONOCENOS</a>
             </div>
         </div>
     </main>
