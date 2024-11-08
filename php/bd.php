@@ -3,7 +3,7 @@ function openDB(){
 
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "mysql";
 
 
 $conexion = new PDO("mysql:host=$servername;dbname=anna", $username, $password);
