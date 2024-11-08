@@ -14,7 +14,7 @@
 include_once './php/bd.php';
 ?>
 
-<body class="bg_Img Index">
+<body class="bg_Img imgEscuela" id="body_MainMenu">
     
     <header>
         <div class="language-selector">
@@ -47,7 +47,7 @@ include_once './php/bd.php';
         <form method="POST" action="./php/login.php">
             <div class="elementosCentrados">
                 <input type="text" name="nombre" class="txt_Inputs short_style_a_button" placeholder="Nombre de usuario">
-                <input type="text" name="contrasenya" class="txt_Inputs short_style_a_button" placeholder="Contraseña">
+                <input type="password" name="contrasenya" class="txt_Inputs short_style_a_button" placeholder="Contraseña">
             </div>
 
             <div class="elementosCentrados divButtons_Formulario" id="">
