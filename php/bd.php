@@ -28,7 +28,7 @@ function errorsMessage($e)
                     $mensaje = 'registro duplicado';
                     break;
                 case 1062:
-                    $mensaje = 'Regiostro con elementos relacionados';
+                    $mensaje = 'Registro con elementos relacionados';
                     break;
                 default:
                     $mensaje = $e->errorInfo[1] . ' - ' . $e->errorInfo[2];
