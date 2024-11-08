@@ -42,13 +42,9 @@ function cargar() {
     }
 }
 
-/**
- * Actualiza visualmente cada celda de la cuadrícula de juego en función de los valores de `matriz`.
- * 
- * La función recorre una matriz de 3x3 y asigna el valor de cada posición en `matriz`
- * al contenido de texto del elemento HTML correspondiente en la cuadrícula.
- * Si el valor es `0`, deja la celda vacía para representar un espacio.
- */
+
+// Actualiza visualmente cada celda de la cuadrícula de juego en función de los valores de `matriz`.
+
 function actualizarVista() {
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
@@ -58,6 +54,7 @@ function actualizarVista() {
     }
 }
 
+// intercanvia las posiciones de fila-columna
 function intercambiar() {
     let fila = parseInt(this.getAttribute("fila"));
     let col = parseInt(this.getAttribute("col"));
