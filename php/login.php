@@ -17,7 +17,7 @@
             header('Location: ../index.php');
         }elseif ($stmt->rowCount() == 1) {
             $_SESSION['nombre'] = $datos->nombre;
-            header('Location: ../html/fuentes.html');
+            header('Location: ../html/jugarRanking.html');
         }
 
 

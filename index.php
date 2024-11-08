@@ -51,14 +51,14 @@ include_once './php/bd.php';
             </div>
 
             <div class="elementosCentrados divButtons_Formulario" id="">
-                <input type="submit" class="short_style_a_button" value="INICIAR SESSION"></input>
+                <input type="submit" class="short_style_a_button" value="INICIAR SESIÓN"></input>
                 <button class="short_style_a_button" href="#">REGISTRARSE</button>
             </div>
         </form>
             <hr id="hr_mainMenu">
             <div class="divButtons_Formulario">
-                <a href="./html/pagina1.html" class="short_style_a_button">JUGAR SIN REGISTRO</a>
-                <a href="" class="short_style_a_button">CONÓCENOS</a>
+                <a href="./html/fuentes.html" class="short_style_a_button">JUGAR SIN REGISTRO</a>
+                <a href="./html/quienesSomos.html" class="short_style_a_button">CONÓCENOS</a>
             </div>
         </div>
     </main>
