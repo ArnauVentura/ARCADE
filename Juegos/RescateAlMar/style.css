@@ -1,0 +1,93 @@
+/* GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* body {
+    font-family: 'Inter';
+    color: white;
+    background-image: url("/img/pixelcut-export2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+body {
+    font-family: 'Inter';
+    color: white;
+    background-image: url("/img/pixelcut-export3.png"); /* Ruta de tu imagen */
+    background-repeat: no-repeat; /* Evita que se repita */
+    background-attachment: fixed; /* Hace que la imagen de fondo sea fija */
+    background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    height: 100vh; /* Asegúrate de que el cuerpo ocupe la altura completa de la ventana */
+    overflow: hidden; /* Evita el scroll */
+}
+/* HEADER */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #C77E5F;
+    border: solid 4px #A56C43;
+    padding: 10px 20px;
+    border-radius: 50px; 
+    max-width: 95%;
+    margin: 20px auto; 
+    color: white;
+}
+
+#back, #time {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .vidas {
+    align-items: center;
+}
+
+#flecha {
+    width: 50px;
+}
+
+.corazonBlanco {
+    width: 25px;
+}
+
+#puntos {
+    margin-left: 50px;
+    font-weight: bold;
+    font-size: 25px;  
+}
+
+/* JUEGO */
+main {
+    position: relative; /* Permite que los elementos dentro usen posicionamiento absoluto respecto a main */
+    height: 85vh; /* Altura total de la ventana */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente el contenido */
+    align-items: flex-end; /* Alinea los elementos al final (parte inferior) */
+    margin: 0; /* Eliminar márgenes predeterminados */
+}
+
+#miRectangulo {
+    position: absolute; /* Permite moverlo libremente */
+    width: 100px; /* Ancho del rectángulo */
+    height: 50px; /* Alto del rectángulo */
+    background-color: blue; /* Color del rectángulo */
+    bottom: 20px; /* Distancia desde la parte inferior */
+}
+#objetos {
+    position: absolute; /* Posición absoluta dentro de su contenedor principal */
+    top: 0; /* Asegura que el contenedor de los objetos esté en la parte superior */
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    pointer-events: none; /* Evita que interfiera con otros elementos */
+}
+.objeto {
+    position: absolute; /* Para que cada objeto tenga su propia posición */
+    width: 40px; /* Ancho del objeto */
+    height: 40px; /* Alto del objeto */
+    background-color: red; /* Color del objeto */
+    border-radius: 50%; /* Forma redonda */
+    top: -30px; /* Comienza fuera de la pantalla */
+}
