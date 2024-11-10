@@ -5,17 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Listen for XDebug",
+            "type": "php",
+            "request": "launch",
+            "port": 9003
+        },
+        {
             "name": "Launch Chrome",
             "request": "launch",
             "type": "chrome",
             "url": "http://localhost:8080/ARCADE/index.php",
             "webRoot": "${workspaceFolder}"
         },
-        {
-            "type": "chrome",
-            "request": "launch",
-            "name": "Open index.html",
-            "file": "c:\\Users\\bosch\\Desktop\\xampp\\htdocs\\cientificks\\index.html"
-        }
+        
     ]
 }

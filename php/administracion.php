@@ -35,8 +35,12 @@
                         <td><?php echo $usuario['contrasenya'] ?></td>
                         <td><?php echo $usuario['tipo'] ?></td>
                         <td>
-                            <button>Modificar</button>
-                            <button>Borrar</button>
+                            <a href="modificarUsuario.php?idUsuario=<?php echo $usuario['idUsuario']; ?>" class="btn btn-warning btn-sm">Modificar</a>
+
+                            <form method="post" style="display:inline;" action="controllers.php">
+                                    <input type="hidden" name="idUsuario" value="<?php echo $usuario['idUsuario']; ?>">
+                                    <button type="submit" name="delete" class="btn btn-danger btn-sm">Borrar</button>
+                                </form>
                         </td>
                     </tr>
                 <?php }?>
