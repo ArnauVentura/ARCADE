@@ -1,3 +1,5 @@
+<?php include_once('./bd.php') ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,33 +10,40 @@
 </head>
 <body>
 <div class="container mt-5">
-    <h2>Modificar Usuario</h2>
-
-    <form action="controllers.php" method="POST">
-        <input type="hidden" name="idUsuario" value="<?php echo htmlspecialchars($user['idUSUARIO']); ?>">
+<?php 
+    $idUsuario = $_GET['idUsuario'];
+    $usuario = getUsuarioPorId($idUsuario);
+    $tipos = getRoles();
+?>
+    <form action="controllers.php" method="post">
+        <input type="hidden" name="idUsuario" value="<?php echo ($usuario['idUsuario']); ?>">
 
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo htmlspecialchars($user['nombre']); ?>" required>
+            <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $usuario['nombre']; ?>" required>
         </div>
 
         <div class="mb-3">
             <label for="contrasenya" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="contrasenya" name="contrasenya" value="<?php echo htmlspecialchars($user['contrasenya']); ?>" required>
+            <input type="password" class="form-control" id="contrasenya" name="contrasenya" value="<?php echo $usuario['contrasenya']; ?>" required>
         </div>
 
         <div class="mb-3">
-            <label for="rol_idRol" class="form-label">Rol</label>
-            <select class="form-select" id="rol_idRol" name="rol_idRol" required>
-                <?php foreach ($roles as $role): ?>
-                    <option value="<?php echo $role['idRol']; ?>" <?php echo ($role['idRol'] == $user['rol_idRol']) ? 'selected' : ''; ?>>
-                        <?php echo htmlspecialchars($role['tipo']); ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
+    <label class="form-label">Tipo:</label>
+    <?php
+    foreach ($tipos as $tipo) {
+    ?>
+        <div class="form-check form-check-inline">
+            <input type="radio" name="rol_idRol" value="<?php echo $tipo["idRol"]; ?>" id="tipo<?php echo $tipo["idRol"]; ?>" <?php echo ($tipo["idRol"] == $usuario['rol_idRol']) ? 'checked' : ''; ?>>
+            <label class="form-check-label" for="tipo<?php echo $tipo["idRol"]; ?>"><?php echo $tipo["tipo"]; ?></label>
         </div>
+    <?php
+    }
+    ?>
+</div>
 
-        <button type="submit" name="UPDATE" class="btn btn-primary">Actualizar Usuario</button>
+
+        <button type="submit" name="update" class="btn btn-primary">Actualizar Usuario</button>
     </form>
 </div>
 

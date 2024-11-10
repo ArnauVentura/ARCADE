@@ -35,7 +35,7 @@
                         <td><?php echo $usuario['contrasenya'] ?></td>
                         <td><?php echo $usuario['tipo'] ?></td>
                         <td>
-                            <a href="./modificarUsuario.php=<?php echo $usuario['idUsuario']; ?>" class="btn btn-warning btn-sm">Modificar</a>
+                            <a href="modificarUsuario.php?idUsuario=<?php echo $usuario['idUsuario']; ?>" class="btn btn-warning btn-sm">Modificar</a>
 
                             <form method="post" style="display:inline;" action="controllers.php">
                                     <input type="hidden" name="idUsuario" value="<?php echo $usuario['idUsuario']; ?>">
