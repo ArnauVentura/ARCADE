@@ -1,3 +1,17 @@
+<?php
+session_start(); // Inicia la sesión
+
+// Comprueba si el usuario está logueado
+if (isset($_SESSION['nombre'])) {
+    // Opcional: configura variables de sesión o muestra información específica del usuario
+    $usuario = $_SESSION['nombre'];
+} else {
+    // Si no hay sesión iniciada, no redirige. Solo se omite el contenido de usuario.
+}
+
+// Continúa con el contenido de la página, que puede ser público
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

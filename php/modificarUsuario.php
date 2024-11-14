@@ -1,4 +1,11 @@
-<?php include_once('./bd.php') ?>
+<?php include_once('./bd.php');
+
+    session_start();
+    
+    if (!isset($_SESSION['rol_idRol']) || ($_SESSION['rol_idRol'] != 2 && $_SESSION['rol_idRol'] != 3)) {
+    header('Location: ../index.php');
+    exit();
+}?>
 
 <!DOCTYPE html>
 <html lang="es">
