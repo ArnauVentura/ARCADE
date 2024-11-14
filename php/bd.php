@@ -101,22 +101,27 @@ function getUsuarioByTipo($userId){
     $conexion = openDB();
     $sentenciaText = 'SELECT * FROM anna.usuario WHERE id = :idTipo';
     $stmt = $conexion->prepare($sentenciaText);
-    $stmt->bindParam(':idTipo', $userId);
-    $stmt = execute();
+    $stmt->bindParam(':idTipo', $userId, PDO::PARAM_INT);
+    $stmt->execute();
 
     $group = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     $conexion = closeDB();
     return $group;
 }
-    
 
-
-function registro($nombre, $contrasenya){
-
+function registro($nombre, $contrasenya) {
     $conexion = openDB();
 
-    $sentenciaText = "INSERT INTO usuario (nombre, contrasenya, rol_idRol) VALUES (:nombre, :contrasenya, 1)";
+    $stmt = $conexion->prepare("SELECT * FROM anna.usuario WHERE nombre = :nombre");
+    $stmt->bindParam(':nombre', $nombre);
+    $stmt->execute();
+
+    if ($stmt->rowCount() > 0) {
+        return false;
+    }
+
+    $sentenciaText = "INSERT INTO anna.usuario (nombre, contrasenya, rol_idRol) VALUES (:nombre, :contrasenya, 1)";
     $stmt = $conexion->prepare($sentenciaText);
     $stmt->bindParam(':nombre', $nombre);
     $stmt->bindParam(':contrasenya', $contrasenya);
@@ -124,6 +129,8 @@ function registro($nombre, $contrasenya){
     $stmt->execute();
 
     $conexion = closeDB();
+
+    return true;
 }
 
 function modificarUsuario($idUsuario, $nombre, $contrasenya, $rol_idRol) {

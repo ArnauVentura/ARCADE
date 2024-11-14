@@ -52,7 +52,7 @@ include_once './php/bd.php';
 
             <div class="elementosCentrados divButtons_Formulario" id="">
                 <input type="submit" class="short_style_a_button" value="INICIAR SESIÓN"></input>
-                <button class="short_style_a_button" href="#">REGISTRARSE</button>
+                <button type="button" class="short_style_a_button" onclick="openPopup()">REGISTRARSE</button>
             </div>
         </form>
             <hr id="hr_mainMenu">
@@ -62,9 +62,33 @@ include_once './php/bd.php';
                 <a href="./html/quienesSomos.html" class="short_style_a_button">CONÓCENOS</a>
             </div>
         </div>
+        <div class="popup-overlay" id="popupOverlay">
+            <div class="popup-content elementosCentrados">
+                <button class="close-btn" onclick="closePopup()">X</button>
+                <h3 class="styleTitulo">REGISTRO</h3>
+                <form action="./php/controllers.php" method="POST">
+                    <div>
+                        <label for="nombre">Nombre</label>
+                        <div>
+                            <input type="text" id="nombre" name="nombre" class="txt_Inputs short_style_a_button" placeholder="Nombre" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="contrasenya">Contraseña</label>
+                        <div>
+                            <input type="password" id="contrasenya" name="contrasenya" class="txt_Inputs short_style_a_button" placeholder="Contraseña" required>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit" name="insert" class="short_style_a_button">ACEPTAR</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </main>
 
 
 <script src="./js/idiomas.js"></script>
+<script src="./js/popup.js"></script>
 </body>
 </html>
