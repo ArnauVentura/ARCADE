@@ -15,7 +15,7 @@
 body {
     font-family: 'Inter';
     color: white;
-    background-image: url("/img/pixelcut-export3.png"); /* Ruta de tu imagen */
+    background-image: url("/Juegos/RescateAlMar/img/fondoRescateMar.png"); /* Ruta de tu imagen */
     background-repeat: no-repeat; /* Evita que se repita */
     background-attachment: fixed; /* Hace que la imagen de fondo sea fija */
     background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
