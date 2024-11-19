@@ -70,6 +70,7 @@ p{
 }
 
 /* Estilos de <button> y <A> */
+/* Separar clase en general, boton y a */
 .short_style_a_button{
     display: inline-block;  /* Permite que <a> respete height y width como un <button> */
     height: 1%;
