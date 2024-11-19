@@ -122,7 +122,6 @@ input::placeholder {
 }
 
 .atras {
-    position: absolute;
     top: 3.5%; /* Ajusta el margen superior */
     left: 3%; /* Ajusta el margen izquierdo */
     cursor: pointer;
@@ -131,7 +130,6 @@ input::placeholder {
 /* Tamaño de la imagen de la flecha */
 .flecha-img {
     width: 50px; /* Tamaño de la flecha, ajusta según tus necesidades */
-    height: auto; /* Mantiene la proporción de la imagen */
 }
 
 
@@ -364,10 +362,10 @@ input::placeholder {
     background:  #C77E5F;
 }
 
-header{
+.barraNavegadora{
     display: flex;
-    justify-content: end;
-    margin: 5px;
+    justify-content: flex-start;
+    padding: 20px;
 }
 /* Estilos para las banderas */
 .flag {
@@ -483,10 +481,6 @@ header{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-.barraNavegadora{
-    top: 5%;
 }
 
 .cursor-mano{
