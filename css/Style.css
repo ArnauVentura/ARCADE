@@ -33,28 +33,25 @@ html{
     font-weight: 900; 
     font-style: bold;
     text-align: center;
+    color: #0A1576;
 }
 h1.styleTitulo{
-    color: #0A1576;
     font-size:4.5rem;
     text-shadow: 
         -3px -3px 0 #437CA5,
         -3px 3px 0 #437CA5,
         3px -3px 0 #437CA5,
         3px 3px 0 #437CA5;
-    font-weight: 900;
     margin-bottom: 10px;
     margin: 0;  
 }
 h2.styleTitulo{
-    color: #0A1576;
     font-size:2rem;
     text-shadow: 
         -2px -2px 0 #437CA5,
         -2px 2px 0 #437CA5,
         2px -2px 0 #437CA5,
         2px 2px 0 #437CA5;
-    font-weight: 900; 
     margin-top: 5px;
 }
 p{
@@ -93,8 +90,8 @@ p{
     text-align: center;           /* Centra el texto horizontalmente */
     line-height: 200%;   
 }
-a.short_style_a_button:hover,
-button.short_style_a_button:hover{
+
+.short_style_a_button:hover{
     background-color: #A56C43;
 }
 .txt_Inputs{
@@ -118,7 +115,6 @@ input::placeholder {
 }
 .anna-img{
     position: absolute;
-    height: auto; /* Mantiene la proporción de la imagen */
 }
 
 .atras {
@@ -169,9 +165,11 @@ input::placeholder {
     margin: 25px;
 }
 /* body quienes somos */
+/* Poner un body general con el background-size: cover; */
 #bodyQuienesSomos{
     background-size: cover; 
 }
+/* Ya hay css de la flecha, juntarlo */
 .flecha img{
     height: 100px;
     display: inline;
@@ -213,6 +211,7 @@ input::placeholder {
 .p_textoPersona{
     text-align: center;
 }
+/* Si tiene una clase cada imagen no es necesario div */
 .divPersona img.img_foto_persona{
     height: 150px;
     width: 150px;
@@ -247,6 +246,7 @@ input::placeholder {
 #body_ranking *{
     margin: 5px;
 }
+/* Juntar las dos id */
 #mainDiv_Ranking{
     display: flex;
     align-items: center;
@@ -254,8 +254,16 @@ input::placeholder {
     height: 70vh;
     padding-top: 5%;
 }
+#mainDiv_Ranking{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+}
 #mainDiv_Ranking .divSecundario{
     margin: 50px;
+    height: 90%;
+    width: auto;
 }
 #divSecundarioLeft_Ranking{
     height: 70vh;
@@ -273,7 +281,9 @@ input::placeholder {
 }
 #buttonRankning_JuegoTotal{
     margin-top: 150px;
+    /* margin-top: 60px;?? */
 }
+/* Revisar esto, no se entiende */
 .puntosPersonaje, .puntosPersonaje div{
     display: flex;
     align-items: center;
@@ -286,37 +296,6 @@ input::placeholder {
     padding-left: 15px;
 }
 /* Ranking */
-#body_ranking{
-    background-size: cover;
-}
-#mainDiv_Ranking{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 90%;
-}
-#mainDiv_Ranking .divSecundario{
-    height: 90%;
-    width: auto;
-    margin: 50px;
-}
-#divSecundarioLeft_Ranking *{
-    margin: 20px;
-}
-#divSecundarioRight_Ranking{
-    background: linear-gradient(45deg, rgba(108, 68, 51, 0.8), rgba(160, 99, 74, 0.8), rgba(199, 126, 95, 0.8));
-    margin-right: 10px;
-    border-radius: 25px;
-    padding: 5px;
-}
-#buttonRankning_JuegoTotal{
-    margin-top: 60px;
-}
-.puntosPersonaje, .puntosPersonaje div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 .puntosPersonaje img{
     width: 40px;
     height: 40px;
@@ -327,13 +306,6 @@ input::placeholder {
 
 .puntosPersonaje div{
     border-radius: 25px;
-}
-.puntosPersonaje img{
-    width: 40px;
-    height: 40px;
-}
-.puntosPersonaje *{
-    margin: 10px;
 }
 
 #buttonRankning_Juego1:hover{
@@ -373,7 +345,6 @@ input::placeholder {
     height: 30px;
     cursor: pointer;
 }
-
 
 /* Menú oculto por defecto */
 .menu {

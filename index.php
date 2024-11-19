@@ -42,7 +42,7 @@ include_once './php/bd.php';
     <main id="main_mainMenu">
         <div class="elementosCentrados whiteBG div_SizeTitular">
             <h1 class="styleTitulo">ANNA</h1>
-            <h2 class="styleTitulo">Y EL MISTERIO DE LAS 4 FUENTES</h2>
+            <h2 class="styleTitulo">Y EL MISTERIO DE LAS 3 FUENTES</h2>
         </div>
         <form method="POST" action="./php/login.php">
             <div class="elementosCentrados">
