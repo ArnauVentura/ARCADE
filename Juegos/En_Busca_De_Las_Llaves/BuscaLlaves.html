@@ -3,22 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>En Busca de las llaves</title>
+    <title>Juego de Objetos Ocultos</title>
     <link rel="stylesheet" href="llaves.css">
-    <link rel="stylesheet" href="../../css/Style.css"">
+    <link rel="stylesheet" href="../../css/Style.css">
 </head>
 <body>
-    <header>
-        <nav class="barraNavegadora">
-            <a class="atras" href="./jugarRanking.html">
-                <img src="../media/flecha.png" alt="Volver" class="flecha-img">
-            </a>
-        </nav>
-    </header>
+    <!-- Navbar -->
+    <nav class="barraNavegadora elementosCentrados short_style_a_button extraLarge_style_a_button">
+        <div id="back">
+            <img id="flecha" src="../../Media/flecha.png" alt="flecha" class="flecha-img">
+            <p id="puntos">Puntos: 0</p>
+        </div>
+        <div id="time">
+            <p>00:01:00</p>
+        </div>
+    </nav>
+    
+
+    <!-- Área principal -->
     <div id="gameArea">
+        <!-- Título inicial -->
+        <h1 id="title">Selecciona una sala para buscar las llaves</h1>
         
+        <!-- Botones de navegación -->
+        <div id="buttonsArea">
+            <button class="navButton" data-room="sala_mantenimiento">Ir a la sala de mantenimiento</button>
+            <button class="navButton" data-room="sala_inundada">Ir a la sala inundada</button>
+            <button class="navButton" data-room="sala_ruinas">Ir a la sala en ruinas</button>
+        </div>
+        
+        <!-- Área de objetos (inicialmente vacía) -->
+        <div id="hiddenObjectsArea"></div>
     </div>
-    <p id="message">Objetos encontrados: 0/9</p>
 
     <script src="llaves.js"></script>
 </body>
