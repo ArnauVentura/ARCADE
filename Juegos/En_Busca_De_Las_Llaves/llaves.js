@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Posición aleatoria dentro del área
             object.style.top = `${Math.random() * 80}%`; // Ajustar para no interferir con la navbar
-            object.style.left = `${Math.random() * 100}%`;
+            object.style.left = `${Math.random() * 80}%`;
 
             // Evento de clic para encontrar el objeto
             object.addEventListener('click', () => {

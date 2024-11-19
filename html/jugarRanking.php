@@ -31,8 +31,8 @@ if (!isset($_SESSION['nombre'])) {
             <h2 class="styleTitulo">Y EL MISTERIO DE LAS 4 FUENTES</h2>
         </div>
         <div class="elementosCentrados">
-            <a href="./fuentes.html" class="short_style_a_button">JUGAR</a>
-            <a href="./ranking.html" class="short_style_a_button">RANKING</a>
+            <a href="./fuentes.php" class="short_style_a_button">JUGAR</a>
+            <a href="./ranking.php" class="short_style_a_button">RANKING</a>
         </div>
         <div>
             <img src="../media/img_anna/anna.png" class="anna-img" alt="Anna" id="annaFuente">
