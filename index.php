@@ -57,7 +57,7 @@ include_once './php/bd.php';
         </form>
             <hr id="hr_mainMenu">
             <div class="divButtons_Formulario">
-                <a href="./html/fuentes.html" class="short_style_a_button">JUGAR SIN REGISTRO</a>
+                <a href="./html/jugar.html" class="short_style_a_button">JUGAR SIN REGISTRO</a>
 
                 <a href="./html/quienesSomos.html" class="short_style_a_button">CONÓCENOS</a>
             </div>
