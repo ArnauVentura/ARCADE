@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (!isset($_SESSION['nombre'])) {
+    header('Location: ../index.php'); // Redirige al inicio de sesión si no está autenticado
+    exit();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

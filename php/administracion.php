@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['rol_idRol']) || ($_SESSION['rol_idRol'] != 2 && $_SESSION['rol_idRol'] != 3)) {
+    header('Location: ../index.php');
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,7 +18,7 @@
     <!-- Bcrypt.js para encriptar la contraseña -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
 </head>
-<body>
+<body class="bg_Img imgClase">
     <?php  
     include_once('./bd.php');
 

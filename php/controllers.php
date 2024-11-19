@@ -1,11 +1,18 @@
 <?php
+    session_start();
+
     include_once('./bd.php');
 
+    
     if (isset($_POST['insert'])) {
         if (!empty($_POST['nombre']) && !empty($_POST['contrasenya'])) {
-            registro($_POST['nombre'], $_POST['contrasenya']);
-            header('Location: ../html/fuentes.html');
-            exit();
+            if (registro($_POST['nombre'], $_POST['contrasenya'])) {
+                $_SESSION['usuario'] = $_POST['nombre'];
+                header('Location: ../html/jugarRanking.html');
+                exit();
+            } else {
+                echo "Error en el registro: El usuario ya existe.";
+            } 
         } else {
             echo "Faltan datos para el registro.";
         }
