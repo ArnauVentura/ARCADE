@@ -1,0 +1,5 @@
+Estilos en comun para boton y enlace
+estilo para button
+estilo para a
+
+botones con las mismas medidas. o px o % o rem o vw XD
