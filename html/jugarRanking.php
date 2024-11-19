@@ -18,17 +18,15 @@ if (!isset($_SESSION['nombre'])) {
 </head>
 
 <body class="bg_Img imgEscuela">
-    <header>
-        <nav class="barraNavegadora">
-            <a class="atras" href="javascript:history.back()">
-                <img src="../media/flecha.png" alt="Volver" class="flecha-img">
-            </a>
-        </nav>
+    <header class="barraNavegadora">
+        <a class="atras" href="javascript:history.back()">
+            <img src="../media/flecha.png" alt="Volver" class="flecha-img">
+        </a>
     </header>
     <main id="main_mainMenu">
         <div class="elementosCentrados whiteBG div_SizeTitular">
             <h1 class="styleTitulo">ANNA</h1>
-            <h2 class="styleTitulo">Y EL MISTERIO DE LAS 4 FUENTES</h2>
+            <h2 class="styleTitulo">Y EL MISTERIO DE LAS 3 FUENTES</h2>
         </div>
         <div class="elementosCentrados">
             <a href="./fuentes.html" class="short_style_a_button">JUGAR</a>
