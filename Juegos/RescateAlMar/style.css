@@ -4,18 +4,10 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-/* body {
-    font-family: 'Inter';
-    color: white;
-    background-image: url("/img/pixelcut-export2.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-} */
 body {
     font-family: 'Inter';
     color: white;
-    background-image: url("/Juegos/RescateAlMar/img/fondoRescateMar.png"); /* Ruta de tu imagen */
+    background-image: url("../RescateAlMar/img/fondoRescateMar.png"); /* Ruta de tu imagen */
     background-repeat: no-repeat; /* Evita que se repita */
     background-attachment: fixed; /* Hace que la imagen de fondo sea fija */
     background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
