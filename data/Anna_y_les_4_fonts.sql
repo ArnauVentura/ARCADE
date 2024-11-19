@@ -22,10 +22,10 @@ USE `anna` ;
 -- Table `anna`.`juegos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `anna`.`juegos` (
-  `idJUEGO` INT(11) NOT NULL,
+  `idJuego` INT(11) NOT NULL,
   `titulo` VARCHAR(45) NOT NULL,
   `descripcion` VARCHAR(255) NULL DEFAULT NULL,
-  PRIMARY KEY (`idJUEGO`))
+  PRIMARY KEY (`idJuego`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
@@ -34,9 +34,9 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- Table `anna`.`rol`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `anna`.`rol` (
-  `idROL` INT(11) NOT NULL,
+  `idRol` INT(11) NOT NULL,
   `tipo` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idROL`))
+  PRIMARY KEY (`idRol`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
@@ -45,15 +45,15 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- Table `anna`.`usuario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `anna`.`usuario` (
-  `idUSUARIO` INT(11) NOT NULL AUTO_INCREMENT,
+  `idUsuario` INT(11) NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
   `contrasenya` VARCHAR(45) NOT NULL,
-  `rol_idROL` INT(11) NOT NULL,
-  PRIMARY KEY (`idUSUARIO`, `rol_idROL`),
-  INDEX `fk_usuario_rol_idx` (`rol_idROL` ASC) ,
+  `rol_idRol` INT(11) NOT NULL,
+  PRIMARY KEY (`idUsuario`, `rol_idRol`),
+  INDEX `fk_usuario_rol_idx` (`rol_idRol` ASC) ,
   CONSTRAINT `fk_usuario_rol`
-    FOREIGN KEY (`rol_idROL`)
-    REFERENCES `anna`.`rol` (`idROL`)
+    FOREIGN KEY (`rol_idRol`)
+    REFERENCES `anna`.`rol` (`idRol`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -64,23 +64,25 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- Table `anna`.`ranking`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `anna`.`ranking` (
-  `usuario_idUSUARIO` INT(11) NOT NULL,
-  `juegos_idJUEGO` INT(11) NOT NULL,
+  `usuario_idUsuario` INT(11) NOT NULL,
+  `juegos_idJuego` INT(11) NOT NULL,
   `puntuacion` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`usuario_idUSUARIO`, `juegos_idJUEGO`),
+  PRIMARY KEY (`usuario_idUsuario`, `juegos_idJuego`),
   CONSTRAINT `fk_usuario_has_juegos_usuario1`
-    FOREIGN KEY (`usuario_idUSUARIO`)
-    REFERENCES `anna`.`usuario` (`idUSUARIO`)
+    FOREIGN KEY (`usuario_idUsuario`)
+    REFERENCES `anna`.`usuario` (`idUsuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
     CONSTRAINT `fk_usuario_has_juegos_juegos1`
-    FOREIGN KEY (`juegos_idJUEGO`)
-    REFERENCES `anna`.`juegos` (`idJUEGO`)
+    FOREIGN KEY (`juegos_idJuegousuario`)
+    REFERENCES `anna`.`juegos` (`idJuego`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
+
+
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
