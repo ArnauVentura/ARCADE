@@ -66,15 +66,6 @@ if (isset($_SESSION['nombre'])) {
                         <a href=""><img src="../media/img_landing/gmail_Logo.png" alt="Instagram" class="logoRedSocial"></a>
                     </div>
                 </div>
-                <div class="divPersona elementosCentrados whiteBG">
-                    <img src="../media/img_landing/gmail_Logo.png" alt="" class="img_foto_persona">
-                    <h5>Nombre Apellido</h5>
-                    <p class="p_textoPersona">Junior de CSS, Senior de la impaciencia. Espero que me apruebe el profesor porque apenas apruevo la vida</p>
-                    <div class="div_LogoRedSocial">
-                        <a href=""><img src="../media/img_landing/gmail_Logo.png" alt="Gmail" class="logoRedSocial"></a>
-                        <a href=""><img src="../media/img_landing/gmail_Logo.png" alt="Instagram" class="logoRedSocial"></a>
-                    </div>
-                </div>
             </div>
     </main>
     <footer id="footer_QuienesSomos">

@@ -26,7 +26,6 @@ if (!isset($_SESSION['nombre'])) {
     </header>
     <div id="mainDiv_Ranking">
         <div class="divSecundario elementosCentrados" id="divSecundarioLeft_Ranking">
-            <button class="short_style_a_button large_style_a_button" id="buttonRankning_Juego1" href="">LAS GRIFERIAS</button>
             <button class="short_style_a_button large_style_a_button" id="buttonRankning_Juego2" href="">EN BUSCA DE LAS LLAVES</button>
             <button class="short_style_a_button large_style_a_button" id="buttonRankning_Juego3" href="">RESCATE DEL MAR</button>
             <button class="short_style_a_button large_style_a_button" id="buttonRankning_Juego4" href="">AL RIO TRONCOS</button>
