@@ -1,13 +1,43 @@
+// Función para contar inversiones en una configuración
+function contarInversiones(numeros) {
+    let inversiones = 0;
+    for (let i = 0; i < numeros.length; i++) {
+        for (let j = i + 1; j < numeros.length; j++) {
+            if (numeros[i] > numeros[j] && numeros[i] !== 0 && numeros[j] !== 0) {
+                inversiones++;
+            }
+        }
+    }
+    return inversiones;
+}
+
+// Función para verificar si una configuración es solucionable
+function esSolucionable(matriz) {
+    const numeros = matriz.flat(); // Convierte la matriz en una lista plana
+    const inversions = contarInversiones(numeros);
+
+    if (inversions % 2 === 0) { // Solucionable si las inversiones son pares
+        console.log("Es solucionable");
+        return true; // Retorna true para indicar que es solucionable
+    } else {
+        console.log("No es solucionable");
+        return false; // Retorna false para indicar que no es solucionable
+    }
+}
+
+
 // Inicializa una matriz 3x3 de forma aleatoria con números del 0 al 8.
 function inicializarMatrizAleatoria() {
-    let numeros = Array.from({ length: 9 }, (_, i) => i);
-    numeros = numeros.sort(() => Math.random() - 0.5);
-
-    let matriz = [
-        [numeros[0], numeros[1], numeros[2]],
-        [numeros[3], numeros[4], numeros[5]],
-        [numeros[6], numeros[7], numeros[8]]
-    ];
+    let matriz;
+    do {
+        let numeros = Array.from({ length: 9 }, (_, i) => i);
+        numeros = numeros.sort(() => Math.random() - 0.5); // Mezcla aleatoriamente
+        matriz = [
+            [numeros[0], numeros[1], numeros[2]],
+            [numeros[3], numeros[4], numeros[5]],
+            [numeros[6], numeros[7], numeros[8]]
+        ];
+    } while (!esSolucionable(matriz)); // Repetir hasta obtener una configuración solucionable
 
     return matriz;
 }
