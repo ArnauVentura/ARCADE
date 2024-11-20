@@ -6,7 +6,6 @@ function obtenerFuenteImagen(valor) {
     return `../puzzle/img/3x3/${valor}.jpg`; // Ruta a las imágenes (asegúrate de tener imágenes numeradas 1-8)
 }
 
-
 // Función para contar inversiones en una configuración
 function contarInversiones(numeros) {
     let inversiones = 0;
@@ -34,7 +33,6 @@ function esSolucionable(matriz) {
     }
 }
 
-
 // Inicializa una matriz 3x3 de forma aleatoria con números del 0 al 8.
 function inicializarMatrizAleatoria() {
     let matriz;
@@ -58,31 +56,24 @@ var ids = [
     ["id7", "id8", "id9"]
 ];
 
-
 // Ejecuta el juego al cargar la página cuando todos los recursos están cargados
-
 window.onload = function () {
     matriz = inicializarMatrizAleatoria();
     cargar();
     actualizarVista();
 };
 
-
-// Asocia cada elemento del HTML al evento onclick para mover las celdas e identifica los elementos fila y col en la matriz
-
+// Asocia cada elemento del HTML al evento de clic para mover las celdas
 function cargar() {
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
-            let parrafo = document.getElementById(ids[i][j]);
-            parrafo.onclick = intercambiar;
-            parrafo.setAttribute("fila", i);
-            parrafo.setAttribute("col", j);
+            let celda = document.getElementById(ids[i][j]);
+            celda.setAttribute("data-fila", i); // Asigna fila como atributo de datos
+            celda.setAttribute("data-col", j); // Asigna columna como atributo de datos
+            celda.addEventListener("click", intercambiar); // Agrega el evento de clic
         }
     }
 }
-
-
-// Actualiza visualmente cada celda de la cuadrícula de juego en función de los valores de `matriz`.
 
 // Actualiza visualmente cada celda de la cuadrícula con imágenes
 function actualizarVista() {
@@ -101,6 +92,17 @@ function actualizarVista() {
                 celda.appendChild(img);
             }
         }
+    }
+}
+
+// Maneja el clic en una celda para intercambiarla con el espacio vacío si es posible
+function intercambiar(event) {
+    let fila = parseInt(this.getAttribute("data-fila"));
+    let col = parseInt(this.getAttribute("data-col"));
+
+    if (checkMover(fila, col)) {
+        actualizarVista();
+        resuelto();
     }
 }
 
