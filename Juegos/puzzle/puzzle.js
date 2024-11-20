@@ -1,3 +1,12 @@
+// Función para asignar imágenes según el valor
+function obtenerFuenteImagen(valor) {
+    if (valor === 0) {
+        return ""; // Retorna vacío para el espacio vacío
+    }
+    return `../puzzle/img/3x3/${valor}.jpg`; // Ruta a las imágenes (asegúrate de tener imágenes numeradas 1-8)
+}
+
+
 // Función para contar inversiones en una configuración
 function contarInversiones(numeros) {
     let inversiones = 0;
@@ -75,23 +84,23 @@ function cargar() {
 
 // Actualiza visualmente cada celda de la cuadrícula de juego en función de los valores de `matriz`.
 
+// Actualiza visualmente cada celda de la cuadrícula con imágenes
 function actualizarVista() {
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
-            let parrafo = document.getElementById(ids[i][j]);
-            parrafo.innerText = matriz[i][j] === 0 ? "" : matriz[i][j]; // Deja vacío el espacio del 0
+            let celda = document.getElementById(ids[i][j]);
+            let valor = matriz[i][j];
+
+            // Elimina el contenido previo de la celda
+            celda.innerHTML = "";
+
+            // Si el valor no es 0, asigna una imagen
+            if (valor !== 0) {
+                let img = document.createElement("img");
+                img.src = obtenerFuenteImagen(valor);
+                celda.appendChild(img);
+            }
         }
-    }
-}
-
-// intercanvia las posiciones de fila-columna
-function intercambiar() {
-    let fila = parseInt(this.getAttribute("fila"));
-    let col = parseInt(this.getAttribute("col"));
-
-    if (checkMover(fila, col)) {
-        actualizarVista();
-        resuelto();
     }
 }
 
