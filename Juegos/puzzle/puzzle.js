@@ -61,6 +61,26 @@ window.onload = function () {
     matriz = inicializarMatrizAleatoria();
     cargar();
     actualizarVista();
+    pistaBombilla();
+    
+};
+
+//PopUp de la imagen completa de la solución
+function pistaBombilla() {
+    const pista = document.getElementById("pista");
+    const pistaPopup = document.getElementById("pistaPopup");
+    
+    
+        // Mostrar el popup al pasar el mouse
+        pista.addEventListener("mouseenter", () => {
+        pistaPopup.style.display = "block";
+        });
+
+        // Ocultar el popup al salir el mouse
+        pista.addEventListener("mouseleave", () => {
+        pistaPopup.style.display = "none";
+        });
+    
 };
 
 // Asocia cada elemento del HTML al evento de clic para mover las celdas
@@ -152,3 +172,4 @@ function resuelto() {
         console.log("Solo tienes " + totalAciertos + " aciertos");
     }
 }
+
