@@ -1,13 +1,50 @@
+// Función para asignar imágenes según el valor
+function obtenerFuenteImagen(valor) {
+    if (valor === 0) {
+        return ""; // Retorna vacío para el espacio vacío
+    }
+    return `../puzzle/img/3x3/${valor}.jpg`; // Ruta a las imágenes (asegúrate de tener imágenes numeradas 1-8)
+}
+
+// Función para contar inversiones en una configuración
+function contarInversiones(numeros) {
+    let inversiones = 0;
+    for (let i = 0; i < numeros.length; i++) {
+        for (let j = i + 1; j < numeros.length; j++) {
+            if (numeros[i] > numeros[j] && numeros[i] !== 0 && numeros[j] !== 0) {
+                inversiones++;
+            }
+        }
+    }
+    return inversiones;
+}
+
+// Función para verificar si una configuración es solucionable
+function esSolucionable(matriz) {
+    const numeros = matriz.flat(); // Convierte la matriz en una lista plana
+    const inversions = contarInversiones(numeros);
+
+    if (inversions % 2 === 0) { // Solucionable si las inversiones son pares
+        console.log("Es solucionable");
+        return true; // Retorna true para indicar que es solucionable
+    } else {
+        console.log("No es solucionable");
+        return false; // Retorna false para indicar que no es solucionable
+    }
+}
+
 // Inicializa una matriz 3x3 de forma aleatoria con números del 0 al 8.
 function inicializarMatrizAleatoria() {
-    let numeros = Array.from({ length: 9 }, (_, i) => i);
-    numeros = numeros.sort(() => Math.random() - 0.5);
-
-    let matriz = [
-        [numeros[0], numeros[1], numeros[2]],
-        [numeros[3], numeros[4], numeros[5]],
-        [numeros[6], numeros[7], numeros[8]]
-    ];
+    let matriz;
+    do {
+        let numeros = Array.from({ length: 9 }, (_, i) => i);
+        numeros = numeros.sort(() => Math.random() - 0.5); // Mezcla aleatoriamente
+        matriz = [
+            [numeros[0], numeros[1], numeros[2]],
+            [numeros[3], numeros[4], numeros[5]],
+            [numeros[6], numeros[7], numeros[8]]
+        ];
+    } while (!esSolucionable(matriz)); // Repetir hasta obtener una configuración solucionable
 
     return matriz;
 }
@@ -19,45 +56,69 @@ var ids = [
     ["id7", "id8", "id9"]
 ];
 
-
 // Ejecuta el juego al cargar la página cuando todos los recursos están cargados
-
 window.onload = function () {
     matriz = inicializarMatrizAleatoria();
     cargar();
     actualizarVista();
+    pistaBombilla();
+    
 };
 
+//PopUp de la imagen completa de la solución
+function pistaBombilla() {
+    const pista = document.getElementById("pista");
+    const pistaPopup = document.getElementById("pistaPopup");
+    
+    
+        // Mostrar el popup al pasar el mouse
+        pista.addEventListener("mouseenter", () => {
+        pistaPopup.style.display = "block";
+        });
 
-// Asocia cada elemento del HTML al evento onclick para mover las celdas e identifica los elementos fila y col en la matriz
+        // Ocultar el popup al salir el mouse
+        pista.addEventListener("mouseleave", () => {
+        pistaPopup.style.display = "none";
+        });
+    
+};
 
+// Asocia cada elemento del HTML al evento de clic para mover las celdas
 function cargar() {
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
-            let parrafo = document.getElementById(ids[i][j]);
-            parrafo.onclick = intercambiar;
-            parrafo.setAttribute("fila", i);
-            parrafo.setAttribute("col", j);
+            let celda = document.getElementById(ids[i][j]);
+            celda.setAttribute("data-fila", i); // Asigna fila como atributo de datos
+            celda.setAttribute("data-col", j); // Asigna columna como atributo de datos
+            celda.addEventListener("click", intercambiar); // Agrega el evento de clic
         }
     }
 }
 
-
-// Actualiza visualmente cada celda de la cuadrícula de juego en función de los valores de `matriz`.
-
+// Actualiza visualmente cada celda de la cuadrícula con imágenes
 function actualizarVista() {
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
-            let parrafo = document.getElementById(ids[i][j]);
-            parrafo.innerText = matriz[i][j] === 0 ? "" : matriz[i][j]; // Deja vacío el espacio del 0
+            let celda = document.getElementById(ids[i][j]);
+            let valor = matriz[i][j];
+
+            // Elimina el contenido previo de la celda
+            celda.innerHTML = "";
+
+            // Si el valor no es 0, asigna una imagen
+            if (valor !== 0) {
+                let img = document.createElement("img");
+                img.src = obtenerFuenteImagen(valor);
+                celda.appendChild(img);
+            }
         }
     }
 }
 
-// intercanvia las posiciones de fila-columna
-function intercambiar() {
-    let fila = parseInt(this.getAttribute("fila"));
-    let col = parseInt(this.getAttribute("col"));
+// Maneja el clic en una celda para intercambiarla con el espacio vacío si es posible
+function intercambiar(event) {
+    let fila = parseInt(this.getAttribute("data-fila"));
+    let col = parseInt(this.getAttribute("data-col"));
 
     if (checkMover(fila, col)) {
         actualizarVista();
@@ -111,3 +172,4 @@ function resuelto() {
         console.log("Solo tienes " + totalAciertos + " aciertos");
     }
 }
+

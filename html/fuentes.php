@@ -19,15 +19,16 @@ if (isset($_SESSION['nombre'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anna y el misterio de las 4 fuentes</title>
     <link rel="stylesheet" href="../css/Style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
 </head>
 <body class="bg_Img imgPatio">
 
-    <header>
-        <nav class="barraNavegadora">
-            <a class="atras" href="javascript:history.back()">
-                <img src="../media/flecha.png" alt="Volver" class="flecha-img">
-            </a>
-        </nav>
+    <header class="encabezado_general">
+        <a class="atras" href="javascript:history.back()">
+            <img src="../media/flecha.png" alt="Volver" class="flecha-img">
+        </a>
     </header>
     
     <main>

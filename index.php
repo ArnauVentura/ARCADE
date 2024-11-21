@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inter" rel='stylesheet'>
 </head>
 
 <?php
@@ -16,27 +17,32 @@ include_once './php/bd.php';
 
 <body class="bg_Img imgEscuela" id="body_MainMenu">
     
-    <header>
-        <div class="language-selector">
-            <!-- Imagen de la bandera principal (idioma actual) -->
-            <img src="media/img_idiomas/cat.png" alt="Seleccionar idioma" id="main-flag" class="flag" onclick="toggleMenu()">
-    
-            <!-- Menú desplegable de idiomas -->
-            <div id="language-menu" class="menu">
-                <div class="div_Bandera">
-                    <img src="media/img_idiomas/eng.png" alt="Inglés" class="flag" onclick="selectLanguage('eng')">
-                    <p>ENG</p>
-                </div>
-                <div class="div_Bandera">
-                    <img src="media/img_idiomas/esp.png" alt="Español" class="flag" onclick="selectLanguage('esp')">
-                    <p>ESP</p>
-                </div>
-                <div class="div_Bandera">
-                    <img src="media/img_idiomas/cat.png" alt="Catalán" class="flag" onclick="selectLanguage('cat')">
-                    <p>CAT</p>
-                </div>
-            </div>
-        </div>
+    <header class="encabezado-pg-principal">
+        <ul class="menu-idiomas">
+            <li>
+                <img src="media/img_idiomas/esp.png" alt="Seleccionar idioma" id="bandera-seleccionada" class="bandera-idioma" onclick="toggleMenu()">
+                <ul>
+                    <li onclick="selectLanguage('eng')">
+                        <div class="opcion-idioma">
+                            <img src="media/img_idiomas/eng.png" alt="Inglés" class="bandera-idioma" >
+                            <span class="texto-imagen">ENG</span>
+                        </div>
+                    </li>
+                    <li onclick="selectLanguage('esp')">
+                        <div class="opcion-idioma">
+                            <img src="media/img_idiomas/esp.png" alt="Español" class="bandera-idioma">
+                            <span class="texto-imagen">ESP</span>
+                        </div>
+                    </li>
+                    <li onclick="selectLanguage('cat')">
+                        <div class="opcion-idioma">
+                            <img src="media/img_idiomas/cat.png" alt="Catalán" class="bandera-idioma">
+                            <span class="texto-imagen">CAT</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
     </header>
 
     <main id="main_mainMenu">
@@ -51,15 +57,15 @@ include_once './php/bd.php';
             </div>
 
             <div class="elementosCentrados divButtons_Formulario" id="">
-                <input type="submit" class="short_style_a_button" value="INICIAR SESIÓN"></input>
-                <button type="button" class="short_style_a_button" onclick="openPopup()">REGISTRARSE</button>
+                <input type="submit" class="short_style_a_button animacion_boton" value="INICIAR SESIÓN"></input>
+                <button type="button" class="short_style_a_button animacion_boton" onclick="openPopup()">REGISTRARSE</button>
             </div>
         </form>
             <hr id="hr_mainMenu">
             <div class="divButtons_Formulario">
-                <a href="./html/jugar.html" class="short_style_a_button">JUGAR SIN REGISTRO</a>
+                <a href="./html/jugar.html" class="short_style_a_button animacion_boton">JUGAR SIN REGISTRO</a>
 
-                <a href="./html/quienesSomos.html" class="short_style_a_button">CONÓCENOS</a>
+                <a href="./html/quienesSomos.php" class="short_style_a_button animacion_boton">CONÓCENOS</a>
             </div>
         </div>
         <div class="popup-overlay" id="popupOverlay">
