@@ -1,12 +1,31 @@
-/* Estilos específicos para el contenedor del juego */
 #gameArea {
-    position: relative; /* Posición relativa para los elementos internos */
-    height: 100vh; /* Ocupa toda la ventana */
+    position: relative;
+    height: 100vh;
     width: 95%;
     background-size: cover;
     background-position: center;
-    overflow: hidden; /* Oculta elementos que salgan del área */
+    overflow: hidden;
 }
+
+#gameArea.dark {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.95); /* Oscuridad total */
+    overflow: hidden;
+}
+
+#linterna {
+    position: absolute;
+    width: 150px; /* Tamaño de la linterna */
+    height: 150px;
+    border-radius: 50%;
+    pointer-events: none; /* Permitir clics a través de la linterna */
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(0, 0, 0, 0) 80%);
+    mix-blend-mode: screen; /* Mezclar luz con el fondo oscuro */
+    display: none; /* Ocultar por defecto */
+    z-index: 10; /* Asegurar que esté encima del contenido */
+}
+
+
 
 /* Botones de selección de sala */
 #buttonsArea {
