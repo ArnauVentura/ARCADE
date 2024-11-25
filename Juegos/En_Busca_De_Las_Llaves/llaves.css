@@ -1,3 +1,4 @@
+/* gameArea sin efecto de linterna y sin oscuridad por defecto */
 #gameArea {
     position: relative;
     height: 100vh;
@@ -7,25 +8,36 @@
     overflow: hidden;
 }
 
+/* Solo activar oscuridad cuando estamos dentro de una sala */
 #gameArea.dark {
+    background-color: rgba(0, 0, 0, 0.95); /* Fondo oscuro */
     position: relative;
-    background-color: rgba(0, 0, 0, 0.95); /* Oscuridad total */
-    overflow: hidden;
+    overflow: hidden; /* Ocultar todo lo que sobresalga */
 }
 
-#linterna {
-    position: absolute;
-    width: 150px; /* Tamaño de la linterna */
-    height: 150px;
-    border-radius: 50%;
-    pointer-events: none; /* Permitir clics a través de la linterna */
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(0, 0, 0, 0) 80%);
-    mix-blend-mode: screen; /* Mezclar luz con el fondo oscuro */
-    display: none; /* Ocultar por defecto */
-    z-index: 10; /* Asegurar que esté encima del contenido */
+/* Efecto de linterna solo se activa en el fondo oscuro */
+:root {
+    --cX: 40vw;
+    --cY: 40vh;
 }
 
-
+:root:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    pointer-events: none;
+    background: radial-gradient(
+      circle 8vmax at var(--cX) var(--cY),
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(0, 0, 0, 0.90) 60%,
+      rgba(0, 0, 0, 0.99) 120%,
+      rgba(0, 0, 0, 1) 300%
+    );
+    z-index: 10;
+}
 
 /* Botones de selección de sala */
 #buttonsArea {

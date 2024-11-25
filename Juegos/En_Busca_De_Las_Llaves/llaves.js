@@ -4,9 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const buttonsArea = document.getElementById('buttonsArea');
     const hiddenObjectsArea = document.getElementById('hiddenObjectsArea');
     const backButton = document.getElementById('flecha');
-    const linterna = document.createElement('div'); // Crear la linterna
-    linterna.id = 'linterna';
-    gameArea.appendChild(linterna); // Añadir la linterna al área del juego
 
     let currentRoom = null; // Variable para almacenar la sala actual
     let objetosEncontrados = 0; // Contador de objetos encontrados en la sala actual
@@ -24,14 +21,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Variables del temporizador
     let timerInterval;
     let startTime = Date.now(); // Tiempo inicial
-
-    // Iniciar el temporizador al cargar la página
     startTimer();
 
     // Establecer el fondo inicial
     gameArea.style.backgroundImage = defaultBackground;
 
-    // Cambiar de sala al hacer clic en los botones de navegación
+    // Cambiar de sala al hacer clic en los botones
     document.querySelectorAll('.navButton').forEach(button => {
         button.addEventListener('click', () => {
             const room = button.getAttribute('data-room');
@@ -49,18 +44,45 @@ document.addEventListener("DOMContentLoaded", () => {
     // Botón "atrás"
     backButton.addEventListener('click', () => {
         volverAlMenu();
-        disableDarkMode(); // Desactivar modo oscuro y linterna
+        disableDarkMode(); // Desactivar modo oscuro y linterna al regresar al menú
     });
 
     // Función para generar objetos ocultos
     function generateObjects(numObjects) {
+        const minSpacing = 10; // Margen mínimo entre objetos (en porcentaje de la altura o ancho)
+        const positions = []; // Para almacenar las posiciones de los objetos y evitar superposiciones
+
         for (let i = 0; i < numObjects; i++) {
+            let validPosition = false;
+            let top, left;
+
+            // Buscar una posición válida que no se sobreponga con otras
+            while (!validPosition) {
+                // Generar una posición aleatoria para el objeto
+                top = Math.random() * 80;
+                left = Math.random() * 80;
+
+                // Comprobar que el objeto no se superponga con otros (por un margen mínimo)
+                validPosition = true;
+                for (let j = 0; j < positions.length; j++) {
+                    const [existingTop, existingLeft] = positions[j];
+
+                    // Verificar la distancia mínima entre los objetos
+                    if (Math.abs(top - existingTop) < minSpacing || Math.abs(left - existingLeft) < minSpacing) {
+                        validPosition = false;
+                        break; // Si la posición es demasiado cercana a otra, buscar otra posición
+                    }
+                }
+            }
+
+            // Almacenamos la nueva posición válida
+            positions.push([top, left]);
+
+            // Crear y agregar el objeto a la interfaz
             const object = document.createElement('div');
             object.classList.add('hiddenObject');
-
-            // Posición aleatoria dentro del área
-            object.style.top = `${Math.random() * 80}%`;
-            object.style.left = `${Math.random() * 80}%`;
+            object.style.top = `${top}%`;
+            object.style.left = `${left}%`;
 
             // Evento de clic para encontrar el objeto
             object.addEventListener('click', () => {
@@ -77,7 +99,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Lógica cuando se encuentra un objeto
     function objetoEncontrado() {
         objetosEncontrados++;
-
         if (objetosEncontrados === objetosPorSala) {
             // Sala completada
             contadorSalasCompletadas++;
@@ -103,37 +124,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Función para volver al menú principal
     function volverAlMenu() {
-        // Cambiar fondo al principal
-        gameArea.style.backgroundImage = defaultBackground;
+        gameArea.style.backgroundImage = defaultBackground; // Restaurar fondo inicial
         title.textContent = "Selecciona una sala para buscar las llaves";
         hiddenObjectsArea.innerHTML = ""; // Limpiar objetos
         buttonsArea.style.display = 'block'; // Mostrar los botones nuevamente
         currentRoom = null; // Restablecer la sala actual
+        disableDarkMode(); // Desactivar la linterna cuando regresamos al menú
     }
 
     // Activar modo oscuro y linterna
     function enableDarkMode() {
-        if (currentRoom === 'sala_mantenimiento' || currentRoom === 'sala_inundada' || currentRoom === 'sala_ruinas') {
-            gameArea.classList.add('dark');
-            linterna.style.display = 'block';
-            gameArea.addEventListener('mousemove', moveLinterna);
-        }
+        gameArea.classList.add('dark'); // Aplicar clase de oscuridad solo en gameArea
+        enableLinterna(); // Habilitar efecto de linterna
     }
-    
 
     // Desactivar modo oscuro y linterna
     function disableDarkMode() {
-        gameArea.classList.remove('dark');
-        linterna.style.display = 'none';
-        gameArea.removeEventListener('mousemove', moveLinterna);
+        gameArea.classList.remove('dark'); // Eliminar clase de oscuridad
+        disableLinterna(); // Deshabilitar efecto de linterna
+    }
+
+    // Habilitar el efecto de linterna
+    function enableLinterna() {
+        document.documentElement.style.setProperty('--cX', `40vw`);
+        document.documentElement.style.setProperty('--cY', `40vh`);
+        document.addEventListener('mousemove', moveLinterna); // Activar movimiento de la linterna
+    }
+
+    // Deshabilitar el efecto de linterna
+    function disableLinterna() {
+        document.documentElement.style.setProperty('--cX', `40vw`);
+        document.documentElement.style.setProperty('--cY', `40vh`);
+        document.removeEventListener('mousemove', moveLinterna); // Desactivar movimiento de la linterna
     }
 
     // Mover la linterna según la posición del ratón
-    function moveLinterna(event) {
-        const rect = gameArea.getBoundingClientRect();
-        const x = event.clientX - rect.left - linterna.offsetWidth / 2;
-        const y = event.clientY - rect.top - linterna.offsetHeight / 2;
-        linterna.style.transform = `translate(${x}px, ${y}px)`;
+    function moveLinterna(e) {
+        const x = e.clientX / window.innerWidth * 100;
+        const y = e.clientY / window.innerHeight * 100;
+        document.documentElement.style.setProperty('--cX', `${x}vw`);
+        document.documentElement.style.setProperty('--cY', `${y}vh`);
     }
 
     // Iniciar el temporizador
