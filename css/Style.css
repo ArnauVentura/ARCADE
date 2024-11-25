@@ -54,6 +54,18 @@ h2.styleTitulo{
         2px 2px 0 #437CA5;
     margin-top: 5px;
 }
+/* Container del título */
+.div_SizeTitular{
+    width: 55%;
+    height: 200px;
+    padding: 20px;
+    margin: auto;
+    border-radius: 75px;
+}
+/* Establece el fondo blanco para títulos, etc. */
+.whiteBG{
+    background-color: rgba(255, 255, 255, 0.7);
+}
 /* Centra vertical y horizontalmente los elementos del contenedor */
 .elementosCentrados{
     display:flex;
@@ -61,11 +73,6 @@ h2.styleTitulo{
     align-items: center;
     flex-direction: column;
 }
-/* Establece el fondo blanco para títulos, etc. */
-.whiteBG{
-    background-color: rgba(255, 255, 255, 0.7);
-}
-
 /* Estilos de <button> y <A> */
 /* Separar clase en general, boton y a */
 .short_style_a_button{
@@ -97,7 +104,6 @@ h2.styleTitulo{
     text-align: left;
     padding-left: 10px;
     background-color: rgba(199, 126, 95, 0.8);
-
 }
 input::placeholder {
     color: white;
@@ -113,18 +119,11 @@ input::placeholder {
 .anna-img{
     position: absolute;
 }
-
 .atras {
     top: 3.5%; /* Ajusta el margen superior */
     left: 3%; /* Ajusta el margen izquierdo */
     cursor: pointer;
 }
-
-/* Tamaño de la imagen de la flecha */
-.flecha-img {
-    width: 50px; /* Tamaño de la flecha, ajusta según tus necesidades */
-}
-
 
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* PERSONALIZADOS */
@@ -141,13 +140,7 @@ input::placeholder {
     display: inline;
     text-align: center;
 }
-/* Container del título */
-.div_SizeTitular{
-    width: 55%;
-    height: 200px;
-    margin:auto;
-    border-radius: 75px;
-}
+
 /* <hr> main menu */
 #hr_mainMenu{
     margin:auto;
@@ -166,28 +159,18 @@ input::placeholder {
 #main_mainMenu div input{
     margin: 25px;
 }
-/* body quienes somos */
-/* Poner un body general con el background-size: cover; */
-#bodyQuienesSomos{
-    background-size: cover; 
+
+.flecha-img{
+    width: 50px;
 }
-/* Ya hay css de la flecha, juntarlo */
-.flecha img{
-    height: 100px;
-    display: inline;
-    margin: 10px;
-}
-#bodyQuienesSomos *{
-    padding: 0.3%;
-}
-#tituloQuienesSomos{
+/* #tituloQuienesSomos{
     padding: 0;
     border-radius: 100px;
     margin: 0 auto;
     width: 55%;
     height: 100px;
     margin-bottom: 2%;
-}
+} */
 #p_resumenQuienesSomos{
     width: 80%;
     margin: 0 auto;

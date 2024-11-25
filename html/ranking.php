@@ -22,9 +22,9 @@ if (!isset($_SESSION['nombre'])) {
 </head>
 <body class="bg_Img imgBaseball" id="body_ranking">
     <header class="encabezado_general">
-            <a class="atras" href="./jugarRanking.html">
-                <img src="../media/flecha.png" alt="Volver" class="flecha-img">
-            </a>
+        <a class="atras" href="javascript:history.back()">
+            <img src="../media/flecha.png" alt="Volver" class="flecha-img">
+        </a>
     </header>
     <div id="mainDiv_Ranking">
         <div class="divSecundario elementosCentrados" id="divSecundarioLeft_Ranking">
@@ -62,7 +62,6 @@ if (!isset($_SESSION['nombre'])) {
             
         </div>
     </div>
-    
     
 </body>
 </html>
