@@ -6,19 +6,21 @@ html{
 }
 /* Centrar imagenes al tamaño del contenedor */
 .bg_Img{
-    background-size: 100% 100%; /* Estira la imagen para que ocupe todo el contenedor */
+    background-size: cover;
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat; /* No repite la imagen */
     height: 100vh; /* Asegura que el fondo cubra toda la altura de la ventana */
-    width: 100%; /* Asegura que el ancho sea del 100% */
+    width: 100vw; /* Asegura que el ancho sea del 100% */
     margin: 0; /* Elimina márgenes por defecto */
+    overflow: hidden; /* Evita el scroll */
 }
 /* Escoger imagen del body*/
 .imgEscuela{
     background-image: url('../media/img_landing/escuela.jpg');
 }
 .imgPatio{
-    background-image: url('../media/img_landing/patio.jpg');  
+    background-image: url('../media/img_landing/patio.jpg');
+    background-size: 100% 100%;  
 }
 .imgClase{
     background-image: url('../media/img_landing/clase.jpg');  
@@ -27,7 +29,7 @@ html{
     background-image: url('../media/img_landing/baseball.png');  
 }
 
-/* Titulos */
+/* TITULOS */
 .styleTitulo {
     font-family: "Handlee", cursive;
     font-weight: 900; 
@@ -73,7 +75,7 @@ h2.styleTitulo{
     align-items: center;
     flex-direction: column;
 }
-/* Estilos de <button> y <A> */
+/* BOTONES */
 /* Separar clase en general, boton y a */
 .short_style_a_button{
     display: inline-block;  /* Permite que <a> respete height y width como un <button> */
@@ -86,7 +88,6 @@ h2.styleTitulo{
     border: 5px solid #A56C43;
     color: white;
     /* Letra */
-    /* text-transform: uppercase;  */
     font-size: 100%;
     text-decoration: none;  /* Quita el subrayado de los <a> */
     white-space: nowrap; /* Evita saltos de líneas del texto */
@@ -116,29 +117,77 @@ input::placeholder {
     width: 100vw;
     height: 8vh;
 }
+.divButtons_Formulario{
+    padding-left: 28%;
+    display: inline;
+    text-align: center;
+}
 .anna-img{
     position: absolute;
 }
-.atras {
-    top: 3.5%; /* Ajusta el margen superior */
-    left: 3%; /* Ajusta el margen izquierdo */
-    cursor: pointer;
-}
+
 
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* PERSONALIZADOS */
+/*HEADER*/
 .encabezado_general{
     display: flex;
     justify-content: flex-start;
     padding: 5px;
 }
-#body_MainMenu{
-    background-size: cover;
+/*FLECHA*/
+.atras {
+    margin: 18px;
+    cursor: pointer;
 }
-.divButtons_Formulario{
-    padding-left: 28%;
-    display: inline;
-    text-align: center;
+.img-header{
+    width: 50px;
+}
+/* BANDERAS IDIOMAS */
+.encabezado-pg-principal{
+    display: flex;
+    justify-content: flex-end;  /* Alinea el contenido a la derecha */
+    position: relative;  /* Para posicionar el menú desplegable correctamente */
+    margin: 5px;
+}
+ul{
+    list-style: none;
+}
+
+#bandera-seleccionada{
+    background: #C77E5F;
+    padding: 5px;
+    cursor: pointer;
+}
+.opcion-idioma:hover{
+    opacity: 80%;
+    cursor: pointer;
+}
+.menu-idiomas > li {
+    float: right;
+}
+.menu-idiomas li ul{
+    display: none;
+    position: absolute; 
+    min-width: 100px;
+   
+}
+.menu-idiomas li:hover > ul {
+    display: block;
+}
+.menu-idiomas li ul{
+    right: 0px;
+}
+.opcion-idioma{
+    display: flex;
+    align-items: center;
+    background-color: #C77E5F;
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+.texto-imagen{
+    margin-left: 10px;
 }
 
 /* <hr> main menu */
@@ -160,17 +209,8 @@ input::placeholder {
     margin: 25px;
 }
 
-.flecha-img{
-    width: 50px;
-}
-/* #tituloQuienesSomos{
-    padding: 0;
-    border-radius: 100px;
-    margin: 0 auto;
-    width: 55%;
-    height: 100px;
-    margin-bottom: 2%;
-} */
+
+
 #p_resumenQuienesSomos{
     width: 80%;
     margin: 0 auto;
@@ -308,55 +348,7 @@ input::placeholder {
 #buttonRankning_JuegoTotal:hover{
     background-color: blue;
 }
-/* BANDERAS IDIOMAS */
-/* Estilos para el contenedor de la selección de idioma */
-.encabezado-pg-principal{
-    display: flex;
-    justify-content: flex-end;  /* Alinea el contenido a la derecha */
-    position: relative;  /* Para posicionar el menú desplegable correctamente */
-    margin: 5px;
-}
-ul{
-    list-style: none;
-}
-.bandera-idioma{
-    width: 50px;
-}
-#bandera-seleccionada{
-    background: #C77E5F;
-    padding: 5px;
-    cursor: pointer;
-}
-.opcion-idioma:hover{
-    opacity: 80%;
-    cursor: pointer;
-}
-.menu-idiomas > li {
-    float: right;
-}
-.menu-idiomas li ul{
-    display: none;
-    position: absolute; 
-    min-width: 100px;
-   
-}
-.menu-idiomas li:hover > ul {
-    display: block;
-}
-.menu-idiomas li ul{
-    right: 0px;
-}
-.opcion-idioma{
-    display: flex;
-    align-items: center;
-    background-color: #C77E5F;
-    color: white;
-    text-decoration: none;
-    padding: 5px 10px;
-}
-.texto-imagen{
-    margin-left: 10px;
-}
+
 
 /*PÁGINA FUENTES*/
 /* Tamaño de las imagenes y posición*/

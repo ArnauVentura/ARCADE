@@ -27,7 +27,7 @@ if (isset($_SESSION['nombre'])) {
 <body class="bg_Img imgClase" id="bodyQuienesSomos">
     <header class="encabezado_general">
         <a class="atras" href="javascript:history.back()">
-            <img src="../media/flecha.png" alt="Volver" class="flecha-img">
+            <img src="../media/flecha.png" alt="Volver" class="img-header">
         </a>
     </header>
     <main>
