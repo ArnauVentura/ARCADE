@@ -6,7 +6,6 @@ if (!isset($_SESSION['nombre'])) {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -23,7 +22,7 @@ if (!isset($_SESSION['nombre'])) {
 <body class="bg_Img imgBaseball" id="body_ranking">
     <header class="encabezado_general">
         <a class="atras" href="javascript:history.back()">
-            <img src="../media/flecha.png" alt="Volver" class="flecha-img">
+            <img src="../media/flecha.png" alt="Volver" class="img-header">
         </a>
     </header>
     <div id="mainDiv_Ranking">

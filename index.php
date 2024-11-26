@@ -15,28 +15,27 @@
 include_once './php/bd.php';
 ?>
 
-<body class="bg_Img imgEscuela" id="body_MainMenu">
-    
+<body class="bg_Img imgEscuela">
     <header class="encabezado-pg-principal">
         <ul class="menu-idiomas">
             <li>
-                <img src="media/img_idiomas/esp.png" alt="Seleccionar idioma" id="bandera-seleccionada" class="bandera-idioma" onclick="toggleMenu()">
+                <img src="media/img_idiomas/esp.png" alt="Seleccionar idioma" id="bandera-seleccionada" class="img-header" onclick="toggleMenu()">
                 <ul>
                     <li onclick="selectLanguage('eng')">
                         <div class="opcion-idioma">
-                            <img src="media/img_idiomas/eng.png" alt="Inglés" class="bandera-idioma" >
+                            <img src="media/img_idiomas/eng.png" alt="Inglés" class="img-header" >
                             <span class="texto-imagen">ENG</span>
                         </div>
                     </li>
                     <li onclick="selectLanguage('esp')">
                         <div class="opcion-idioma">
-                            <img src="media/img_idiomas/esp.png" alt="Español" class="bandera-idioma">
+                            <img src="media/img_idiomas/esp.png" alt="Español" class="img-header">
                             <span class="texto-imagen">ESP</span>
                         </div>
                     </li>
                     <li onclick="selectLanguage('cat')">
                         <div class="opcion-idioma">
-                            <img src="media/img_idiomas/cat.png" alt="Catalán" class="bandera-idioma">
+                            <img src="media/img_idiomas/cat.png" alt="Catalán" class="img-header">
                             <span class="texto-imagen">CAT</span>
                         </div>
                     </li>
@@ -65,7 +64,7 @@ include_once './php/bd.php';
             <div class="divButtons_Formulario">
                 <a href="./html/jugar.html" class="short_style_a_button animacion_boton">JUGAR SIN REGISTRO</a>
 
-                <a href="./html/quienesSomos.php" class="short_style_a_button animacion_boton">CONÓCENOS</a>
+                <a href="./html/jugarRanking.php" class="short_style_a_button animacion_boton">CONÓCENOS</a>
             </div>
         </div>
         <div class="popup-overlay" id="popupOverlay">
