@@ -9,6 +9,10 @@
     background-attachment: fixed;
 }
 
+.headerPuzzle{
+    display: flex;
+}
+
 .mainPuzzle{
     margin-top: 8vh;
 }
@@ -61,8 +65,8 @@
 
 #pista{
     position: absolute;
-    top: -280px;
-    right: 600px;
+    top: -520px;
+    right: 690px;
     width: 40px;
     height: 40px;
     background: url('./img/bombilla.png') no-repeat center center;
@@ -74,8 +78,8 @@
 #pistaPopup{
     display: none;
     position: absolute;
-    top: -233px;
-    right: -320px;
+    top: -480px;
+    right: 390px;
     width: 300px;
     height: 300px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 2);
