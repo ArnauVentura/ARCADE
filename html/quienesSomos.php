@@ -26,13 +26,13 @@ if (isset($_SESSION['nombre'])) {
 </head>
 <body class="bg_Img imgClase" id="bodyQuienesSomos">
     <header class="encabezado_general">
-        <a class="atras" href="../index.html">
+        <a class="atras" href="javascript:history.back()">
             <img src="../media/flecha.png" alt="Volver" class="flecha-img">
         </a>
     </header>
     <main>
-        <div class="whiteBG elementosCentrados" id="tituloQuienesSomos">
-            <h1 class="styleTitulo">ARCADE</h1>
+        <div class="elementosCentrados whiteBG" id="tituloQuienesSomos">
+            <h1 class="styleTitulo">¿QUIÉNES SOMOS?</h1>
         </div>
         <p class="elementosCentrados whiteBG" id="p_resumenQuienesSomos">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
             Donec risus ligula, tempor eu varius ut, ultricies id nisl.
