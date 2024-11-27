@@ -61,18 +61,20 @@
 /* Icono de la bombilla */
 .bombilla {
     position: relative;
+    display: inline-block; /* Para asegurar que el hover funcione en esta área */
+    cursor: pointer;
 }
 
 #pista{
     position: absolute;
-    top: -520px;
-    right: 690px;
+    top: 20px;
+    right: 20px;
     width: 40px;
     height: 40px;
     background: url('./img/bombilla.png') no-repeat center center;
     background-size: contain;
     cursor: pointer;
-    z-index: 10;
+    z-index: -1;
 }
 
 #pistaPopup{
@@ -83,6 +85,7 @@
     width: 300px;
     height: 300px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 2);
+    z-index: 10;
 }
 
 #pistaPopup img{
