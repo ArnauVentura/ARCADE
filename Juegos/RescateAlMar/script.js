@@ -1,7 +1,6 @@
-const imagen = document.getElementById('miRectangulo');
+const imagen = document.getElementById('red');
 let posicionXPersonaje = 8; // Posición inicial en X del personaje
 const velocidad = 15; // Velocidad de movimiento en píxeles por frame
-
 let moviendoDerecha = false;
 let moviendoIzquierda = false;
 let puntuacionJugador = 0; // Puntuación inicial
@@ -12,11 +11,42 @@ const puntuacionElemento = document.getElementById('puntos');
 const tiempoElemento = document.getElementById('time').querySelector('p'); // Cambia a tu estructura HTML
 
 const tiposObjetos = [
-    { nombre: 'neumatico', puntuacion: 5, color: 'red' },
-    { nombre: 'bolsa', puntuacion: 10, color: 'blue' },
-    { nombre: 'botella', puntuacion: 15, color: 'green' },
-    { nombre: 'lata', puntuacion: 20, color: 'yellow' }
+    { nombre: 'neumatico', puntuacion: 5, imagen: 'img/neumatico.png', ancho: 120, alto: 120 },
+    { nombre: 'bolsa', puntuacion: 10, imagen: 'img/bolsa.png', ancho: 85, alto: 85 },
+    { nombre: 'botella', puntuacion: 15, imagen: 'img/botella.png', ancho: 75, alto: 75 },
+    { nombre: 'lata', puntuacion: 20, imagen: 'img/lata.png', ancho: 60, alto: 60 }
 ];
+let vidasRestantes = 3; // Número inicial de vidas
+const contenedorCorazones = document.getElementById('corazones'); // Contenedor para las imágenes
+const vidasElemento = document.querySelector('.vidas'); // Contenedor de los corazones
+
+function inicializarVidas() {
+    contenedorCorazones.innerHTML = ''; // Limpia cualquier imagen existente
+    for (let i = 0; i < vidasRestantes; i++) {
+        const corazon = document.createElement('img');
+        corazon.src = 'img/corazonBlanco.png'; // Ruta de la imagen del corazón
+        corazon.alt = 'Corazón Blanco';
+        corazon.classList.add('corazon'); // Agregamos una clase para estilos
+        contenedorCorazones.appendChild(corazon);
+    }
+}
+inicializarVidas();
+function actualizarVidas() {
+    if (vidasRestantes > 0) {
+        vidasRestantes--;
+
+        // Eliminar el último corazón del DOM
+        const corazones = contenedorCorazones.querySelectorAll('.corazon');
+        if (corazones.length > 0) {
+            corazones[corazones.length - 1].remove();
+        }
+
+        // Verificar si se acabaron las vidas
+        if (vidasRestantes === 0) {
+            finDelJuego();
+        }
+    }
+}
 
 // Función para actualizar la posición de la imagen
 function actualizarPosicion() {
@@ -30,8 +60,8 @@ function actualizarPosicion() {
     // Limitar el movimiento para que no salga de la pantalla
     if (posicionXPersonaje < 0) {
         posicionXPersonaje = 0;
-    } else if (posicionXPersonaje + 100 > window.innerWidth) { // 100 es el ancho del rectángulo
-        posicionXPersonaje = window.innerWidth - 100;
+    } else if (posicionXPersonaje + 150 > window.innerWidth) { // 150 es el ancho de la red
+        posicionXPersonaje = window.innerWidth - 150;
     }
 
     // Aplicar la nueva posición
@@ -73,9 +103,9 @@ function actualizarTiempo() {
 // Función para finalizar el juego
 function finDelJuego() {
     alert(`¡El juego ha terminado! Puntuación final: ${puntuacionJugador}`);
-    // Detener la creación de nuevos objetos
-    clearInterval(intervaloCreacionObjetos);
-    // También podrías limpiar todos los objetos que están en el contenedor
+    clearInterval(intervaloCreacionObjetos); // Detener la creación de nuevos objetos
+
+    // Detener cualquier animación activa
     const objetos = document.querySelectorAll('.objeto');
     objetos.forEach(objeto => objeto.remove());
 }
@@ -90,22 +120,30 @@ if (contenedorObjetos) {
     // Función para crear un objeto en una posición aleatoria
     function crearObjeto() {
         const objeto = document.createElement('div');
-        
+        objeto.classList.add('objeto');
+    
         // Seleccionar un tipo de objeto aleatoriamente
         const tipoSeleccionado = tiposObjetos[Math.floor(Math.random() * tiposObjetos.length)];
-        
-        objeto.classList.add('objeto');
-        objeto.style.backgroundColor = tipoSeleccionado.color; // Asigna un color basado en el tipo
         objeto.dataset.puntuacion = tipoSeleccionado.puntuacion; // Guarda la puntuación en un atributo
-
+    
+        // Crear la imagen del objeto
+        const imagen = document.createElement('img');
+        imagen.src = tipoSeleccionado.imagen; // Ruta de la imagen
+        imagen.alt = tipoSeleccionado.nombre; // Texto alternativo
+        imagen.style.width = `${tipoSeleccionado.ancho}px`; // Asigna el ancho del tipo
+        imagen.style.height = `${tipoSeleccionado.alto}px`; // Asigna el alto del tipo
+    
+        // Añadir la imagen al objeto
+        objeto.appendChild(imagen);
+    
         // Posición inicial en el ancho de la ventana
-        const posX = Math.random() * (window.innerWidth - 40); 
+        const posX = Math.random() * (window.innerWidth - tipoSeleccionado.ancho); // Ajustar posición para el ancho del objeto
         objeto.style.left = `${posX}px`;
         objeto.style.top = '200px'; // Posición inicial en 200px de altura
-
+    
         // Añadir el objeto al contenedor
         contenedorObjetos.appendChild(objeto);
-
+    
         // Iniciar la caída del objeto
         caer(objeto);
     }
@@ -113,28 +151,30 @@ if (contenedorObjetos) {
     // Función para hacer caer el objeto
     function caer(objeto) {
         let posY = 200; // Empieza desde 200px
-
-        // Animación de caída
+    
         function animarCaida() {
             posY += 3; // Velocidad de caída
             objeto.style.top = `${posY}px`;
-
-            // Verificar si hay colisión
+    
+            // Verificar si hay colisión con el rectángulo
             if (detectaColision(imagen, objeto)) {
                 puntuacionJugador += parseInt(objeto.dataset.puntuacion); // Actualiza la puntuación
-                objeto.remove(); // Eliminar el objeto si colisiona con el rectángulo
+                objeto.remove(); // Eliminar el objeto
                 puntuacionElemento.textContent = `Puntos: ${puntuacionJugador}`; // Actualiza la puntuación en el DOM
                 return; // Termina la animación de caída
             }
-
-            // Si el objeto sale de la pantalla, eliminarlo
+    
+            // Si el objeto toca el suelo
             if (posY > window.innerHeight) {
-                objeto.remove();
-            } else {
-                requestAnimationFrame(animarCaida);
+                actualizarVidas(); // Reducir una vida
+                objeto.remove(); // Eliminar el objeto del DOM
+                return; // Termina la animación de caída
             }
+        
+            // Continuar la animación
+            requestAnimationFrame(animarCaida);
         }
-
+    
         // Inicia la animación de caída
         requestAnimationFrame(animarCaida);
     }
