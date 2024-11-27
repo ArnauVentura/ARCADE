@@ -6,7 +6,7 @@ html{
 }
 /* Centrar imagenes al tamaño del contenedor */
 .bg_Img{
-    background-size: cover;
+    background-size: 100% 100%; 
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat; /* No repite la imagen */
     height: 100vh; /* Asegura que el fondo cubra toda la altura de la ventana */
@@ -17,10 +17,10 @@ html{
 /* Escoger imagen del body*/
 .imgEscuela{
     background-image: url('../media/img_landing/escuela.jpg');
+    background-size: cover;
 }
 .imgPatio{
-    background-image: url('../media/img_landing/patio.jpg');
-    background-size: 100% 100%;  
+    background-image: url('../media/img_landing/patio.jpg'); 
 }
 .imgClase{
     background-image: url('../media/img_landing/clase.jpg');  
@@ -56,17 +56,16 @@ h2.styleTitulo{
         2px 2px 0 #437CA5;
     margin-top: 5px;
 }
-/* Container del título */
-.div_SizeTitular{
+/* Container del título Anna */
+.div-titulos{
     width: 55%;
-    height: 200px;
     padding: 20px;
     margin: auto;
     border-radius: 75px;
-}
-/* Establece el fondo blanco para títulos, etc. */
-.whiteBG{
     background-color: rgba(255, 255, 255, 0.7);
+}
+.div-titulo-anna{
+    height: 200px;
 }
 /* Centra vertical y horizontalmente los elementos del contenedor */
 .elementosCentrados{
@@ -76,25 +75,33 @@ h2.styleTitulo{
     flex-direction: column;
 }
 /* BOTONES */
-/* Separar clase en general, boton y a */
-.short_style_a_button{
-    display: inline-block;  /* Permite que <a> respete height y width como un <button> */
-    height: 1%;
-    width: 20%;
+.estilos-generales{
     border-radius: 40px;
     margin: 10px;
     /* Colores */
     background: #C77E5F;
     border: 5px solid #A56C43;
     color: white;
+    font-family: 'Inter'; 
+}
+/* Separar clase en general, boton y a */
+.short_style_a_button{
+    display: inline-block;  /* Permite que <a> respete height y width como un <button> */
+    height: 1%;
+    width: 20%;
     /* Letra */
     font-size: 100%;
     text-decoration: none;  /* Quita el subrayado de los <a> */
     white-space: nowrap; /* Evita saltos de líneas del texto */
     box-sizing: border-box; /* Incluye padding y border en el tamaño total */
-    text-align: center;           /* Centra el texto horizontalmente */
+    text-align: center;/* Centra el texto horizontalmente */
     line-height: 200%;
-    font-family: 'Inter';   
+}
+.header-juegos-into{
+    width: 100vw;
+    height: 8vh;
+    display: flex;
+    align-items: center;
 }
 .animacion_boton:hover{
     background-color: #A56C43;
@@ -113,10 +120,6 @@ input::placeholder {
     width: 700px;
     height: 60px;
 }
-.extraLarge_style_a_button{
-    width: 100vw;
-    height: 8vh;
-}
 .divButtons_Formulario{
     padding-left: 28%;
     display: inline;
@@ -125,8 +128,6 @@ input::placeholder {
 .anna-img{
     position: absolute;
 }
-
-
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* PERSONALIZADOS */
 /*HEADER*/
@@ -208,63 +209,18 @@ ul{
 #main_mainMenu div input{
     margin: 25px;
 }
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* QUIENES SOMOS */
 
 
 
-#p_resumenQuienesSomos{
-    width: 80%;
-    margin: 0 auto;
-    text-align: center;
-    border-radius: 50px;
-    font-size:x-large;
-}
 
-/* Contenedor div miembros del grupo */
-.divEquipo{
-    height: auto;
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
-.divPersona{
-    width: 20%;
-    margin: 5%;
-    height: auto;
-    padding: 10%;
-    border-radius: 20px;
-}
-.p_textoPersona{
-    text-align: center;
-}
-/* Si tiene una clase cada imagen no es necesario div */
-.divPersona img.img_foto_persona{
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-}
 
-.divPersona img.logoRedSocial{
-    height: 60px;
-    width:  60px;
-    margin: 10px;
-}
-.div_LogoRedSocial{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-/* footer quienes somos */
-#footer_QuienesSomos{
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-#footer_QuienesSomos img{
-    height: 70px;
-    width: 70px;
-}
-/* Ranking */
+
+
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* RANKING */
 #body_ranking{
     background-size: cover;
 }
@@ -319,7 +275,7 @@ ul{
 .puntosPersonaje{
     padding: 10px;
     padding-left: 15px;
-}
+}/* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Ranking */
 .puntosPersonaje img{
     width: 40px;
@@ -349,7 +305,7 @@ ul{
     background-color: blue;
 }
 
-
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /*PÁGINA FUENTES*/
 /* Tamaño de las imagenes y posición*/
 
@@ -398,7 +354,7 @@ ul{
 }
 
 /* Container para la introducción a los juegos */
-.div_SizeFuentes{
+.div-texto-fuentes{
     width: 30%;
     height: auto;
     margin: auto;
@@ -407,13 +363,14 @@ ul{
     bottom: 15%;
     right: 18%;
     padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
 }
-
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* PÁGINAS INTRO JUEGOS*/
 .introduccion{
     background-color: #437CA5;
 }
-.div_SizeIntros{
+.div-intro-juegos{
     width: 70vw;
     height: 70vh;
     margin:auto;
@@ -422,8 +379,8 @@ ul{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.7);
 }
-
 .cursor-mano{
     width: 50px;
     height: 50px;
@@ -436,7 +393,9 @@ ul{
     height: 40px;
     font-weight: bold;
 }
-
+.titulo-juego{
+    margin-left: 80vh;
+}
 /* pop-up */
 .popup-overlay {
     display: none;

@@ -54,7 +54,7 @@ if (isset($_SESSION['nombre'])) {
         </div>
 
         <!--Div de la imagen de Anna-->
-        <div class="whiteBG elementosCentrados div_SizeFuentes">
+        <div class="elementosCentrados div-texto-fuentes">
             <p id="p-mensaje"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                 Donec risus ligula, tempor eu varius ut, ultricies id nisl.
                 Etiam id lacus vitae magna iaculis tristique in feugiat 
