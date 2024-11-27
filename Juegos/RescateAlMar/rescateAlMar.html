@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,19 +10,15 @@
 </head>
 <body>
     <header class="encabezado_general">
-        <nav class="estilos-generales header-juegos-into ">
+        <nav class="estilos-generales header-juegos-into">
             <a class="atras" href="javascript:history.back()">
                 <img src="../../media/flecha.png" alt="Volver" class="img-header">
             </a>
-            <div class="puntuacion">
-                <p id="puntos">Puntos: 0</p>
-            </div>
+            <div class="puntuacion" id="puntuacion-container"></div>
             <div class="vidas">
                 <div id="corazones"></div>
             </div>
-            <div id="tiempo">
-                <p>00:01:00</p>
-            </div>
+            <div id="tiempo" class="tiempo-container"></div>
         </nav>
     </header>
     <main>
@@ -34,3 +30,4 @@
 </body>
 <script src="script.js"></script>
 </html>
+
