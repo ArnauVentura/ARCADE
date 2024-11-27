@@ -16,26 +16,10 @@ body {
     overflow: hidden; /* Evita el scroll */
 }
 /* HEADER */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #C77E5F;
-    border: solid 4px #A56C43;
-    padding: 10px 20px;
-    border-radius: 50px; 
-    max-width: 95%;
-    margin: 20px auto; 
-    color: white;
-}
-
-#time {
+#tiempo {
     display: flex;
     align-items: center;
-}
-
-.navbar .vidas {
-    align-items: center;
+    justify-content: end;
 }
 
 #flecha {
