@@ -91,16 +91,23 @@ function pistaBombilla() {
     const pista = document.getElementById("pista");
     const pistaPopup = document.getElementById("pistaPopup");
     
+    if (!pista || !pistaPopup) {
+        console.error("Elementos 'pista' o 'pistaPopup' no encontrados.");
+        return;
+    }
+    // Mostrar el popup al pasar el mouse
     
-        // Mostrar el popup al pasar el mouse
-        pista.addEventListener("mouseenter", () => {
+    pista.addEventListener("mouseenter", () => {
+        console.log("Dentro");
         pistaPopup.style.display = "block";
-        });
+    });
 
-        // Ocultar el popup al salir el mouse
-        pista.addEventListener("mouseleave", () => {
+    // Ocultar el popup al salir el mouse
+    
+    pista.addEventListener("mouseleave", () => {
+        console.log("Fuera");
         pistaPopup.style.display = "none";
-        });
+    });
     
 };
 
