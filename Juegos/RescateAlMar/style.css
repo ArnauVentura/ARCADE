@@ -19,7 +19,13 @@ body {
 #tiempo {
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
+    width: 6%;
+    text-align: center;
+}
+
+#tiempo > p {
+    justify-content: center;
 }
 
 #flecha {
@@ -75,4 +81,13 @@ main {
     width: 80px; /* Ancho del objeto */
     height: auto; /* Alto del objeto */
     top: -30px; /* Comienza fuera de la pantalla */
+}
+
+.puntuacion {
+    width:13%;
+}
+.conjunto-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;    
 }
