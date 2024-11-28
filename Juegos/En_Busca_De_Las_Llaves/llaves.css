@@ -1,27 +1,27 @@
-/* gameArea sin efecto de linterna y sin oscuridad por defecto */
+/* Estilos para el área del juego */
 #gameArea {
     position: relative;
     height: 100vh;
-    width: 95%;
+    width: 105%;
     background-size: cover;
     background-position: center;
     overflow: hidden;
 }
 
-/* Solo activar oscuridad cuando estamos dentro de una sala */
+/* Modo oscuro solo para gameArea */
 #gameArea.dark {
-    background-color: rgba(0, 0, 0, 0.95); /* Fondo oscuro */
+    background-color: rgba(0, 0, 0, 0.95); /* Fondo oscuro solo en gameArea */
     position: relative;
     overflow: hidden; /* Ocultar todo lo que sobresalga */
 }
 
-/* Efecto de linterna solo se activa en el fondo oscuro */
+/* Efecto de linterna en gameArea */
 :root {
     --cX: 40vw;
     --cY: 40vh;
 }
 
-:root:before {
+#gameArea.dark:before { /* Solo aplicar el efecto de linterna dentro de gameArea */
     content: "";
     display: block;
     width: 100%;
@@ -29,12 +29,12 @@
     position: fixed;
     pointer-events: none;
     background: radial-gradient(
-      circle 8vmax at var(--cX) var(--cY),
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.5) 50%,
-      rgba(0, 0, 0, 0.90) 60%,
-      rgba(0, 0, 0, 0.99) 120%,
-      rgba(0, 0, 0, 1) 300%
+        circle 8vmax at var(--cX) var(--cY),
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0.90) 60%,
+        rgba(0, 0, 0, 0.99) 120%,
+        rgba(0, 0, 0, 1) 300%
     );
     z-index: 10;
 }

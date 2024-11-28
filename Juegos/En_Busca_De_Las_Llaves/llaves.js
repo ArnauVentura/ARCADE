@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Botón "atrás"
     backButton.addEventListener('click', () => {
         volverAlMenu();
-        disableDarkMode(); // Desactivar modo oscuro y linterna al regresar al menú
+        disableDarkMode(); // Desactivar modo oscuro y linterna
     });
 
     // Función para generar objetos ocultos
