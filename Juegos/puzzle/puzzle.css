@@ -61,31 +61,32 @@
 /* Icono de la bombilla */
 .bombilla {
     position: relative;
-    display: inline-block; /* Para asegurar que el hover funcione en esta área */
+    display: flex; /* Para asegurar que el hover funcione en esta área */
     cursor: pointer;
 }
 
 #pista{
     position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
+    top: -500px;
+    right: 650px;
+    width: 50px;
+    height: 50px;
     background: url('./img/bombilla.png') no-repeat center center;
     background-size: contain;
     cursor: pointer;
-    z-index: -1;
+    z-index: 10;
 }
 
 #pistaPopup{
     display: none;
     position: absolute;
-    top: -480px;
-    right: 390px;
+    top: -450px;
+    right: 400px;
     width: 300px;
     height: 300px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 2);
-    z-index: 10;
+    z-index: 20;
+    
 }
 
 #pistaPopup img{
