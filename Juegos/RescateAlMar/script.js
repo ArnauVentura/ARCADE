@@ -2,13 +2,15 @@
 const imagen = document.getElementById('red'); // La red del jugador
 const contenedorObjetos = document.getElementById('objetos'); // Contenedor donde caen los objetos
 let posicionXPersonaje = 8; // Posición inicial del jugador
-const velocidad = 15; // Velocidad de movimiento
+const velocidad = 27; // Velocidad de movimiento
 let moviendoDerecha = false;
 let moviendoIzquierda = false;
 let puntuacionJugador = 0; // Puntuación inicial
 let tiempoRestante = 60; // Tiempo restante en segundos
 let vidasRestantes = 3; // Número inicial de vidas
 let intervaloCreacionObjetos; // Variable para manejar el intervalo de creación de objetos
+let velocidadCaida = 3; // Velocidad inicial de caída
+let intervaloVelocidad; // Intervalo para aumentar la velocidad de caída
 
 // Tipos de objetos que pueden caer
 const tiposObjetos = [
@@ -124,7 +126,7 @@ function caer(objeto) {
     let posY = 200;
 
     function animarCaida() {
-        posY += 3;
+        posY += velocidadCaida;
         objeto.style.top = `${posY}px`;
 
         if (detectaColision(imagen, objeto)) {
@@ -148,15 +150,19 @@ function caer(objeto) {
 
 // Función para detectar colisión
 function detectaColision(rect, obj) {
-    const rectBounds = rect.getBoundingClientRect();
-    const objBounds = obj.getBoundingClientRect();
+    const rectBounds = rect.getBoundingClientRect(); // Límites de la red
+    const objBounds = obj.getBoundingClientRect();  // Límites del objeto
 
-    return !(
-        rectBounds.top > objBounds.bottom ||
-        rectBounds.bottom < objBounds.top ||
-        rectBounds.right < objBounds.left ||
-        rectBounds.left > objBounds.right
-    );
+    // Verificar colisión solo si el objeto toca la parte superior de la red
+    const colisionaPorArriba =
+        objBounds.bottom >= rectBounds.top &&        // El borde inferior del objeto toca o pasa el borde superior de la red
+        objBounds.bottom <= rectBounds.top + 10;    // Rango para evitar colisiones incorrectas
+
+    const colisionaHorizontalmente =
+        objBounds.right > rectBounds.left &&        // El lado derecho del objeto está dentro de la red
+        objBounds.left < rectBounds.right;          // El lado izquierdo del objeto está dentro de la red
+
+    return colisionaPorArriba && colisionaHorizontalmente;
 }
 
 // Función para actualizar el tiempo
@@ -173,6 +179,7 @@ function actualizarTiempo() {
 function finDelJuego() {
     alert(`¡El juego ha terminado! Puntuación final: ${puntuacionJugador}`);
     clearInterval(intervaloCreacionObjetos);
+    clearInterval(intervaloVelocidad);
     document.querySelectorAll('.objeto').forEach(obj => obj.remove());
 }
 
@@ -182,3 +189,8 @@ actualizarPosicion();
 // Iniciar el temporizador y los objetos
 setInterval(actualizarTiempo, 1000);
 intervaloCreacionObjetos = setInterval(crearObjeto, 1500);
+
+// Incrementar la velocidad de caída cada 10 segundos
+intervaloVelocidad = setInterval(() => {
+    velocidadCaida += 1; // Incrementar más agresivamente la velocidad de caída
+}, 10000);
