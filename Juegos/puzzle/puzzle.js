@@ -95,15 +95,14 @@ function pistaBombilla() {
         console.error("Elementos 'pista' o 'pistaPopup' no encontrados.");
         return;
     }
+
     // Mostrar el popup al pasar el mouse
-    
     pista.addEventListener("mouseenter", () => {
         console.log("Dentro");
         pistaPopup.style.display = "block";
     });
 
     // Ocultar el popup al salir el mouse
-    
     pista.addEventListener("mouseleave", () => {
         console.log("Fuera");
         pistaPopup.style.display = "none";
