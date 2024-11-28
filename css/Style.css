@@ -6,19 +6,21 @@ html{
 }
 /* Centrar imagenes al tamaño del contenedor */
 .bg_Img{
-    background-size: 100% 100%; /* Estira la imagen para que ocupe todo el contenedor */
+    background-size: 100% 100%; 
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat; /* No repite la imagen */
     height: 100vh; /* Asegura que el fondo cubra toda la altura de la ventana */
-    width: 100%; /* Asegura que el ancho sea del 100% */
+    width: 100vw; /* Asegura que el ancho sea del 100% */
     margin: 0; /* Elimina márgenes por defecto */
+    overflow: hidden; /* Evita el scroll */
 }
 /* Escoger imagen del body*/
 .imgEscuela{
     background-image: url('../media/img_landing/escuela.jpg');
+    background-size: cover;
 }
 .imgPatio{
-    background-image: url('../media/img_landing/patio.jpg');  
+    background-image: url('../media/img_landing/patio.jpg'); 
 }
 .imgClase{
     background-image: url('../media/img_landing/clase.jpg');  
@@ -27,7 +29,7 @@ html{
     background-image: url('../media/img_landing/baseball.png');  
 }
 
-/* Titulos */
+/* TITULOS */
 .styleTitulo {
     font-family: "Handlee", cursive;
     font-weight: 900; 
@@ -54,6 +56,17 @@ h2.styleTitulo{
         2px 2px 0 #437CA5;
     margin-top: 5px;
 }
+/* Container del título Anna */
+.div-titulos{
+    width: 55%;
+    padding: 20px;
+    margin: auto;
+    border-radius: 75px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+.div-titulo-anna{
+    height: 200px;
+}
 /* Centra vertical y horizontalmente los elementos del contenedor */
 .elementosCentrados{
     display:flex;
@@ -61,32 +74,34 @@ h2.styleTitulo{
     align-items: center;
     flex-direction: column;
 }
-/* Establece el fondo blanco para títulos, etc. */
-.whiteBG{
-    background-color: rgba(255, 255, 255, 0.7);
-}
-
-/* Estilos de <button> y <A> */
-/* Separar clase en general, boton y a */
-.short_style_a_button{
-    display: inline-block;  /* Permite que <a> respete height y width como un <button> */
-    height: 1%;
-    width: 20%;
+/* BOTONES */
+.estilos-generales{
     border-radius: 40px;
     margin: 10px;
     /* Colores */
     background: #C77E5F;
     border: 5px solid #A56C43;
     color: white;
+    font-family: 'Inter'; 
+}
+/* Separar clase en general, boton y a */
+.short_style_a_button{
+    display: inline-block;  /* Permite que <a> respete height y width como un <button> */
+    height: 1%;
+    width: 20%;
     /* Letra */
-    /* text-transform: uppercase;  */
     font-size: 100%;
     text-decoration: none;  /* Quita el subrayado de los <a> */
     white-space: nowrap; /* Evita saltos de líneas del texto */
     box-sizing: border-box; /* Incluye padding y border en el tamaño total */
-    text-align: center;           /* Centra el texto horizontalmente */
+    text-align: center;/* Centra el texto horizontalmente */
     line-height: 200%;
-    font-family: 'Inter';   
+}
+.header-juegos-into{
+    width: 100vw;
+    height: 8vh;
+    display: flex;
+    align-items: center;
 }
 .animacion_boton:hover{
     background-color: #A56C43;
@@ -97,7 +112,6 @@ h2.styleTitulo{
     text-align: left;
     padding-left: 10px;
     background-color: rgba(199, 126, 95, 0.8);
-
 }
 input::placeholder {
     color: white;
@@ -106,48 +120,77 @@ input::placeholder {
     width: 700px;
     height: 60px;
 }
-.extraLarge_style_a_button{
-    width: 100vw;
-    height: 8vh;
-}
-.anna-img{
-    position: absolute;
-}
-
-.atras {
-    top: 3.5%; /* Ajusta el margen superior */
-    left: 3%; /* Ajusta el margen izquierdo */
-    cursor: pointer;
-}
-
-/* Tamaño de la imagen de la flecha */
-.flecha-img {
-    width: 50px; /* Tamaño de la flecha, ajusta según tus necesidades */
-}
-
-
-/* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
-/* PERSONALIZADOS */
-.encabezado_general{
-    display: flex;
-    justify-content: flex-start;
-    padding: 5px;
-}
-#body_MainMenu{
-    background-size: cover;
-}
 .divButtons_Formulario{
     padding-left: 28%;
     display: inline;
     text-align: center;
 }
-/* Container del título */
-.div_SizeTitular{
-    width: 55%;
-    height: 200px;
-    margin:auto;
-    border-radius: 75px;
+.anna-img{
+    position: absolute;
 }
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* PERSONALIZADOS */
+/*HEADER*/
+.encabezado_general{
+    display: flex;
+    justify-content: flex-start;
+    padding: 5px;
+}
+/*FLECHA*/
+.atras {
+    margin: 18px;
+    cursor: pointer;
+}
+.img-header{
+    width: 50px;
+}
+/* BANDERAS IDIOMAS */
+.encabezado-pg-principal{
+    display: flex;
+    justify-content: flex-end;  /* Alinea el contenido a la derecha */
+    position: relative;  /* Para posicionar el menú desplegable correctamente */
+    margin: 5px;
+}
+ul{
+    list-style: none;
+}
+
+#bandera-seleccionada{
+    background: #C77E5F;
+    padding: 5px;
+    cursor: pointer;
+}
+.opcion-idioma:hover{
+    opacity: 80%;
+    cursor: pointer;
+}
+.menu-idiomas > li {
+    float: right;
+}
+.menu-idiomas li ul{
+    display: none;
+    position: absolute; 
+    min-width: 100px;
+   
+}
+.menu-idiomas li:hover > ul {
+    display: block;
+}
+.menu-idiomas li ul{
+    right: 0px;
+}
+.opcion-idioma{
+    display: flex;
+    align-items: center;
+    background-color: #C77E5F;
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+.texto-imagen{
+    margin-left: 10px;
+}
+
 /* <hr> main menu */
 #hr_mainMenu{
     margin:auto;
@@ -166,82 +209,18 @@ input::placeholder {
 #main_mainMenu div input{
     margin: 25px;
 }
-/* body quienes somos */
-/* Poner un body general con el background-size: cover; */
-#bodyQuienesSomos{
-    background-size: cover; 
-}
-/* Ya hay css de la flecha, juntarlo */
-.flecha img{
-    height: 100px;
-    display: inline;
-    margin: 10px;
-}
-#bodyQuienesSomos *{
-    padding: 0.3%;
-}
-#tituloQuienesSomos{
-    padding: 0;
-    border-radius: 100px;
-    margin: 0 auto;
-    width: 55%;
-    height: 100px;
-    margin-bottom: 2%;
-}
-#p_resumenQuienesSomos{
-    width: 80%;
-    margin: 0 auto;
-    text-align: center;
-    border-radius: 50px;
-    font-size:x-large;
-}
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* QUIENES SOMOS */
 
-/* Contenedor div miembros del grupo */
-.divEquipo{
-    height: auto;
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
-.divPersona{
-    width: 20%;
-    margin: 5%;
-    height: auto;
-    padding: 10%;
-    border-radius: 20px;
-}
-.p_textoPersona{
-    text-align: center;
-}
-/* Si tiene una clase cada imagen no es necesario div */
-.divPersona img.img_foto_persona{
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-}
 
-.divPersona img.logoRedSocial{
-    height: 60px;
-    width:  60px;
-    margin: 10px;
-}
-.div_LogoRedSocial{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-/* footer quienes somos */
-#footer_QuienesSomos{
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-#footer_QuienesSomos img{
-    height: 70px;
-    width: 70px;
-}
-/* Ranking */
+
+
+
+
+
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* RANKING */
 #body_ranking{
     background-size: cover;
 }
@@ -296,7 +275,7 @@ input::placeholder {
 .puntosPersonaje{
     padding: 10px;
     padding-left: 15px;
-}
+}/* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Ranking */
 .puntosPersonaje img{
     width: 40px;
@@ -325,56 +304,8 @@ input::placeholder {
 #buttonRankning_JuegoTotal:hover{
     background-color: blue;
 }
-/* BANDERAS IDIOMAS */
-/* Estilos para el contenedor de la selección de idioma */
-.encabezado-pg-principal{
-    display: flex;
-    justify-content: flex-end;  /* Alinea el contenido a la derecha */
-    position: relative;  /* Para posicionar el menú desplegable correctamente */
-    margin: 5px;
-}
-ul{
-    list-style: none;
-}
-.bandera-idioma{
-    width: 50px;
-}
-#bandera-seleccionada{
-    background: #C77E5F;
-    padding: 5px;
-    cursor: pointer;
-}
-.opcion-idioma:hover{
-    opacity: 80%;
-    cursor: pointer;
-}
-.menu-idiomas > li {
-    float: right;
-}
-.menu-idiomas li ul{
-    display: none;
-    position: absolute; 
-    min-width: 100px;
-   
-}
-.menu-idiomas li:hover > ul {
-    display: block;
-}
-.menu-idiomas li ul{
-    right: 0px;
-}
-.opcion-idioma{
-    display: flex;
-    align-items: center;
-    background-color: #C77E5F;
-    color: white;
-    text-decoration: none;
-    padding: 5px 10px;
-}
-.texto-imagen{
-    margin-left: 10px;
-}
 
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /*PÁGINA FUENTES*/
 /* Tamaño de las imagenes y posición*/
 
@@ -423,7 +354,7 @@ ul{
 }
 
 /* Container para la introducción a los juegos */
-.div_SizeFuentes{
+.div-texto-fuentes{
     width: 30%;
     height: auto;
     margin: auto;
@@ -432,13 +363,14 @@ ul{
     bottom: 15%;
     right: 18%;
     padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
 }
-
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* PÁGINAS INTRO JUEGOS*/
 .introduccion{
     background-color: #437CA5;
 }
-.div_SizeIntros{
+.div-intro-juegos{
     width: 70vw;
     height: 70vh;
     margin:auto;
@@ -447,8 +379,8 @@ ul{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.7);
 }
-
 .cursor-mano{
     width: 50px;
     height: 50px;
@@ -461,7 +393,9 @@ ul{
     height: 40px;
     font-weight: bold;
 }
-
+.titulo-juego{
+    margin-left: 80vh;
+}
 /* pop-up */
 .popup-overlay {
     display: none;
