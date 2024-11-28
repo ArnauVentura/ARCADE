@@ -6,7 +6,6 @@ if (!isset($_SESSION['nombre'])) {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -22,16 +21,16 @@ if (!isset($_SESSION['nombre'])) {
 </head>
 <body class="bg_Img imgBaseball" id="body_ranking">
     <header class="encabezado_general">
-            <a class="atras" href="./jugarRanking.html">
-                <img src="../media/flecha.png" alt="Volver" class="flecha-img">
-            </a>
+        <a class="atras" href="javascript:history.back()">
+            <img src="../media/flecha.png" alt="Volver" class="img-header">
+        </a>
     </header>
     <div id="mainDiv_Ranking">
         <div class="divSecundario elementosCentrados" id="divSecundarioLeft_Ranking">
-            <button class="short_style_a_button large_style_a_button" id="buttonRankning_Juego2" href="">EN BUSCA DE LAS LLAVES</button>
-            <button class="short_style_a_button large_style_a_button" id="buttonRankning_Juego3" href="">RESCATE DEL MAR</button>
-            <button class="short_style_a_button large_style_a_button" id="buttonRankning_Juego4" href="">AL RIO TRONCOS</button>
-            <button class="short_style_a_button large_style_a_button" id="buttonRankning_JuegoTotal" href="">RANKING TOTAL</button>
+            <button class="short_style_a_button estilos-generales large_style_a_button" id="buttonRankning_Juego2" href="">EN BUSCA DE LAS LLAVES</button>
+            <button class="short_style_a_button estilos-generales large_style_a_button" id="buttonRankning_Juego3" href="">RESCATE DEL MAR</button>
+            <button class="short_style_a_button estilos-generales large_style_a_button" id="buttonRankning_Juego4" href="">AL RIO TRONCOS</button>
+            <button class="short_style_a_button estilos-generales large_style_a_button" id="buttonRankning_JuegoTotal" href="">RANKING TOTAL</button>
         </div>
 
         <div class="divSecundario" id="divSecundarioRight_Ranking">
@@ -62,7 +61,6 @@ if (!isset($_SESSION['nombre'])) {
             
         </div>
     </div>
-    
     
 </body>
 </html>

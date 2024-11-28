@@ -1,47 +1,84 @@
-const imagen = document.getElementById('miRectangulo');
-let posicionXPersonaje = 8; // Posición inicial en X del personaje
-const velocidad = 15; // Velocidad de movimiento en píxeles por frame
-
+// Variables y constantes globales
+const imagen = document.getElementById('red'); // La red del jugador
+const contenedorObjetos = document.getElementById('objetos'); // Contenedor donde caen los objetos
+let posicionXPersonaje = 8; // Posición inicial del jugador
+const velocidad = 15; // Velocidad de movimiento
 let moviendoDerecha = false;
 let moviendoIzquierda = false;
 let puntuacionJugador = 0; // Puntuación inicial
-let tiempoRestante = 60; // Tiempo total en segundos
+let tiempoRestante = 60; // Tiempo restante en segundos
+let vidasRestantes = 3; // Número inicial de vidas
+let intervaloCreacionObjetos; // Variable para manejar el intervalo de creación de objetos
 
-// Obtener el elemento de puntuación y el tiempo
-const puntuacionElemento = document.getElementById('puntos');
-const tiempoElemento = document.getElementById('time').querySelector('p'); // Cambia a tu estructura HTML
-
+// Tipos de objetos que pueden caer
 const tiposObjetos = [
-    { nombre: 'neumatico', puntuacion: 5, color: 'red' },
-    { nombre: 'bolsa', puntuacion: 10, color: 'blue' },
-    { nombre: 'botella', puntuacion: 15, color: 'green' },
-    { nombre: 'lata', puntuacion: 20, color: 'yellow' }
+    { nombre: 'neumatico', puntuacion: 5, imagen: 'img/neumatico.png', ancho: 120, alto: 120 },
+    { nombre: 'bolsa', puntuacion: 10, imagen: 'img/bolsa.png', ancho: 85, alto: 85 },
+    { nombre: 'botella', puntuacion: 15, imagen: 'img/botella.png', ancho: 75, alto: 75 },
+    { nombre: 'lata', puntuacion: 20, imagen: 'img/lata.png', ancho: 60, alto: 60 }
 ];
 
-// Función para actualizar la posición de la imagen
+// Crear y añadir los elementos dinámicos de puntuación y tiempo
+const puntuacionElemento = document.createElement('p');
+puntuacionElemento.id = 'puntos';
+puntuacionElemento.textContent = 'Puntos: 0';
+document.querySelector('.puntuacion').appendChild(puntuacionElemento);
+
+const tiempoElemento = document.createElement('p');
+tiempoElemento.textContent = '00:01:00';
+document.getElementById('tiempo').appendChild(tiempoElemento);
+
+const contenedorCorazones = document.getElementById('corazones');
+
+// Función para inicializar vidas
+function inicializarVidas() {
+    contenedorCorazones.innerHTML = '';
+    for (let i = 0; i < vidasRestantes; i++) {
+        const corazon = document.createElement('img');
+        corazon.src = 'img/corazonBlanco.png';
+        corazon.alt = 'Corazón Blanco';
+        corazon.classList.add('corazon');
+        contenedorCorazones.appendChild(corazon);
+    }
+}
+
+// Función para actualizar vidas
+function actualizarVidas() {
+    if (vidasRestantes > 0) {
+        vidasRestantes--;
+        const corazones = contenedorCorazones.querySelectorAll('.corazon');
+        if (corazones.length > 0) {
+            corazones[corazones.length - 1].remove();
+        }
+        if (vidasRestantes === 0) {
+            finDelJuego();
+        }
+    }
+}
+
+// Inicializar las vidas
+inicializarVidas();
+
+// Función para actualizar la posición de la red
 function actualizarPosicion() {
     if (moviendoDerecha) {
-        posicionXPersonaje += velocidad; // Mover a la derecha
+        posicionXPersonaje += velocidad;
     }
     if (moviendoIzquierda) {
-        posicionXPersonaje -= velocidad; // Mover a la izquierda
+        posicionXPersonaje -= velocidad;
     }
 
-    // Limitar el movimiento para que no salga de la pantalla
     if (posicionXPersonaje < 0) {
         posicionXPersonaje = 0;
-    } else if (posicionXPersonaje + 100 > window.innerWidth) { // 100 es el ancho del rectángulo
-        posicionXPersonaje = window.innerWidth - 100;
+    } else if (posicionXPersonaje + 150 > window.innerWidth) {
+        posicionXPersonaje = window.innerWidth - 150;
     }
 
-    // Aplicar la nueva posición
     imagen.style.left = posicionXPersonaje + 'px';
-
-    // Volver a llamar a esta función en el siguiente frame
     requestAnimationFrame(actualizarPosicion);
 }
 
-// Escuchar eventos de teclado para iniciar y detener el movimiento
+// Escuchar eventos de teclado para mover la red
 window.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowRight') {
         moviendoDerecha = true;
@@ -49,6 +86,7 @@ window.addEventListener('keydown', (event) => {
         moviendoIzquierda = true;
     }
 });
+
 window.addEventListener('keyup', (event) => {
     if (event.key === 'ArrowRight') {
         moviendoDerecha = false;
@@ -57,103 +95,90 @@ window.addEventListener('keyup', (event) => {
     }
 });
 
-// Inicializar la posición de la imagen
-actualizarPosicion();
+// Función para crear un objeto
+function crearObjeto() {
+    const objeto = document.createElement('div');
+    objeto.classList.add('objeto');
 
-// Función para actualizar el tiempo restante
+    const tipoSeleccionado = tiposObjetos[Math.floor(Math.random() * tiposObjetos.length)];
+    objeto.dataset.puntuacion = tipoSeleccionado.puntuacion;
+
+    const imagenObjeto = document.createElement('img');
+    imagenObjeto.src = tipoSeleccionado.imagen;
+    imagenObjeto.alt = tipoSeleccionado.nombre;
+    imagenObjeto.style.width = `${tipoSeleccionado.ancho}px`;
+    imagenObjeto.style.height = `${tipoSeleccionado.alto}px`;
+
+    objeto.appendChild(imagenObjeto);
+
+    const posX = Math.random() * (window.innerWidth - tipoSeleccionado.ancho);
+    objeto.style.left = `${posX}px`;
+    objeto.style.top = '200px';
+
+    contenedorObjetos.appendChild(objeto);
+    caer(objeto);
+}
+
+// Función para hacer caer el objeto
+function caer(objeto) {
+    let posY = 200;
+
+    function animarCaida() {
+        posY += 3;
+        objeto.style.top = `${posY}px`;
+
+        if (detectaColision(imagen, objeto)) {
+            puntuacionJugador += parseInt(objeto.dataset.puntuacion);
+            objeto.remove();
+            puntuacionElemento.textContent = `Puntos: ${puntuacionJugador}`;
+            return;
+        }
+
+        if (posY > window.innerHeight) {
+            actualizarVidas();
+            objeto.remove();
+            return;
+        }
+
+        requestAnimationFrame(animarCaida);
+    }
+
+    requestAnimationFrame(animarCaida);
+}
+
+// Función para detectar colisión
+function detectaColision(rect, obj) {
+    const rectBounds = rect.getBoundingClientRect();
+    const objBounds = obj.getBoundingClientRect();
+
+    return !(
+        rectBounds.top > objBounds.bottom ||
+        rectBounds.bottom < objBounds.top ||
+        rectBounds.right < objBounds.left ||
+        rectBounds.left > objBounds.right
+    );
+}
+
+// Función para actualizar el tiempo
 function actualizarTiempo() {
     if (tiempoRestante > 0) {
-        tiempoRestante--; // Reduce el tiempo restante en 1 segundo
-        tiempoElemento.textContent = `00:00:${String(tiempoRestante).padStart(2, '0')}`; // Actualiza el texto del tiempo
+        tiempoRestante--;
+        tiempoElemento.textContent = `00:00:${String(tiempoRestante).padStart(2, '0')}`;
     } else {
-        finDelJuego(); // Llama a la función de fin del juego cuando el tiempo se agota
+        finDelJuego();
     }
 }
 
 // Función para finalizar el juego
 function finDelJuego() {
     alert(`¡El juego ha terminado! Puntuación final: ${puntuacionJugador}`);
-    // Detener la creación de nuevos objetos
     clearInterval(intervaloCreacionObjetos);
-    // También podrías limpiar todos los objetos que están en el contenedor
-    const objetos = document.querySelectorAll('.objeto');
-    objetos.forEach(objeto => objeto.remove());
+    document.querySelectorAll('.objeto').forEach(obj => obj.remove());
 }
 
-// Obtener el contenedor de los objetos
-const contenedorObjetos = document.getElementById('objetos');
+// Inicializar la posición de la red
+actualizarPosicion();
 
-// Verifica si el contenedor existe antes de proceder
-if (contenedorObjetos) {
-    let intervaloCreacionObjetos = setInterval(crearObjeto, 1500); // Crear un objeto cada 2 segundos
-
-    // Función para crear un objeto en una posición aleatoria
-    function crearObjeto() {
-        const objeto = document.createElement('div');
-        
-        // Seleccionar un tipo de objeto aleatoriamente
-        const tipoSeleccionado = tiposObjetos[Math.floor(Math.random() * tiposObjetos.length)];
-        
-        objeto.classList.add('objeto');
-        objeto.style.backgroundColor = tipoSeleccionado.color; // Asigna un color basado en el tipo
-        objeto.dataset.puntuacion = tipoSeleccionado.puntuacion; // Guarda la puntuación en un atributo
-
-        // Posición inicial en el ancho de la ventana
-        const posX = Math.random() * (window.innerWidth - 40); 
-        objeto.style.left = `${posX}px`;
-        objeto.style.top = '200px'; // Posición inicial en 200px de altura
-
-        // Añadir el objeto al contenedor
-        contenedorObjetos.appendChild(objeto);
-
-        // Iniciar la caída del objeto
-        caer(objeto);
-    }
-
-    // Función para hacer caer el objeto
-    function caer(objeto) {
-        let posY = 200; // Empieza desde 200px
-
-        // Animación de caída
-        function animarCaida() {
-            posY += 3; // Velocidad de caída
-            objeto.style.top = `${posY}px`;
-
-            // Verificar si hay colisión
-            if (detectaColision(imagen, objeto)) {
-                puntuacionJugador += parseInt(objeto.dataset.puntuacion); // Actualiza la puntuación
-                objeto.remove(); // Eliminar el objeto si colisiona con el rectángulo
-                puntuacionElemento.textContent = `Puntos: ${puntuacionJugador}`; // Actualiza la puntuación en el DOM
-                return; // Termina la animación de caída
-            }
-
-            // Si el objeto sale de la pantalla, eliminarlo
-            if (posY > window.innerHeight) {
-                objeto.remove();
-            } else {
-                requestAnimationFrame(animarCaida);
-            }
-        }
-
-        // Inicia la animación de caída
-        requestAnimationFrame(animarCaida);
-    }
-
-    // Función para detectar la colisión entre el rectángulo y el objeto
-    function detectaColision(rect, obj) {
-        const rectBounds = rect.getBoundingClientRect();
-        const objBounds = obj.getBoundingClientRect();
-
-        return !(
-            rectBounds.top > objBounds.bottom ||   // Rectángulo está por debajo del objeto
-            rectBounds.bottom < objBounds.top ||   // Rectángulo está por encima del objeto
-            rectBounds.right < objBounds.left ||   // Rectángulo está a la izquierda del objeto
-            rectBounds.left > objBounds.right      // Rectángulo está a la derecha del objeto
-        );
-    }
-
-    // Iniciar el temporizador
-    setInterval(actualizarTiempo, 1000); // Actualiza el tiempo cada segundo
-} else {
-    console.error('Error: el contenedor de objetos (#objetos) no se encuentra en el DOM');
-}
+// Iniciar el temporizador y los objetos
+setInterval(actualizarTiempo, 1000);
+intervaloCreacionObjetos = setInterval(crearObjeto, 1500);

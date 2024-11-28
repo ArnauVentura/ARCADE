@@ -1,10 +1,32 @@
+// Array con las carpetas de imágenes
+const carpetasImagenes = [
+    "../puzzle/img/3x3/set1/",
+    "../puzzle/img/3x3/set2/",
+    "../puzzle/img/3x3/set3/"
+];
+
+const imagenesPistas = [
+    "../puzzle/img/pistas/set1_pista.jpg",
+    "../puzzle/img/pistas/set2_pista.jpg",
+    "../puzzle/img/pistas/set3_pista.jpg"
+];
+
+// Elegir un índice aleatorio
+const indiceAleatorio = Math.floor(Math.random() * carpetasImagenes.length);
+// Carpeta seleccionada para las piezas del puzzle
+const carpetaSeleccionada = carpetasImagenes[indiceAleatorio];
+// Imagen de la pista correspondiente
+const imagenPistaSeleccionada = imagenesPistas[indiceAleatorio];
+
 // Función para asignar imágenes según el valor
-function obtenerFuenteImagen(valor) {
+function obtenerImagen(valor) {
     if (valor === 0) {
-        return ""; // Retorna vacío para el espacio vacío
+        return ""; //para el espacio vacío
     }
-    return `../puzzle/img/3x3/${valor}.jpg`; // Ruta a las imágenes (asegúrate de tener imágenes numeradas 1-8)
+    return `${carpetaSeleccionada}${valor}.jpg`;
 }
+// Cambiar la imagen de la pista
+document.getElementById("pistaPopup").innerHTML = `<img src="${imagenPistaSeleccionada}" alt="Pista del Puzzle">`;
 
 // Función para contar inversiones en una configuración
 function contarInversiones(numeros) {
@@ -62,7 +84,6 @@ window.onload = function () {
     cargar();
     actualizarVista();
     pistaBombilla();
-    
 };
 
 //PopUp de la imagen completa de la solución
@@ -70,16 +91,22 @@ function pistaBombilla() {
     const pista = document.getElementById("pista");
     const pistaPopup = document.getElementById("pistaPopup");
     
-    
-        // Mostrar el popup al pasar el mouse
-        pista.addEventListener("mouseenter", () => {
-        pistaPopup.style.display = "block";
-        });
+    if (!pista || !pistaPopup) {
+        console.error("Elementos 'pista' o 'pistaPopup' no encontrados.");
+        return;
+    }
 
-        // Ocultar el popup al salir el mouse
-        pista.addEventListener("mouseleave", () => {
+    // Mostrar el popup al pasar el mouse
+    pista.addEventListener("mouseenter", () => {
+        console.log("Dentro");
+        pistaPopup.style.display = "block";
+    });
+
+    // Ocultar el popup al salir el mouse
+    pista.addEventListener("mouseleave", () => {
+        console.log("Fuera");
         pistaPopup.style.display = "none";
-        });
+    });
     
 };
 
@@ -108,7 +135,7 @@ function actualizarVista() {
             // Si el valor no es 0, asigna una imagen
             if (valor !== 0) {
                 let img = document.createElement("img");
-                img.src = obtenerFuenteImagen(valor);
+                img.src = obtenerImagen(valor);
                 celda.appendChild(img);
             }
         }

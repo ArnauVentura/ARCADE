@@ -16,36 +16,32 @@ body {
     overflow: hidden; /* Evita el scroll */
 }
 /* HEADER */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #C77E5F;
-    border: solid 4px #A56C43;
-    padding: 10px 20px;
-    border-radius: 50px; 
-    max-width: 95%;
-    margin: 20px auto; 
-    color: white;
-}
-
-#back, #time {
+#tiempo {
     display: flex;
     align-items: center;
-}
-
-.navbar .vidas {
-    align-items: center;
+    justify-content: end;
 }
 
 #flecha {
     width: 50px;
 }
 
-.corazonBlanco {
-    width: 25px;
+#corazones {
+    display: flex; /* Coloca los corazones en línea */
+    gap: 5px; /* Espaciado entre los corazones */
 }
 
+.corazon {
+    width: 25px; /* Tamaño de los corazones */
+    height: 25px;
+}
+.vidas {
+    display: flex;
+    align-items: center;
+    font-size: 18px; /* Tamaño del texto */
+    color: white; /* Color del texto */
+    margin-right: 20px;
+}
 #puntos {
     margin-left: 50px;
     font-weight: bold;
@@ -62,12 +58,11 @@ main {
     margin: 0; /* Eliminar márgenes predeterminados */
 }
 
-#miRectangulo {
+#red {
     position: absolute; /* Permite moverlo libremente */
-    width: 100px; /* Ancho del rectángulo */
-    height: 50px; /* Alto del rectángulo */
-    background-color: blue; /* Color del rectángulo */
-    bottom: 20px; /* Distancia desde la parte inferior */
+    width: 150px; /* Ancho de la red */
+    height: auto;
+    bottom: -5px; /* Distancia desde la parte inferior */
 }
 #objetos {
     position: absolute; /* Posición absoluta dentro de su contenedor principal */
@@ -77,9 +72,7 @@ main {
 }
 .objeto {
     position: absolute; /* Para que cada objeto tenga su propia posición */
-    width: 40px; /* Ancho del objeto */
-    height: 40px; /* Alto del objeto */
-    background-color: red; /* Color del objeto */
-    border-radius: 50%; /* Forma redonda */
+    width: 80px; /* Ancho del objeto */
+    height: auto; /* Alto del objeto */
     top: -30px; /* Comienza fuera de la pantalla */
 }

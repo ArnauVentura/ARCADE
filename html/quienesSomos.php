@@ -26,49 +26,70 @@ if (isset($_SESSION['nombre'])) {
 </head>
 <body class="bg_Img imgClase" id="bodyQuienesSomos">
     <header class="encabezado_general">
-        <a class="atras" href="../index.html">
-            <img src="../media/flecha.png" alt="Volver" class="flecha-img">
+        <a class="atras" href="javascript:history.back()">
+            <img src="../media/flecha.png" alt="Volver" class="img-header">
         </a>
     </header>
     <main>
-        <div class="whiteBG elementosCentrados" id="tituloQuienesSomos">
-            <h1 class="styleTitulo">ARCADE</h1>
+        <div class="elementosCentrados whiteBG div-titulos">
+            <h1 class="styleTitulo">¿QUIÉNES SOMOS?</h1>
         </div>
-        <p class="elementosCentrados whiteBG" id="p_resumenQuienesSomos">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Donec risus ligula, tempor eu varius ut, ultricies id nisl.
-            Etiam id lacus vitae magna iaculis tristique in feugiat 
-            sem. Mauris facilisis orci eu dolor fringilla, id rhoncus 
-            est posuere. Proin cursus lorem in porta gravida.</p>
-
-            <div class="divEquipo">
-                <div class="divPersona elementosCentrados whiteBG">
-                    <img src="../media/img_landing/gmail_Logo.png" alt="" class="img_foto_persona">
-                    <h5>Nombre Apellido</h5>
-                    <p class="p_textoPersona">Junior de CSS, Senior de la impaciencia. Espero que me apruebe el profesor porque apenas apruevo la vida</p>
-                    <div class="div_LogoRedSocial">
-                        <a href=""><img src="../media/img_landing/gmail_Logo.png" alt="Gmail" class="logoRedSocial"></a>
-                        <a href=""><img src="../media/img_landing/gmail_Logo.png" alt="Instagram" class="logoRedSocial"></a>
-                    </div>
+        <div class="elementosCentrados">
+            <p  id="">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Donec risus ligula, tempor eu varius ut, ultricies id nisl.
+                Etiam id lacus vitae magna iaculis tristique in feugiat 
+                sem. Mauris facilisis orci eu dolor fringilla, id rhoncus 
+                est posuere. Proin cursus lorem in porta gravida.
+            </p>
+        </div>
+        <section class="">
+            <article class="">
+                <img src="../media/img_landing/gmail_Logo.png" alt="" class="">
+                <h5>Nombre Apellido</h5>
+                <p class="">
+                    Junior de CSS, Senior de la impaciencia. Espero que me apruebe el profesor porque apenas apruevo la vida
+                </p>
+                <div class="">
+                    <a href="">
+                        <img src="../media/img_landing/gmail_Logo.png" alt="Gmail" class="">
+                    </a>
+                    <a href="">
+                        <img src="../media/img_landing/gmail_Logo.png" alt="Instagram" class="">
+                    </a>
                 </div>
-                <div class="divPersona elementosCentrados whiteBG">
-                    <img src="../media/img_landing/gmail_Logo.png" alt="" class="img_foto_persona">
-                    <h5>Nombre Apellido</h5>
-                    <p class="p_textoPersona">Junior de CSS, Senior de la impaciencia. Espero que me apruebe el profesor porque apenas apruevo la vida</p>
-                    <div class="div_LogoRedSocial">
-                        <a href=""><img src="../media/img_landing/gmail_Logo.png" alt="Gmail" class="logoRedSocial"></a>
-                        <a href=""><img src="../media/img_landing/gmail_Logo.png" alt="Instagram" class="logoRedSocial"></a>
-                    </div>
+            </article>
+            <article class="">
+                <img src="../media/img_landing/gmail_Logo.png" alt="" class="">
+                <h5>Nombre Apellido</h5>
+                <p class="">
+                    Junior de CSS, Senior de la impaciencia. Espero que me apruebe el profesor porque apenas apruevo la vida
+                </p>
+                <div class="">
+                    <a href="">
+                        <img src="../media/img_landing/gmail_Logo.png" alt="Gmail" class="">
+                    </a>
+                    <a href="">
+                        <img src="../media/img_landing/gmail_Logo.png" alt="Instagram" class="">
+                    </a>
                 </div>
-                <div class="divPersona elementosCentrados whiteBG">
-                    <img src="../media/img_landing/gmail_Logo.png" alt="" class="img_foto_persona">
-                    <h5>Nombre Apellido</h5>
-                    <p class="p_textoPersona">Junior de CSS, Senior de la impaciencia. Espero que me apruebe el profesor porque apenas apruevo la vida</p>
-                    <div class="div_LogoRedSocial">
-                        <a href=""><img src="../media/img_landing/gmail_Logo.png" alt="Gmail" class="logoRedSocial"></a>
-                        <a href=""><img src="../media/img_landing/gmail_Logo.png" alt="Instagram" class="logoRedSocial"></a>
-                    </div>
+            </article>
+            <article class="">
+                <img src="../media/img_landing/gmail_Logo.png" alt="" class="">
+                <h5>Nombre Apellido</h5>
+                <p class="">
+                    Junior de CSS, Senior de la impaciencia. Espero que me apruebe el profesor porque apenas apruevo la vida
+                </p>
+                <div class="">
+                    <a href="">
+                        <img src="../media/img_landing/gmail_Logo.png" alt="Gmail" class="">
+                    </a>
+                    <a href="">
+                        <img src="../media/img_landing/gmail_Logo.png" alt="Instagram" class="">
+                    </a>
                 </div>
-            </div>
+            </article>
+        </section>
     </main>
     <footer id="footer_QuienesSomos">
         <div id="footer_left">
