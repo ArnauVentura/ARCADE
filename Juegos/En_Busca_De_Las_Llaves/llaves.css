@@ -1,4 +1,3 @@
-/* Estilos para el área del juego */
 #gameArea {
     position: relative;
     height: 98vh;
@@ -8,20 +7,19 @@
     overflow: hidden;
 }
 
-/* Modo oscuro solo para gameArea */
 #gameArea.dark {
-    background-color: rgba(0, 0, 0, 0.95); /* Fondo oscuro solo en gameArea */
+    background-color: rgba(0, 0, 0, 0.95);
     position: relative;
-    overflow: hidden; /* Ocultar todo lo que sobresalga */
+    overflow: hidden;
 }
 
-/* Efecto de linterna en gameArea */
+
 :root {
     --cX: 40vw;
     --cY: 40vh;
 }
 
-#gameArea.dark:before { /* Solo aplicar el efecto de linterna dentro de gameArea */
+#gameArea.dark:before {
     content: "";
     display: block;
     width: 99.5%;
