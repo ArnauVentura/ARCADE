@@ -1,131 +1,127 @@
 body {
-    position: relative;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    margin: 0;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
 }
 
-/* Estilo para el tiempo */
 #tiempo {
-    font-family: "Handlee", cursive;
-    font-size: 1.5rem;
-    color: #ffffff;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 5px;
-    border-radius: 5px;
-    min-width: 80px;
-    text-align: center;
+  font-family: "Handlee", cursive;
+  font-size: 1.5rem;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  border-radius: 5px;
+  min-width: 80px;
+  text-align: center;
 }
 
-/* Estilo para el texto del juego */
 #textoJuego {
-    font-family: "Handlee", cursive;
-    font-size: 1.2rem;
-    color: #ffffff;
-    text-align: center;
-    flex-grow: 1;
-    margin: 0;
+  font-family: "Handlee", cursive;
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-align: center;
+  flex-grow: 1;
+  margin: 0;
 }
 
-/* Header específico para el juego */
 .encabezado_juego {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
-    padding: 10px 20px;
-    box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 10px 20px;
+  box-sizing: border-box;
 }
 
-/* Contenedor de los elementos del header */
-.encabezado_juego .conjunto-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+.encabezado_juego .conjunto_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
-/* Botones de selección de sala */
 #buttonsArea {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    position: absolute;
-    bottom: 20px; /* Coloca los botones en la parte inferior */
-    left: 0;
-    width: 100%;
-    z-index: 20; /* Asegura que los botones se vean por encima de otros elementos */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  z-index: 20;
 }
 
-/* Título del área del juego */
-#title {
-    font-family: "Handlee", cursive;
-    font-size: 2rem;
-    text-align: center;
-    color: #0A1576;
-    text-shadow: -2px -2px 0 #437CA5, 2px 2px 0 #437CA5;
-    margin: 20px 0;
+#contadorLlaves {
+  font-family: "Handlee", cursive;
+  font-size: 1.2rem;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+  border-radius: 5px;
+  min-width: 60px;
+  text-align: center;
+  margin-left: 20px; /* Espacio entre el contador y el texto de tiempo */
 }
 
-/* Objetos ocultos */
 .hiddenObject {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    background-color: red; /* Color por defecto */
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.3s;
-    z-index: 10; /* Asegura que los objetos ocultos estén por encima del fondo oscuro */
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s;
+  z-index: 10;
 }
 
 .hiddenObject:hover {
-    transform: scale(1.2); /* Efecto al pasar el ratón */
+  transform: scale(1.2);
 }
 
 .hiddenObject.found {
-    background-color: green; /* Color al encontrarlo */
+  background-color: green;
 }
 
 /* Área de juego */
 #gameArea {
-    position: relative;
-    z-index: 15;
-    margin-top: 100px; /* Coloca el área de juego debajo del header */
-    height: calc(100vh - 100px); /* El área de juego ocupa el espacio restante */
-    overflow: hidden; /* Asegura que los objetos no salgan del área */
+  position: relative;
+  z-index: 15;
+  margin-top: 100px;
+  height: calc(100vh - 100px);
+  overflow: hidden;
 }
 
 /* Efecto de linterna */
 body.dark:before {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    background: radial-gradient(
-        circle 8vmax at var(--cX) var(--cY),
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.5) 50%,
-        rgba(0, 0, 0, 0.9) 60%,
-        rgba(0, 0, 0, 0.99) 120%,
-        rgba(0, 0, 0, 1) 300%
-    );
-    z-index: 5; /* Fondo oscuro con un z-index bajo */
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle 8vmax at var(--cX) var(--cY),
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.9) 60%,
+    rgba(0, 0, 0, 0.99) 120%,
+    rgba(0, 0, 0, 1) 300%
+  );
+  z-index: 5;
 }
 
 #textoJuego {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #ffffff;
-    font-family: "Handlee", cursive;
-    margin-top: 5px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #ffffff;
+  font-family: "Handlee", cursive;
+  margin-top: 5px;
 }
