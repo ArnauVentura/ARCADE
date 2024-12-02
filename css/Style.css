@@ -125,7 +125,7 @@ input::placeholder {
     display: inline;
     text-align: center;
 }
-.anna-img{
+.anna-img, .annaFace-img{
     position: absolute;
 }
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -316,36 +316,30 @@ ul{
     cursor: pointer;
 }
 .fuente_amarilla { 
-    bottom: 30%; 
-    left: 32%; 
+    bottom: 280px; 
+    left: 580px; 
     width: 250px;
 }
 
 .fuente_roja {
-    top: 30%; 
-    right: 30%;
+    top: 200px; 
+    left: 730px;
     width: 250px;
 }
 
 .fuente_azul {
-    top: 30%; 
-    left: 4%; /
-}
-
-.fuente_verde {
-    top: 20%; 
-    left: 38%; 
+    top: 280px; 
+    left: 90px;
 }
 
 #annaFuente{
     bottom: 0px; /* Ajusta la distancia desde el borde inferior */
     right: 0px;  /* Ajusta la distancia desde el borde derecho */
-    width: 380px; /* Ajusta el tamaño de la imagen */
+    width: 500px; /* Ajusta el tamaño de la imagen */
 }
 
 /* Mensaje introductorio juegos*/
-#p-mensaje{
-    width: 80%;
+#p-mensaje{ 
     margin: 0 auto;
     text-align: center;
     border-radius: 50px;
@@ -360,8 +354,8 @@ ul{
     margin: auto;
     border-radius: 75px;
     position: absolute;
-    bottom: 15%;
-    right: 18%;
+    bottom: 480px;
+    right: 200px;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.7);
 }

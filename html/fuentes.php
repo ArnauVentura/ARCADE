@@ -56,14 +56,10 @@ if (isset($_SESSION['nombre'])) {
 
         <!--Div de la imagen de Anna-->
         <div class="elementosCentrados div-texto-fuentes">
-            <p id="p-mensaje"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Donec risus ligula, tempor eu varius ut, ultricies id nisl.
-                Etiam id lacus vitae magna iaculis tristique in feugiat 
-                sem. Mauris facilisis orci eu dolor fringilla, id rhoncus 
-                est posuere. Proin cursus lorem in porta gravida. </p>
+            <p id="p-mensaje">¡Que empiece la investigación!</p>
         </div>
         <div>
-            <img src="../media/img_anna/anna.png" class="anna-img" alt="Anna" id="annaFuente"> 
+            <img src="../media/img_anna/annaFace.png" class="annaFace-img" alt="AnnaFace" id="annaFuente"> 
         </div>
     </main>
 
