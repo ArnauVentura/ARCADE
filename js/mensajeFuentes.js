@@ -1,55 +1,29 @@
-//Declaración de imagenes
-const fuenteAmarilla = document.getElementById('fuenteAmarilla');
-const fuenteRoja = document.getElementById('fuenteRoja');
-const fuenteAzul = document.getElementById('fuenteAmzul');
-const fuenteVerde = document.getElementById('fuenteVerde');
+// Selección del párrafo donde cambia el texto
+const mensaje = document.getElementById("p-mensaje");
 
-const mensaje = document.getElementById('mensaje').innerText = mensaje;
-
-//funcion para el mensaje
-
-function mostrarMensaje(text) {
-  mensaje.innerText = text;
+// Función para cambiar el texto del párrafo
+function cambiarMensaje(nuevoMensaje) {
+    mensaje.textContent = nuevoMensaje;
 }
 
-//funcion que linckea la imagen a otro html
-
-function navegarA(url) {
-  window.location.href = url;
-}
-
-//Eventos click
-fuenteAmarilla.addEventListener('click', function() {
-  mostrarMensaje('Texto para la fuente amarilla'); //Texto introductorio de cada juego
+// Event listeners para cada fuente
+document.getElementById("fuenteAmarilla").addEventListener("mouseover", () => {
+    cambiarMensaje("La fuente amarilla brilla intensamente. ¡Un desafío emocionante te espera!");
+});
+document.getElementById("fuenteRoja").addEventListener("mouseover", () => {
+    cambiarMensaje("La fuente roja parece caliente y peligrosa. ¿Te atreves a intentarlo?");
+});
+document.getElementById("fuenteAzul").addEventListener("mouseover", () => {
+    cambiarMensaje("La fuente azul fluye tranquila. Pero cuidado, podría ser engañosa.");
 });
 
-fuenteRoja.addEventListener('click', function() {
-  mostrarMensaje('Texto para la fuente roja'); //Texto introductorio de cada juego
+// Restaurar el texto original al quitar el cursor
+document.getElementById("fuenteAmarilla").addEventListener("mouseout", () => {
+    cambiarMensaje("Elige una fuente para comenzar tu aventura.");
 });
-
-fuenteAzul.addEventListener('click', function() {
-  mostrarMensaje('Texto para la fuente azul'); //Texto introductorio de cada juego
+document.getElementById("fuenteRoja").addEventListener("mouseout", () => {
+    cambiarMensaje("Elige una fuente para comenzar tu aventura.");
 });
-
-fuenteVerde.addEventListener('click', function() {
-  mostrarMensaje('Texto para la fuente verde'); //Texto introductorio de cada juego
-});
-
-//EventosDobleClick
-
-
-fuenteAmarilla.addEventListener('dblclick', function() {
-  navegarA('fuente_amarilla.html'); //La url de cada juego
-});
-
-fuenteRoja.addEventListener('dblclick', function() {
-  navegarA('fuente_roja.html'); //La url de cada juego
-});
-
-fuenteAzul.addEventListener('dblclick', function() {
-  navegarA('fuente_azul.html'); //La url de cada juego
-});
-
-fuenteVerde.addEventListener('dblclick', function() {
-  navegarA('fuente_verde.html'); //La url de cada juego
+document.getElementById("fuenteAzul").addEventListener("mouseout", () => {
+    cambiarMensaje("Elige una fuente para comenzar tu aventura.");
 });

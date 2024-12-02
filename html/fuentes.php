@@ -22,6 +22,7 @@ if (isset($_SESSION['nombre'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    
 </head>
 <body class="bg_Img imgPatio">
 
@@ -66,6 +67,6 @@ if (isset($_SESSION['nombre'])) {
         </div>
     </main>
 
-    <script src="mensajeFuentes.js"></script>
+    <script src="../js/mensajeFuentes.js"></script>
 </body>
 </html>
