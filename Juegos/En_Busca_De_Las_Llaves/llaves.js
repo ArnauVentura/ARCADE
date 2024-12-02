@@ -1,65 +1,155 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const gameArea = document.getElementById('gameArea');
-    const title = document.getElementById('title');
-    const buttonsArea = document.getElementById('buttonsArea');
-    const hiddenObjectsArea = document.getElementById('hiddenObjectsArea');
-    const backButton = document.getElementById('flecha');
+  const gameArea = document.getElementById("gameArea");
+  const buttonsArea = document.getElementById("buttonsArea");
+  const hiddenObjectsArea = document.getElementById("hiddenObjectsArea");
+  const backButton = document.querySelector(".atras");
+  const textoJuego = document.getElementById("textoJuego");
+  const contadorLlaves = document.getElementById("contadorLlaves");
 
-    let currentRoom = null; // Variable para almacenar la sala actual
-    const defaultBackground = "url('./media/HUB.png')"; // Fondo inicial
-    const roomBackgrounds = {
-        sala_mantenimiento: "url('./media/Mantenimiento.png')",
-        sala_inundada: "url('./media/Inundado.png')",
-        sala_ruinas: "url('./media/Ruinas.png')"
-    };
+  let currentRoom = null;
+  let objetosEncontrados = 0;
+  let contadorLlavesCompletadas = 0;
+  const objetosPorSala = 3;
+  const totalLlaves = 3;
 
-    // Establecer el fondo inicial
-    gameArea.style.backgroundImage = defaultBackground;
+  const defaultBackground = "url('./media/HUB.png')";
+  const roomBackgrounds = {
+      sala_mantenimiento: "url('./media/Mantenimiento.png')",
+      sala_inundada: "url('./media/Inundado.png')",
+      sala_ruinas: "url('./media/Ruinas.png')",
+  };
 
-    // Cambiar de sala al hacer clic en los botones de navegación
-    document.querySelectorAll('.navButton').forEach(button => {
-        button.addEventListener('click', () => {
-            const room = button.getAttribute('data-room');
-            currentRoom = room; // Actualizar la sala actual
-            gameArea.style.backgroundImage = roomBackgrounds[room];
-            title.textContent = `Estás en la ${room.replace('_', ' ')}`;
-            hiddenObjectsArea.innerHTML = ""; // Limpiar los objetos de la sala anterior
-            buttonsArea.style.display = 'none'; // Ocultar los botones de selección de sala
-            generateObjects(3); // Generar 3 llaves en la sala
-        });
-    });
+  let timerInterval;
+  let startTime = Date.now();
+  startTimer();
 
-    // Botón "atrás"
-    backButton.addEventListener('click', () => {
-        if (currentRoom) {
-            // Volver al fondo inicial
-            gameArea.style.backgroundImage = defaultBackground;
-            title.textContent = "Selecciona una sala para buscar las llaves";
-            hiddenObjectsArea.innerHTML = ""; // Limpiar objetos
-            buttonsArea.style.display = 'block'; // Mostrar nuevamente los botones de selección de sala
-            currentRoom = null; // Restablecer la sala actual
-        }
-    });
+  document.body.style.backgroundImage = defaultBackground;
 
-    // Función para generar objetos ocultos
-    function generateObjects(numObjects) {
-        for (let i = 0; i < numObjects; i++) {
-            const object = document.createElement('div');
-            object.classList.add('hiddenObject');
+  document.querySelectorAll(".navButton").forEach((button) => {
+      button.addEventListener("click", () => {
+          const room = button.getAttribute("data-room");
+          currentRoom = room;
+          objetosEncontrados = 0;
+          document.body.style.backgroundImage = roomBackgrounds[room];
+          textoJuego.textContent = `Estás en la ${room.replace("_", " ")}`;
+          hiddenObjectsArea.innerHTML = "";
+          buttonsArea.style.display = "none";
+          enableDarkMode();
+          generateObjects(objetosPorSala);
+      });
+  });
 
-            // Posición aleatoria dentro del área
-            object.style.top = `${Math.random() * 80}%`; // Ajustar para no interferir con la navbar
-            object.style.left = `${Math.random() * 100}%`;
+  backButton.addEventListener("click", () => {
+      volverAlMenu();
+      disableDarkMode();
+  });
 
-            // Evento de clic para encontrar el objeto
-            object.addEventListener('click', () => {
-                if (!object.classList.contains('found')) {
-                    object.classList.add('found');
-                    // Lógica adicional para contar objetos, si es necesario
-                }
-            });
+  function generateObjects(numObjects) {
+      hiddenObjectsArea.innerHTML = "";
+      for (let i = 0; i < numObjects; i++) {
+          const top = Math.random() * 90;
+          const left = Math.random() * 90;
 
-            hiddenObjectsArea.appendChild(object);
-        }
-    }
+          const object = document.createElement("div");
+          object.classList.add("hiddenObject");
+          object.style.top = `${top}%`;
+          object.style.left = `${left}%`;
+
+          object.addEventListener("click", () => {
+              if (!object.classList.contains("found")) {
+                  object.classList.add("found");
+                  objetoEncontrado();
+              }
+          });
+
+          hiddenObjectsArea.appendChild(object);
+      }
+  }
+
+  function objetoEncontrado() {
+      objetosEncontrados++;
+      if (objetosEncontrados === objetosPorSala) {
+          contadorLlavesCompletadas++;
+          deshabilitarBotonSala(currentRoom);
+          volverAlMenu();
+          disableDarkMode();
+
+          if (contadorLlavesCompletadas === totalLlaves) {
+              detenerTimer();
+          }
+
+          actualizarContadorLlaves();
+      }
+  }
+
+  function deshabilitarBotonSala(room) {
+      const button = document.querySelector(`.navButton[data-room="${room}"]`);
+      if (button) {
+          button.disabled = true;
+          button.textContent += " (Completada)";
+      }
+  }
+
+  function volverAlMenu() {
+      document.body.style.backgroundImage = defaultBackground;
+      textoJuego.textContent = "Selecciona una sala para buscar las llaves";
+      hiddenObjectsArea.innerHTML = "";
+      buttonsArea.style.display = "flex";
+      currentRoom = null;
+      disableDarkMode();
+  }
+
+  function enableDarkMode() {
+      document.body.classList.add("dark");
+      enableLinterna();
+  }
+
+  function disableDarkMode() {
+      document.body.classList.remove("dark");
+      disableLinterna();
+  }
+
+  function enableLinterna() {
+      document.documentElement.style.setProperty("--cX", `40vw`);
+      document.documentElement.style.setProperty("--cY", `40vh`);
+      document.addEventListener("mousemove", moveLinterna);
+  }
+
+  function disableLinterna() {
+      document.removeEventListener("mousemove", moveLinterna);
+  }
+
+  function moveLinterna(e) {
+      const x = (e.clientX / window.innerWidth) * 100;
+      const y = (e.clientY / window.innerHeight) * 100;
+
+      document.documentElement.style.setProperty("--cX", `${x}vw`);
+      document.documentElement.style.setProperty("--cY", `${y}vh`);
+  }
+
+  function startTimer() {
+      timerInterval = setInterval(() => {
+          const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+          document.getElementById("tiempo").textContent = formatTime(elapsedTime);
+      }, 1000);
+  }
+
+  function detenerTimer() {
+      clearInterval(timerInterval);
+      const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+      document.getElementById("tiempo").textContent = `${formatTime(elapsedTime)}`;
+      textoJuego.textContent = "¡Juego completado!";
+  }
+
+  function formatTime(seconds) {
+      const minutes = String(Math.floor(seconds / 60)).padStart(2, "0");
+      const remainingSeconds = String(seconds % 60).padStart(2, "0");
+      return `${minutes}:${remainingSeconds}`;
+  }
+
+  function actualizarContadorLlaves() {
+      contadorLlaves.textContent = `${contadorLlavesCompletadas}/${totalLlaves}`;
+  }
+
+  actualizarContadorLlaves();
 });

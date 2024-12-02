@@ -1,41 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Juego de Objetos Ocultos</title>
-    <link rel="stylesheet" href="llaves.css">
-    <link rel="stylesheet" href="../../css/Style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="llaves.css" />
+    <link rel="stylesheet" href="../../css/Style.css" />
+  </head>
+  <body>
     <!-- Navbar -->
-    <nav class="estilos-generales header-juegos-into">
-        <div id="back">
-            <img id="flecha" src="../../Media/flecha.png" alt="flecha" class="img-header">
-            <p id="puntos">Puntos: 0</p>
+    <header class="encabezado_general encabezado_juego">
+      <nav class="estilos-generales header-juegos-into">
+        <a class="atras" href="javascript:history.back()">
+          <img src="../../media/flecha.png" alt="Volver" class="img-header" />
+        </a>
+        <div class="conjunto_header">
+          <div id="tiempo">00:00</div>
+          <div id="textoJuego" class="styleTitulo">
+            Selecciona una sala para buscar las llaves
+          </div>
+          <div id="contadorLlaves">0/3</div>
         </div>
-        <div id="time">
-            <p>00:01:00</p>
-        </div>
-    </nav>
-    
+      </nav>
+    </header>
 
     <!-- Área principal -->
     <div id="gameArea">
-        <!-- Título inicial -->
-        <h1 id="title">Selecciona una sala para buscar las llaves</h1>
-        
-        <!-- Botones de navegación -->
-        <div id="buttonsArea">
-            <button class="navButton" data-room="sala_mantenimiento">Ir a la sala de mantenimiento</button>
-            <button class="navButton" data-room="sala_inundada">Ir a la sala inundada</button>
-            <button class="navButton" data-room="sala_ruinas">Ir a la sala en ruinas</button>
-        </div>
-        
-        <!-- Área de objetos (inicialmente vacía) -->
-        <div id="hiddenObjectsArea"></div>
+      <div id="buttonsArea">
+        <button
+          class="navButton short_style_a_button estilos-generales animacion_boton"
+          data-room="sala_mantenimiento"
+        >
+          Ir a la sala de mantenimiento
+        </button>
+        <button
+          class="navButton short_style_a_button estilos-generales animacion_boton"
+          data-room="sala_inundada"
+        >
+          Ir a la sala inundada
+        </button>
+        <button
+          class="navButton short_style_a_button estilos-generales animacion_boton"
+          data-room="sala_ruinas"
+        >
+          Ir a la sala en ruinas
+        </button>
+      </div>
+
+      <div id="hiddenObjectsArea"></div>
     </div>
 
     <script src="llaves.js"></script>
-</body>
+  </body>
 </html>
