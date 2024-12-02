@@ -1,4 +1,9 @@
-// Array con las carpetas de imágenes
+// -------------------------- Variables globales ----------------------------
+
+let contadorClicks = 0;
+let tiempoInicio;
+let intervaloCronometro;
+
 const carpetasImagenes = [
     "../puzzle/img/3x3/set1/",
     "../puzzle/img/3x3/set2/",
@@ -11,23 +16,36 @@ const imagenesPistas = [
     "../puzzle/img/pistas/set3_pista.jpg"
 ];
 
-// Elegir un índice random
 const indiceAleatorio = Math.floor(Math.random() * carpetasImagenes.length);
-// Carpeta seleccionada para las piezas del puzzle
 const carpetaSeleccionada = carpetasImagenes[indiceAleatorio];
-// Imagen de la pista correspondiente
 const imagenPistaSeleccionada = imagenesPistas[indiceAleatorio];
+
+const ids = [
+    ["id1", "id2", "id3"],
+    ["id4", "id5", "id6"],
+    ["id7", "id8", "id9"]
+];
 
 // Función para asignar imágenes según el valor
 function obtenerImagen(valor) {
-    if (valor === 0) {
-        return ""; //para el espacio vacío
-    }
-    return `${carpetaSeleccionada}${valor}.jpg`;
+    return valor === 0 ? "" : `${carpetaSeleccionada}${valor}.jpg`;
 }
 
-// Cambiar la imagen de la pista
-document.getElementById("pistaPopup").innerHTML = `<img src="${imagenPistaSeleccionada}" alt="Pista del Puzzle">`;
+// Inicializa una matriz 3x3 de forma aleatoria con números del 0 al 8.
+function inicializarMatrizAleatoria() {
+    let matriz;
+    do {
+        let numeros = Array.from({ length: 9 }, (_, i) => i);
+        numeros = numeros.sort(() => Math.random() - 0.5); // Mezcla aleatoriamente
+        matriz = [
+            [numeros[0], numeros[1], numeros[2]],
+            [numeros[3], numeros[4], numeros[5]],
+            [numeros[6], numeros[7], numeros[8]]
+        ];
+    } while (!esSolucionable(matriz)); // Repetir hasta obtener una configuración solucionable
+
+    return matriz;
+}
 
 // Función para contar inversiones en una configuración
 function contarInversiones(numeros) {
@@ -56,48 +74,35 @@ function esSolucionable(matriz) {
     }
 }
 
-// Inicializa una matriz 3x3 de forma aleatoria con números del 0 al 8.
-function inicializarMatrizAleatoria() {
-    let matriz;
-    do {
-        let numeros = Array.from({ length: 9 }, (_, i) => i);
-        numeros = numeros.sort(() => Math.random() - 0.5); // Mezcla aleatoriamente
-        matriz = [
-            [numeros[0], numeros[1], numeros[2]],
-            [numeros[3], numeros[4], numeros[5]],
-            [numeros[6], numeros[7], numeros[8]]
-        ];
-    } while (!esSolucionable(matriz)); // Repetir hasta obtener una configuración solucionable
-
-    return matriz;
+// Función para iniciar el cronómetro
+function iniciarCronometro() {
+    tiempoInicio = Date.now();
+    intervaloCronometro = setInterval(actualizarCronometro, 1000); //cada segundo
 }
 
-// Matriz bidimensional de las id's del HTML.
-var ids = [
-    ["id1", "id2", "id3"],
-    ["id4", "id5", "id6"],
-    ["id7", "id8", "id9"]
-];
-// Contador global de clics
-let contadorClicks = 0;
+// Función para actualizar el cronómetro en el HTML
+function actualizarCronometro() {
+    const tiempoActual = Date.now();
+    const segundosTranscurridos = Math.floor((tiempoActual - tiempoInicio) / 1000);
+    
+    const elementoTiempo = document.querySelector(".tiempo");
+    if (elementoTiempo) {
+        elementoTiempo.textContent = "Tiempo: " + segundosTranscurridos;
+    }
+}
+
+// Función para detener el cronómetro
+function detenerCronometro() {
+    clearInterval(intervaloCronometro); // Detenemos el intervalo
+}
+
 // Función para actualizar el contador en el HTML
 function actualizarContadorClicks() {
     const elementoClicks = document.querySelector(".clicks");
     if (elementoClicks) {
-        elementoClicks.textContent = contadorClicks;
-    } else {
-        console.error("Elemento con clase 'clicks' no encontrado.");
+        elementoClicks.textContent = "Clicks: " + contadorClicks;
     }
 }
-
-// Ejecuta el juego al cargar la página cuando todos los recursos están cargados
-window.onload = function () {
-    matriz = inicializarMatrizAleatoria();
-    cargar();
-    actualizarVista();
-    actualizarContadorClicks();
-    pistaBombilla();
-};
 
 //PopUp de la imagen completa de la solución
 function pistaBombilla() {
@@ -111,29 +116,15 @@ function pistaBombilla() {
 
     // Mostrar el popup al pasar el mouse
     pista.addEventListener("mouseenter", () => {
-        console.log("Dentro");
         pistaPopup.style.display = "block";
     });
 
     // Ocultar el popup al salir el mouse
     pista.addEventListener("mouseleave", () => {
-        console.log("Fuera");
         pistaPopup.style.display = "none";
     });
     
 };
-
-// Asocia cada elemento del HTML al evento de clic para mover las celdas
-function cargar() {
-    for (let i = 0; i < 3; i++) {
-        for (let j = 0; j < 3; j++) {
-            let celda = document.getElementById(ids[i][j]);
-            celda.setAttribute("data-fila", i); // Asigna fila como atributo de datos
-            celda.setAttribute("data-col", j); // Asigna columna como atributo de datos
-            celda.addEventListener("click", intercambiar); // Agrega el evento de clic
-        }
-    }
-}
 
 // Actualiza visualmente cada celda de la cuadrícula con imágenes
 function actualizarVista() {
@@ -164,7 +155,12 @@ function intercambiar(event) {
         contadorClicks++;
         actualizarContadorClicks();
         actualizarVista();
-        resuelto();
+
+        if (resuelto()){
+            detenerCronometro();
+            const tiempoFinal = Math.floor((Date.now() - tiempoInicio) / 1000);
+            alert(`¡Puzzle resuelto en ${tiempoFinal} segundos!`);
+        }
     }
 }
 
@@ -208,10 +204,32 @@ function resuelto() {
         }
     }
 
-    if (totalAciertos === 9) {
-        alert("¡Puzzle resuelto! Total clicks: " + contadorClicks);
-    } else {
-        console.log("Solo tienes " + totalAciertos + " aciertos");
-    }
+    return totalAciertos === 9;
 }
 
+
+
+// Ejecuta el juego al cargar la página cuando todos los recursos están cargados
+window.onload = function () {
+    matriz = inicializarMatrizAleatoria();
+    cargar();
+    actualizarVista();
+    actualizarContadorClicks();
+    iniciarCronometro();
+    pistaBombilla();
+
+    // Cambiar la imagen de la pista
+    document.getElementById("pistaPopup").innerHTML = `<img src="${imagenPistaSeleccionada}" alt="Pista del Puzzle">`;
+};
+
+// Asocia cada elemento del HTML al evento de clic para mover las celdas
+function cargar() {
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            let celda = document.getElementById(ids[i][j]);
+            celda.setAttribute("data-fila", i); // Asigna fila como atributo de datos
+            celda.setAttribute("data-col", j); // Asigna columna como atributo de datos
+            celda.addEventListener("click", intercambiar); // Agrega el evento de clic
+        }
+    }
+}
