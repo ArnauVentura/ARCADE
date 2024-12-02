@@ -1,191 +1,155 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const gameArea = document.getElementById('gameArea');
-    const title = document.getElementById('title');
-    const buttonsArea = document.getElementById('buttonsArea');
-    const hiddenObjectsArea = document.getElementById('hiddenObjectsArea');
-    const backButton = document.getElementById('flecha');
+  const gameArea = document.getElementById("gameArea");
+  const buttonsArea = document.getElementById("buttonsArea");
+  const hiddenObjectsArea = document.getElementById("hiddenObjectsArea");
+  const backButton = document.querySelector(".atras");
+  const textoJuego = document.getElementById("textoJuego");
+  const contadorLlaves = document.getElementById("contadorLlaves");
 
-    let currentRoom = null; // Variable para almacenar la sala actual
-    let objetosEncontrados = 0; // Contador de objetos encontrados en la sala actual
-    let contadorSalasCompletadas = 0; // Contador global de salas completadas
-    const objetosPorSala = 3; // Número de objetos requeridos para completar una sala
-    const totalSalas = 3; // Número total de salas que se deben completar
+  let currentRoom = null;
+  let objetosEncontrados = 0;
+  let contadorLlavesCompletadas = 0;
+  const objetosPorSala = 3;
+  const totalLlaves = 3;
 
-    const defaultBackground = "url('./media/HUB.png')"; // Fondo inicial
-    const roomBackgrounds = {
-        sala_mantenimiento: "url('./media/Mantenimiento.png')",
-        sala_inundada: "url('./media/Inundado.png')",
-        sala_ruinas: "url('./media/Ruinas.png')"
-    };
+  const defaultBackground = "url('./media/HUB.png')";
+  const roomBackgrounds = {
+      sala_mantenimiento: "url('./media/Mantenimiento.png')",
+      sala_inundada: "url('./media/Inundado.png')",
+      sala_ruinas: "url('./media/Ruinas.png')",
+  };
 
-    // Variables del temporizador
-    let timerInterval;
-    let startTime = Date.now(); // Tiempo inicial
-    startTimer();
+  let timerInterval;
+  let startTime = Date.now();
+  startTimer();
 
-    // Establecer el fondo inicial
-    gameArea.style.backgroundImage = defaultBackground;
+  document.body.style.backgroundImage = defaultBackground;
 
-    // Cambiar de sala al hacer clic en los botones
-    document.querySelectorAll('.navButton').forEach(button => {
-        button.addEventListener('click', () => {
-            const room = button.getAttribute('data-room');
-            currentRoom = room; // Actualizar la sala actual
-            objetosEncontrados = 0; // Reiniciar el contador de objetos encontrados
-            gameArea.style.backgroundImage = roomBackgrounds[room];
-            title.textContent = `Estás en la ${room.replace('_', ' ')}`;
-            hiddenObjectsArea.innerHTML = ""; // Limpiar los objetos de la sala anterior
-            buttonsArea.style.display = 'none'; // Ocultar los botones de selección de sala
-            enableDarkMode(); // Activar modo oscuro y linterna
-            generateObjects(objetosPorSala); // Generar objetos en la sala
-        });
-    });
+  document.querySelectorAll(".navButton").forEach((button) => {
+      button.addEventListener("click", () => {
+          const room = button.getAttribute("data-room");
+          currentRoom = room;
+          objetosEncontrados = 0;
+          document.body.style.backgroundImage = roomBackgrounds[room];
+          textoJuego.textContent = `Estás en la ${room.replace("_", " ")}`;
+          hiddenObjectsArea.innerHTML = "";
+          buttonsArea.style.display = "none";
+          enableDarkMode();
+          generateObjects(objetosPorSala);
+      });
+  });
 
-    // Botón "atrás"
-    backButton.addEventListener('click', () => {
-        volverAlMenu();
-        disableDarkMode(); // Desactivar modo oscuro y linterna
-    });
+  backButton.addEventListener("click", () => {
+      volverAlMenu();
+      disableDarkMode();
+  });
 
-    // Función para generar objetos ocultos
-    function generateObjects(numObjects) {
-        const minSpacing = 10; // Margen mínimo entre objetos (en porcentaje de la altura o ancho)
-        const positions = []; // Para almacenar las posiciones de los objetos y evitar superposiciones
+  function generateObjects(numObjects) {
+      hiddenObjectsArea.innerHTML = "";
+      for (let i = 0; i < numObjects; i++) {
+          const top = Math.random() * 90;
+          const left = Math.random() * 90;
 
-        for (let i = 0; i < numObjects; i++) {
-            let validPosition = false;
-            let top, left;
+          const object = document.createElement("div");
+          object.classList.add("hiddenObject");
+          object.style.top = `${top}%`;
+          object.style.left = `${left}%`;
 
-            // Buscar una posición válida que no se sobreponga con otras
-            while (!validPosition) {
-                // Generar una posición aleatoria para el objeto
-                top = Math.random() * 80;
-                left = Math.random() * 80;
+          object.addEventListener("click", () => {
+              if (!object.classList.contains("found")) {
+                  object.classList.add("found");
+                  objetoEncontrado();
+              }
+          });
 
-                // Comprobar que el objeto no se superponga con otros (por un margen mínimo)
-                validPosition = true;
-                for (let j = 0; j < positions.length; j++) {
-                    const [existingTop, existingLeft] = positions[j];
+          hiddenObjectsArea.appendChild(object);
+      }
+  }
 
-                    // Verificar la distancia mínima entre los objetos
-                    if (Math.abs(top - existingTop) < minSpacing || Math.abs(left - existingLeft) < minSpacing) {
-                        validPosition = false;
-                        break; // Si la posición es demasiado cercana a otra, buscar otra posición
-                    }
-                }
-            }
+  function objetoEncontrado() {
+      objetosEncontrados++;
+      if (objetosEncontrados === objetosPorSala) {
+          contadorLlavesCompletadas++;
+          deshabilitarBotonSala(currentRoom);
+          volverAlMenu();
+          disableDarkMode();
 
-            // Almacenamos la nueva posición válida
-            positions.push([top, left]);
+          if (contadorLlavesCompletadas === totalLlaves) {
+              detenerTimer();
+          }
 
-            // Crear y agregar el objeto a la interfaz
-            const object = document.createElement('div');
-            object.classList.add('hiddenObject');
-            object.style.top = `${top}%`;
-            object.style.left = `${left}%`;
+          actualizarContadorLlaves();
+      }
+  }
 
-            // Evento de clic para encontrar el objeto
-            object.addEventListener('click', () => {
-                if (!object.classList.contains('found')) {
-                    object.classList.add('found');
-                    objetoEncontrado(); // Contar objeto encontrado
-                }
-            });
+  function deshabilitarBotonSala(room) {
+      const button = document.querySelector(`.navButton[data-room="${room}"]`);
+      if (button) {
+          button.disabled = true;
+          button.textContent += " (Completada)";
+      }
+  }
 
-            hiddenObjectsArea.appendChild(object);
-        }
-    }
+  function volverAlMenu() {
+      document.body.style.backgroundImage = defaultBackground;
+      textoJuego.textContent = "Selecciona una sala para buscar las llaves";
+      hiddenObjectsArea.innerHTML = "";
+      buttonsArea.style.display = "flex";
+      currentRoom = null;
+      disableDarkMode();
+  }
 
-    // Lógica cuando se encuentra un objeto
-    function objetoEncontrado() {
-        objetosEncontrados++;
-        if (objetosEncontrados === objetosPorSala) {
-            // Sala completada
-            contadorSalasCompletadas++;
-            deshabilitarBotonSala(currentRoom); // Deshabilitar el botón de la sala completada
-            volverAlMenu(); // Volver al menú principal
-            disableDarkMode(); // Apagar linterna al salir de la sala
+  function enableDarkMode() {
+      document.body.classList.add("dark");
+      enableLinterna();
+  }
 
-            // Verificar si se completaron todas las salas
-            if (contadorSalasCompletadas === totalSalas) {
-                detenerTimer(); // Detener el temporizador
-            }
-        }
-    }
+  function disableDarkMode() {
+      document.body.classList.remove("dark");
+      disableLinterna();
+  }
 
-    // Deshabilitar el botón de una sala completada
-    function deshabilitarBotonSala(room) {
-        const button = document.querySelector(`.navButton[data-room="${room}"]`);
-        if (button) {
-            button.disabled = true;
-            button.textContent += " (Completada)";
-        }
-    }
+  function enableLinterna() {
+      document.documentElement.style.setProperty("--cX", `40vw`);
+      document.documentElement.style.setProperty("--cY", `40vh`);
+      document.addEventListener("mousemove", moveLinterna);
+  }
 
-    // Función para volver al menú principal
-    function volverAlMenu() {
-        gameArea.style.backgroundImage = defaultBackground; // Restaurar fondo inicial
-        title.textContent = "Selecciona una sala para buscar las llaves";
-        hiddenObjectsArea.innerHTML = ""; // Limpiar objetos
-        buttonsArea.style.display = 'block'; // Mostrar los botones nuevamente
-        currentRoom = null; // Restablecer la sala actual
-        disableDarkMode(); // Desactivar la linterna cuando regresamos al menú
-    }
+  function disableLinterna() {
+      document.removeEventListener("mousemove", moveLinterna);
+  }
 
-    // Activar modo oscuro y linterna
-    function enableDarkMode() {
-        gameArea.classList.add('dark'); // Aplicar clase de oscuridad solo en gameArea
-        enableLinterna(); // Habilitar efecto de linterna
-    }
+  function moveLinterna(e) {
+      const x = (e.clientX / window.innerWidth) * 100;
+      const y = (e.clientY / window.innerHeight) * 100;
 
-    // Desactivar modo oscuro y linterna
-    function disableDarkMode() {
-        gameArea.classList.remove('dark'); // Eliminar clase de oscuridad
-        disableLinterna(); // Deshabilitar efecto de linterna
-    }
+      document.documentElement.style.setProperty("--cX", `${x}vw`);
+      document.documentElement.style.setProperty("--cY", `${y}vh`);
+  }
 
-    // Habilitar el efecto de linterna
-    function enableLinterna() {
-        document.documentElement.style.setProperty('--cX', `40vw`);
-        document.documentElement.style.setProperty('--cY', `40vh`);
-        document.addEventListener('mousemove', moveLinterna); // Activar movimiento de la linterna
-    }
+  function startTimer() {
+      timerInterval = setInterval(() => {
+          const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+          document.getElementById("tiempo").textContent = formatTime(elapsedTime);
+      }, 1000);
+  }
 
-    // Deshabilitar el efecto de linterna
-    function disableLinterna() {
-        document.documentElement.style.setProperty('--cX', `40vw`);
-        document.documentElement.style.setProperty('--cY', `40vh`);
-        document.removeEventListener('mousemove', moveLinterna); // Desactivar movimiento de la linterna
-    }
+  function detenerTimer() {
+      clearInterval(timerInterval);
+      const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+      document.getElementById("tiempo").textContent = `${formatTime(elapsedTime)}`;
+      textoJuego.textContent = "¡Juego completado!";
+  }
 
-    // Mover la linterna según la posición del ratón
-    function moveLinterna(e) {
-        const x = e.clientX / window.innerWidth * 100;
-        const y = e.clientY / window.innerHeight * 100;
-        document.documentElement.style.setProperty('--cX', `${x}vw`);
-        document.documentElement.style.setProperty('--cY', `${y}vh`);
-    }
+  function formatTime(seconds) {
+      const minutes = String(Math.floor(seconds / 60)).padStart(2, "0");
+      const remainingSeconds = String(seconds % 60).padStart(2, "0");
+      return `${minutes}:${remainingSeconds}`;
+  }
 
-    // Iniciar el temporizador
-    function startTimer() {
-        timerInterval = setInterval(() => {
-            const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
-            title.textContent = `Tiempo transcurrido: ${formatTime(elapsedTime)}`;
-        }, 1000);
-    }
+  function actualizarContadorLlaves() {
+      contadorLlaves.textContent = `${contadorLlavesCompletadas}/${totalLlaves}`;
+  }
 
-    // Detener el temporizador
-    function detenerTimer() {
-        clearInterval(timerInterval);
-        const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
-        title.textContent = `¡Juego completado! Tiempo total: ${formatTime(elapsedTime)}`;
-        buttonsArea.style.display = 'none'; // Ocultar botones después de completar el juego
-    }
-
-    // Formatear tiempo en minutos y segundos
-    function formatTime(seconds) {
-        const minutes = Math.floor(seconds / 60);
-        const remainingSeconds = seconds % 60;
-        return `${minutes}m ${remainingSeconds}s`;
-    }
+  actualizarContadorLlaves();
 });

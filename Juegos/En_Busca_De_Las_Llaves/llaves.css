@@ -1,78 +1,125 @@
-/* Estilos para el área del juego */
-#gameArea {
-    position: relative;
-    height: 98vh;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
+body {
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
 }
 
-/* Modo oscuro solo para gameArea */
-#gameArea.dark {
-    background-color: rgba(0, 0, 0, 0.95); /* Fondo oscuro solo en gameArea */
-    position: relative;
-    overflow: hidden; /* Ocultar todo lo que sobresalga */
+#tiempo {
+  font-family: "Handlee", cursive;
+  font-size: 1.5rem;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  border-radius: 5px;
+  min-width: 80px;
+  text-align: center;
 }
 
-/* Efecto de linterna en gameArea */
-:root {
-    --cX: 40vw;
-    --cY: 40vh;
+#textoJuego {
+  font-family: "Handlee", cursive;
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-align: center;
+  flex-grow: 1;
+  margin: 0;
 }
 
-#gameArea.dark:before { /* Solo aplicar el efecto de linterna dentro de gameArea */
-    content: "";
-    display: block;
-    width: 99.5%;
-    height: 98vh;
-    position: fixed;
-    pointer-events: none;
-    background: radial-gradient(
-        circle 8vmax at var(--cX) var(--cY),
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.5) 50%,
-        rgba(0, 0, 0, 0.90) 60%,
-        rgba(0, 0, 0, 0.99) 120%,
-        rgba(0, 0, 0, 1) 300%
-    );
-    z-index: 10;
+.encabezado_juego {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 10px 20px;
+  box-sizing: border-box;
 }
 
-/* Botones de selección de sala */
+.encabezado_juego .conjunto_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 #buttonsArea {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px; /* Espaciado entre botones */
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  z-index: 20;
 }
 
-/* Título del área del juego */
-#title {
-    font-family: "Handlee", cursive;
-    font-size: 2rem;
-    text-align: center;
-    color: #0A1576;
-    text-shadow: -2px -2px 0 #437CA5, 2px 2px 0 #437CA5;
-    margin: 20px 0;
+#contadorLlaves {
+  font-family: "Handlee", cursive;
+  font-size: 1.2rem;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+  border-radius: 5px;
+  min-width: 60px;
+  text-align: center;
+  margin-left: 20px; /* Espacio entre el contador y el texto de tiempo */
 }
 
-/* Objetos ocultos */
 .hiddenObject {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    background-color: red; /* Color por defecto */
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.3s;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s;
+  z-index: 10;
 }
 
 .hiddenObject:hover {
-    transform: scale(1.2); /* Efecto al pasar el ratón */
+  transform: scale(1.2);
 }
 
 .hiddenObject.found {
-    background-color: green; /* Color al encontrarlo */
+  background-color: green;
+}
+
+#gameArea {
+  position: relative;
+  z-index: 15;
+  margin-top: 100px;
+  height: calc(100vh - 100px);
+  overflow: hidden;
+}
+
+body.dark:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle 8vmax at var(--cX) var(--cY),
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.9) 60%,
+    rgba(0, 0, 0, 0.99) 120%,
+    rgba(0, 0, 0, 1) 300%
+  );
+  z-index: 5;
+}
+
+#textoJuego {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #ffffff;
+  font-family: "Handlee", cursive;
+  margin-top: 5px;
 }
