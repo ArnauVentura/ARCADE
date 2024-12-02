@@ -394,7 +394,13 @@ ul{
     font-weight: bold;
 }
 .titulo-juego{
-    margin-left: 80vh;
+    width: 100%;
+}
+.conjunto-img-basura, .conjunto-img-intro{
+    display: flex;
+}
+.img-basura{
+    width: 150px;
 }
 /* pop-up */
 .popup-overlay {
@@ -431,3 +437,4 @@ ul{
 .popup-content form div {
     margin-bottom: 15px;
 }
+

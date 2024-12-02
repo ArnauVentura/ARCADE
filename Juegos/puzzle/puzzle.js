@@ -11,7 +11,7 @@ const imagenesPistas = [
     "../puzzle/img/pistas/set3_pista.jpg"
 ];
 
-// Elegir un índice aleatorio
+// Elegir un índice random
 const indiceAleatorio = Math.floor(Math.random() * carpetasImagenes.length);
 // Carpeta seleccionada para las piezas del puzzle
 const carpetaSeleccionada = carpetasImagenes[indiceAleatorio];
@@ -25,6 +25,7 @@ function obtenerImagen(valor) {
     }
     return `${carpetaSeleccionada}${valor}.jpg`;
 }
+
 // Cambiar la imagen de la pista
 document.getElementById("pistaPopup").innerHTML = `<img src="${imagenPistaSeleccionada}" alt="Pista del Puzzle">`;
 
@@ -77,12 +78,24 @@ var ids = [
     ["id4", "id5", "id6"],
     ["id7", "id8", "id9"]
 ];
+// Contador global de clics
+let contadorClicks = 0;
+// Función para actualizar el contador en el HTML
+function actualizarContadorClicks() {
+    const elementoClicks = document.querySelector(".clicks");
+    if (elementoClicks) {
+        elementoClicks.textContent = contadorClicks;
+    } else {
+        console.error("Elemento con clase 'clicks' no encontrado.");
+    }
+}
 
 // Ejecuta el juego al cargar la página cuando todos los recursos están cargados
 window.onload = function () {
     matriz = inicializarMatrizAleatoria();
     cargar();
     actualizarVista();
+    actualizarContadorClicks();
     pistaBombilla();
 };
 
@@ -148,6 +161,8 @@ function intercambiar(event) {
     let col = parseInt(this.getAttribute("data-col"));
 
     if (checkMover(fila, col)) {
+        contadorClicks++;
+        actualizarContadorClicks();
         actualizarVista();
         resuelto();
     }
@@ -194,7 +209,7 @@ function resuelto() {
     }
 
     if (totalAciertos === 9) {
-        alert("¡Puzzle resuelto!");
+        alert("¡Puzzle resuelto! Total clicks: " + contadorClicks);
     } else {
         console.log("Solo tienes " + totalAciertos + " aciertos");
     }
