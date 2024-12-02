@@ -8,7 +8,7 @@
         if (!empty($_POST['nombre']) && !empty($_POST['contrasenya'])) {
             if (registro($_POST['nombre'], $_POST['contrasenya'])) {
                 $_SESSION['usuario'] = $_POST['nombre'];
-                header('Location: ../html/jugarRanking.html');
+                header('Location: ../html/jugarRanking.php');
                 exit();
             } else {
                 echo "Error en el registro: El usuario ya existe.";
