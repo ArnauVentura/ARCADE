@@ -8,13 +8,13 @@ function cambiarMensaje(nuevoMensaje) {
 
 // Event listeners para cada fuente
 document.getElementById("fuenteAmarilla").addEventListener("mouseover", () => {
-    cambiarMensaje("La fuente amarilla brilla intensamente. ¡Un desafío emocionante te espera!");
+    cambiarMensaje("Investiga el alcantarillado y encuentra las llaves ¡Pero cuidado! Llévate una linterna o no podrás ver nada.");
 });
 document.getElementById("fuenteRoja").addEventListener("mouseover", () => {
-    cambiarMensaje("La fuente roja parece caliente y peligrosa. ¿Te atreves a intentarlo?");
+    cambiarMensaje("Nos han avisado de que hay un barco que está lanzando basura en el mar. ¡No podemos permitir que los peces naden entre bolsas de plástico!");
 });
 document.getElementById("fuenteAzul").addEventListener("mouseover", () => {
-    cambiarMensaje("La fuente azul fluye tranquila. Pero cuidado, podría ser engañosa.");
+    cambiarMensaje("Los rios de nuestra querida ciudad están llenos de troncos y basura ¡Es urgente que el caudal del río esté controlado!");
 });
 
 // Restaurar el texto original al quitar el cursor
