@@ -1,9 +1,9 @@
 <?php
 function openDB(){
 
-$servername = "localhost";
-$username = "root";
-$password = "";
+$servername = "sql207.byethost13.com";
+$username = "b13_37391685";
+$password = "desi123";
 
 
 $conexion = new PDO("mysql:host=$servername;dbname=anna", $username, $password);
@@ -70,6 +70,7 @@ function getUsuario(){
 }
 
 function getRoles() {
+    try {
     $conexion = openDB();
     $sentenciaText = "SELECT idRol, tipo FROM anna.rol";
 
@@ -80,10 +81,14 @@ function getRoles() {
 
     $conexion = closeDB();
     return $roles;
+    } catch (PDOException $e) {
+        return errorsMessage($e);
+    }
 }
 
 function getUsuarioPorId($id) {
-    $conexion = openDB();
+    try {
+        $conexion = openDB();
     $sentenciaText = "SELECT idUsuario, nombre, contrasenya, rol_idRol FROM anna.usuario WHERE idUsuario = :id";
 
     $stmt = $conexion->prepare($sentenciaText);
@@ -94,11 +99,14 @@ function getUsuarioPorId($id) {
 
     $conexion = closeDB();
     return $usuario;
+    } catch (PDOException $e) {
+        return errorsMessage($e);
+    }
 }
 
 function getUsuarioByTipo($userId){
-    
-    $conexion = openDB();
+    try {
+        $conexion = openDB();
     $sentenciaText = 'SELECT * FROM anna.usuario WHERE id = :idTipo';
     $stmt = $conexion->prepare($sentenciaText);
     $stmt->bindParam(':idTipo', $userId, PDO::PARAM_INT);
@@ -108,10 +116,14 @@ function getUsuarioByTipo($userId){
 
     $conexion = closeDB();
     return $group;
+    } catch (PDOException $e) {
+        return errorsMessage($e);
+    }
 }
 
 function registro($nombre, $contrasenya) {
-    $conexion = openDB();
+    try {
+        $conexion = openDB();
 
     $stmt = $conexion->prepare("SELECT * FROM anna.usuario WHERE nombre = :nombre");
     $stmt->bindParam(':nombre', $nombre);
@@ -131,11 +143,15 @@ function registro($nombre, $contrasenya) {
     $conexion = closeDB();
 
     return true;
+    } catch (PDOException $e) {
+        return errorsMessage($e);
+    }
 }
 
 function modificarUsuario($idUsuario, $nombre, $contrasenya, $rol_idRol) {
 
-    $conexion = openDB();
+    try {
+        $conexion = openDB();
     $sentenciaText = "UPDATE anna.usuario SET nombre = :nombre, contrasenya = :contrasenya, rol_idRol = :rol_idRol WHERE idUsuario = :idUsuario";
 
     $stmt = $conexion->prepare($sentenciaText);
@@ -147,22 +163,51 @@ function modificarUsuario($idUsuario, $nombre, $contrasenya, $rol_idRol) {
     $stmt->execute();
 
     closeDB();
+    } catch (PDOException $e) {
+        return errorsMessage($e);
+    }
 }
 
 
 function borrarUsuario($idUsuario){
 
-    $conexion = openDB();
-    $sentenciaText = "DELETE FROM anna.usuario WHERE idUsuario = :idUsuario";
+    try {
+        $conexion = openDB();
+        $sentenciaText = "DELETE FROM anna.usuario WHERE idUsuario = :idUsuario";
+    
+        $stmt = $conexion->prepare($sentenciaText);
+        $stmt->bindParam(':idUsuario', $idUsuario);
+        $stmt->execute();
+    
+        $conexion = closeDB();
+    } catch (PDOException $e) {
+        return errorsMessage($e);
+    }
 
-    $stmt = $conexion->prepare($sentenciaText);
-    $stmt->bindParam(':idUsuario', $idUsuario);
-    $stmt->execute();
-
-    $conexion = closeDB();
+   
     
 }
 
+function getRanking() {
+    try {
+        $conexion = openDB();
+
+        $sentenciaText ='SELECT r.usuario_idUsuario, u.nombre AS usuario_nombre, r.juegos_idJuego, j.titulo AS juego_titulo, r.puntuacion
+            FROM anna.ranking r INNER JOIN anna.usuario u ON r.usuario_idUsuario = u.idUsuario 
+            INNER JOIN anna.juegos j ON r.juegos_idJuego = j.idJuego ORDER BY r.puntuacion DESC';
+
+        $stmt = $conexion->prepare($sentenciaText);
+        $stmt->execute();
+
+        $ranking = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $conexion = closeDB();
+        return $ranking;
+
+    } catch (PDOException $e) {
+        return errorsMessage($e);
+    }
+}
 
 
 ?>
