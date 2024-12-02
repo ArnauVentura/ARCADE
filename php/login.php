@@ -9,7 +9,7 @@ $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : '';
 $contrasenya = isset($_POST['contrasenya']) ? $_POST['contrasenya'] : '';
 
 // Prepara la consulta para obtener el usuario junto con su rol
-$stmt = $conexion->prepare('SELECT * FROM anna.usuario WHERE nombre = ? AND contrasenya = ?');
+$stmt = $conexion->prepare('SELECT * FROM usuario WHERE nombre = ? AND contrasenya = ?');
 $stmt->execute([$nombre, $contrasenya]);
 $datos = $stmt->fetch(PDO::FETCH_OBJ);
 

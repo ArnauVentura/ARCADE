@@ -27,7 +27,7 @@ function errorsMessage($e)
                 case 1062:
                     $mensaje = 'registro duplicado';
                     break;
-                case 1062:
+                case 10623:
                     $mensaje = 'Registro con elementos relacionados';
                     break;
                 default:
@@ -58,7 +58,7 @@ function errorsMessage($e)
 function getUsuario(){
     
     $conexion = openDB();
-    $sentenciaText = "SELECT idUsuario, nombre, contrasenya, rol_idRol, tipo FROM anna.usuario INNER JOIN anna.rol ON anna.rol.idRol = anna.usuario.rol_idRol";
+    $sentenciaText = "SELECT idUsuario, nombre, contrasenya, rol_idRol, tipo FROM usuario INNER JOIN rol ON rol.idRol = usuario.rol_idRol";
 
     $stmt = $conexion ->prepare($sentenciaText);
     $stmt->execute();
@@ -72,7 +72,7 @@ function getUsuario(){
 function getRoles() {
     try {
     $conexion = openDB();
-    $sentenciaText = "SELECT idRol, tipo FROM anna.rol";
+    $sentenciaText = "SELECT idRol, tipo FROM rol";
 
     $stmt = $conexion->prepare($sentenciaText);
     $stmt->execute();
@@ -89,7 +89,7 @@ function getRoles() {
 function getUsuarioPorId($id) {
     try {
         $conexion = openDB();
-    $sentenciaText = "SELECT idUsuario, nombre, contrasenya, rol_idRol FROM anna.usuario WHERE idUsuario = :id";
+    $sentenciaText = "SELECT idUsuario, nombre, contrasenya, rol_idRol FROM usuario WHERE idUsuario = :id";
 
     $stmt = $conexion->prepare($sentenciaText);
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
@@ -107,7 +107,7 @@ function getUsuarioPorId($id) {
 function getUsuarioByTipo($userId){
     try {
         $conexion = openDB();
-    $sentenciaText = 'SELECT * FROM anna.usuario WHERE id = :idTipo';
+    $sentenciaText = 'SELECT * FROM usuario WHERE id = :idTipo';
     $stmt = $conexion->prepare($sentenciaText);
     $stmt->bindParam(':idTipo', $userId, PDO::PARAM_INT);
     $stmt->execute();
@@ -125,7 +125,7 @@ function registro($nombre, $contrasenya) {
     try {
         $conexion = openDB();
 
-    $stmt = $conexion->prepare("SELECT * FROM anna.usuario WHERE nombre = :nombre");
+    $stmt = $conexion->prepare("SELECT * FROM usuario WHERE nombre = :nombre");
     $stmt->bindParam(':nombre', $nombre);
     $stmt->execute();
 
@@ -133,7 +133,7 @@ function registro($nombre, $contrasenya) {
         return false;
     }
 
-    $sentenciaText = "INSERT INTO anna.usuario (nombre, contrasenya, rol_idRol) VALUES (:nombre, :contrasenya, 1)";
+    $sentenciaText = "INSERT INTO usuario (nombre, contrasenya, rol_idRol) VALUES (:nombre, :contrasenya, 1)";
     $stmt = $conexion->prepare($sentenciaText);
     $stmt->bindParam(':nombre', $nombre);
     $stmt->bindParam(':contrasenya', $contrasenya);
@@ -152,7 +152,7 @@ function modificarUsuario($idUsuario, $nombre, $contrasenya, $rol_idRol) {
 
     try {
         $conexion = openDB();
-    $sentenciaText = "UPDATE anna.usuario SET nombre = :nombre, contrasenya = :contrasenya, rol_idRol = :rol_idRol WHERE idUsuario = :idUsuario";
+    $sentenciaText = "UPDATE usuario SET nombre = :nombre, contrasenya = :contrasenya, rol_idRol = :rol_idRol WHERE idUsuario = :idUsuario";
 
     $stmt = $conexion->prepare($sentenciaText);
     $stmt->bindParam(':nombre', $nombre);
@@ -173,7 +173,7 @@ function borrarUsuario($idUsuario){
 
     try {
         $conexion = openDB();
-        $sentenciaText = "DELETE FROM anna.usuario WHERE idUsuario = :idUsuario";
+        $sentenciaText = "DELETE FROM usuario WHERE idUsuario = :idUsuario";
     
         $stmt = $conexion->prepare($sentenciaText);
         $stmt->bindParam(':idUsuario', $idUsuario);
@@ -193,8 +193,8 @@ function getRanking() {
         $conexion = openDB();
 
         $sentenciaText ='SELECT r.usuario_idUsuario, u.nombre AS usuario_nombre, r.juegos_idJuego, j.titulo AS juego_titulo, r.puntuacion
-            FROM anna.ranking r INNER JOIN anna.usuario u ON r.usuario_idUsuario = u.idUsuario 
-            INNER JOIN anna.juegos j ON r.juegos_idJuego = j.idJuego ORDER BY r.puntuacion DESC';
+            FROM ranking r INNER JOIN  usuario u ON r.usuario_idUsuario = u.idUsuario 
+            INNER JOIN juegos j ON r.juegos_idJuego = j.idJuego ORDER BY r.puntuacion DESC';
 
         $stmt = $conexion->prepare($sentenciaText);
         $stmt->execute();
