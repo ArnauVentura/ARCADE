@@ -1,5 +1,3 @@
-// -------------------------- Variables globales ----------------------------
-
 let contadorClicks = 0;
 let tiempoInicio;
 let intervaloCronometro;
