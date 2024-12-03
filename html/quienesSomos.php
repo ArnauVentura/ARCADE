@@ -31,75 +31,68 @@ if (isset($_SESSION['nombre'])) {
         </a>
     </header>
     <main>
-        <div class="elementosCentrados whiteBG div-titulos">
+        <div class="elementosCentrados div-titulos">
             <h1 class="styleTitulo">¿QUIÉNES SOMOS?</h1>
         </div>
-        <div class="elementosCentrados">
-            <p  id="">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Donec risus ligula, tempor eu varius ut, ultricies id nisl.
-                Etiam id lacus vitae magna iaculis tristique in feugiat 
-                sem. Mauris facilisis orci eu dolor fringilla, id rhoncus 
-                est posuere. Proin cursus lorem in porta gravida.
+        <div class="elementosCentrados" id="div-quienes-somos">
+            <p id="txt-quienes-somos">
+            ¡Hola! Somos un grupo llamado Arcade, formado por Carla Cayero, Desirée Romero 
+            y Arnau Ventura, estudiantes del Centre d'Estudis Politécnics, cursando el ciclo 
+            de Desarrollo de Aplicaciones Web (DAW).
+            Hemos estado trabajando en un proyecto, que consiste en la creación de juegos 
+            interactivos que nos han solicitado los niños del IE Tres Fonts de Les Corts. 
             </p>
         </div>
-        <section class="">
-            <article class="">
-                <img src="../media/img_landing/gmail_Logo.png" alt="" class="">
-                <h5>Nombre Apellido</h5>
-                <p class="">
-                    Junior de CSS, Senior de la impaciencia. Espero que me apruebe el profesor porque apenas apruevo la vida
+        <section id="container-quienes-somos">
+            <article class="div-miembro">
+                <img src="../media/img_quienes_somos/carla.png" class="img-miembro" alt="imagen Carla">
+                <h2>Carla Cayero</h2>
+                <p class="txt-miembro">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt 
+                    eu dolor non aliquam. Fusce sit amet dui odio. Cras lobortis, nunc vel 
+                    tincidunt lobortis, diam massa eleifend felis, ut luctus risus elit at 
+                    magna. 
                 </p>
-                <div class="">
-                    <a href="">
-                        <img src="../media/img_landing/gmail_Logo.png" alt="Gmail" class="">
-                    </a>
-                    <a href="">
-                        <img src="../media/img_landing/gmail_Logo.png" alt="Instagram" class="">
-                    </a>
-                </div>
+                <a href="#" target="_blank">
+                    <img src="../media/img_quienes_somos/linkedln.png" alt="Linkedln" class="img-logo-linkedln">
+                </a>
             </article>
-            <article class="">
-                <img src="../media/img_landing/gmail_Logo.png" alt="" class="">
-                <h5>Nombre Apellido</h5>
-                <p class="">
-                    Junior de CSS, Senior de la impaciencia. Espero que me apruebe el profesor porque apenas apruevo la vida
+            <article class="div-miembro ">
+                <img src="../media/img_quienes_somos/desi.png" class="img-miembro" alt="imagen Carla">
+                <h2>Desirée Romero</h2>
+                <p class="txt-miembro">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt 
+                    eu dolor non aliquam. Fusce sit amet dui odio. Cras lobortis, nunc vel 
+                    tincidunt lobortis, diam massa eleifend felis, ut luctus risus elit at 
+                    magna.
                 </p>
-                <div class="">
-                    <a href="">
-                        <img src="../media/img_landing/gmail_Logo.png" alt="Gmail" class="">
-                    </a>
-                    <a href="">
-                        <img src="../media/img_landing/gmail_Logo.png" alt="Instagram" class="">
-                    </a>
-                </div>
+                <a href="#" target="_blank">
+                    <img src="../media/img_quienes_somos/linkedln.png" alt="Linkedln" class="img-logo-linkedln">
+                </a>
             </article>
-            <article class="">
-                <img src="../media/img_landing/gmail_Logo.png" alt="" class="">
-                <h5>Nombre Apellido</h5>
-                <p class="">
-                    Junior de CSS, Senior de la impaciencia. Espero que me apruebe el profesor porque apenas apruevo la vida
+            <article class="div-miembro ">
+                <img src="../media/img_quienes_somos/arnau.png" class="img-miembro" alt="imagen Carla">
+                <h2>Arnau Ventura</h2>
+                <p class="txt-miembro">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt 
+                    eu dolor non aliquam. Fusce sit amet dui odio. Cras lobortis, nunc vel 
+                    tincidunt lobortis, diam massa eleifend felis, ut luctus risus elit at 
+                    magna.
                 </p>
-                <div class="">
-                    <a href="">
-                        <img src="../media/img_landing/gmail_Logo.png" alt="Gmail" class="">
-                    </a>
-                    <a href="">
-                        <img src="../media/img_landing/gmail_Logo.png" alt="Instagram" class="">
-                    </a>
-                </div>
+                <a href="#" target="_blank">
+                    <img src="../media/img_quienes_somos/linkedln.png" alt="Linkedln" class="img-logo-linkedln">
+                </a>
             </article>
         </section>
     </main>
-    <footer id="footer_QuienesSomos">
-        <div id="footer_left">
-            <img src="../media/img_landing/gmail_Logo.png" alt="">
-        </div>
-        <div id="footer_Right">
-            <img src="../media/img_landing/gmail_Logo.png" alt="">
-        </div>
+    <footer id="footer-quienes-somos">
+        <a href="https://politecnics.barcelona/" target="_blank">
+            <img src="../media/img_quienes_somos/cep.png" class="img-logo" alt="imagen Politécnics">
+        </a>        
+        <a href="https://agora.xtec.cat/ietfc/" target="_blank">
+            <img src="../media/img_quienes_somos/lesCorts.png" class="img-logo" alt="imagen Les Corts">
+        </a>
     </footer>
     
-    <script src="../css/Style.css"></script>
 </body>
 </html>
