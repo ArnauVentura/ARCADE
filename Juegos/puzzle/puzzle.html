@@ -1,11 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['nombre'])) {
-    header('Location: ../index.php'); 
-    exit();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,11 +9,11 @@ if (!isset($_SESSION['nombre'])) {
 </head>
 <body class="bodyPuzzle">
     <header class="encabezado_general">
-        <div class="estilos-generales header-juegos-into ">
+        <div class="estilos-generales header-juegos-into header-puzzle">
             <a class="atras" href="javascript:history.back()">
                 <img src="../../media/flecha.png" alt="Volver" class="img-header">
             </a>
-            <p class="tiempo">Tiempo: 0</p>
+            <p class="tiempo">Tiempo: 00:00</p>
             <p class="clicks">Clicks: 0</p>
         </div>
     </header>
@@ -37,6 +29,18 @@ if (!isset($_SESSION['nombre'])) {
         <div class="bombilla">
             <div id="pista"></div>
             <div id="pistaPopup"></div>
+        </div>
+
+        <div id="ventanaVictoria" class="ventanaVictoria">
+            <div class="v-contenido">
+                <h1 class="v-titulo">¡Puzzle Resuelto!</h1>
+                <p id="mensajeTiempo"></p>
+                <div class="v-botones">
+                    <button id="btnReiniciar">Volver a Jugar</button>
+                    <button id="btnRanking">Ir al Ranking</button>
+                    <button id="btnFuentes">Volver a las Fuentes</button>
+                </div>
+            </div>
         </div>
     </main>
     <script src="../puzzle/puzzle.js"></script>

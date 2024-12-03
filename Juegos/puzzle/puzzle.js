@@ -82,10 +82,16 @@ function iniciarCronometro() {
 function actualizarCronometro() {
     const tiempoActual = Date.now();
     const segundosTranscurridos = Math.floor((tiempoActual - tiempoInicio) / 1000);
-    
+
+    // Calcula minutos y segundos
+    const minutos = Math.floor(segundosTranscurridos / 60);
+    const segundos = segundosTranscurridos % 60;
+    const tiempoFormateado = `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
+
+    // Actualiza el HTML
     const elementoTiempo = document.querySelector(".tiempo");
     if (elementoTiempo) {
-        elementoTiempo.textContent = "Tiempo: " + segundosTranscurridos;
+        elementoTiempo.textContent = `Tiempo: ${tiempoFormateado}`;
     }
 }
 
@@ -157,7 +163,6 @@ function intercambiar(event) {
         if (resuelto()){
             detenerCronometro();
             const tiempoFinal = Math.floor((Date.now() - tiempoInicio) / 1000);
-            alert(`¡Puzzle resuelto en ${tiempoFinal} segundos!`);
         }
     }
 }
@@ -185,6 +190,30 @@ function swap(fila1, col1, fila2, col2) {
     [matriz[fila1][col1], matriz[fila2][col2]] = [matriz[fila2][col2], matriz[fila1][col1]];
 }
 
+// Función para mostrar la ventana modal
+function mostrarModalVictoria(tiempoFormateado) {
+    // Mostrar el tiempo final en el mensaje del modal
+    const mensajeTiempo = document.getElementById("mensajeTiempo");
+    mensajeTiempo.textContent = `Tu tiempo: ${tiempoFormateado}`;
+
+    // Mostrar el modal
+    const modal = document.getElementById("ventanaVictoria");
+    modal.style.display = "flex";
+
+    // Manejar botones del modal
+    document.getElementById("btnReiniciar").addEventListener("click", () => {
+        location.reload();
+    });
+
+    document.getElementById("btnRanking").addEventListener("click", () => {
+        window.location.href = "../../html/ranking.php"; 
+    });
+
+    document.getElementById("btnFuentes").addEventListener("click", () => {
+        window.location.href = "../../html/fuentes.php";
+    });
+}
+
 // Verificar si el puzzle está resuelto
 function resuelto() {
     let valor = 1;
@@ -202,7 +231,23 @@ function resuelto() {
         }
     }
 
-    return totalAciertos === 9;
+    if (totalAciertos === 9) {
+        detenerCronometro(); // Detenemos el cronómetro
+        const tiempoFinal = Math.floor((Date.now() - tiempoInicio) / 1000);
+
+        // Calcula minutos y segundos para el formato mm:ss
+        const minutos = Math.floor(tiempoFinal / 60);
+        const segundos = tiempoFinal % 60;
+        const tiempoFormateado = `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
+
+        // Mostrar ventana modal
+        mostrarModalVictoria(tiempoFormateado);
+
+        return true; // Puzzle resuelto
+    } else {
+        console.log("Solo tienes " + totalAciertos + " aciertos");
+        return false; // Puzzle no resuelto
+    }
 }
 
 
