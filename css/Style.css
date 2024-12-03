@@ -235,7 +235,6 @@ ul{
     text-align: center;
     width: 20vw;
     margin: auto;
-    position: relative;
 }
 .img-miembro{
     margin-top: 5px;
@@ -259,26 +258,6 @@ ul{
 .img-logo-linkedln{
     width: 60px;
     margin-bottom: 10px;
-}
-.cambio-imagen{
-    z-index: 1001;
-    text-decoration: none;
-}
-.cambio-imagen img {
-    border: 0px;
-}
-.cambio-imagen span {
-    position: absolute;
-    text-decoration: none;
-    visibility: hidden;
-    border: 0px;
-    top:0px;
-    left:0px;
-}
-.cambio-imagen:hover span {
-    visibility: visible;
-    overflow:visible;
-    z-index: 1002;
 }
 
 
