@@ -6,7 +6,7 @@ $username = "b13_37391685";
 $password = "desi123";
 
 
-$conexion = new PDO("mysql:host=$servername;dbname=anna", $username, $password);
+$conexion = new PDO("mysql:host=$servername;dbname=b13_37391685_arcade", $username, $password);
 $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $conexion->exec("set names utf8");
 
@@ -27,7 +27,7 @@ function errorsMessage($e)
                 case 1062:
                     $mensaje = 'registro duplicado';
                     break;
-                case 10623:
+                case 1063:
                     $mensaje = 'Registro con elementos relacionados';
                     break;
                 default:
