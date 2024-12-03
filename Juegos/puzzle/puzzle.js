@@ -190,27 +190,24 @@ function swap(fila1, col1, fila2, col2) {
     [matriz[fila1][col1], matriz[fila2][col2]] = [matriz[fila2][col2], matriz[fila1][col1]];
 }
 
-// Función para mostrar la ventana modal
+// Función para mostrar la ventana de victoria
 function mostrarModalVictoria(tiempoFormateado) {
-    // Mostrar el tiempo final en el mensaje del modal
     const mensajeTiempo = document.getElementById("mensajeTiempo");
     mensajeTiempo.textContent = `Tu tiempo: ${tiempoFormateado}`;
 
-    // Mostrar el modal
     const modal = document.getElementById("ventanaVictoria");
     modal.style.display = "flex";
-
-    // Manejar botones del modal
+    
     document.getElementById("btnReiniciar").addEventListener("click", () => {
         location.reload();
     });
 
     document.getElementById("btnRanking").addEventListener("click", () => {
-        window.location.href = "../../html/ranking.php"; 
+        location.assign("../../html/ranking.php"); 
     });
 
     document.getElementById("btnFuentes").addEventListener("click", () => {
-        window.location.href = "../../html/fuentes.php";
+        location.assign("../../html/fuentes.php");
     });
 }
 
