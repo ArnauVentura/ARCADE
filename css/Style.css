@@ -68,6 +68,7 @@ h2.styleTitulo{
 .div-titulo-anna{
     height: 200px;
 }
+
 /* Centra vertical y horizontalmente los elementos del contenedor */
 .elementosCentrados{
     display:flex;
@@ -75,6 +76,7 @@ h2.styleTitulo{
     align-items: center;
     flex-direction: column;
 }
+
 /* BOTONES */
 .estilos-generales{
     border-radius: 40px;
