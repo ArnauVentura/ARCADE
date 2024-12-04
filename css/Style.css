@@ -267,89 +267,11 @@ ul{
 
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* RANKING */
-#body_ranking{
-    background-size: cover;
-}
-#body_ranking *{
-    margin: 5px;
-}
-/* Juntar las dos id */
-#mainDiv_Ranking{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 70vh;
-    padding-top: 5%;
-}
-#mainDiv_Ranking{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 90%;
-}
-#mainDiv_Ranking .divSecundario{
-    margin: 50px;
-    height: 90%;
-    width: auto;
-}
-#divSecundarioLeft_Ranking{
-    height: 70vh;
-}
-#divSecundarioLeft_Ranking *{
-    margin: 30px;
-}
-#divSecundarioRight_Ranking{
-    background: linear-gradient(45deg, rgba(108, 68, 51, 0.8), rgba(160, 99, 74, 0.8), rgba(199, 126, 95, 0.8));
-    margin-right: 10px;
-    border-radius: 25px;
-    padding: 5px;
-    width: 30%;
-    height: 60vh;
-}
-#buttonRankning_JuegoTotal{
-    margin-top: 150px;
-    /* margin-top: 60px;?? */
-}
-/* Revisar esto, no se entiende */
-.puntosPersonaje, .puntosPersonaje div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 90%;
-    height: 45px;
-}
-.puntosPersonaje{
-    padding: 10px;
-    padding-left: 15px;
-}/* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
-/* Ranking */
-.puntosPersonaje img{
-    width: 40px;
-    height: 40px;
-}
-.puntosPersonaje *{
-    margin: 10px;
-}
 
-.puntosPersonaje div{
-    border-radius: 25px;
-}
 
-#buttonRankning_Juego1:hover{
-    background-color: green;
-}
-#buttonRankning_Juego2:hover{
-    background-color: red;
-}
-#buttonRankning_Juego3:hover{
-    background-color: yellow;
-}
-#buttonRankning_Juego4:hover{
-    background-color: grey;
-}
-#buttonRankning_JuegoTotal:hover{
-    background-color: blue;
-}
+
+
+
 
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /*PÁGINA FUENTES*/

@@ -25,7 +25,10 @@ if (!isset($_SESSION['nombre'])) {
             <img src="../media/flecha.png" alt="Volver" class="img-header">
         </a>
     </header>
-    <div id="mainDiv_Ranking">
+    <main>
+        <div class="elementosCentrados div-titulos">
+                <h1 class="styleTitulo">RANKING</h1>
+        </div>
         <div class="divSecundario elementosCentrados" id="divSecundarioLeft_Ranking">
             <button class="short_style_a_button estilos-generales large_style_a_button" id="buttonRankning_Juego2" href="">EN BUSCA DE LAS LLAVES</button>
             <button class="short_style_a_button estilos-generales large_style_a_button" id="buttonRankning_Juego3" href="">RESCATE DEL MAR</button>
@@ -60,7 +63,7 @@ if (!isset($_SESSION['nombre'])) {
             </div>
             
         </div>
-    </div>
+    </main>
     
 </body>
 </html>
