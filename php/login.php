@@ -23,8 +23,7 @@ if ($datos === FALSE) {
     if ($datos->rol_idRol == 2 || $datos->rol_idRol == 3) { // 1 = Admin, 2 = Superadmin
         header('Location: ./administracion.php');
     } else {
-        header('Location: ../html/
-        jugarRanking.php');
+        header('Location: ../html/jugarRanking.php');
     }
 }
 
