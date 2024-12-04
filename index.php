@@ -64,7 +64,7 @@ include_once './php/bd.php';
             <div class="divButtons_Formulario">
                 <a href="./html/jugar.html" class="short_style_a_button animacion_boton estilos-generales">JUGAR SIN REGISTRO</a>
 
-                <a href="./html/quienesSomos.php" class="short_style_a_button animacion_boton estilos-generales">CONÓCENOS</a>
+                <a href="./html/ranking.php" class="short_style_a_button animacion_boton estilos-generales">CONÓCENOS</a>
             </div>
         </div>
         <div class="popup-overlay" id="popupOverlay">
