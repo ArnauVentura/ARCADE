@@ -4,7 +4,15 @@ if (!isset($_SESSION['nombre'])) {
     header('Location: ../index.php'); 
     exit();
 }
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar_sesion'])) {
+    session_unset();
+    session_destroy();
+    header('Location: ../index.php');
+    exit();
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,9 +28,11 @@ if (!isset($_SESSION['nombre'])) {
 
 <body class="bg_Img imgEscuela">
     <header class="encabezado_general">
-        <a class="atras" href="javascript:history.back()">
-            <img src="../media/flecha.png" alt="Volver" class="img-header">
-        </a>
+        <form method="POST">
+            <button type="submit" name="cerrar_sesion" class="boton-cerrar-sesion">
+                <img src="../media/cerrar-sesion.png" alt="Cerrar Sesión" class="img-header">
+            </button>
+        </form>
     </header>
     <main id="main_mainMenu">
         <div class="elementosCentrados div-titulos div-titulo-anna">
