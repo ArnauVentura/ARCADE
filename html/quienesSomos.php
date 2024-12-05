@@ -11,7 +11,6 @@ if (isset($_SESSION['nombre'])) {
 
 // Continúa con el contenido de la página, que puede ser público
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -93,6 +92,5 @@ if (isset($_SESSION['nombre'])) {
             <img src="../media/img_quienes_somos/lesCorts.png" class="img-logo" alt="imagen Les Corts">
         </a>
     </footer>
-    
 </body>
 </html>

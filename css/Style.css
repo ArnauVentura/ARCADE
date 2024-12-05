@@ -201,13 +201,13 @@ ul{
 }
 
 /* distribucion de margins elementos del main de la pg principal*/
-#main-pg-principal div{
+.main-pg-principal div{
     margin-top: 30px;
     margin-bottom: 50px;
 }
-#main-pg-principal div button,
-#main-pg-principal div a,
-#main-pg-principal div input{
+.main-pg-principal div button,
+.main-pg-principal div a,
+.main-pg-principal div input{
     margin: 25px;
 }
 
@@ -295,8 +295,21 @@ ul{
 }
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* RANKING */
+#container-ranking{
 
+}
+#boton-llaves{
 
+}
+#boton-rescate{
+
+}
+#boton-puzzle{
+
+}
+#boton-total{
+
+}
 
 
 

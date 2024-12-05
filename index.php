@@ -1,3 +1,6 @@
+<?php
+include_once './php/bd.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,11 +13,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Inter" rel='stylesheet'>
 </head>
-
-<?php
-include_once './php/bd.php';
-?>
-
 <body class="bg-Img img-escuela">
     <header class="encabezado-pg-principal">
         <ul class="menu-idiomas">
@@ -43,7 +41,6 @@ include_once './php/bd.php';
             </li>
         </ul>
     </header>
-
     <main id="main-pg-principal">
         <div class="elementos-centrados div-titulos div-titulo-anna">
             <h1 class="estilo-titulo">ANNA</h1>
@@ -54,18 +51,17 @@ include_once './php/bd.php';
                 <input type="text" name="nombre" class="txt-input boton-pequeño estilos-generales" placeholder="Nombre de usuario">
                 <input type="password" name="contrasenya" class="txt-input boton-pequeño estilos-generales" placeholder="Contraseña">
             </div>
-
             <div class="elementos-centrados div-form-boton" id="">
                 <input type="submit" class="boton-pequeño animacion-boton estilos-generales" value="INICIAR SESIÓN"></input>
-                <button type="button" class="boton-pequeño animacion-boton estilos-generales" onclick="openPopup()">REGISTRARSE</button>
+                <button type="button" class="boton-pequeño animacion-boton estilos-generales" onclick="openPopup()">
+                    REGISTRARSE
+                </button>
             </div>
         </form>
-            <hr id="hr-pg-principal">
-            <div class="div-form-boton">
-                <a href="./html/jugar.html" class="boton-pequeño animacion-boton estilos-generales">JUGAR SIN REGISTRO</a>
-
-                <a href="./html/ranking.php" class="boton-pequeño animacion-boton estilos-generales">CONÓCENOS</a>
-            </div>
+        <hr id="hr-pg-principal">
+        <div class="div-form-boton">
+            <a href="./html/jugar.html" class="boton-pequeño animacion-boton estilos-generales">JUGAR SIN REGISTRO</a>
+            <a href="./html/ranking.php" class="boton-pequeño animacion-boton estilos-generales">CONÓCENOS</a>
         </div>
         <div class="popup-overlay" id="popupOverlay">
             <div class="popup-content elementos-centrados">
@@ -91,8 +87,6 @@ include_once './php/bd.php';
             </div>
         </div>
     </main>
-
-
 <script src="./js/idiomas.js"></script>
 <script src="./js/popup.js"></script>
 </body>

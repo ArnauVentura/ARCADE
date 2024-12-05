@@ -11,13 +11,11 @@
     
 </head>
 <body class="bg-Img" id="img-patio">
-
     <header class="encabezado-general">
         <a class="atras" href="javascript:history.back()">
             <img src="../media/flecha.png" alt="Volver" class="img-header">
         </a>
     </header>
-    
     <main>
         <!--Div de la fuente amarilla-->
         <div class="font-img">
