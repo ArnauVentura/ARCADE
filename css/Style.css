@@ -104,11 +104,11 @@ h2.estilo-titulo{
     line-height: 200%;
 }
 .boton-largo{
-    width: 700px;
+    width: 100%;
     height: 60px;
 }
 .animacion-boton:hover{
-    background-color: #A56C43;
+    background-color: #a56c43;
 }
 
 /* FORMULARIO */
@@ -117,7 +117,7 @@ h2.estilo-titulo{
     width: 18rem;
     text-align: left;
     padding-left: 10px;
-    background-color: rgba(199, 126, 95, 0.8);
+    background-color: #c77e5fcc;
 }
 input::placeholder {
     color: white;
@@ -219,7 +219,7 @@ ul{
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: #00000080;
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -251,7 +251,7 @@ ul{
     width: 85vw;
     padding: 5px;
     border-radius: 75px;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: #ffffffb3;
     text-align: center;
     margin: auto;
     margin-bottom: 20px;
@@ -263,7 +263,7 @@ ul{
 }
 .div-miembro{
     border-radius: 75px;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: #ffffffb3;
     text-align: center;
     width: 20vw;
     margin: auto;
@@ -296,22 +296,46 @@ ul{
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* RANKING */
 #container-ranking{
-
+    background-color: white;
+    
 }
-#boton-llaves{
-
+/*#boton-llaves:hover{
+    background-color: #FFD700;
 }
-#boton-rescate{
-
+#boton-rescate:hover{
+    background-color: #D64D3B;
 }
-#boton-puzzle{
-
+#boton-puzzle:hover{
+    background-color: #437CA5;
+}*/
+.div-jugador{
+    display: flex;
+    color: white;
 }
-#boton-total{
-
+.div-jugador p{
+    margin: auto;
 }
-
-
+.botones_ranking {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 40vw;
+}
+.ranking {
+    background-color: #c77e5fcc;
+    border-radius: 50px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    color: white;
+}
+.jugador-puntos{
+    display: flex;
+}
+.jugador-puntos p{
+    margin: auto;
+}
 
 
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
