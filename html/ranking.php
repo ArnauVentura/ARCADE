@@ -1,5 +1,5 @@
 
-
+<!-- FALTA EL PHP -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,7 +11,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-   
 </head>
 <body class="bg-Img" id="img-ranking">
     <header class="encabezado-general">
@@ -19,28 +18,27 @@
             <img src="../media/flecha.png" alt="Volver" class="img-header">
         </a>
     </header>
-    <main>
+    <main id="main-ranking">
         <div class="elementos-centrados div-titulos">
             <h1 class="estilo-titulo">RANKING</h1>
         </div>
-        <div class="" id="">
-            <button class="boton-pequeño estilos-generales boton-largo" id="buttonRankning_Juego2" href="">
+        <div id="">
+            <button class="boton-pequeño estilos-generales boton-largo" id="" href="">
                 EN BUSCA DE LAS LLAVES
             </button>
-            <button class="boton-pequeño estilos-generales boton-largo" id="buttonRankning_Juego3" href="">
+            <button class="boton-pequeño estilos-generales boton-largo" id="" href="">
                 RESCATE DEL MAR
             </button>
-            <button class="boton-pequeño estilos-generales boton-largo" id="buttonRankning_Juego4" href="">
+            <button class="boton-pequeño estilos-generales boton-largo" id="" href="">
                 AL RIO TRONCOS
             </button>
-            <button class="boton-pequeño estilos-generales boton-largo" id="buttonRankning_JuegoTotal" href="">
+            <button class="boton-pequeño estilos-generales boton-largo" id="" href="">
                 RANKING TOTAL
             </button>
         </div>
-
-        <div class="" id="">
+        <div class="">
             <div class="">
-                <img src="" alt="">
+                <img src="" alt="img_num_1">
                 <div class="">
                     <p>MARC BOSCH</p>
                     <p> - </p>
@@ -48,7 +46,7 @@
                 </div>
             </div>
             <div class="">
-                <img src="" alt="">
+                <img src="" alt="img_num_2">
                 <div class="">
                     <p>MARC BOSCH</p>
                     <p> - </p>
@@ -56,16 +54,14 @@
                 </div>
             </div>
             <div class="">
-                <img src="" alt="">
+                <img src="" alt="img_num_3">
                 <div class="">
                     <p>MARC BOSCH</p>
                     <p> - </p>
                     <p>14:30</p>
                 </div>
             </div>
-            
         </div>
     </main>
-    
 </body>
 </html>

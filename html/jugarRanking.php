@@ -34,7 +34,7 @@ if (!isset($_SESSION['nombre'])) {
             <a href="./ranking.php" class="boton-pequeño estilos-generales animacion-boton">RANKING</a>
         </div>
         <div>
-            <img src="../media/img_anna/anna.png" class="anna-img" alt="Anna" id="annaFuente">
+            <img src="../media/img_anna/anna.png" class="anna-img" alt="Anna" id="anna-fuente">
         </div>
        
     </main>
