@@ -24,18 +24,18 @@ if (isset($_SESSION['nombre'])) {
     <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
 </head>
-<body class="bg_Img imgClase" id="bodyQuienesSomos">
-    <header class="encabezado_general">
+<body class="bg-Img" id="bodyQuienesSomos img-clase">
+    <header class="encabezado-general">
         <a class="atras" href="javascript:history.back()">
             <img src="../media/flecha.png" alt="Volver" class="img-header">
         </a>
     </header>
     <main>
-        <div class="elementosCentrados div-titulos">
-            <h1 class="styleTitulo">¿QUIÉNES SOMOS?</h1>
+        <div class="elementos-centrados div-titulos">
+            <h1 class="estilo-titulo">¿QUIÉNES SOMOS?</h1>
         </div>
-        <div class="elementosCentrados" id="div-quienes-somos">
-            <p id="txt-quienes-somos">
+        <div class="elementos-centrados" id="div-quienes-somos">
+            <p>
             ¡Hola! Somos un grupo llamado Arcade, formado por Carla Cayero, Desirée Romero 
             y Arnau Ventura, estudiantes del Centre d'Estudis Politécnics, cursando el ciclo 
             de Desarrollo de Aplicaciones Web (DAW).

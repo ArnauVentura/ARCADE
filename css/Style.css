@@ -4,8 +4,9 @@ html{
     font-size: 18px;
     font-family:"Inter";
 }
+/*IMAGENES*/
 /* Centrar imagenes al tamaño del contenedor */
-.bg_Img{
+.bg-Img{
     background-size: 100% 100%; 
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat; /* No repite la imagen */
@@ -15,29 +16,32 @@ html{
     overflow: hidden; /* Evita el scroll */
 }
 /* Escoger imagen del body*/
-.imgEscuela{
+.img-escuela{
     background-image: url('../media/img_landing/escuela.jpg');
     background-size: cover;
 }
-.imgPatio{
+#img-patio{
     background-image: url('../media/img_landing/patio.jpg'); 
 }
-.imgClase{
+#img-clase{
     background-image: url('../media/img_landing/clase.jpg');  
 }
-.imgBaseball{
+#img-ranking{
     background-image: url('../media/img_landing/baseball.png');  
+}
+.anna-img, .anna-face-img{
+    position: absolute;
 }
 
 /* TITULOS */
-.styleTitulo {
+.estilo-titulo {
     font-family: "Handlee", cursive;
     font-weight: 900; 
     font-style: bold;
     text-align: center;
     color: #0A1576;
 }
-h1.styleTitulo{
+h1.estilo-titulo{
     font-size:4.5rem;
     text-shadow: 
         -3px -3px 0 #437CA5,
@@ -47,7 +51,7 @@ h1.styleTitulo{
     margin-bottom: 10px;
     margin: 0;  
 }
-h2.styleTitulo{
+h2.estilo-titulo{
     font-size:2rem;
     text-shadow: 
         -2px -2px 0 #437CA5,
@@ -68,9 +72,8 @@ h2.styleTitulo{
 .div-titulo-anna{
     height: 200px;
 }
-
 /* Centra vertical y horizontalmente los elementos del contenedor */
-.elementosCentrados{
+.elementos-centrados{
     display:flex;
     justify-content: center;
     align-items: center;
@@ -88,7 +91,7 @@ h2.styleTitulo{
     font-family: 'Inter'; 
 }
 /* Separar clase en general, boton y a */
-.short_style_a_button{
+.boton-pequeño{
     display: inline-block;  /* Permite que <a> respete height y width como un <button> */
     height: 1%;
     width: 20%;
@@ -100,16 +103,16 @@ h2.styleTitulo{
     text-align: center;/* Centra el texto horizontalmente */
     line-height: 200%;
 }
-.header-juegos-into{
-    width: 100vw;
-    height: 8vh;
-    display: flex;
-    align-items: center;
+.boton-largo{
+    width: 700px;
+    height: 60px;
 }
-.animacion_boton:hover{
+.animacion-boton:hover{
     background-color: #A56C43;
 }
-.txt_Inputs{
+
+/* FORMULARIO */
+.txt-input{
     height: 3rem;
     width: 18rem;
     text-align: left;
@@ -119,26 +122,21 @@ h2.styleTitulo{
 input::placeholder {
     color: white;
 }
-.large_style_a_button{
-    width: 700px;
-    height: 60px;
-}
-.divButtons_Formulario{
+.div-form-boton{
     padding-left: 28%;
     display: inline;
     text-align: center;
 }
-.anna-img, .annaFace-img{
-    position: absolute;
-}
+
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
-/* PERSONALIZADOS */
+/* PAGINA PRINCIPAL */
 /*HEADER*/
-.encabezado_general{
+.encabezado-general{
     display: flex;
     justify-content: flex-start;
     padding: 5px;
 }
+
 /*FLECHA*/
 .atras {
     margin: 18px;
@@ -147,6 +145,7 @@ input::placeholder {
 .img-header{
     width: 50px;
 }
+
 /* BANDERAS IDIOMAS */
 .encabezado-pg-principal{
     display: flex;
@@ -157,7 +156,6 @@ input::placeholder {
 ul{
     list-style: none;
 }
-
 #bandera-seleccionada{
     background: #C77E5F;
     padding: 5px;
@@ -174,7 +172,6 @@ ul{
     display: none;
     position: absolute; 
     min-width: 100px;
-   
 }
 .menu-idiomas li:hover > ul {
     display: block;
@@ -194,26 +191,29 @@ ul{
     margin-left: 10px;
 }
 
-/* <hr> main menu */
-#hr_mainMenu{
+/* MAIN */
+/* <hr> menu principal*/
+#hr-pg-principal{
     margin:auto;
     width: 65%;
     background-color: black;
     height: 0.4rem;
 }
 
-/* distribucion de margins elementos del body Main menu*/
-#main_mainMenu div{
+/* distribucion de margins elementos del main de la pg principal*/
+#main-pg-principal div{
     margin-top: 30px;
     margin-bottom: 50px;
 }
-#main_mainMenu div button,
-#main_mainMenu div a,
-#main_mainMenu div input{
+#main-pg-principal div button,
+#main-pg-principal div a,
+#main-pg-principal div input{
     margin: 25px;
 }
+
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* QUIENES SOMOS */
+/* ESTRUCTURA */
 #div-quienes-somos{
     width: 85vw;
     padding: 5px;
@@ -222,9 +222,6 @@ ul{
     text-align: center;
     margin: auto;
     margin-bottom: 20px;
-}
-#txt-quienes-somos{
-    
 }
 #container-quienes-somos{
     display: flex;
@@ -238,17 +235,8 @@ ul{
     width: 20vw;
     margin: auto;
 }
-.img-miembro{
-    margin-top: 5px;
-    border-radius: 100%;
-    background-color: #437CA5;
-    width: 200px;
-}
 .txt-miembro{
     padding: 5px;
-}
-.img-logo{
-    width: 70px;
 }
 #footer-quienes-somos{
     display: flex;
@@ -257,13 +245,20 @@ ul{
     position: absolute;
     bottom: 0;
 }
+/* IMAGENES */
+.img-miembro{
+    margin-top: 5px;
+    border-radius: 100%;
+    background-color: #437CA5;
+    width: 200px;
+}
+.img-logo{
+    width: 70px;
+}
 .img-logo-linkedln{
     width: 60px;
     margin-bottom: 10px;
 }
-
-
-
 
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* RANKING */
@@ -276,36 +271,31 @@ ul{
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /*PÁGINA FUENTES*/
 /* Tamaño de las imagenes y posición*/
-
-.fuente_amarilla, .fuente_roja, .fuente_azul, .fuente_verde {
+.fuente-amarilla, .fuente-roja, .fuente-azul {
     width: 200px; /* Tamaño reducido de las imágenes de las fuentes */
     height: auto; /* Mantiene la proporción de la imagen */
     position: absolute;
     cursor: pointer;
 }
-.fuente_amarilla { 
+.fuente-amarilla { 
     bottom: 280px; 
     left: 580px; 
     width: 250px;
 }
-
-.fuente_roja {
+.fuente-roja {
     top: 200px; 
     left: 730px;
     width: 250px;
 }
-
-.fuente_azul {
+.fuente-azul {
     top: 280px; 
     left: 90px;
 }
-
-#annaFuente{
+#anna-fuente{
     bottom: 0px; /* Ajusta la distancia desde el borde inferior */
     right: 0px;  /* Ajusta la distancia desde el borde derecho */
     width: 500px; /* Ajusta el tamaño de la imagen */
 }
-
 /* Mensaje introductorio juegos*/
 #p-mensaje{ 
     margin: 0 auto;
@@ -314,7 +304,6 @@ ul{
     font-size:x-large;
     padding: 10px; 
 }
-
 /* Container para la introducción a los juegos */
 .div-texto-fuentes{
     width: 30%;
@@ -327,6 +316,7 @@ ul{
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.7);
 }
+
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* PÁGINAS INTRO JUEGOS*/
 .introduccion{
@@ -343,11 +333,6 @@ ul{
     transform: translate(-50%, -50%);
     background-color: rgba(255, 255, 255, 0.7);
 }
-.cursor-mano{
-    width: 50px;
-    height: 50px;
-    padding-top: 120px;
-}
 #jugar-button{
     position: absolute;
     bottom: 20px; /* Ajusta la distancia desde el borde inferior */
@@ -355,16 +340,33 @@ ul{
     height: 40px;
     font-weight: bold;
 }
+/*HEADER*/
+.header-juegos-intro{
+    width: 100vw;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+}
 .titulo-juego{
     width: 100%;
 }
+/*EN BUSCA DE LAS LLAVES*/
+
+
+/*RESCATE AL MAR*/
 .conjunto-img-basura, .conjunto-img-intro{
     display: flex;
 }
 .img-basura{
     width: 150px;
 }
-/* pop-up */
+/*AL RIO TRONCOS*/
+.cursor-mano{
+    width: 50px;
+    height: 50px;
+    padding-top: 120px;
+}
+/* POP UP */
 .popup-overlay {
     display: none;
     position: fixed;
@@ -377,7 +379,6 @@ ul{
     align-items: center;
     z-index: 1000;
 }
-
 .popup-content {
     background: white;
     padding: 20px;
@@ -385,7 +386,6 @@ ul{
     width: 500px;
     text-align: center;
 }
-
 .close-btn {
     background: #ff5e5e;
     color: white;
@@ -395,8 +395,6 @@ ul{
     cursor: pointer;
     float: right;
 }
-
 .popup-content form div {
     margin-bottom: 15px;
 }
-
