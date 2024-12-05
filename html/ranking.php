@@ -22,8 +22,8 @@
         <div class="elementos-centrados div-titulos">
             <h1 class="estilo-titulo">RANKING</h1>
         </div>
-        <div id="container-ranking">
-            <div id="">
+        <div id="container-quienes-somos">
+            <div class="botones_ranking">
                 <button class="boton-pequeño estilos-generales boton-largo" id="boton-llaves" href="">
                     EN BUSCA DE LAS LLAVES
                 </button>
@@ -33,37 +33,48 @@
                 <button class="boton-pequeño estilos-generales boton-largo" id="boton-puzzle" href="">
                     AL RIO TRONCOS
                 </button>
-                <button class="boton-pequeño estilos-generales boton-largo" id="boton-total" href="">
+                <button class="boton-pequeño estilos-generales boton-largo animacion-boton" id="boton-total" href="">
                     RANKING TOTAL
                 </button>
             </div>
-            <div id="">
-                <div class="">
-                    <img src="" alt="img_num_1">
-                    <div class="">
-                        <p>MARC BOSCH</p>
-                        <p> - </p>
-                        <p>14:30</p>
-                    </div>
+            <div class="ranking">
+                <div class="div-jugador">
+                    <p>PUESTO </p>
+                    <p>JUGADOR</p>
+                    <p>PUNTOS</p>
                 </div>
-                <div class="">
-                    <img src="" alt="img_num_2">
-                    <div class="">
-                        <p> </p>
-                        <p> - </p>
-                        <p>14:30</p>
+                <div class="div-jugador">
+                    <p>1.</p>
+                    <div class="jugador-puntos">
+                        <p>jugador</p>
+                        <p>puntos</p>
                     </div>
+
+                    
                 </div>
-                <div class="">
-                    <img src="" alt="img_num_3">
-                    <div class="">
-                        <p>MARC BOSCH</p>
-                        <p> - </p>
-                        <p>14:30</p>
-                    </div>
+                <div class="div-jugador">
+                    <p>2. </p>
+                    <p>jugador</p>
+                    <p>puntos</p>
+                </div>
+                <div class="div-jugador">
+                    <p>3. </p>
+                    <p>jugador</p>
+                    <p>puntos</p>
+                </div>
+                <div class="div-jugador">
+                    <p>4. </p>
+                    <p>jugador</p>
+                    <p>puntos</p>
+                </div>
+                <div class="div-jugador">
+                    <p>5. </p>
+                    <p>jugador</p>
+                    <p>puntos</p>
                 </div>
             </div>
         </div>
     </main>
+    <script src="../js/botones.js"></script>
 </body>
 </html>

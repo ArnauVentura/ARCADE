@@ -41,7 +41,7 @@ include_once './php/bd.php';
             </li>
         </ul>
     </header>
-    <main id="main-pg-principal">
+    <main class="main-pg-principal">
         <div class="elementos-centrados div-titulos div-titulo-anna">
             <h1 class="estilo-titulo">ANNA</h1>
             <h2 class="estilo-titulo">Y EL MISTERIO DE LAS 3 FUENTES</h2>
