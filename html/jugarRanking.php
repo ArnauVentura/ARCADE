@@ -18,14 +18,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar_sesion'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anna y el misterio de las 4 fuentes</title>
+    <title>Anna y el misterio de las 3 fuentes</title>
     <link rel="stylesheet" href="../css/Style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
 </head>
-
 <body class="bg_Img imgEscuela">
     <header class="encabezado_general">
         <form method="POST">
@@ -34,20 +33,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar_sesion'])) {
             </button>
         </form>
     </header>
-    <main id="main_mainMenu">
-        <div class="elementosCentrados div-titulos div-titulo-anna">
-            <h1 class="styleTitulo">ANNA</h1>
-            <h2 class="styleTitulo">Y EL MISTERIO DE LAS 3 FUENTES</h2>
+    <main class="main-pg-principal">
+        <div class="elementos-centrados div-titulos div-titulo-anna">
+            <h1 class="estilo-titulo">ANNA</h1>
+            <h2 class="estilo-titulo">Y EL MISTERIO DE LAS 3 FUENTES</h2>
         </div>
-        <div class="elementosCentrados">
-            <a href="./fuentes.php" class="short_style_a_button estilos-generales animacion_boton">JUGAR</a>
-            <a href="./ranking.php" class="short_style_a_button estilos-generales animacion_boton">RANKING</a>
+        <div class="elementos-centrados">
+            <a href="./fuentes.php" class="boton-pequeño estilos-generales animacion-boton">JUGAR</a>
+            <a href="./ranking.php" class="boton-pequeño estilos-generales animacion-boton">RANKING</a>
         </div>
         <div>
-            <img src="../media/img_anna/anna.png" class="anna-img" alt="Anna" id="annaFuente">
+            <img src="../media/img_anna/anna.png" class="anna-img" alt="Anna" id="anna-fuente">
         </div>
-       
     </main>
 </body>
-
 </html>
