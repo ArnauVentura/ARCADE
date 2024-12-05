@@ -10,9 +10,9 @@
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     
 </head>
-<body class="bg_Img imgPatio">
+<body class="bg-Img" id="img-patio">
 
-    <header class="encabezado_general">
+    <header class="encabezado-general">
         <a class="atras" href="javascript:history.back()">
             <img src="../media/flecha.png" alt="Volver" class="img-header">
         </a>
@@ -22,30 +22,30 @@
         <!--Div de la fuente amarilla-->
         <div class="font-img">
             <a href="introEnBuscaDeLasLlaves.html">
-                <img src="../media/img_fuentes/fuente_amarilla.png" alt="fuente_amarilla" class="fuente_amarilla" id="fuenteAmarilla">
+                <img src="../media/img_fuentes/fuente_amarilla.png" alt="fuente_amarilla" class="fuente-amarilla" id="fuenteAmarilla">
             </a>
         </div>
 
         <!--Div de la fuente roja-->
         <div class="font-img">
             <a href="introRescateDelMar.html">
-                <img src="../media/img_fuentes/fuente_roja.png" alt="fuente_roja" class="fuente_roja" id="fuenteRoja">
+                <img src="../media/img_fuentes/fuente_roja.png" alt="fuente_roja" class="fuente-roja " id="fuenteRoja">
             </a>
         </div>
 
         <!--Div de la fuente azul-->
         <div class= "font-img">
             <a href="introAlRioTroncos.html">
-                <img src="../media/img_fuentes/fuente_azul.png" alt="fuente_azul" class="fuente_azul" id="fuenteAzul">
+                <img src="../media/img_fuentes/fuente_azul.png" alt="fuente_azul" class="fuente-azul" id="fuenteAzul">
             </a>
         </div>
 
         <!--Div de la imagen de Anna-->
-        <div class="elementosCentrados div-texto-fuentes">
+        <div class="elementos-centrados div-texto-fuentes">
             <p id="p-mensaje">¡Que empiece la investigación!</p>
         </div>
         <div>
-            <img src="../media/img_anna/annaFace.png" class="annaFace-img" alt="AnnaFace" id="annaFuente"> 
+            <img src="../media/img_anna/annaFace.png" class="anna-face-img" alt="AnnaFace" id="anna-fuente"> 
         </div>
     </main>
 

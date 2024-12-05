@@ -15,7 +15,7 @@
 include_once './php/bd.php';
 ?>
 
-<body class="bg_Img imgEscuela">
+<body class="bg-Img img-escuela">
     <header class="encabezado-pg-principal">
         <ul class="menu-idiomas">
             <li>
@@ -44,48 +44,48 @@ include_once './php/bd.php';
         </ul>
     </header>
 
-    <main id="main_mainMenu">
-        <div class="elementosCentrados div-titulos div-titulo-anna whiteBG">
-            <h1 class="styleTitulo">ANNA</h1>
-            <h2 class="styleTitulo">Y EL MISTERIO DE LAS 3 FUENTES</h2>
+    <main id="main-pg-principal">
+        <div class="elementos-centrados div-titulos div-titulo-anna">
+            <h1 class="estilo-titulo">ANNA</h1>
+            <h2 class="estilo-titulo">Y EL MISTERIO DE LAS 3 FUENTES</h2>
         </div>
         <form method="POST" action="./php/login.php">
-            <div class="elementosCentrados">
-                <input type="text" name="nombre" class="txt_Inputs short_style_a_button estilos-generales" placeholder="Nombre de usuario">
-                <input type="password" name="contrasenya" class="txt_Inputs short_style_a_button estilos-generales" placeholder="Contraseña">
+            <div class="elementos-centrados">
+                <input type="text" name="nombre" class="txt-input boton-pequeño estilos-generales" placeholder="Nombre de usuario">
+                <input type="password" name="contrasenya" class="txt-input boton-pequeño estilos-generales" placeholder="Contraseña">
             </div>
 
-            <div class="elementosCentrados divButtons_Formulario" id="">
-                <input type="submit" class="short_style_a_button animacion_boton estilos-generales" value="INICIAR SESIÓN"></input>
-                <button type="button" class="short_style_a_button animacion_boton estilos-generales" onclick="openPopup()">REGISTRARSE</button>
+            <div class="elementos-centrados div-form-boton" id="">
+                <input type="submit" class="boton-pequeño animacion-boton estilos-generales" value="INICIAR SESIÓN"></input>
+                <button type="button" class="boton-pequeño animacion-boton estilos-generales" onclick="openPopup()">REGISTRARSE</button>
             </div>
         </form>
-            <hr id="hr_mainMenu">
-            <div class="divButtons_Formulario">
-                <a href="./html/jugar.html" class="short_style_a_button animacion_boton estilos-generales">JUGAR SIN REGISTRO</a>
+            <hr id="hr-pg-principal">
+            <div class="div-form-boton">
+                <a href="./html/jugar.html" class="boton-pequeño animacion-boton estilos-generales">JUGAR SIN REGISTRO</a>
 
-                <a href="./html/ranking.php" class="short_style_a_button animacion_boton estilos-generales">CONÓCENOS</a>
+                <a href="./html/ranking.php" class="boton-pequeño animacion-boton estilos-generales">CONÓCENOS</a>
             </div>
         </div>
         <div class="popup-overlay" id="popupOverlay">
-            <div class="popup-content elementosCentrados">
+            <div class="popup-content elementos-centrados">
                 <button class="close-btn" onclick="closePopup()">X</button>
                 <h3 class="styleTitulo">REGISTRO</h3>
                 <form action="./php/controllers.php" method="POST">
                     <div>
                         <label for="nombre">Nombre</label>
                         <div>
-                            <input type="text" id="nombre" name="nombre" class="txt_Inputs short_style_a_button estilos-generales" placeholder="Nombre" required>
+                            <input type="text" id="nombre" name="nombre" class="txt-input boton-pequeño estilos-generales" placeholder="Nombre" required>
                         </div>
                     </div>
                     <div>
                         <label for="contrasenya">Contraseña</label>
                         <div>
-                            <input type="password" id="contrasenya" name="contrasenya" class="txt_Inputs short_style_a_button estilos-generales" placeholder="Contraseña" required>
+                            <input type="password" id="contrasenya" name="contrasenya" class="txt-input boton-pequeño estilos-generales" placeholder="Contraseña" required>
                         </div>
                     </div>
                     <div>
-                        <button type="submit" name="insert" class="short_style_a_button estilos-generales">ACEPTAR</button>
+                        <button type="submit" name="insert" class="boton-pequeño estilos-generales">ACEPTAR</button>
                     </div>
                 </form>
             </div>
