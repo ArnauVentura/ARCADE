@@ -23,33 +23,41 @@
         <div class="elementosCentrados div-titulos">
                 <h1 class="styleTitulo">RANKING</h1>
         </div>
-        <div class="divSecundario elementosCentrados" id="divSecundarioLeft_Ranking">
-            <button class="short_style_a_button estilos-generales large_style_a_button" id="buttonRankning_Juego2" href="">EN BUSCA DE LAS LLAVES</button>
-            <button class="short_style_a_button estilos-generales large_style_a_button" id="buttonRankning_Juego3" href="">RESCATE DEL MAR</button>
-            <button class="short_style_a_button estilos-generales large_style_a_button" id="buttonRankning_Juego4" href="">AL RIO TRONCOS</button>
-            <button class="short_style_a_button estilos-generales large_style_a_button" id="buttonRankning_JuegoTotal" href="">RANKING TOTAL</button>
+        <div class="" id="">
+            <button class="short_style_a_button estilos-generales large_style_a_button" id="buttonRankning_Juego2" href="">
+                EN BUSCA DE LAS LLAVES
+            </button>
+            <button class="short_style_a_button estilos-generales large_style_a_button" id="buttonRankning_Juego3" href="">
+                RESCATE DEL MAR
+            </button>
+            <button class="short_style_a_button estilos-generales large_style_a_button" id="buttonRankning_Juego4" href="">
+                AL RIO TRONCOS
+            </button>
+            <button class="short_style_a_button estilos-generales large_style_a_button" id="buttonRankning_JuegoTotal" href="">
+                RANKING TOTAL
+            </button>
         </div>
 
-        <div class="divSecundario" id="divSecundarioRight_Ranking">
-            <div class="puntosPersonaje">
-                <img src="../media/img_landing/gmail_Logo.png" alt="">
+        <div class="" id="">
+            <div class="">
+                <img src="" alt="">
                 <div class="whiteBG">
                     <p>MARC BOSCH</p>
                     <p> - </p>
                     <p>14:30</p>
                 </div>
             </div>
-            <div class="puntosPersonaje">
-                <img src="../media/img_landing/gmail_Logo.png" alt="">
-                <div class="whiteBG">
+            <div class="">
+                <img src="" alt="">
+                <div class="">
                     <p>MARC BOSCH</p>
                     <p> - </p>
                     <p>14:30</p>
                 </div>
             </div>
-            <div class="puntosPersonaje">
-                <img src="../media/img_landing/gmail_Logo.png" alt="">
-                <div class="whiteBG">
+            <div class="">
+                <img src="" alt="">
+                <div class="">
                     <p>MARC BOSCH</p>
                     <p> - </p>
                     <p>14:30</p>
