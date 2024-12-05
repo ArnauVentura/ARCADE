@@ -17,14 +17,13 @@ if (!isset($_SESSION['nombre'])) {
     <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
 </head>
-
 <body class="bg-Img img-escuela">
     <header class="encabezado-general">
         <a class="atras" href="javascript:history.back()">
             <img src="../media/flecha.png" alt="Volver" class="img-header">
         </a>
     </header>
-    <main id="main_mainMenu">
+    <main class="main-pg-principal">
         <div class="elementos-centrados div-titulos div-titulo-anna">
             <h1 class="estilo-titulo">ANNA</h1>
             <h2 class="estilo-titulo">Y EL MISTERIO DE LAS 3 FUENTES</h2>
@@ -36,8 +35,6 @@ if (!isset($_SESSION['nombre'])) {
         <div>
             <img src="../media/img_anna/anna.png" class="anna-img" alt="Anna" id="anna-fuente">
         </div>
-       
     </main>
 </body>
-
 </html>

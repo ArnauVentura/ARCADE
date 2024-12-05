@@ -18,47 +18,49 @@
             <img src="../media/flecha.png" alt="Volver" class="img-header">
         </a>
     </header>
-    <main id="main-ranking">
+    <main>
         <div class="elementos-centrados div-titulos">
             <h1 class="estilo-titulo">RANKING</h1>
         </div>
-        <div id="">
-            <button class="boton-pequeño estilos-generales boton-largo" id="" href="">
-                EN BUSCA DE LAS LLAVES
-            </button>
-            <button class="boton-pequeño estilos-generales boton-largo" id="" href="">
-                RESCATE DEL MAR
-            </button>
-            <button class="boton-pequeño estilos-generales boton-largo" id="" href="">
-                AL RIO TRONCOS
-            </button>
-            <button class="boton-pequeño estilos-generales boton-largo" id="" href="">
-                RANKING TOTAL
-            </button>
-        </div>
-        <div class="">
-            <div class="">
-                <img src="" alt="img_num_1">
-                <div class="">
-                    <p>MARC BOSCH</p>
-                    <p> - </p>
-                    <p>14:30</p>
-                </div>
+        <div id="container-ranking">
+            <div id="">
+                <button class="boton-pequeño estilos-generales boton-largo" id="boton-llaves" href="">
+                    EN BUSCA DE LAS LLAVES
+                </button>
+                <button class="boton-pequeño estilos-generales boton-largo" id="boton-rescate" href="">
+                    RESCATE DEL MAR
+                </button>
+                <button class="boton-pequeño estilos-generales boton-largo" id="boton-puzzle" href="">
+                    AL RIO TRONCOS
+                </button>
+                <button class="boton-pequeño estilos-generales boton-largo" id="boton-total" href="">
+                    RANKING TOTAL
+                </button>
             </div>
-            <div class="">
-                <img src="" alt="img_num_2">
+            <div id="">
                 <div class="">
-                    <p>MARC BOSCH</p>
-                    <p> - </p>
-                    <p>14:30</p>
+                    <img src="" alt="img_num_1">
+                    <div class="">
+                        <p>MARC BOSCH</p>
+                        <p> - </p>
+                        <p>14:30</p>
+                    </div>
                 </div>
-            </div>
-            <div class="">
-                <img src="" alt="img_num_3">
                 <div class="">
-                    <p>MARC BOSCH</p>
-                    <p> - </p>
-                    <p>14:30</p>
+                    <img src="" alt="img_num_2">
+                    <div class="">
+                        <p> </p>
+                        <p> - </p>
+                        <p>14:30</p>
+                    </div>
+                </div>
+                <div class="">
+                    <img src="" alt="img_num_3">
+                    <div class="">
+                        <p>MARC BOSCH</p>
+                        <p> - </p>
+                        <p>14:30</p>
+                    </div>
                 </div>
             </div>
         </div>
