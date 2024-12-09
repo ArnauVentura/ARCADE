@@ -47,17 +47,14 @@ if (isset($_SESSION['nombre'])) {
                 <img src="../media/img_quienes_somos/carla.png" class="img-miembro" alt="imagen Carla">
                 <h2>Carla Cayero</h2>
                 <p class="txt-miembro">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt 
-                    eu dolor non aliquam. Fusce sit amet dui odio. Cras lobortis, nunc vel 
-                    tincidunt lobortis, diam massa eleifend felis, ut luctus risus elit at 
-                    magna. 
+                ¿Sabías que cuando era pequeña, me encantaba dibujar? Dibujaba monstruos, princesas y naves espaciales. Ahora, en lugar de dibujar, ¡creo mundos enteros en la web! Es como tener un lienzo mágico donde puedo hacer realidad todas mis ideas.
                 </p>
-                <a href="#" target="_blank">
+                <a href="https://www.linkedin.com/in/carlacayerohernandez " target="_blank">
                     <img src="../media/img_quienes_somos/linkedln.png" alt="Linkedln" class="img-logo-linkedln">
                 </a>
             </article>
             <article class="div-miembro ">
-                <img src="../media/img_quienes_somos/desi.png" class="img-miembro" alt="imagen Carla">
+                <img src="../media/img_quienes_somos/desi.png" class="img-miembro" alt="imagen Desi">
                 <h2>Desirée Romero</h2>
                 <p class="txt-miembro">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt 
@@ -70,7 +67,7 @@ if (isset($_SESSION['nombre'])) {
                 </a>
             </article>
             <article class="div-miembro ">
-                <img src="../media/img_quienes_somos/arnau.png" class="img-miembro" alt="imagen Carla">
+                <img src="../media/img_quienes_somos/arnau.png" class="img-miembro" alt="imagen Arnau">
                 <h2>Arnau Ventura</h2>
                 <p class="txt-miembro">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt 
