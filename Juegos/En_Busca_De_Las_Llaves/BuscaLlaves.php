@@ -1,3 +1,28 @@
+<?php
+session_start();
+include_once('../../php/bd.php');
+
+if (!isset($_SESSION['nombre'])) {
+    header('Location: ../index.php'); 
+    exit();
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
+    session_unset();
+    session_destroy();
+    header('Location: ../index.php');
+    exit();
+}
+
+$idJuego = 1;
+$juego = getJuegoPorId($idJuego);
+
+if (!$juego) {
+    echo "<p>Juego no encontrado.</p>";
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -24,6 +49,13 @@
       </nav>
     </header>
 
+
+  <!-- form oculto para enviar puntuacion -->
+    <form id="rankingForm" method="POST" action="../../php/controllers.php">
+      <input type="hidden" name="usuario_idUsuario" value="<?php echo ($_SESSION['nombre']); ?>">
+      <input type="hidden" name="juegos_idJuego" value="<?php echo ($idJuego); ?>">
+      <input type="hidden" id="puntuacion" name="puntuacion">
+    </form>
     <!-- Área principal -->
     <div id="gameArea">
       <div id="buttonsArea">

@@ -61,7 +61,7 @@ include_once './php/bd.php';
         <hr id="hr-pg-principal">
         <div class="div-form-boton">
             <a href="./html/jugar.html" class="boton-pequeño animacion-boton estilos-generales">JUGAR SIN REGISTRO</a>
-            <a href="./html/ranking.php" class="boton-pequeño animacion-boton estilos-generales">CONÓCENOS</a>
+            <a href="./html/quienesSomos.php" class="boton-pequeño animacion-boton estilos-generales">CONÓCENOS</a>
         </div>
         <div class="popup-overlay" id="popupOverlay">
             <div class="popup-content elementos-centrados">
