@@ -52,6 +52,16 @@ if (!isset($_SESSION['nombre'])) {
         <div>
             <img src="../media/img_anna/annaFace.png" class="anna-face-img" alt="AnnaFace" id="anna-fuente"> 
         </div>
+
+        <!--Div de la imagen de personaje -->
+        <div class= "font-img">
+            <img src="../media/img_landing/p1.png" alt="Manel" class="personaje1">
+        </div>
+
+        <!--Div de la imagen de personaje-->
+        <div class= "font-img">
+            <img src="../media/img_landing/p2.png" alt="Marcel·la" class="personaje2">
+        </div>
     </main>
 
     <script src="../js/mensajeFuentes.js"></script>

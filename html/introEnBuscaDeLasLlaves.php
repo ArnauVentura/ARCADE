@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 if (!isset($_SESSION['nombre'])) {
@@ -12,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
     exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -37,7 +39,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
     </header>
     <main> 
         <div class="elementos-centrados div-intro-juegos">
+
             <p id="p-mensaje"> 
+
                 Anna se dispone a entrar en el oscuro alcantarillado en busca de las llaves rotas para arreglar el flujo del agua.
                 Ayudala ha encontrar todas en el menor tiempo possible haciendo uso de tu linterna!
                 Usa el raton para seleccionar la sala en la que buscar y para mover la linterna, para encontrar las llaves 

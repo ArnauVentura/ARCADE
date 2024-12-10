@@ -142,12 +142,14 @@ function registro($nombre, $contrasenya)
             return false;
         }
 
+        $hashedPassword = password_hash($contrasenya, PASSWORD_DEFAULT);
+
         $sentenciaText = "INSERT INTO usuario (nombre, contrasenya, rol_idRol) VALUES (:nombre, :contrasenya, 1)";
         $stmt = $conexion->prepare($sentenciaText);
         $stmt->bindParam(':nombre', $nombre);
-        $stmt->bindParam(':contrasenya', $contrasenya);
-
+        $stmt->bindParam(':contrasenya', $hashedPassword);
         $stmt->execute();
+
         if (!$stmt->execute()) {
             print_r($stmt->errorInfo());
         }
@@ -224,6 +226,7 @@ function getRanking()
     }
 }
 
+
 function getJuegoPorId($idJuego) {
     try {
         $conexion = openDB();
@@ -258,6 +261,21 @@ function guardarRanking($usuario_idUsuario, $juegos_idJuego, $puntuacion) {
         return true;
     } catch (PDOException $e) {
         return errorsMessage($e);
+
+function insertarPuntuacionRanking($idUsuario, $idJuego, $puntuacion) {
+    try {
+        $pdo = new PDO('mysql:host=localhost;dbname=nombre_de_tu_base_de_datos', 'usuario', 'contraseña');
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+        $sql = "INSERT INTO puntuaciones (id_usuario, id_juego, puntuacion) VALUES (:idUsuario, :idJuego, :puntuacion)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':idUsuario', $idUsuario);
+        $stmt->bindParam(':idJuego', $idJuego);
+        $stmt->bindParam(':puntuacion', $puntuacion);
+        
+        $stmt->execute();
+    } catch (PDOException $e) {
+        echo 'Error: ' . $e->getMessage();
     }
 }
 
