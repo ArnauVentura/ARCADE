@@ -148,11 +148,9 @@ function registro($nombre, $contrasenya)
         $stmt = $conexion->prepare($sentenciaText);
         $stmt->bindParam(':nombre', $nombre);
         $stmt->bindParam(':contrasenya', $hashedPassword);
-        $stmt->execute();
-
-        // if (!$stmt->execute()) {
-        //     print_r($stmt->errorInfo());
-        // }
+        if (!$stmt->execute()) {
+            print_r($stmt->errorInfo());
+        }
 
         $conexion = closeDB();
 

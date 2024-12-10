@@ -62,18 +62,21 @@ if (!$juego) {
         <button
           class="navButton boton-pequeño estilos-generales animacion-boton"
           data-room="sala_mantenimiento"
+          id="salaMantenimiento"
         >
           Ir a la sala de mantenimiento
         </button>
         <button
           class="navButton boton-pequeño estilos-generales animacion-boton"
           data-room="sala_inundada"
+          id="salaInundada"
         >
           Ir a la sala inundada
         </button>
         <button
           class="navButton boton-pequeño estilos-generales animacion-boton"
           data-room="sala_ruinas"
+          id="salaRuinas"
         >
           Ir a la sala en ruinas
         </button>
@@ -83,5 +86,7 @@ if (!$juego) {
     </div>
 
     <script src="llaves.js"></script>
+    <script src="../../js/idiomas.js"></script>
+    <script src="../../js/traducciones.js"></script>
   </body>
 </html>

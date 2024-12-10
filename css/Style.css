@@ -295,10 +295,12 @@ ul{
 }
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* RANKING */
-#container-ranking{
-    background-color: white; 
-}
 .div-jugador{
+    display: flex;
+    justify-content: space-between;
+    color: white; 
+}
+.div-jugador th{
     display: flex;
     justify-content: space-between;
     color: white; 
@@ -317,12 +319,10 @@ ul{
     flex-direction: column;
     width: 40vw;
     color: white;
-}
-.jugador-puntos{
-    display: flex;
-}
-.jugador-puntos p{
     margin: auto;
+}
+#boton-llaves, #boton-rescate, #boton-puzzle{
+    margin-bottom: 60px;
 }
 
 
@@ -392,7 +392,7 @@ ul{
     transform: translate(-50%, -50%);
     background-color: rgba(255, 255, 255, 0.7);
 }
-#jugar-button{
+.jugar-button{
     position: absolute;
     bottom: 20px; /* Ajusta la distancia desde el borde inferior */
     right: 20px;

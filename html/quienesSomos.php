@@ -23,7 +23,7 @@ if (isset($_SESSION['nombre'])) {
     <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
 </head>
-<body class="bg-Img" id="bodyQuienesSomos img-clase">
+<body class="bg-Img" id="img-clase">
     <header class="encabezado-general">
         <a class="atras" href="javascript:history.back()">
             <img src="../media/flecha.png" alt="Volver" class="img-header">
@@ -36,10 +36,10 @@ if (isset($_SESSION['nombre'])) {
     </header>
     <main>
         <div class="elementos-centrados div-titulos">
-            <h1 class="estilo-titulo">¿QUIÉNES SOMOS?</h1>
+            <h1 class="estilo-titulo" id="tituloPrincipal">¿QUIÉNES SOMOS?</h1>
         </div>
         <div class="elementos-centrados" id="div-quienes-somos">
-            <p>
+            <p id="descripcionProyecto">
             ¡Hola! Somos un grupo llamado Arcade, formado por Carla Cayero, Desirée Romero 
             y Arnau Ventura, estudiantes del Centre d'Estudis Politécnics, cursando el ciclo 
             de Desarrollo de Aplicaciones Web (DAW).
@@ -50,9 +50,9 @@ if (isset($_SESSION['nombre'])) {
         <section id="container-quienes-somos">
             <article class="div-miembro">
                 <img src="../media/img_quienes_somos/carla.png" class="img-miembro" alt="imagen Carla">
-                <h2>Carla Cayero</h2>
-                <p class="txt-miembro">
-                ¿Sabías que cuando era pequeña, me encantaba dibujar? Dibujaba monstruos, princesas y naves espaciales. Ahora, en lugar de dibujar, ¡creo mundos enteros en la web! Es como tener un lienzo mágico donde puedo hacer realidad todas mis ideas.
+                <h2 id="nombreCarla">Carla Cayero</h2>
+                <p class="txt-miembro" id="descripcionCarla">
+                    ¿Sabías que cuando era pequeña, me encantaba dibujar? Dibujaba monstruos, princesas y naves espaciales. Ahora, en lugar de dibujar, ¡creo mundos enteros en la web! Es como tener un lienzo mágico donde puedo hacer realidad todas mis ideas.
                 </p>
                 <a href="https://www.linkedin.com/in/carlacayerohernandez " target="_blank">
                     <img src="../media/img_quienes_somos/linkedln.png" alt="Linkedln" class="img-logo-linkedln">
@@ -60,8 +60,8 @@ if (isset($_SESSION['nombre'])) {
             </article>
             <article class="div-miembro ">
                 <img src="../media/img_quienes_somos/desi.png" class="img-miembro" alt="imagen Desi">
-                <h2>Desirée Romero</h2>
-                <p class="txt-miembro">
+                <h2 id="nombreDesi" >Desirée Romero</h2>
+                <p class="txt-miembro" id="descripcionDesi">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt 
                     eu dolor non aliquam. Fusce sit amet dui odio. Cras lobortis, nunc vel 
                     tincidunt lobortis, diam massa eleifend felis, ut luctus risus elit at 
@@ -73,8 +73,8 @@ if (isset($_SESSION['nombre'])) {
             </article>
             <article class="div-miembro ">
                 <img src="../media/img_quienes_somos/arnau.png" class="img-miembro" alt="imagen Arnau">
-                <h2>Arnau Ventura</h2>
-                <p class="txt-miembro">
+                <h2 id="nombreArnau">Arnau Ventura</h2>
+                <p class="txt-miembro" id="descripcionArnau">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt 
                     eu dolor non aliquam. Fusce sit amet dui odio. Cras lobortis, nunc vel 
                     tincidunt lobortis, diam massa eleifend felis, ut luctus risus elit at 
@@ -94,5 +94,7 @@ if (isset($_SESSION['nombre'])) {
             <img src="../media/img_quienes_somos/lesCorts.png" class="img-logo" alt="imagen Les Corts">
         </a>
     </footer>
+    <script src="../js/idiomas.js"></script>
+    <script src="../js/traducciones.js"></script>
 </body>
 </html>

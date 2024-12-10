@@ -32,16 +32,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
                 <img src="../media/flecha.png" alt="Volver" class="img-header">
             </a>
 
-            <div class="titulo-juego elementos-centrados">
+            <div class="titulo-juego elementos-centrados" id="tituloJuegoArnau">
                 <h3>EN BUSCA DE LAS LLAVES</h3>
             </div>
         </div>
     </header>
     <main> 
         <div class="elementos-centrados div-intro-juegos">
-
-            <p id="p-mensaje"> 
-
+            <p class="p-mensaje" id="txtIntroArnau"> 
                 Anna se dispone a entrar en el oscuro alcantarillado en busca de las llaves rotas para arreglar el flujo del agua.
                 Ayudala ha encontrar todas en el menor tiempo possible haciendo uso de tu linterna!
                 Usa el raton para seleccionar la sala en la que buscar y para mover la linterna, para encontrar las llaves 
@@ -55,9 +53,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
                 </div>
             </div>
         </div>
-        <a class="boton-pequeño estilos-generales animacion-boton" id="jugar-button" href="../Juegos/En_Busca_De_Las_Llaves/BuscaLlaves.html"> 
+        <a class="boton-pequeño estilos-generales animacion-boton jugar-button" id="botonJugar" href="../Juegos/En_Busca_De_Las_Llaves/BuscaLlaves.html"> 
             JUGAR 
         </a> 
     </main> 
+    <script src="../js/idiomas.js"></script>
+    <script src="../js/traducciones.js"></script>
 </body>
 </html>
