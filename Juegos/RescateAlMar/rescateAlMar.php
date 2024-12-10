@@ -1,3 +1,20 @@
+<?php
+session_start();
+if (!isset($_SESSION['nombre'])) {
+    header('Location: ../index.php'); 
+    exit();
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
+    session_unset();
+    session_destroy();
+    header('Location: ../index.php');
+    exit();
+}
+?>
+<script>
+    const idUsuario = <?php echo json_encode($idUsuario); ?>;
+</script>
 <!DOCTYPE html>
 <html lang="es">
 <head>

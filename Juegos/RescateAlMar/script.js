@@ -174,14 +174,37 @@ function actualizarTiempo() {
         finDelJuego();
     }
 }
-
 // Función para finalizar el juego
 function finDelJuego() {
     alert(`¡El juego ha terminado! Puntuación final: ${puntuacionJugador}`);
     clearInterval(intervaloCreacionObjetos);
     clearInterval(intervaloVelocidad);
     document.querySelectorAll('.objeto').forEach(obj => obj.remove());
+
+    // Aquí agregamos el envío de la puntuación al servidor
+    enviarPuntuacion();
 }
+
+// Función para enviar la puntuación al servidor
+function enviarPuntuacion() {
+    const puntuacion = puntuacionJugador;
+
+    fetch('guardarPuntuacion.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `idUsuario=${encodeURIComponent(idUsuario)}&puntuacion=${encodeURIComponent(puntuacion)}`,
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.mensaje); // Mostrar el mensaje del servidor
+    })
+    .catch(error => {
+        console.error('Error al guardar la puntuación:', error);
+    });
+}
+
 
 // Inicializar la posición de la red
 actualizarPosicion();
