@@ -2,10 +2,8 @@
 session_start();
 include_once('../../php/bd.php');
 
-if (!isset($_SESSION['nombre'])) {
-    header('Location: ../index.php'); 
-    exit();
-}
+$usuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : null;
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
     session_unset();
