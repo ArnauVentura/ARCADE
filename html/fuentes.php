@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['nombre'])) {
+    header('Location: ../index.php'); 
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,7 +26,7 @@
     <main>
         <!--Div de la fuente amarilla-->
         <div class="font-img">
-            <a href="introEnBuscaDeLasLlaves.html">
+            <a href="introEnBuscaDeLasLlaves.php">
                 <img src="../media/img_fuentes/fuente_amarilla.png" alt="fuente_amarilla" class="fuente-amarilla" id="fuenteAmarilla">
             </a>
         </div>

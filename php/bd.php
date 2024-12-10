@@ -2,10 +2,15 @@
 function openDB()
 {
 
-    $servername = "sql207.byethost13.com";
-    $username = "b13_37391685";
-    $password = "desi123";
-    $dbname="b13_37391685_arcade";
+    // $servername = "sql207.byethost13.com";
+    // $username = "b13_37391685";
+    // $password = "desi123";
+    // $dbname="b13_37391685_arcade";
+
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname="anna";
 
     try {
         $connection = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -219,5 +224,41 @@ function getRanking()
     }
 }
 
+function getJuegoPorId($idJuego) {
+    try {
+        $conexion = openDB();
+
+        $sentenciaText = "SELECT * FROM juegos WHERE idJuego = :idJuego";
+        $stmt = $conexion->prepare($sentenciaText);
+
+        $stmt->bindParam(':idJuego', $idJuego, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $juego = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $conexion = closeDB();
+        return $juego;
+    } catch (PDOException $e) {
+        return errorsMessage($e);
+    }
+}
+
+function guardarRanking($usuario_idUsuario, $juegos_idJuego, $puntuacion) {
+    try {
+        $conexion = openDB();
+        $sentenciaText = "INSERT INTO ranking (usuario_idUsuario, juegos_idJuego, puntuacion) VALUES (:usuario_idUsuario, :juegos_idJuego, :puntuacion)";
+        $stmt = $conexion->prepare($sentenciaText);
+
+        $stmt->bindParam(':usuario_idUsuario', $usuario_idUsuario, PDO::PARAM_INT);
+        $stmt->bindParam(':juegos_idJuego', $juegos_idJuego, PDO::PARAM_INT);
+        $stmt->bindParam(':puntuacion', $puntuacion, PDO::PARAM_INT);
+
+        $stmt->execute();
+        $conexion = closeDB();
+        return true;
+    } catch (PDOException $e) {
+        return errorsMessage($e);
+    }
+}
 
 ?>

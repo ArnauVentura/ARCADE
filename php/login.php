@@ -16,6 +16,7 @@ $datos = $stmt->fetch(PDO::FETCH_OBJ);
 if ($datos === FALSE) {
     header('Location: ../index.php');
 } elseif ($stmt->rowCount() == 1) {
+    
     $_SESSION['nombre'] = $datos->nombre;
     $_SESSION['rol_idRol'] = $datos->rol_idRol;
 
