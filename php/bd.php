@@ -261,6 +261,8 @@ function guardarRanking($usuario_idUsuario, $juegos_idJuego, $puntuacion) {
         return true;
     } catch (PDOException $e) {
         return errorsMessage($e);
+    }
+}
 
 function insertarPuntuacionRanking($idUsuario, $idJuego, $puntuacion) {
     try {

@@ -16,29 +16,32 @@ if (empty($nombre) || empty($contrasenya)) {
 // Prepara la consulta para obtener el usuario
 $stmt = $conexion->prepare('SELECT * FROM usuario WHERE nombre = ?');
 $stmt->execute([$nombre]);
+
 $datos = $stmt->fetch(PDO::FETCH_OBJ);
 
-if ($datos === FALSE) {
-    header('Location: ../index.php');
-} elseif ($stmt->rowCount() == 1) {
-    
+if ($datos) {
+    echo "Usuario encontrado: " . $datos->nombre . "<br>";
+    echo "Hash almacenado: " . $datos->contrasenya . "<br>";
 
-if ($datos && password_verify($contrasenya, $datos->contrasenya)) {
-    // Contraseña válida
-    $_SESSION['nombre'] = $datos->nombre;
-    $_SESSION['rol_idRol'] = $datos->rol_idRol;
+    if (password_verify($contrasenya, $datos->contrasenya)) {
+        echo "Contraseña válida<br>";
 
-    if ($datos->rol_idRol == 2 || $datos->rol_idRol == 3) {
-        header('Location: ./administracion.php');
-        exit;
+        $_SESSION['nombre'] = $datos->nombre;
+        $_SESSION['rol_idRol'] = $datos->rol_idRol;
+
+        if ($datos->rol_idRol == 2 || $datos->rol_idRol == 3) {
+            header('Location: ./administracion.php');
+        } else {
+            header('Location: ../html/jugarRanking.php');
+        }
     } else {
-        header('Location: ../html/jugarRanking.php');
-        exit;
+        echo "Contraseña incorrecta<br>";
+        header('Location: ../index.php');
     }
 } else {
-    // Contraseña o usuario incorrectos
+    echo "Usuario no encontrado<br>";
     header('Location: ../index.php');
-    exit;
 }
+
 $conexion = null;
 ?>
