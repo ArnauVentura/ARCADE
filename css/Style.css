@@ -300,11 +300,6 @@ ul{
     justify-content: space-between;
     color: white; 
 }
-.div-jugador th{
-    display: flex;
-    justify-content: space-between;
-    color: white; 
-}
 .botones_ranking {
     display: flex;
     flex-direction: column;
@@ -319,10 +314,6 @@ ul{
     flex-direction: column;
     width: 40vw;
     color: white;
-    margin: auto;
-}
-#boton-llaves, #boton-rescate, #boton-puzzle{
-    margin-bottom: 60px;
 }
 
 
@@ -375,7 +366,18 @@ ul{
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.7);
 }
-
+.personaje1, .personaje2{
+    width: 150px;
+    position: absolute;
+}
+.personaje1{
+    bottom: 300px;
+    left: 170px;
+}
+.personaje2{
+    top: 200px;
+    right: 500px;
+}
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* PÁGINAS INTRO JUEGOS*/
 .introduccion{
