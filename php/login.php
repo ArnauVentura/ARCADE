@@ -31,6 +31,7 @@ if ($datos && password_verify($contrasenya, $datos->contrasenya)) {
     // Contraseña o usuario incorrectos
     header('Location: ../index.php');
 }
+}
 
 $conexion = closeDB();
 ?>
