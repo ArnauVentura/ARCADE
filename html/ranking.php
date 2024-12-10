@@ -1,8 +1,9 @@
 <?php
 session_start();
-if (!isset($_SESSION['nombre'])) {
-    header('Location: ../index.php'); 
-    exit();
+
+if (isset($_SESSION['nombre'])) {
+    $usuario = $_SESSION['nombre'];
+} else {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
@@ -42,24 +43,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
         </div>
         <div id="container-quienes-somos">
             <div class="botones_ranking">
-                <button class="boton-pequeño estilos-generales boton-largo" id="boton-llaves" href="">
+                <button class="boton-pequeño estilos-generales boton-largo" id="boton-llaves tituloJuegoArnau" href="">
                     EN BUSCA DE LAS LLAVES
                 </button>
-                <button class="boton-pequeño estilos-generales boton-largo" id="boton-rescate" href="">
+                <button class="boton-pequeño estilos-generales boton-largo" id="boton-rescate tituloJuegoDesi" href="">
                     RESCATE DEL MAR
                 </button>
-                <button class="boton-pequeño estilos-generales boton-largo" id="boton-puzzle" href="">
+                <button class="boton-pequeño estilos-generales boton-largo" id="boton-puzzle tituloJuegoCarla" href="">
                     AL RIO TRONCOS
                 </button>
-                <button class="boton-pequeño estilos-generales boton-largo animacion-boton" id="boton-total" href="">
+                <button class="boton-pequeño estilos-generales boton-largo animacion-boton" id="boton-total rankingTotal" href="">
                     RANKING TOTAL
                 </button>
             </div>
             <table class="ranking">
                 <tr class="div-jugador">
-                    <th>Posición</th>
-                    <th>Jugador</th>
-                    <th>Puntuación</th>
+                    <th id="posicion">POSICIÓN</th>
+                    <th id="jugador">JUGADOR</th>
+                    <th id="puntuacion">PUNTUACIÓN</th>
                 </tr>
                 <?php foreach ($ranking as $index => $fila): ?>
                     <tr class="div-jugador">

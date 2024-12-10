@@ -13,8 +13,8 @@
             <a class="atras" href="javascript:history.back()">
                 <img src="../../media/flecha.png" alt="Volver" class="img-header">
             </a>
-            <p class="tiempo">Tiempo: 00:00</p>
-            <p class="clicks">Clicks: 0</p>
+            <p class="tiempo" id="tiempo">Tiempo: 00:00</p>
+            <p class="clicks" id="clicks">Clicks: 0</p>
         </div>
     </header>
 
@@ -33,16 +33,18 @@
 
         <div id="ventanaVictoria" class="ventanaVictoria">
             <div class="v-contenido">
-                <h1 class="v-titulo">¡Puzzle Resuelto!</h1>
+                <h1 class="v-titulo" id="puzzle">¡Puzzle Resuelto!</h1>
                 <p id="mensajeTiempo"></p>
                 <div class="v-botones">
-                    <button id="btnReiniciar">Volver a Jugar</button>
-                    <button id="btnRanking">Ir al Ranking</button>
-                    <button id="btnFuentes">Volver a las Fuentes</button>
+                    <button id="btnReiniciar volverJugar">Volver a Jugar</button>
+                    <button id="btnRanking irRanking">Ir al Ranking</button>
+                    <button id="btnFuentes volverFuentes">Volver a las Fuentes</button>
                 </div>
             </div>
         </div>
     </main>
     <script src="../puzzle/puzzle.js"></script>
+    <script src="../../js/idiomas.js"></script>
+    <script src="../../js/traducciones.js"></script>
 </body>
 </html>

@@ -148,8 +148,6 @@ function registro($nombre, $contrasenya)
         $stmt = $conexion->prepare($sentenciaText);
         $stmt->bindParam(':nombre', $nombre);
         $stmt->bindParam(':contrasenya', $hashedPassword);
-        $stmt->execute();
-
         if (!$stmt->execute()) {
             print_r($stmt->errorInfo());
         }
@@ -261,6 +259,8 @@ function guardarRanking($usuario_idUsuario, $juegos_idJuego, $puntuacion) {
         return true;
     } catch (PDOException $e) {
         return errorsMessage($e);
+    }
+}
 
 function insertarPuntuacionRanking($idUsuario, $idJuego, $puntuacion) {
     try {
