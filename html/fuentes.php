@@ -1,9 +1,13 @@
 <?php
 session_start();
-if (!isset($_SESSION['nombre'])) {
-    header('Location: ../index.php'); 
-    exit();
+
+if (isset($_SESSION['nombre'])) {
+    // Opcional: configura variables de sesión o muestra información específica del usuario
+    $usuario = $_SESSION['nombre'];
+} else {
+    // Si no hay sesión iniciada, no redirige. Solo se omite el contenido de usuario.
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="es">

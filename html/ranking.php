@@ -1,8 +1,9 @@
 <?php
 session_start();
-if (!isset($_SESSION['nombre'])) {
-    header('Location: ../index.php'); 
-    exit();
+
+if (isset($_SESSION['nombre'])) {
+    $usuario = $_SESSION['nombre'];
+} else {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
