@@ -26,25 +26,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
 </head>
 <body class="bg-Img img-escuela">
-    <header class="encabezado-general">
-        <form method="POST">
-            <button type="submit" name="cerrar-sesion" class="boton-cerrar-sesion">
-                <img src="../media/cerrar-sesion.png" alt="Cerrar Sesión" class="img-header">
-            </button>
-        </form>
-    </header>
-    <main class="main-pg-principal">
-        <div class="elementos-centrados div-titulos div-titulo-anna">
-            <h1 class="estilo-titulo">ANNA</h1>
-            <h2 class="estilo-titulo">Y EL MISTERIO DE LAS 3 FUENTES</h2>
-        </div>
-        <div class="elementos-centrados">
-            <a href="./fuentes.php" class="boton-pequeño estilos-generales animacion-boton">JUGAR</a>
-            <a href="./ranking.php" class="boton-pequeño estilos-generales animacion-boton">RANKING</a>
-        </div>
-        <div>
-            <img src="../media/img_anna/anna.png" class="anna-img" alt="Anna" id="anna-fuente">
-        </div>
-    </main>
+<header class="encabezado-general">
+    <form method="POST" action="../php/controllers.php">
+        <button type="submit" name="cerrar-sesion" class="boton-cerrar-sesion">
+            <img src="../media/cerrar-sesion.png" alt="Cerrar Sesión" class="img-header">
+        </button>
+    </form>
+</header>
+<main class="main-pg-principal">
+    <div class="elementos-centrados div-titulos div-titulo-anna">
+        <h1 class="estilo-titulo" id="tituloAnna">ANNA</h1>
+        <h2 class="estilo-titulo" id="subtituloAnna">Y EL MISTERIO DE LAS 3 FUENTES</h2>
+    </div>
+    <div class="elementos-centrados">
+        <a href="./fuentes.php" id="botonJugar" class="boton-pequeño estilos-generales animacion-boton">JUGAR</a>
+        <a href="./ranking.php" id="botonRanking" class="boton-pequeño estilos-generales animacion-boton">RANKING</a>
+    </div>
+    <div>
+        <img src="../media/img_anna/anna.png" class="anna-img" alt="Anna" id="anna-fuente">
+    </div>
+</main>
+<script src="./js/idiomas.js"></script>
+<script src="./js/traducciones.js"></script>
 </body>
 </html>

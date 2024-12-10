@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if (isset($_SESSION['nombre'])) {
+    // Opcional: configura variables de sesión o muestra información específica del usuario
+    $usuario = $_SESSION['nombre'];
+} else {
+    // Si no hay sesión iniciada, no redirige. Solo se omite el contenido de usuario.
+}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,7 +30,7 @@
     <main>
         <!--Div de la fuente amarilla-->
         <div class="font-img">
-            <a href="introEnBuscaDeLasLlaves.html">
+            <a href="introEnBuscaDeLasLlaves.php">
                 <img src="../media/img_fuentes/fuente_amarilla.png" alt="fuente_amarilla" class="fuente-amarilla" id="fuenteAmarilla">
             </a>
         </div>
