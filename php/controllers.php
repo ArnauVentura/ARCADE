@@ -3,6 +3,32 @@
 
     include_once('./bd.php');
 
+
+    if (isset($_POST['cerrar-sesion'])) {
+        session_unset(); 
+        session_destroy();
+        header('Location: ../index.php');
+        exit();
+    }
+
+    elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (!empty($_POST['usuario_idUsuario']) && !empty($_POST['juegos_idJuego']) && !empty($_POST['puntuacion'])) {
+            $usuario_idUsuario = intval($_POST['usuario_idUsuario']);
+            $juegos_idJuego = intval($_POST['juegos_idJuego']);
+            $puntuacion = intval($_POST['puntuacion']);
+    
+            // Guardar la puntuación en la base de datos
+            if (guardarRanking($usuario_idUsuario, $juegos_idJuego, $puntuacion)) {
+                $mensaje = "¡Puntuación guardada con éxito!";
+            } else {
+                $mensaje = "Error al guardar la puntuación.";
+            }
+        } else {
+            $mensaje = "Datos incompletos.";
+        }
+    } else {
+        $mensaje = "Método no permitido.";
+    }
     
     if (isset($_POST['insert'])) {
         if (!empty($_POST['nombre']) && !empty($_POST['contrasenya'])) {

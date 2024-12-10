@@ -18,6 +18,11 @@ $stmt = $conexion->prepare('SELECT * FROM usuario WHERE nombre = ?');
 $stmt->execute([$nombre]);
 $datos = $stmt->fetch(PDO::FETCH_OBJ);
 
+if ($datos === FALSE) {
+    header('Location: ../index.php');
+} elseif ($stmt->rowCount() == 1) {
+    
+
 if ($datos && password_verify($contrasenya, $datos->contrasenya)) {
     // Contraseña válida
     $_SESSION['nombre'] = $datos->nombre;

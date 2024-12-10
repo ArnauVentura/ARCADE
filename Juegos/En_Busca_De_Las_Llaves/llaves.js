@@ -135,11 +135,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function detenerTimer() {
-      clearInterval(timerInterval);
-      const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
-      document.getElementById("tiempo").textContent = `${formatTime(elapsedTime)}`;
-      textoJuego.textContent = "¡Juego completado!";
-  }
+    clearInterval(timerInterval);
+    const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+    document.getElementById("tiempo").textContent = formatTime(elapsedTime);
+    textoJuego.textContent = "¡Juego completado!";
+
+    document.getElementById("puntuacion").value = elapsedTime;
+    document.getElementById("rankingForm").submit();
+}
 
   function formatTime(seconds) {
       const minutes = String(Math.floor(seconds / 60)).padStart(2, "0");

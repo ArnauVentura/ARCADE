@@ -27,8 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
 </head>
 <body class="bg-Img img-escuela">
 <header class="encabezado-general">
-    <form method="POST">
-        <button type="submit" name="cerrar-sesion" id="cerrarSesion" class="boton-cerrar-sesion">
+    <form method="POST" action="../php/controllers.php">
+        <button type="submit" name="cerrar-sesion" class="boton-cerrar-sesion">
             <img src="../media/cerrar-sesion.png" alt="Cerrar Sesión" class="img-header">
         </button>
     </form>

@@ -28,6 +28,11 @@ if (isset($_SESSION['nombre'])) {
         <a class="atras" href="javascript:history.back()">
             <img src="../media/flecha.png" alt="Volver" class="img-header">
         </a>
+        <form method="POST" action="../php/controllers.php">
+        <button type="submit" name="cerrar-sesion" class="boton-cerrar-sesion">
+            <img src="../media/cerrar-sesion.png" alt="Cerrar Sesión" class="img-header">
+        </button>
+    </form>
     </header>
     <main>
         <div class="elementos-centrados div-titulos">
