@@ -296,24 +296,12 @@ ul{
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* RANKING */
 #container-ranking{
-    background-color: white;
-    
+    background-color: white; 
 }
-/*#boton-llaves:hover{
-    background-color: #FFD700;
-}
-#boton-rescate:hover{
-    background-color: #D64D3B;
-}
-#boton-puzzle:hover{
-    background-color: #437CA5;
-}*/
 .div-jugador{
     display: flex;
-    color: white;
-}
-.div-jugador p{
-    margin: auto;
+    justify-content: space-between;
+    color: white; 
 }
 .botones_ranking {
     display: flex;
@@ -368,7 +356,7 @@ ul{
     width: 500px; /* Ajusta el tamaño de la imagen */
 }
 /* Mensaje introductorio juegos*/
-#p-mensaje{ 
+.p-mensaje{ 
     margin: 0 auto;
     text-align: center;
     border-radius: 50px;
