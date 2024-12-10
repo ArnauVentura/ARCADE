@@ -26,13 +26,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
 </head>
 <body class="bg-Img img-escuela">
-    <header class="encabezado-general">
-        <form method="POST">
-            <button type="submit" name="cerrar-sesion" class="boton-cerrar-sesion">
-                <img src="../media/cerrar-sesion.png" alt="Cerrar Sesión" class="img-header">
-            </button>
-        </form>
-    </header>
+<header class="encabezado-general">
+    <form method="POST" action="../php/controllers.php">
+        <button type="submit" name="cerrar-sesion" class="boton-cerrar-sesion">
+            <img src="../media/cerrar-sesion.png" alt="Cerrar Sesión" class="img-header">
+        </button>
+    </form>
+</header>
     <main class="main-pg-principal">
         <div class="elementos-centrados div-titulos div-titulo-anna">
             <h1 class="estilo-titulo">ANNA</h1>

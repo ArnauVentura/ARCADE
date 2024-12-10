@@ -13,6 +13,11 @@ $stmt = $conexion->prepare('SELECT * FROM usuario WHERE nombre = ? AND contrasen
 $stmt->execute([$nombre]);
 $datos = $stmt->fetch(PDO::FETCH_OBJ);
 
+if ($datos === FALSE) {
+    header('Location: ../index.php');
+} elseif ($stmt->rowCount() == 1) {
+    
+
 if ($datos && password_verify($contrasenya, $datos->contrasenya)) {
     $_SESSION['nombre'] = $datos->nombre;
     $_SESSION['rol_idRol'] = $datos->rol_idRol;
