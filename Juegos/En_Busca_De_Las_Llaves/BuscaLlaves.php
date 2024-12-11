@@ -47,8 +47,6 @@
       </nav>
     </header>
 
-
-  <!-- form oculto para enviar puntuacion -->
    
     <!-- Área principal -->
     <div id="gameArea">
