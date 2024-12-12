@@ -73,7 +73,7 @@ body {
   position: absolute;
   width: 40px;
   height: 40px;
-  background-image: url('./media/tu-imagen.png');
+  background-image: url('./objetos/llave-dibujo.png');
   background-size: cover;
   background-position: center;
   cursor: pointer;
