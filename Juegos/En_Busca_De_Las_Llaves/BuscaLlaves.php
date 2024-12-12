@@ -1,25 +1,20 @@
 <?php
-// session_start();
-// include_once('../../php/bd.php');
+session_start();
+include_once('../../php/bd.php');
 
-// $usuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : null;
+$usuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : null;
 
 
-// if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
-//     session_unset();
-//     session_destroy();
-//     header('Location: ../index.php');
-//     exit();
-// }
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
+    session_unset();
+    session_destroy();
+    header('Location: ../index.php');
+    exit();
+}
 
-// $idJuego = 1;
-// $juego = getJuegoPorId($idJuego);
-
-// if (!$juego) {
-//     echo "<p>Juego no encontrado.</p>";
-//     exit;
-// }
-// ?>
+$idJuego = 1;
+$juego = getJuegoPorId($idJuego);
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -30,7 +25,10 @@
     <link rel="stylesheet" href="llaves.css" />
     <link rel="stylesheet" href="../../css/Style.css" />
   </head>
-  <body>
+  <body 
+    data-authenticated="<?php echo isset($_SESSION['usuario_id']) ? 'true' : 'false'; ?>" 
+    data-game-id="<?php echo $idJuego; ?>">
+
     <!-- Navbar -->
     <header class="encabezado-general encabezado_juego">
       <nav class="estilos-generales header-juegos-intro">
