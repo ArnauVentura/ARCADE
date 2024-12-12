@@ -198,30 +198,29 @@ function borrarUsuario($idUsuario)
     }
 
 
-
 }
 
-function getRanking()
-{
-    try {
-        $conexion = openDB();
+// function getRanking()
+// {
+//     try {
+//         $conexion = openDB();
 
-        $sentenciaText = 'SELECT r.usuario_idUsuario, u.nombre AS usuario_nombre, r.juegos_idJuego, j.titulo AS juego_titulo, r.puntuacion
-            FROM ranking r INNER JOIN  usuario u ON r.usuario_idUsuario = u.idUsuario 
-            INNER JOIN juegos j ON r.juegos_idJuego = j.idJuego ORDER BY r.puntuacion DESC';
+//         $sentenciaText = 'SELECT r.usuario_idUsuario, u.nombre AS usuario_nombre, r.juegos_idJuego, j.titulo AS juego_titulo, r.puntuacion
+//             FROM ranking r INNER JOIN  usuario u ON r.usuario_idUsuario = u.idUsuario 
+//             INNER JOIN juegos j ON r.juegos_idJuego = j.idJuego ORDER BY r.puntuacion DESC';
 
-        $stmt = $conexion->prepare($sentenciaText);
-        $stmt->execute();
+//         $stmt = $conexion->prepare($sentenciaText);
+//         $stmt->execute();
 
-        $ranking = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//         $ranking = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        $conexion = closeDB();
-        return $ranking;
+//         $conexion = closeDB();
+//         return $ranking;
 
-    } catch (PDOException $e) {
-        return errorsMessage($e);
-    }
-}
+//     } catch (PDOException $e) {
+//         return errorsMessage($e);
+//     }
+// }
 
 
 function getJuegoPorId($idJuego) {
@@ -246,36 +245,29 @@ function getJuegoPorId($idJuego) {
 function guardarRanking($usuario_idUsuario, $juegos_idJuego, $puntuacion) {
     try {
         $conexion = openDB();
+
+        // Prepara la sentencia SQL para insertar en la tabla ranking
         $sentenciaText = "INSERT INTO ranking (usuario_idUsuario, juegos_idJuego, puntuacion) VALUES (:usuario_idUsuario, :juegos_idJuego, :puntuacion)";
         $stmt = $conexion->prepare($sentenciaText);
 
+        // Vincula los parámetros
         $stmt->bindParam(':usuario_idUsuario', $usuario_idUsuario, PDO::PARAM_INT);
         $stmt->bindParam(':juegos_idJuego', $juegos_idJuego, PDO::PARAM_INT);
         $stmt->bindParam(':puntuacion', $puntuacion, PDO::PARAM_INT);
 
+        // Ejecuta la sentencia
         $stmt->execute();
-        $conexion = closeDB();
-        return true;
+
+        // Cierra la conexión
+        closeDB();
+
+        return true;  // Retorna true si la inserción fue exitosa
     } catch (PDOException $e) {
-        return errorsMessage($e);
+        // Captura errores y muestra un mensaje adecuado
+        echo "Error al guardar el ranking: " . $e->getMessage();
+        return false;  // Retorna false en caso de error
     }
 }
 
-function insertarPuntuacionRanking($idUsuario, $idJuego, $puntuacion) {
-    try {
-        $pdo = new PDO('mysql:host=localhost;dbname=nombre_de_tu_base_de_datos', 'usuario', 'contraseña');
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        
-        $sql = "INSERT INTO puntuaciones (id_usuario, id_juego, puntuacion) VALUES (:idUsuario, :idJuego, :puntuacion)";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':idUsuario', $idUsuario);
-        $stmt->bindParam(':idJuego', $idJuego);
-        $stmt->bindParam(':puntuacion', $puntuacion);
-        
-        $stmt->execute();
-    } catch (PDOException $e) {
-        echo 'Error: ' . $e->getMessage();
-    }
-}
 
 ?>
