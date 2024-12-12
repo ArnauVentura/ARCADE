@@ -45,26 +45,30 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function generateObjects(numObjects) {
-      hiddenObjectsArea.innerHTML = "";
-      for (let i = 0; i < numObjects; i++) {
-          const top = Math.random() * 90;
-          const left = Math.random() * 90;
+    hiddenObjectsArea.innerHTML = "";
 
-          const object = document.createElement("div");
-          object.classList.add("hiddenObject");
-          object.style.top = `${top}%`;
-          object.style.left = `${left}%`;
+    for (let i = 0; i < numObjects; i++) {
+        const top = Math.random() * 90;
+        const left = Math.random() * 90;
 
-          object.addEventListener("click", () => {
-              if (!object.classList.contains("found")) {
-                  object.classList.add("found");
-                  objetoEncontrado();
-              }
-          });
+        const object = document.createElement("img");
+        object.classList.add("hiddenObject");
+        object.src = "./objetos/llave-dibujo.png";
+        object.style.top = `${top}%`;
+        object.style.left = `${left}%`;
+        object.style.position = "absolute";
 
-          hiddenObjectsArea.appendChild(object);
-      }
-  }
+        object.addEventListener("click", () => {
+            if (!object.classList.contains("found")) {
+                object.classList.add("found");
+                objetoEncontrado();
+            }
+        });
+
+        hiddenObjectsArea.appendChild(object);
+    }
+}
+
 
   function objetoEncontrado() {
       objetosEncontrados++;
