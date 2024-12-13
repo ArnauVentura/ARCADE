@@ -190,6 +190,112 @@ function swap(fila1, col1, fila2, col2) {
     [matriz[fila1][col1], matriz[fila2][col2]] = [matriz[fila2][col2], matriz[fila1][col1]];
 }
 
+// Verificar si el puzzle está resuelto
+function resuelto() {
+    if (esPuzzleResuelto(matriz)) {
+        detenerCronometro();
+        const tiempoFormateado = calcularTiempoFormateado(tiempoInicio);
+        mostrarPuzzleResuelto(imagenPistaSeleccionada, tiempoFormateado);
+        return true;
+    } else {
+        console.log(`Solo tienes ${contarAciertos(matriz)} aciertos`);
+        return false;
+    }
+}
+
+// Verifica si el puzzle está completamente resuelto
+function esPuzzleResuelto(matriz) {
+    const totalAciertos = contarAciertos(matriz);
+    return totalAciertos === 9;
+}
+
+// Cuenta los aciertos en la matriz del puzzle
+function contarAciertos(matriz) {
+    let valor = 1;
+    let totalAciertos = 0;
+
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            if (i === 2 && j === 2 && matriz[i][j] === 0) {
+                totalAciertos++;
+            } else if (matriz[i][j] === valor) {
+                totalAciertos++;
+            }
+            valor++;
+        }
+    }
+
+    return totalAciertos;
+}
+
+// Calcula el tiempo transcurrido desde el inicio y lo formatea como mm:ss
+function calcularTiempoFormateado(tiempoInicio) {
+    const tiempoFinal = Math.floor((Date.now() - tiempoInicio) / 1000);
+    const minutos = Math.floor(tiempoFinal / 60);
+    const segundos = tiempoFinal % 60;
+    return `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
+}
+
+// Muestra el puzzle resuelto junto con un botón para continuar
+function mostrarPuzzleResuelto(imagenPistaSeleccionada, tiempoFormateado) {
+    const imagenResuelta = crearContenedorResuelto();
+    const img = crearImagenResuelta(imagenPistaSeleccionada);
+    const closeButton = crearBotonCerrar(tiempoFormateado, imagenResuelta);
+
+    imagenResuelta.appendChild(img);
+    imagenResuelta.appendChild(closeButton);
+    document.body.appendChild(imagenResuelta);
+}
+
+// Crea el contenedor para mostrar el puzzle resuelto
+function crearContenedorResuelto() {
+    const resuelto = document.createElement("div");
+    resuelto.id = "imagenResuelta";
+    resuelto.style.position = "fixed";
+    resuelto.style.top = "50%";
+    resuelto.style.left = "50%";
+    resuelto.style.transform = "translate(-50%, -50%)";
+    resuelto.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+    resuelto.style.zIndex = "9999";
+    resuelto.style.padding = "20px";
+    resuelto.style.borderRadius = "10px";
+    return resuelto;
+}
+
+// Crea la imagen del puzzle resuelto
+function crearImagenResuelta(imagenPistaSeleccionada) {
+    const imgResuelto = document.createElement("img");
+    imgResuelto.src = imagenPistaSeleccionada;
+    imgResuelto.alt = "Puzzle Resuelto";
+    imgResuelto.style.maxWidth = "28vw";
+    imgResuelto.style.height = "55vh";
+    imgResuelto.style.border = "2px solid white";
+    return imgResuelto;
+}
+
+// Crea el botón para cerrar la ventana del puzzle resuelto
+function crearBotonCerrar(tiempoFormateado, resuelto) {
+    const boton = document.createElement("button");
+    boton.textContent = "Continuar";
+    boton.style.display = "block";
+    boton.style.margin = "10px auto 0";
+    boton.style.padding = "10px 20px";
+    boton.style.fontSize = "16px";
+    boton.style.cursor = "pointer";
+    boton.style.border = "none";
+    boton.style.backgroundColor = "#437CA5";
+    boton.style.color = "white";
+    boton.style.borderRadius = "40px";
+    boton.style.transition = "background-color 0.3s ease";
+
+    boton.addEventListener("click", () => {
+        document.body.removeChild(resuelto);
+        mostrarModalVictoria(tiempoFormateado); // Mostrar ventana modal después
+    });
+
+    return boton;
+}
+
 // Función para mostrar la ventana de victoria
 function mostrarModalVictoria(tiempoFormateado) {
     const mensajeTiempo = document.getElementById("mensajeTiempo");
@@ -198,7 +304,11 @@ function mostrarModalVictoria(tiempoFormateado) {
     const modal = document.getElementById("ventanaVictoria");
     modal.style.display = "flex";
     
+    const pepe =  document.getElementById("btnReiniciar");
+    console.log(pepe);
+
     document.getElementById("btnReiniciar").addEventListener("click", () => {
+        console.log("cliiiiiiiiiick");
         location.reload();
     });
 
@@ -210,44 +320,17 @@ function mostrarModalVictoria(tiempoFormateado) {
         location.assign("../../html/fuentes.php");
     });
 }
-
-// Verificar si el puzzle está resuelto
-function resuelto() {
-    let valor = 1;
-    let totalAciertos = 0;
-
+// Asocia cada elemento del HTML al evento de clic para mover las celdas
+function cargar() {
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
-            // 0 en la posición final = correcto
-            if (i === 2 && j === 2 && matriz[i][j] === 0) {
-                totalAciertos++;
-            } else if (matriz[i][j] === valor) {
-                totalAciertos++;
-            }
-            valor++;
+            let celda = document.getElementById(ids[i][j]);
+            celda.setAttribute("data-fila", i); // Asigna fila como atributo de datos
+            celda.setAttribute("data-col", j); // Asigna columna como atributo de datos
+            celda.addEventListener("click", intercambiar); // Agrega el evento de clic
         }
     }
-
-    if (totalAciertos === 9) {
-        detenerCronometro(); // Detenemos el cronómetro
-        const tiempoFinal = Math.floor((Date.now() - tiempoInicio) / 1000);
-
-        // Calcula minutos y segundos para el formato mm:ss
-        const minutos = Math.floor(tiempoFinal / 60);
-        const segundos = tiempoFinal % 60;
-        const tiempoFormateado = `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
-
-        // Mostrar ventana modal
-        mostrarModalVictoria(tiempoFormateado);
-
-        return true; // Puzzle resuelto
-    } else {
-        console.log("Solo tienes " + totalAciertos + " aciertos");
-        return false; // Puzzle no resuelto
-    }
 }
-
-
 
 // Ejecuta el juego al cargar la página cuando todos los recursos están cargados
 window.onload = function () {
@@ -261,15 +344,3 @@ window.onload = function () {
     // Cambiar la imagen de la pista
     document.getElementById("pistaPopup").innerHTML = `<img src="${imagenPistaSeleccionada}" alt="Pista del Puzzle">`;
 };
-
-// Asocia cada elemento del HTML al evento de clic para mover las celdas
-function cargar() {
-    for (let i = 0; i < 3; i++) {
-        for (let j = 0; j < 3; j++) {
-            let celda = document.getElementById(ids[i][j]);
-            celda.setAttribute("data-fila", i); // Asigna fila como atributo de datos
-            celda.setAttribute("data-col", j); // Asigna columna como atributo de datos
-            celda.addEventListener("click", intercambiar); // Agrega el evento de clic
-        }
-    }
-}
