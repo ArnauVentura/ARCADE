@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
                 </div>
             </div>
         </div>
-        <a class="boton-pequeño estilos-generales animacion-boton jugar-button" id="botonJugar" href="../Juegos/En_Busca_De_Las_Llaves/BuscaLlaves.html"> 
+        <a class="boton-pequeño estilos-generales animacion-boton jugar-button" id="botonJugar" href="../Juegos/En_Busca_De_Las_Llaves/BuscaLlaves.php"> 
             JUGAR 
         </a> 
     </main> 
