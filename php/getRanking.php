@@ -26,4 +26,16 @@ function guardarRanking($usuario_idUsuario, $juegos_idJuego, $puntuacion) {
     }
 }
 
+function selectRanking(){
+        $conexion = openDB();
+
+        $sentenciaText = "SELECT * from ranking order by puntuacion";
+        $stmt = $conexion->prepare($sentenciaText);
+
+        $result = $stmt->fetchAll();
+
+        return $result;
+    
+}
+
 ?>
