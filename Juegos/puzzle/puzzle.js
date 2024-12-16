@@ -2,18 +2,21 @@ let contadorClicks = 0;
 let tiempoInicio;
 let intervaloCronometro;
 
+//Rutas a las carpetas de imágenes del puzzle.
 const carpetasImagenes = [
     "../puzzle/img/3x3/set1/",
     "../puzzle/img/3x3/set2/",
     "../puzzle/img/3x3/set3/"
 ];
 
+// Rutas a las imágenes que muestran el puzzle completo.
 const imagenesPistas = [
     "../puzzle/img/pistas/set1_pista.jpg",
     "../puzzle/img/pistas/set2_pista.jpg",
     "../puzzle/img/pistas/set3_pista.jpg"
 ];
 
+//Selecciona aleatoriamente una carpeta de imágenes y su correspondiente pista.
 const indiceAleatorio = Math.floor(Math.random() * carpetasImagenes.length);
 const carpetaSeleccionada = carpetasImagenes[indiceAleatorio];
 const imagenPistaSeleccionada = imagenesPistas[indiceAleatorio];
@@ -24,28 +27,40 @@ const ids = [
     ["id7", "id8", "id9"]
 ];
 
-// Función para asignar imágenes según el valor
+/**
+ * Devuelve la ruta de la imagen asociada al valor dado.
+ * Si el valor es 0, devuelve una cadena vacía.
+ * @param {number} valor - El valor de la celda.
+ * @returns {string} Ruta de la imagen.
+ */
 function obtenerImagen(valor) {
     return valor === 0 ? "" : `${carpetaSeleccionada}${valor}.jpg`;
 }
 
-// Inicializa una matriz 3x3 de forma aleatoria con números del 0 al 8.
+/**
+ * Inicializa una matriz 3x3 aleatoria de números entre 0 y 8 que sea solucionable.
+ * @returns {number[][]} Matriz solucionable.
+ */
 function inicializarMatrizAleatoria() {
     let matriz;
     do {
         let numeros = Array.from({ length: 9 }, (_, i) => i);
-        numeros = numeros.sort(() => Math.random() - 0.5); // Mezcla aleatoriamente
+        numeros = numeros.sort(() => Math.random() - 0.5);
         matriz = [
             [numeros[0], numeros[1], numeros[2]],
             [numeros[3], numeros[4], numeros[5]],
             [numeros[6], numeros[7], numeros[8]]
         ];
-    } while (!esSolucionable(matriz)); // Repetir hasta obtener una configuración solucionable
+    } while (!esSolucionable(matriz));
 
     return matriz;
 }
 
-// Función para contar inversiones en una configuración
+/**
+ * Cuenta el número de inversiones en un arreglo plano.
+ * @param {number[]} numeros - Lista de números a analizar.
+ * @returns {number} Número de inversiones.
+ */
 function contarInversiones(numeros) {
     let inversiones = 0;
     for (let i = 0; i < numeros.length; i++) {
@@ -58,27 +73,36 @@ function contarInversiones(numeros) {
     return inversiones;
 }
 
-// Función para verificar si una configuración es solucionable
+/**
+ * Verifica si una matriz de puzzle es solucionable.
+ * Una matriz es solucionable si el número de inversiones es par.
+ * @param {number[][]} matriz - Matriz del puzzle.
+ * @returns {boolean} `true` si es solucionable, de lo contrario `false`.
+ */
 function esSolucionable(matriz) {
-    const numeros = matriz.flat(); // Convierte la matriz en una lista plana
+    const numeros = matriz.flat(); // Convierte la matriz en un array
     const inversions = contarInversiones(numeros);
 
-    if (inversions % 2 === 0) { // Solucionable si las inversiones son pares
+    if (inversions % 2 === 0) { 
         console.log("Es solucionable");
-        return true; // Retorna true para indicar que es solucionable
+        return true;
     } else {
         console.log("No es solucionable");
-        return false; // Retorna false para indicar que no es solucionable
+        return false;
     }
 }
 
-// Función para iniciar el cronómetro
+/**
+ * Inicia el cronómetro y actualiza el tiempo cada segundo.
+ */
 function iniciarCronometro() {
     tiempoInicio = Date.now();
     intervaloCronometro = setInterval(actualizarCronometro, 1000); //cada segundo
 }
 
-// Función para actualizar el cronómetro en el HTML
+/**
+ * Actualiza el cronómetro en el DOM, mostrando el tiempo transcurrido en minutos y segundos.
+ */
 function actualizarCronometro() {
     const tiempoActual = Date.now();
     const segundosTranscurridos = Math.floor((tiempoActual - tiempoInicio) / 1000);
@@ -88,19 +112,23 @@ function actualizarCronometro() {
     const segundos = segundosTranscurridos % 60;
     const tiempoFormateado = `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
 
-    // Actualiza el HTML
+    // Actualiza HTML
     const elementoTiempo = document.querySelector(".tiempo");
     if (elementoTiempo) {
         elementoTiempo.textContent = `Tiempo: ${tiempoFormateado}`;
     }
 }
 
-// Función para detener el cronómetro
+/**
+ * Detiene el cronómetro y cancela el intervalo.
+ */
 function detenerCronometro() {
-    clearInterval(intervaloCronometro); // Detenemos el intervalo
+    clearInterval(intervaloCronometro);
 }
 
-// Función para actualizar el contador en el HTML
+/**
+ * Actualiza el contador de clicks en el DOM.
+ */
 function actualizarContadorClicks() {
     const elementoClicks = document.querySelector(".clicks");
     if (elementoClicks) {
@@ -108,7 +136,12 @@ function actualizarContadorClicks() {
     }
 }
 
-//PopUp de la imagen completa de la solución
+/**
+ * Muestra un popup con la imagen completa de la solución al pasar el ratón sobre el ícono de pista (bombilla).
+ * @function pistaBombilla
+ * @description Este evento se activa cuando el usuario pasa el ratón sobre el elemento de pista. 
+ * Muestra un popup (tooltip) con la imagen de la solución y lo oculta al retirar el ratón.
+ */
 function pistaBombilla() {
     const pista = document.getElementById("pista");
     const pistaPopup = document.getElementById("pistaPopup");
@@ -130,7 +163,12 @@ function pistaBombilla() {
     
 };
 
-// Actualiza visualmente cada celda de la cuadrícula con imágenes
+/**
+ * Actualiza visualmente la cuadrícula del puzzle en la interfaz.
+ * @function actualizarVista
+ * @description Recorre la matriz del puzzle y actualiza cada celda con la imagen correspondiente
+ * o la deja vacía si el valor es 0.
+ */
 function actualizarVista() {
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
@@ -150,7 +188,13 @@ function actualizarVista() {
     }
 }
 
-// Maneja el clic en una celda para intercambiarla con el espacio vacío si es posible
+/**
+ * Maneja el evento de clic en una celda para intercambiarla con el espacio vacío.
+ * @function intercambiar
+ * @param {Event} event - Evento de clic generado al interactuar con una celda.
+ * @description Llama a `checkMover` para verificar si el movimiento es válido,
+ * actualiza la vista y verifica si el puzzle está resuelto.
+ */
 function intercambiar(event) {
     let fila = parseInt(this.getAttribute("data-fila"));
     let col = parseInt(this.getAttribute("data-col"));
@@ -162,12 +206,17 @@ function intercambiar(event) {
 
         if (resuelto()){
             detenerCronometro();
-            const tiempoFinal = Math.floor((Date.now() - tiempoInicio) / 1000);
         }
     }
 }
 
-// Revisar si se puede mover
+/**
+ * Verifica si una celda puede moverse hacia el espacio vacío.
+ * @function checkMover
+ * @param {number} fila - Índice de la fila de la celda seleccionada.
+ * @param {number} col - Índice de la columna de la celda seleccionada.
+ * @returns {boolean} `true` si la celda puede moverse, de lo contrario `false`.
+ */
 function checkMover(fila, col) {
     if (col < 2 && matriz[fila][col + 1] === 0) { // Derecha
         swap(fila, col, fila, col + 1);
@@ -185,12 +234,23 @@ function checkMover(fila, col) {
     return false;
 }
 
-// Intercambiar posiciones en la matriz
+/**
+ * Intercambia dos posiciones en la matriz del puzzle.
+ * @function swap
+ * @param {number} fila1 - Índice de la primera fila.
+ * @param {number} col1 - Índice de la primera columna.
+ * @param {number} fila2 - Índice de la segunda fila.
+ * @param {number} col2 - Índice de la segunda columna.
+ * @description Realiza un intercambio de valores entre las posiciones especificadas.
+ */
 function swap(fila1, col1, fila2, col2) {
     [matriz[fila1][col1], matriz[fila2][col2]] = [matriz[fila2][col2], matriz[fila1][col1]];
 }
 
-// Verificar si el puzzle está resuelto
+/**
+ * Verifica si el puzzle está resuelto.
+ * @returns {boolean} `true` si está resuelto, de lo contrario `false`.
+ */
 function resuelto() {
     if (esPuzzleResuelto(matriz)) {
         detenerCronometro();
@@ -203,13 +263,23 @@ function resuelto() {
     }
 }
 
-// Verifica si el puzzle está completamente resuelto
+/**
+ * Verifica si la matriz actual coincide con la solución del puzzle.
+ * @function esPuzzleResuelto
+ * @param {number[][]} matriz - Matriz actual del puzzle.
+ * @returns {boolean} `true` si la matriz está en el estado objetivo.
+ */
 function esPuzzleResuelto(matriz) {
     const totalAciertos = contarAciertos(matriz);
     return totalAciertos === 9;
 }
 
-// Cuenta los aciertos en la matriz del puzzle
+/**
+ * Cuenta cuántas celdas están en su posición correcta.
+ * @function contarAciertos
+ * @param {number[][]} matriz - Matriz del puzzle.
+ * @returns {number} Número de celdas en su posición correcta.
+ */
 function contarAciertos(matriz) {
     let valor = 1;
     let totalAciertos = 0;
@@ -228,7 +298,12 @@ function contarAciertos(matriz) {
     return totalAciertos;
 }
 
-// Calcula el tiempo transcurrido desde el inicio y lo formatea como mm:ss
+/**
+ * Calcula el tiempo transcurrido desde el inicio del cronómetro y lo formatea.
+ * @function calcularTiempoFormateado
+ * @param {number} tiempoInicio - Marca de tiempo en milisegundos al inicio del cronómetro.
+ * @returns {string} Tiempo transcurrido en formato "mm:ss".
+ */
 function calcularTiempoFormateado(tiempoInicio) {
     const tiempoFinal = Math.floor((Date.now() - tiempoInicio) / 1000);
     const minutos = Math.floor(tiempoFinal / 60);
@@ -236,18 +311,11 @@ function calcularTiempoFormateado(tiempoInicio) {
     return `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
 }
 
-// Muestra el puzzle resuelto junto con un botón para continuar
-function mostrarPuzzleResuelto(imagenPistaSeleccionada, tiempoFormateado) {
-    const imagenResuelta = crearContenedorResuelto();
-    const img = crearImagenResuelta(imagenPistaSeleccionada);
-    const closeButton = crearBotonCerrar(tiempoFormateado, imagenResuelta);
-
-    imagenResuelta.appendChild(img);
-    imagenResuelta.appendChild(closeButton);
-    document.body.appendChild(imagenResuelta);
-}
-
-// Crea el contenedor para mostrar el puzzle resuelto
+/**
+ * Crea un contenedor emergente para el puzzle resuelto.
+ * @function crearContenedorResuelto
+ * @returns {HTMLElement} Elemento div que contiene la vista del puzzle resuelto.
+ */
 function crearContenedorResuelto() {
     const resuelto = document.createElement("div");
     resuelto.id = "imagenResuelta";
@@ -262,7 +330,12 @@ function crearContenedorResuelto() {
     return resuelto;
 }
 
-// Crea la imagen del puzzle resuelto
+/**
+ * Crea la imagen del puzzle resuelto.
+ * @function crearImagenResuelta
+ * @param {string} imagenPistaSeleccionada - Ruta de la imagen que representa la solución del puzzle.
+ * @returns {HTMLImageElement} Imagen HTML del puzzle resuelto.
+ */
 function crearImagenResuelta(imagenPistaSeleccionada) {
     const imgResuelto = document.createElement("img");
     imgResuelto.src = imagenPistaSeleccionada;
@@ -273,7 +346,13 @@ function crearImagenResuelta(imagenPistaSeleccionada) {
     return imgResuelto;
 }
 
-// Crea el botón para cerrar la ventana del puzzle resuelto
+/**
+ * Crea un botón para cerrar la vista del puzzle resuelto.
+ * @function crearBotonCerrar
+ * @param {string} tiempoFormateado - Tiempo final formateado como "mm:ss".
+ * @param {HTMLElement} resuelto - Contenedor del puzzle resuelto.
+ * @returns {HTMLButtonElement} Botón para cerrar la vista y continuar con el flujo del juego.
+ */
 function crearBotonCerrar(tiempoFormateado, resuelto) {
     const boton = document.createElement("button");
     boton.textContent = "Continuar";
@@ -296,7 +375,27 @@ function crearBotonCerrar(tiempoFormateado, resuelto) {
     return boton;
 }
 
-// Función para mostrar la ventana de victoria
+/**
+ * Muestra el puzzle resuelto en un contenedor emergente.
+ * @function mostrarPuzzleResuelto
+ * @param {string} imagenPistaSeleccionada - Ruta de la imagen que representa la solución del puzzle.
+ * @param {string} tiempoFormateado - Tiempo final formateado como "mm:ss".
+ */
+function mostrarPuzzleResuelto(imagenPistaSeleccionada, tiempoFormateado) {
+    const imagenResuelta = crearContenedorResuelto();
+    const img = crearImagenResuelta(imagenPistaSeleccionada);
+    const closeButton = crearBotonCerrar(tiempoFormateado, imagenResuelta);
+
+    imagenResuelta.appendChild(img);
+    imagenResuelta.appendChild(closeButton);
+    document.body.appendChild(imagenResuelta);
+}
+
+/**
+ * Muestra la ventana modal de victoria, incluyendo el tiempo final y opciones de acción.
+ * @function mostrarModalVictoria
+ * @param {string} tiempoFormateado - Tiempo final formateado como "mm:ss".
+ */
 function mostrarModalVictoria(tiempoFormateado) {
     const mensajeTiempo = document.getElementById("mensajeTiempo");
     mensajeTiempo.textContent = `Tu tiempo: ${tiempoFormateado}`;
@@ -320,7 +419,12 @@ function mostrarModalVictoria(tiempoFormateado) {
         location.assign("../../html/fuentes.php");
     });
 }
-// Asocia cada elemento del HTML al evento de clic para mover las celdas
+
+/**
+ * Asocia eventos de clic a las celdas del puzzle para permitir movimientos.
+ * @function cargar
+ * @description Configura atributos y eventos para cada celda del puzzle al inicio del juego.
+ */
 function cargar() {
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
@@ -332,7 +436,11 @@ function cargar() {
     }
 }
 
-// Ejecuta el juego al cargar la página cuando todos los recursos están cargados
+/**
+ * Inicializa el juego al cargar la página.
+ * @function window.onload
+ * @description Configura el puzzle inicial, actualiza la vista y asocia eventos.
+ */
 window.onload = function () {
     matriz = inicializarMatrizAleatoria();
     cargar();
