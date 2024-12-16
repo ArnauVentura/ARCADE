@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   
     // Realizar la solicitud para guardar la puntuación
-    fetch("/ARCADE/api/ranking/insertRanking.php", {
+    fetch("ARCADE/api/ranking/getRanking.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
