@@ -1,3 +1,24 @@
+<?php
+session_start();
+include_once('../../php/bd.php');
+
+// Obtener datos de la sesión
+$usuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : null;
+$usuarioId = isset($_SESSION['idUsuario']) ? $_SESSION['idUsuario'] : null;
+
+// Manejar cierre de sesión
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
+    session_unset();
+    session_destroy();
+    header('Location: ../index.php');
+    exit();
+}
+
+// Obtener datos del juego
+$idJuego = 3;
+$juego = getJuegoPorId($idJuego);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,7 +28,11 @@
     <link rel="stylesheet" href="../puzzle/puzzle.css">
     <title>Al río troncos</title>
 </head>
-<body class="bodyPuzzle">
+<body class="bodyPuzzle" 
+    data-authenticated="<?php echo isset($_SESSION['idUsuario']) ? 'true' : 'false'; ?>"
+    data-game-id="<?php echo $idJuego; ?>"
+    data-user-id="<?php echo isset($_SESSION['idUsuario']) ? $_SESSION['idUsuario'] : ''; ?>">
+    
     <header class="encabezado-general">
         <div class="estilos-generales header-juegos-intro header-puzzle">
             <a class="atras" href="javascript:history.back()">
@@ -36,9 +61,9 @@
                 <h1 class="v-titulo" id="puzzle">¡Puzzle Resuelto!</h1>
                 <p id="mensajeTiempo"></p>
                 <div class="v-botones">
-                    <button id="btnReiniciar volverJugar">Volver a Jugar</button>
-                    <button id="btnRanking irRanking">Ir al Ranking</button>
-                    <button id="btnFuentes volverFuentes">Volver a las Fuentes</button>
+                    <button id="btnReiniciar" class="volverJugar">Volver a Jugar</button>
+                    <button id="btnRanking" class="irRanking">Ir al Ranking</button>
+                    <button id="btnFuentes" class="volverFuentes">Volver a las Fuentes</button>
                 </div>
             </div>
         </div>
