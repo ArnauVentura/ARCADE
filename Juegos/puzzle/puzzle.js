@@ -1,6 +1,8 @@
 let contadorClicks = 0;
 let tiempoInicio;
 let intervaloCronometro;
+let juegoTerminado = false;
+
 
 //Rutas a las carpetas de imágenes del puzzle.
 const carpetasImagenes = [
@@ -123,7 +125,63 @@ function actualizarCronometro() {
  * Detiene el cronómetro y cancela el intervalo.
  */
 function detenerCronometro() {
-    clearInterval(intervaloCronometro);
+    if (!juegoTerminado) {
+        clearInterval(intervaloCronometro);
+        juegoTerminado = true; // Evita llamadas adicionales
+        verificarUsuario(tiempoFormateado);
+    }
+}
+
+
+function verificarUsuario(tiempoFormateado){
+    const isAuthenticated = document.body.getAttribute("data-authenticated") === "true";
+    const userId = document.body.getAttribute("data-user-id");
+    const juegoId = document.body.getAttribute("data-game-id");
+  
+    console.log("Autenticado:", isAuthenticated);
+    console.log("ID de Usuario:", userId);
+    console.log("ID del Juego:", juegoId);
+  
+    // Si el usuario no está autenticado, muestra el mensaje y termina la ejecución
+    if (!isAuthenticated) {
+      return; // Salir si el usuario no está autenticado
+    }
+  
+    // Verificar si los valores de juegoId y userId están definidos
+    if (!juegoId || !userId) {
+      console.error("Error: ID del juego o del usuario no definido.");
+      return; // Salir si alguno de los IDs no está definido
+    }
+
+    guardarPuntuacion(userId, juegoId, tiempoFormateado);
+}
+
+function guardarPuntuacion(userId, juegoId, tiempoFormateado){
+    fetch("ARCADE/api/ranking/getRanking.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          usuario_idUsuario: userId,
+          juegos_idJuego: juegoId,
+          puntuacion: tiempoFormateado,  // El tiempo es la puntuación
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            alert(
+              `¡Puntuación guardada con éxito! Tiempo: ${formatTime(tiempoFormateado)}`
+            );
+          } else {
+            alert(`Error al guardar la puntuación: ${data.message}`);
+          }
+        })
+        .catch((error) => {
+          console.error("Error al guardar la puntuación:", error);
+          alert("Ocurrió un error al intentar guardar tu puntuación.");
+        });
 }
 
 /**
