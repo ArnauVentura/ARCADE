@@ -185,8 +185,15 @@ document.addEventListener("DOMContentLoaded", () => {
       return; // Salir si alguno de los IDs no está definido
     }
   
-    // Realizar la solicitud para guardar la puntuación
-    fetch("ARCADE/api/ranking/getRanking.php", {
+
+    console.log("Datos enviados:", {
+      usuario_idUsuario: userId,
+      juegos_idJuego: juegoId,
+      puntuacion: elapsedTime
+    });
+    
+    
+    fetch("/ARCADE/api/ranking/insertRanking.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -194,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
       body: new URLSearchParams({
         usuario_idUsuario: userId,
         juegos_idJuego: juegoId,
-        puntuacion: elapsedTime,  // El tiempo es la puntuación
+        puntuacion: elapsedTime  // El tiempo es la puntuación
       }),
     })
       .then((response) => response.json())
