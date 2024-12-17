@@ -161,7 +161,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("tiempo").textContent = formatTime(elapsedTime);
     textoJuego.textContent = "¡Juego completado!";
   
-    // Verificar si el usuario está autenticado
     const isAuthenticated = document.body.getAttribute("data-authenticated") === "true";
     const userId = document.body.getAttribute("data-user-id");
     const juegoId = document.body.getAttribute("data-game-id");
