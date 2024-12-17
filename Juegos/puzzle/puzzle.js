@@ -2,6 +2,7 @@ let contadorClicks = 0;
 let tiempoInicio;
 let intervaloCronometro;
 let juegoTerminado = false;
+let tiempoFormateado;
 
 
 //Rutas a las carpetas de imágenes del puzzle.
@@ -127,8 +128,7 @@ function actualizarCronometro() {
 function detenerCronometro() {
     if (!juegoTerminado) {
         clearInterval(intervaloCronometro);
-        juegoTerminado = true; // Evita llamadas adicionales
-        
+        juegoTerminado = true;      
     }
 }
 
@@ -171,9 +171,7 @@ function guardarPuntuacion(userId, juegoId, tiempoFormateado){
         .then((response) => response.json())
         .then((data) => {
           if (data.success) {
-            alert(
-              `¡Puntuación guardada con éxito! Tiempo: ${formatTime(tiempoFormateado)}`
-            );
+            alert("¡Puntuación guardada con éxito! Tiempo: " . $tiempoFormateado);
           } else {
             alert(`Error al guardar la puntuación: ${data.message}`);
           }
@@ -309,10 +307,10 @@ function swap(fila1, col1, fila2, col2) {
  * Verifica si el puzzle está resuelto.
  * @returns {boolean} `true` si está resuelto, de lo contrario `false`.
  */
-function resuelto() {
+function resuelto(tiempoFormateado) {
     if (esPuzzleResuelto(matriz)) {
         detenerCronometro();
-        const tiempoFormateado = calcularTiempoFormateado(tiempoInicio);
+        tiempoFormateado = calcularTiempoFormateado(tiempoInicio);
         mostrarPuzzleResuelto(imagenPistaSeleccionada, tiempoFormateado);
         return true;
     } else {

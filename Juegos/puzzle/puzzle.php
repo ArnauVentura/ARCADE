@@ -6,14 +6,6 @@ include_once('../../php/bd.php');
 $usuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : null;
 $usuarioId = isset($_SESSION['idUsuario']) ? $_SESSION['idUsuario'] : null;
 
-// Manejar cierre de sesión
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
-    session_unset();
-    session_destroy();
-    header('Location: ../index.php');
-    exit();
-}
-
 // Obtener datos del juego
 $idJuego = 3;
 $juego = getJuegoPorId($idJuego);
