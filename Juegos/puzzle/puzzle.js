@@ -128,7 +128,7 @@ function detenerCronometro() {
     if (!juegoTerminado) {
         clearInterval(intervaloCronometro);
         juegoTerminado = true; // Evita llamadas adicionales
-        verificarUsuario(tiempoFormateado);
+        
     }
 }
 
@@ -465,15 +465,16 @@ function mostrarModalVictoria(tiempoFormateado) {
     console.log(pepe);
 
     document.getElementById("btnReiniciar").addEventListener("click", () => {
-        console.log("cliiiiiiiiiick");
         location.reload();
     });
 
     document.getElementById("btnRanking").addEventListener("click", () => {
+        verificarUsuario(tiempoFormateado);
         location.assign("../../html/ranking.php"); 
     });
 
     document.getElementById("btnFuentes").addEventListener("click", () => {
+        verificarUsuario(tiempoFormateado);
         location.assign("../../html/fuentes.php");
     });
 }
