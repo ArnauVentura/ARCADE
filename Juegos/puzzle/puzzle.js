@@ -145,19 +145,21 @@ function verificarUsuario(){
     // Si el usuario no está autenticado, muestra el mensaje y termina la ejecución
     if (!isAuthenticated) {
         console.log("User no identificado");
-      return; // Salir si el usuario no está autenticado
+      return null; // Salir si el usuario no está autenticado
     }
   
     // Verificar si los valores de juegoId y userId están definidos
     if (!juegoId || !userId) {
       console.error("Error: ID del juego o del usuario no definido.");
-      return; // Salir si alguno de los IDs no está definido
+      return null; // Salir si alguno de los IDs no está definido
     }
+
+    return { userId, juegoId };
 
 }
 
 function guardarPuntuacion(userId, juegoId, tiempoFormateado){
-    fetch("ARCADE/api/ranking/getRanking.php", {
+    fetch("/ARCADE/api/ranking/insertRanking.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
@@ -168,7 +170,13 @@ function guardarPuntuacion(userId, juegoId, tiempoFormateado){
           puntuacion: tiempoFormateado  // El tiempo es la puntuación
         }),
       })
-        .then((response) => response.json())
+      .then((response) => {
+            // Verificamos si la respuesta fue exitosa
+            if (!response.ok) {
+                throw new Error(`Error en la solicitud: ${response.statusText}`);
+            }
+            return response.json(); // Si la respuesta fue exitosa, convertimos a JSON
+        })
         .then((data) => {
           if (data.success) {
             alert(`¡Puntuación guardada con éxito! Tiempo: ${tiempoFormateado}`);
@@ -460,7 +468,15 @@ function mostrarModalVictoria(tiempoFormateado) {
     modal.style.display = "flex";
     
     const pepe =  document.getElementById("btnReiniciar");
-    console.log(pepe);
+
+    // Obtener el userId y juegoId desde verificarUsuario
+    const usuarioData = verificarUsuario();
+    if (!usuarioData) {
+        alert("No se pudo obtener los datos del usuario.");
+        return; // Si no se obtienen los datos del usuario, no continuamos
+    }
+
+    const { userId, juegoId } = usuarioData;
 
     document.getElementById("btnReiniciar").addEventListener("click", () => {
         console.log("cliiiiiiiiiick");
