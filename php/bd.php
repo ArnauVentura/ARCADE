@@ -242,32 +242,5 @@ function getJuegoPorId($idJuego) {
     }
 }
 
-function guardarRanking($usuario_idUsuario, $juegos_idJuego, $puntuacion) {
-    try {
-        $conexion = openDB();
-
-        // Prepara la sentencia SQL para insertar en la tabla ranking
-        $sentenciaText = "INSERT INTO ranking (usuario_idUsuario, juegos_idJuego, puntuacion) VALUES (:usuario_idUsuario, :juegos_idJuego, :puntuacion)";
-        $stmt = $conexion->prepare($sentenciaText);
-
-        // Vincula los parámetros
-        $stmt->bindParam(':usuario_idUsuario', $usuario_idUsuario, PDO::PARAM_INT);
-        $stmt->bindParam(':juegos_idJuego', $juegos_idJuego, PDO::PARAM_INT);
-        $stmt->bindParam(':puntuacion', $puntuacion, PDO::PARAM_INT);
-
-        // Ejecuta la sentencia
-        $stmt->execute();
-
-        // Cierra la conexión
-        closeDB();
-
-        return true;  // Retorna true si la inserción fue exitosa
-    } catch (PDOException $e) {
-        // Captura errores y muestra un mensaje adecuado
-        echo "Error al guardar el ranking: " . $e->getMessage();
-        return false;  // Retorna false en caso de error
-    }
-}
-
 
 ?>

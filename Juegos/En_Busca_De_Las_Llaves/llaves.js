@@ -156,54 +156,65 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function detenerTimer() {
     clearInterval(timerInterval);
-
+  
     const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
     document.getElementById("tiempo").textContent = formatTime(elapsedTime);
     textoJuego.textContent = "¡Juego completado!";
-
+  
     // Verificar si el usuario está autenticado
-    const isAuthenticated =
-      document.body.getAttribute("data-authenticated") === "true"; // Supongamos que esto se pasa desde PHP
-
-    if (isAuthenticated) {
-      // Guardar puntuación para usuario autenticado
-      const juegoId = document.body.getAttribute("data-game-id"); // Supongamos que esto también se pasa desde PHP
-
-      fetch("controlador.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: new URLSearchParams({
-          juegos_idJuego: juegoId,
-          puntuacion: elapsedTime,
-        }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.success) {
-            alert(
-              `¡Puntuación guardada con éxito! Tiempo: ${formatTime(
-                elapsedTime
-              )}`
-            );
-          } else {
-            alert(`Error al guardar la puntuación: ${data.message}`);
-          }
-        })
-        .catch((error) => {
-          console.error("Error al guardar la puntuación:", error);
-        });
-    } else {
-      // Notificar que no se guardará la puntuación
+    const isAuthenticated = document.body.getAttribute("data-authenticated") === "true";
+    const userId = document.body.getAttribute("data-user-id");
+    const juegoId = document.body.getAttribute("data-game-id");
+  
+    console.log("Autenticado:", isAuthenticated);
+    console.log("ID de Usuario:", userId);
+    console.log("ID del Juego:", juegoId);
+  
+    // Si el usuario no está autenticado, muestra el mensaje y termina la ejecución
+    if (!isAuthenticated) {
       alert(
         `¡Juego completado! Tiempo: ${formatTime(
           elapsedTime
         )}.\nInicia sesión para guardar tu puntuación.`
       );
+      return; // Salir si el usuario no está autenticado
     }
+  
+    // Verificar si los valores de juegoId y userId están definidos
+    if (!juegoId || !userId) {
+      console.error("Error: ID del juego o del usuario no definido.");
+      return; // Salir si alguno de los IDs no está definido
+    }
+  
+    // Realizar la solicitud para guardar la puntuación
+    fetch("ARCADE/api/ranking/getRanking.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams({
+        usuario_idUsuario: userId,
+        juegos_idJuego: juegoId,
+        puntuacion: elapsedTime,  // El tiempo es la puntuación
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          alert(
+            `¡Puntuación guardada con éxito! Tiempo: ${formatTime(elapsedTime)}`
+          );
+        } else {
+          alert(`Error al guardar la puntuación: ${data.message}`);
+        }
+      })
+      .catch((error) => {
+        console.error("Error al guardar la puntuación:", error);
+        alert("Ocurrió un error al intentar guardar tu puntuación.");
+      });
   }
-
+  
+  
   function formatTime(seconds) {
     const minutes = String(Math.floor(seconds / 60)).padStart(2, "0");
     const remainingSeconds = String(seconds % 60).padStart(2, "0");

@@ -42,36 +42,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
             <h1 class="estilo-titulo">RANKING</h1>
         </div>
         <div id="container-quienes-somos">
-            <div class="botones_ranking">
-                <button class="boton-pequeño estilos-generales boton-largo" id="boton-llaves tituloJuegoArnau" href="">
-                    EN BUSCA DE LAS LLAVES
-                </button>
-                <button class="boton-pequeño estilos-generales boton-largo" id="boton-rescate tituloJuegoDesi" href="">
-                    RESCATE DEL MAR
-                </button>
-                <button class="boton-pequeño estilos-generales boton-largo" id="boton-puzzle tituloJuegoCarla" href="">
-                    AL RIO TRONCOS
-                </button>
-                <button class="boton-pequeño estilos-generales boton-largo animacion-boton" id="boton-total rankingTotal" href="">
-                    RANKING TOTAL
-                </button>
-            </div>
-            <table class="ranking">
-                <tr class="div-jugador">
+        <div class="botones_ranking">
+    <button class="boton-pequeño estilos-generales boton-largo" id="boton-llaves" data-juego="1">
+        EN BUSCA DE LAS LLAVES
+    </button>
+    <button class="boton-pequeño estilos-generales boton-largo" id="boton-rescate" data-juego="2">
+        RESCATE DEL MAR
+    </button>
+    <button class="boton-pequeño estilos-generales boton-largo" id="boton-puzzle" data-juego="3">
+        AL RIO TRONCOS
+    </button>
+    <button class="boton-pequeño estilos-generales boton-largo animacion-boton" id="boton-total" data-juego="0">
+        RANKING TOTAL
+    </button>
+</div>
+
+            <table id="ranking" class="ranking">
+                <!-- <tr class="div-jugador">
                     <th id="posicion">POSICIÓN</th>
                     <th id="jugador">JUGADOR</th>
                     <th id="puntuacion">PUNTUACIÓN</th>
-                </tr>
-                <?php foreach ($ranking as $index => $fila): ?>
+                </tr> -->
+                <!-- <?php foreach ($ranking as $index => $fila): ?>
                     <tr class="div-jugador">
                         <td><?php echo $index + 1; ?></td>
                         <td><?php echo htmlspecialchars($fila['nombre']); ?></td>
                         <td><?php echo $fila['puntuacion']; ?></td>
                     </tr>
-                <?php endforeach; ?>
+                <?php endforeach; ?> -->
             </table>
         </div>
     </main>
+    <script src="../js/ranking.js"></script>
     <script src="../js/botones.js"></script>
 </body>
 </html>

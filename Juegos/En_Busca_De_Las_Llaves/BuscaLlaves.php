@@ -2,9 +2,11 @@
 session_start();
 include_once('../../php/bd.php');
 
+// Obtener datos de la sesión
 $usuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : null;
+$usuarioId = isset($_SESSION['idUsuario']) ? $_SESSION['idUsuario'] : null;
 
-
+// Manejar cierre de sesión
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
     session_unset();
     session_destroy();
@@ -12,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
     exit();
 }
 
+// Obtener datos del juego
 $idJuego = 1;
 $juego = getJuegoPorId($idJuego);
 ?>
@@ -26,8 +29,10 @@ $juego = getJuegoPorId($idJuego);
     <link rel="stylesheet" href="../../css/Style.css" />
   </head>
   <body 
-    data-authenticated="<?php echo isset($_SESSION['usuario_id']) ? 'true' : 'false'; ?>" 
-    data-game-id="<?php echo $idJuego; ?>">
+    data-authenticated="<?php echo isset($_SESSION['idUsuario']) ? 'true' : 'false'; ?>"
+    data-game-id="<?php echo $idJuego; ?>"
+    data-user-id="<?php echo isset($_SESSION['idUsuario']) ? $_SESSION['idUsuario'] : ''; ?>">
+
 
     <!-- Navbar -->
     <header class="encabezado-general encabezado_juego">

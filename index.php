@@ -1,5 +1,6 @@
 <?php
 include_once './php/bd.php';
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="es">
