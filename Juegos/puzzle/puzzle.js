@@ -479,6 +479,7 @@ function mostrarModalVictoria(tiempoFormateado) {
     const { userId, juegoId } = usuarioData;
 
     document.getElementById("btnReiniciar").addEventListener("click", () => {
+        console.log("cliiiiiiiiiick");
         location.reload();
     });
 

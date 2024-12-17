@@ -78,7 +78,22 @@ $juego = getJuegoPorId($idJuego);
       </div>
 
       <div id="hiddenObjectsArea"></div>
+          <!-- Modal de Victoria -->
+      <div id="ventanaVictoria" class="ventanaVictoria" style="display: none;">
+        <div class="v-contenido">
+          <h1 class="v-titulo" id="puzzle">¡Juego Completado!</h1>
+          <p id="mensajeTiempo"></p>
+        <div class="v-botones">
+        <button id="btnReiniciar" class="volverJugar">Volver a Jugar</button>
+        <button id="btnRanking" class="irRanking">Ir al Ranking</button>
+        <button id="btnFuentes" class="volverFuentes">Volver a las Fuentes</button>
     </div>
+  </div>
+</div>
+    </div>
+
+
+    
 
     <script src="llaves.js"></script>
     <script src="../../js/idiomas.js"></script>

@@ -21,7 +21,9 @@ try {
     }
 
     // Preparar y ejecutar la consulta SQL
-    $sentenciaText = "INSERT INTO ranking (usuario_idUsuario, juegos_idJuego, puntuacion) VALUES (:usuario_idUsuario, :juegos_idJuego, :puntuacion)";
+    $sentenciaText = "INSERT INTO ranking (usuario_idUsuario, juegos_idJuego, puntuacion) 
+                  VALUES (:usuario_idUsuario, :juegos_idJuego, :puntuacion) 
+                  ON DUPLICATE KEY UPDATE puntuacion = :puntuacion";
     $stmt = $conexion->prepare($sentenciaText);
 
     error_log("Datos recibidos para insertar: usuario_idUsuario = $usuario_idUsuario, juegos_idJuego = $juegos_idJuego, puntuacion = $puntuacion");
