@@ -62,10 +62,7 @@ if (isset($_SESSION['nombre'])) {
                 <img src="../media/img_quienes_somos/desi.png" class="img-miembro" alt="imagen Desi">
                 <h2 id="nombreDesi" >Desirée Romero</h2>
                 <p class="txt-miembro" id="descripcionDesi">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt 
-                    eu dolor non aliquam. Fusce sit amet dui odio. Cras lobortis, nunc vel 
-                    tincidunt lobortis, diam massa eleifend felis, ut luctus risus elit at 
-                    magna.
+                    Me especializo en front-end y disfruto creando interfaces atractivas y funcionales. Este proyecto me ha permitido diseñar un juego interactivo que emocione y divierta a los niños del IE Tres Fonts de Les Corts.
                 </p>
                 <a href="#" target="_blank">
                     <img src="../media/img_quienes_somos/linkedln.png" alt="Linkedln" class="img-logo-linkedln">
