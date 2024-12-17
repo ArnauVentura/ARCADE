@@ -30,6 +30,17 @@
             <img id="red" src="img/red.png" alt="Red">
         </div>
         <div id="objetos"></div>
+        <div id="ventanaVictoria" class="ventanaVictoria">
+            <div class="v-contenido">
+                <h1 class="v-titulo" id="puzzle">¡Puzzle Resuelto!</h1>
+                <p id="mensajeTiempo"></p>
+                <div class="v-botones">
+                    <button id="btnReiniciar" class="volverJugar">Volver a Jugar</button>
+                    <button id="btnRanking" class="irRanking">Ir al Ranking</button>
+                    <button id="btnFuentes" class="volverFuentes">Volver a las Fuentes</button>
+                </div>
+            </div>
+        </div>
     </main>
 </body>
 <script src="script.js"></script>
