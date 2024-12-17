@@ -223,3 +223,26 @@ function guardarPuntuacion(userId, juegoId, puntuacionJugador) {
         console.error("Error al guardar la puntuación:", error);
       });
   }
+function mostrarModalVictoria(tiempoFormateado) {
+    const mensajeTiempo = document.getElementById("mensajeTiempo");
+    mensajeTiempo.textContent = `Tu tiempo: ${tiempoFormateado}`;
+
+    const modal = document.getElementById("ventanaVictoria");
+    modal.style.display = "flex";
+    
+    const pepe =  document.getElementById("btnReiniciar");
+    console.log(pepe);
+
+    document.getElementById("btnReiniciar").addEventListener("click", () => {
+        console.log("cliiiiiiiiiick");
+        location.reload();
+    });
+
+    document.getElementById("btnRanking").addEventListener("click", () => {
+        location.assign("../../html/ranking.php"); 
+    });
+
+    document.getElementById("btnFuentes").addEventListener("click", () => {
+        location.assign("../../html/fuentes.php");
+    });
+}
