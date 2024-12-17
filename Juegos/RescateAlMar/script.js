@@ -197,32 +197,38 @@ intervaloVelocidad = setInterval(() => {
     velocidadCaida += 1; // Incrementar más agresivamente la velocidad de caída
 }, 10000);
 
-function guardarPuntuacion(userId, juegoId, puntuacionJugador) {
-    const puntuacion = puntuacionJugador; // El tiempo formateado como puntuación
+function guardarPuntuacion() {
+    // Obtener el ID del usuario y el juego desde los datos del DOM
+    const userId = document.body.getAttribute("data-user-id");
+    const juegoId = document.body.getAttribute("data-game-id");
+
+    // Enviar la puntuación al servidor (puedes obtener la puntuación de 'puntuacionJugador' o del tiempo)
+    const puntuacion = puntuacionJugador;
 
     fetch("/ARCADE/api/ranking/insertRanking.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: new URLSearchParams({
-        usuario_idUsuario: userId,
-        juegos_idJuego: juegoId,
-        puntuacion: puntuacion,  // Usamos el tiempo formateado como puntuación
-      }),
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+            usuario_idUsuario: userId,
+            juegos_idJuego: juegoId,
+            puntuacion: puntuacion, // Aquí estamos enviando la puntuación
+        }),
     })
-      .then((response) => response.json())
-      .then((data) => {
+    .then((response) => response.json())
+    .then((data) => {
         if (data.success) {
-          console.log("Puntuación guardada con éxito");
+            console.log("Puntuación guardada con éxito");
         } else {
-          console.error("Error al guardar la puntuación:", data.message);
+            console.error("Error al guardar la puntuación:", data.message);
         }
-      })
-      .catch((error) => {
+    })
+    .catch((error) => {
         console.error("Error al guardar la puntuación:", error);
-      });
-  }
+    });
+}
+
 function mostrarModalVictoria(tiempoFormateado) {
     const mensajeTiempo = document.getElementById("mensajeTiempo");
     mensajeTiempo.textContent = `Tu tiempo: ${tiempoFormateado}`;

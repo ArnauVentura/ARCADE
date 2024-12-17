@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+if (isset($_SESSION['nombre'])) {
+    $usuario = $_SESSION['nombre'];
+} else {
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
+    session_unset();
+    session_destroy();
+    header('Location: ../index.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
