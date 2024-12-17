@@ -9,7 +9,7 @@ function openDB()
 
     $servername = "localhost";
     $username = "root";
-    $password = "mysql";
+    $password = "";
     $dbname="anna";
 
     try {
