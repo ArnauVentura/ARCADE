@@ -165,13 +165,13 @@ function guardarPuntuacion(userId, juegoId, tiempoFormateado){
         body: new URLSearchParams({
           usuario_idUsuario: userId,
           juegos_idJuego: juegoId,
-          puntuacion: tiempoFormateado,  // El tiempo es la puntuación
+          puntuacion: tiempoFormateado  // El tiempo es la puntuación
         }),
       })
         .then((response) => response.json())
         .then((data) => {
           if (data.success) {
-            alert("¡Puntuación guardada con éxito! Tiempo: " . $tiempoFormateado);
+            alert(`¡Puntuación guardada con éxito! Tiempo: ${tiempoFormateado}`);
           } else {
             alert(`Error al guardar la puntuación: ${data.message}`);
           }
@@ -260,7 +260,7 @@ function intercambiar(event) {
         actualizarContadorClicks();
         actualizarVista();
 
-        if (resuelto()){
+        if (resuelto(tiempoFormateado)){
             detenerCronometro();
         }
     }
