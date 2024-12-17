@@ -23,7 +23,7 @@ function openDB()
 
 function closeDB()
 {
-    $conexion = null;
+    return null;
 }
 
 function errorsMessage($e)

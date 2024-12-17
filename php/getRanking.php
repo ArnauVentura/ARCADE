@@ -4,6 +4,9 @@ session_start();
 
 require_once('./bd.php');
 
+header('Content-Type: application/json');
+
+// Función para guardar el ranking
 function guardarRanking($usuario_idUsuario, $juegos_idJuego, $puntuacion) {
     try {
         $conexion = openDB();
@@ -26,16 +29,43 @@ function guardarRanking($usuario_idUsuario, $juegos_idJuego, $puntuacion) {
     }
 }
 
-function selectRanking(){
-        $conexion = openDB();
+// Función para seleccionar los rankings
+function selectRanking($juego = null) {
+    $conexion = openDB();
 
-        $sentenciaText = "SELECT * from ranking order by puntuacion";
+    // Si se ha pasado un ID de juego, filtra por ese juego
+    if ($juego) {
+        $sentenciaText = "SELECT r.*, u.nombre 
+                          FROM ranking r
+                          JOIN usuarios u ON r.usuario_idUsuario = u.idUsuario
+                          WHERE r.juegos_idJuego = :juego
+                          ORDER BY r.puntuacion DESC";
         $stmt = $conexion->prepare($sentenciaText);
+        $stmt->bindParam(':juego', $juego, PDO::PARAM_INT);
+    } else {
+        // Si no se pasa un juego, trae todos los rankings
+        $sentenciaText = "SELECT r.*, u.nombre 
+                          FROM ranking r
+                          JOIN usuarios u ON r.usuario_idUsuario = u.idUsuario
+                          ORDER BY r.puntuacion DESC";
+        $stmt = $conexion->prepare($sentenciaText);
+    }
 
-        $result = $stmt->fetchAll();
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        return $result;
-    
+    closeDB();
+
+    return $result;
 }
+
+// Recibir el parámetro del juego desde la URL (si existe)
+$juegoSeleccionado = isset($_GET['juego']) ? $_GET['juego'] : null;
+
+// Obtener los rankings filtrados por juego (si se seleccionó uno)
+$rankings = selectRanking($juegoSeleccionado);
+
+// Retornar los resultados como JSON
+echo json_encode($rankings);
 
 ?>

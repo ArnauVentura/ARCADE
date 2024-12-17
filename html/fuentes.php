@@ -44,7 +44,7 @@ if (isset($_SESSION['nombre'])) {
 
         <!--Div de la fuente azul-->
         <div class= "font-img">
-            <a href="introAlRioTroncos.html">
+            <a href="introAlRioTroncos.php">
                 <img src="../media/img_fuentes/fuente_azul.png" alt="fuente_azul" class="fuente-azul" id="fuenteAzul">
             </a>
         </div>

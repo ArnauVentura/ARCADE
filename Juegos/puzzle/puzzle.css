@@ -31,9 +31,9 @@
 
 .containerPuzzle {
     display: grid;
-    grid-template-columns: repeat(3, 150px); /* Configura 3 columnas de 100px cada una */
-    grid-template-rows: repeat(3, 150px);    /* Configura 3 filas de 100px cada una */
-    gap: 8px;                                /* Espacio entre cada celda */
+    grid-template-columns: repeat(3, 150px); 
+    grid-template-rows: repeat(3, 150px);    
+    gap: 8px;                               
     width: max-content;
     height: max-content;
     margin: 20px auto;
@@ -65,7 +65,7 @@
 /* Icono de la bombilla */
 .bombilla {
     position: relative;
-    display: flex; /* Para asegurar que el hover funcione en esta área */
+    display: flex;
     cursor: pointer;
 }
 
