@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   
     // Realizar la solicitud para guardar la puntuación
-    fetch("ARCADE/api/ranking/getRanking.php", {
+    fetch("ARCADE/api/ranking/insertRanking.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
       body: new URLSearchParams({
         usuario_idUsuario: userId,
         juegos_idJuego: juegoId,
-        puntuacion: elapsedTime,  // El tiempo es la puntuación
+        puntuacion: 100  // El tiempo es la puntuación
       }),
     })
       .then((response) => response.json())

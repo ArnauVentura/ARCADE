@@ -17,7 +17,7 @@
             "type": "chrome",
 
 
-            "url": "http://localhost/ARCADE/index.php",
+            "url": "http://localhost:8080/ARCADE/index.php",
             "webRoot": "${workspaceFolder}"
         },
         
