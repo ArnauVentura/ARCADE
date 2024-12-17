@@ -1,3 +1,16 @@
+<?php
+session_start();
+include_once('../../php/bd.php');
+
+// Obtener datos de la sesión
+$usuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : null;
+$usuarioId = isset($_SESSION['idUsuario']) ? $_SESSION['idUsuario'] : null;
+
+// Obtener datos del juego
+$idJuego = 3;
+$juego = getJuegoPorId($idJuego);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,7 +20,11 @@
     <link rel="stylesheet" href="../puzzle/puzzle.css">
     <title>Al río troncos</title>
 </head>
-<body class="bodyPuzzle">
+<body class="bodyPuzzle" 
+    data-authenticated="<?php echo isset($_SESSION['idUsuario']) ? 'true' : 'false'; ?>"
+    data-game-id="<?php echo $idJuego; ?>"
+    data-user-id="<?php echo isset($_SESSION['idUsuario']) ? $_SESSION['idUsuario'] : ''; ?>">
+    
     <header class="encabezado-general">
         <div class="estilos-generales header-juegos-intro header-puzzle">
             <a class="atras" href="javascript:history.back()">
