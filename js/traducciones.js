@@ -22,7 +22,7 @@ const traducciones = {
         nombreCarla: "Carla Cayero",
         descripcionCarla: "¿Sabías que cuando era pequeña, me encantaba dibujar? Dibujaba monstruos, princesas y naves espaciales. Ahora, en lugar de dibujar, ¡creo mundos enteros en la web! Es como tener un lienzo mágico donde puedo hacer realidad todas mis ideas.",
         nombreDesi: "Desirée Romero",
-        descripcionDesi: "Lorem ipsum dolor sit amet...",
+        descripcionDesi: " Me especializo en front-end y disfruto creando interfaces atractivas y funcionales. Este proyecto me ha permitido diseñar un juego interactivo que emocione y divierta a los niños del IE Tres Fonts de Les Corts.",
         nombreArnau: "Arnau Ventura",
         descripcionArnau: "Lorem ipsum dolor sit amet...",
         //INTRO JUEGOS
@@ -74,7 +74,7 @@ const traducciones = {
         nombreCarla: "Carla Cayero",
         descripcionCarla: "Did you know that when I was little, I loved drawing? I used to draw monsters, princesses, and spaceships. Now, instead of drawing, I create entire worlds on the web! It’s like having a magical canvas where I can bring all my ideas to life.",
         nombreDesi: "Desirée Romero",
-        descripcionDesi: "Lorem ipsum dolor sit amet...",
+        descripcionDesi: "I specialize in front-end and enjoy creating attractive and functional interfaces. This project has allowed me to design an interactive game that excites and entertains the children of the IE Tres Fonts de Les Corts.",
         nombreArnau: "Arnau Ventura",
         descripcionArnau: "Lorem ipsum dolor sit amet...",
         //INTRO JUEGOS
@@ -127,7 +127,7 @@ const traducciones = {
         nombreCarla: "Carla Cayero",
         descripcionCarla: "Sabies que quan era petita, m'encantava dibuixar? Dibuixava monstres, princeses i naus espacials. Ara, en lloc de dibuixar, creo mons sencers al web! És com tenir un llenç màgic on puc fer realitat totes les meves idees.",
         nombreDesi: "Desirée Romero",
-        descripcionDesi: "Lorem ipsum dolor sit amet...",
+        descripcionDesi: "M'especialitzo en front-end i gaudeixo creant interfícies atractives i funcionals. Aquest projecte m'ha permès dissenyar un joc interactiu que emocioni i diverteixi els nens de l'IE Tres Fonts de les Corts.",
         nombreArnau: "Arnau Ventura",
         descripcionArnau: "Lorem ipsum dolor sit amet...",
         //INTRO JUEGOS

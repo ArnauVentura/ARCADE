@@ -182,29 +182,8 @@ function finDelJuego() {
     document.querySelectorAll('.objeto').forEach(obj => obj.remove());
 
     // Aquí agregamos el envío de la puntuación al servidor
-    enviarPuntuacion();
+    guardarPuntuacion();
 }
-
-// Función para enviar la puntuación al servidor
-function enviarPuntuacion() {
-    const puntuacion = puntuacionJugador;
-
-    fetch('guardarPuntuacion.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: `idUsuario=${encodeURIComponent(idUsuario)}&puntuacion=${encodeURIComponent(puntuacion)}`,
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data.mensaje); // Mostrar el mensaje del servidor
-    })
-    .catch(error => {
-        console.error('Error al guardar la puntuación:', error);
-    });
-}
-
 
 // Inicializar la posición de la red
 actualizarPosicion();
@@ -217,3 +196,59 @@ intervaloCreacionObjetos = setInterval(crearObjeto, 1500);
 intervaloVelocidad = setInterval(() => {
     velocidadCaida += 1; // Incrementar más agresivamente la velocidad de caída
 }, 10000);
+
+function guardarPuntuacion() {
+    // Obtener el ID del usuario y el juego desde los datos del DOM
+    const userId = document.body.getAttribute("data-user-id");
+    const juegoId = document.body.getAttribute("data-game-id");
+
+    // Enviar la puntuación al servidor (puedes obtener la puntuación de 'puntuacionJugador' o del tiempo)
+    const puntuacion = puntuacionJugador;
+
+    fetch("/ARCADE/api/ranking/insertRanking.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+            usuario_idUsuario: userId,
+            juegos_idJuego: juegoId,
+            puntuacion: puntuacion, // Aquí estamos enviando la puntuación
+        }),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        if (data.success) {
+            console.log("Puntuación guardada con éxito");
+        } else {
+            console.error("Error al guardar la puntuación:", data.message);
+        }
+    })
+    .catch((error) => {
+        console.error("Error al guardar la puntuación:", error);
+    });
+}
+
+function mostrarModalVictoria(tiempoFormateado) {
+    const mensajeTiempo = document.getElementById("mensajeTiempo");
+    mensajeTiempo.textContent = `Tu tiempo: ${tiempoFormateado}`;
+
+    const modal = document.getElementById("ventanaVictoria");
+    modal.style.display = "flex";
+    
+    const pepe =  document.getElementById("btnReiniciar");
+    console.log(pepe);
+
+    document.getElementById("btnReiniciar").addEventListener("click", () => {
+        console.log("cliiiiiiiiiick");
+        location.reload();
+    });
+
+    document.getElementById("btnRanking").addEventListener("click", () => {
+        location.assign("../../html/ranking.php"); 
+    });
+
+    document.getElementById("btnFuentes").addEventListener("click", () => {
+        location.assign("../../html/fuentes.php");
+    });
+}
