@@ -1,7 +1,15 @@
+<?php
+session_start();
+include_once('../../php/bd.php');
 
-<script>
-    const idUsuario = <?php echo json_encode($idUsuario); ?>;
-</script>
+// Obtener datos de la sesión
+$usuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : null;
+$usuarioId = isset($_SESSION['idUsuario']) ? $_SESSION['idUsuario'] : null;
+
+// Obtener datos del juego
+$idJuego = 2;
+$juego = getJuegoPorId($idJuego);
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
