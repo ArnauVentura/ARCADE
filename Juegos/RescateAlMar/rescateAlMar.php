@@ -20,7 +20,11 @@ $juego = getJuegoPorId($idJuego);
     <link rel="stylesheet" href="../../css/Style.css">
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
 </head>
-<body>
+<body
+    data-authenticated="<?php echo isset($_SESSION['idUsuario']) ? 'true' : 'false'; ?>"
+    data-game-id="<?php echo $idJuego; ?>"
+    data-user-id="<?php echo isset($_SESSION['idUsuario']) ? $_SESSION['idUsuario'] : ''; ?>">
+    
     <header class="encabezado-general">
         <div class="estilos-generales header-juegos-intro">
             <a class="atras" href="javascript:history.back()">

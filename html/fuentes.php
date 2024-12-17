@@ -37,7 +37,7 @@ if (isset($_SESSION['nombre'])) {
 
         <!--Div de la fuente roja-->
         <div class="font-img">
-            <a href="introRescateDelMar.html">
+            <a href="introRescateDelMar.php">
                 <img src="../media/img_fuentes/fuente_roja.png" alt="fuente_roja" class="fuente-roja " id="fuenteRoja">
             </a>
         </div>
