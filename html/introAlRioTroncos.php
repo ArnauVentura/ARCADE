@@ -1,3 +1,20 @@
+
+<?php
+session_start();
+
+if (isset($_SESSION['nombre'])) {
+    $usuario = $_SESSION['nombre'];
+} else {
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
+    session_unset();
+    session_destroy();
+    header('Location: ../index.php');
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -29,7 +46,7 @@
             </p>
             <img class= "elementos-centrados cursor-mano" src="../media/img_landing/cursor-mano.png">
         </div>
-        <a class="boton-pequeño estilos-generales animacion-boton jugar-button" id="botonJugar" href="../Juegos/puzzle/puzzle.html">
+        <a class="boton-pequeño estilos-generales animacion-boton jugar-button" id="botonJugar" href="../Juegos/puzzle/puzzle.php">
              JUGAR 
         </a>   
     </main>
