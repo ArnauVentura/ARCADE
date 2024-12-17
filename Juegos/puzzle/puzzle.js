@@ -133,7 +133,7 @@ function detenerCronometro() {
 }
 
 
-function verificarUsuario(tiempoFormateado){
+function verificarUsuario(){
     const isAuthenticated = document.body.getAttribute("data-authenticated") === "true";
     const userId = document.body.getAttribute("data-user-id");
     const juegoId = document.body.getAttribute("data-game-id");
@@ -144,6 +144,7 @@ function verificarUsuario(tiempoFormateado){
   
     // Si el usuario no está autenticado, muestra el mensaje y termina la ejecución
     if (!isAuthenticated) {
+        console.log("User no identificado");
       return; // Salir si el usuario no está autenticado
     }
   
@@ -153,7 +154,6 @@ function verificarUsuario(tiempoFormateado){
       return; // Salir si alguno de los IDs no está definido
     }
 
-    guardarPuntuacion(userId, juegoId, tiempoFormateado);
 }
 
 function guardarPuntuacion(userId, juegoId, tiempoFormateado){
@@ -467,12 +467,14 @@ function mostrarModalVictoria(tiempoFormateado) {
     });
 
     document.getElementById("btnRanking").addEventListener("click", () => {
-        verificarUsuario(tiempoFormateado);
+        verificarUsuario();
+        guardarPuntuacion(userId, juegoId, tiempoFormateado);
         location.assign("../../html/ranking.php"); 
     });
 
     document.getElementById("btnFuentes").addEventListener("click", () => {
-        verificarUsuario(tiempoFormateado);
+        verificarUsuario();
+        guardarPuntuacion(userId, juegoId, tiempoFormateado);
         location.assign("../../html/fuentes.php");
     });
 }
