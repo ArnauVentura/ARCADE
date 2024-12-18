@@ -2,14 +2,14 @@
 function openDB()
 {
 
-    // $servername = "sql207.byethost13.com";
-    // $username = "b13_37391685";
-    // $password = "desi123";
-    // $dbname="b13_37391685_arcade";
+    $servername = "sql207.byethost13.com";
+    $username = "b13_37391685";
+    $password = "desi123";
+    $dbname="b13_37391685_arcade";
 
     $servername = "localhost";
     $username = "root";
-    $password = "mysql";
+    $password = "";
     $dbname="anna";
 
     try {
