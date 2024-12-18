@@ -13,7 +13,7 @@ document.querySelectorAll('.boton-pequeño').forEach(boton => {
         const juegoSeleccionado = e.target.dataset.juego; // Obtener el ID del juego
 
         // Solicitar los rankings filtrados
-        fetch(`/ARCADE/api/ranking/getRanking.php?juego=${juegoSeleccionado}`)
+        fetch(`/api/ranking/getRanking.php?juego=${juegoSeleccionado}`)
             .then(respuesta => respuesta.json())
             .then(rankings => {
                 const tablaBody = document.querySelector('#ranking tbody');
