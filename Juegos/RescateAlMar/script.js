@@ -205,7 +205,7 @@ function guardarPuntuacion() {
     // Enviar la puntuación al servidor (puedes obtener la puntuación de 'puntuacionJugador' o del tiempo)
     const puntuacion = puntuacionJugador;
 
-    fetch("/ARCADE/api/ranking/insertRanking.php", {
+    fetch("/api/ranking/insertRanking.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",

@@ -58,18 +58,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
 </div>
 
             <table id="ranking" class="ranking">
-                <!-- <tr class="div-jugador">
+                <tr class="div-jugador">
                     <th id="posicion">POSICIÓN</th>
                     <th id="jugador">JUGADOR</th>
                     <th id="puntuacion">PUNTUACIÓN</th>
-                </tr> -->
-                <!-- <?php foreach ($ranking as $index => $fila): ?>
-                    <tr class="div-jugador">
-                        <td><?php echo $index + 1; ?></td>
-                        <td><?php echo htmlspecialchars($fila['nombre']); ?></td>
-                        <td><?php echo $fila['puntuacion']; ?></td>
-                    </tr>
-                <?php endforeach; ?> -->
+                </tr>
             </table>
         </div>
     </main>
