@@ -2,15 +2,15 @@
 function openDB()
 {
 
-    // $servername = "sql207.byethost13.com";
-    // $username = "b13_37391685";
-    // $password = "desi123";
-    // $dbname="b13_37391685_arcade";
+    $servername = "sql207.byethost13.com";
+    $username = "b13_37391685";
+    $password = "desi123";
+    $dbname="b13_37391685_arcade";
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "mysql";
-    $dbname="anna";
+    // $servername = "localhost";
+    // $username = "root";
+    // $password = "";
+    // $dbname="anna";
 
     try {
         $connection = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
