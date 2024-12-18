@@ -1,6 +1,6 @@
 window.addEventListener('load', () => {
     // Aquí manejamos la carga de los rankings. Primero cargamos todos los rankings.
-    fetch('/ARCADE/api/ranking/getRanking.php')
+    fetch('/api/ranking/getRanking.php')
         .then(respuesta => respuesta.json())
         .then(rankings => {
             // Verificamos si hay rankings
@@ -45,7 +45,7 @@ document.querySelectorAll('.boton-pequeño').forEach(boton => {
         const juegoSeleccionado = e.target.id.replace('boton-', '');
 
         // Ahora hacemos la solicitud con el parámetro 'juego'
-        fetch(`ARCADE/api/ranking/getRanking.php?juego=${juegoSeleccionado}`)
+        fetch(`/api/ranking/getRanking.php?juego=${juegoSeleccionado}`)
             .then(respuesta => respuesta.json())
             .then(rankings => {
                 const tabla = document.querySelector('#ranking');

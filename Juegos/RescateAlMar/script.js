@@ -176,7 +176,6 @@ function actualizarTiempo() {
 }
 // Función para finalizar el juego
 function finDelJuego() {
-    alert(`¡El juego ha terminado! Puntuación final: ${puntuacionJugador}`);
     clearInterval(intervaloCreacionObjetos);
     clearInterval(intervaloVelocidad);
     document.querySelectorAll('.objeto').forEach(obj => obj.remove());

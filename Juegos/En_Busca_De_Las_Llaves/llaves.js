@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function guardarPuntuacion(userId, juegoId, tiempoFormateado) {
     const puntuacion = tiempoFormateado; // El tiempo formateado como puntuación
 
-    fetch("/ARCADE/api/ranking/insertRanking.php", {
+    fetch("/api/ranking/insertRanking.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",

@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
 </head>
 <body class="bg-Img" id="img-ranking">
     <header class="encabezado-general">
-        <a class="atras" href="javascript:history.back()">
+        <a class="atras" href="./fuentes.php">
             <img src="../media/flecha.png" alt="Volver" class="img-header">
         </a>
         <form method="POST" action="../php/controllers.php">
