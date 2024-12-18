@@ -183,6 +183,7 @@ function finDelJuego() {
 
     // Aquí agregamos el envío de la puntuación al servidor
     guardarPuntuacion();
+    mostrarModalVictoria(puntuacionJugador);
 }
 
 // Inicializar la posición de la red
@@ -229,9 +230,9 @@ function guardarPuntuacion() {
     });
 }
 
-function mostrarModalVictoria(tiempoFormateado) {
+function mostrarModalVictoria(puntuacionJugador) {
     const mensajeTiempo = document.getElementById("mensajeTiempo");
-    mensajeTiempo.textContent = `Tu tiempo: ${tiempoFormateado}`;
+    mensajeTiempo.textContent = `Tu puntuación: ${puntuacionJugador}`;
 
     const modal = document.getElementById("ventanaVictoria");
     modal.style.display = "flex";
