@@ -240,7 +240,6 @@ function mostrarModalVictoria(puntuacionJugador) {
     console.log(pepe);
 
     document.getElementById("btnReiniciar").addEventListener("click", () => {
-        console.log("cliiiiiiiiiick");
         location.reload();
     });
 

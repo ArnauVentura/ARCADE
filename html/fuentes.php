@@ -23,7 +23,7 @@ if (isset($_SESSION['nombre'])) {
 </head>
 <body class="bg-Img" id="img-patio">
     <header class="encabezado-general">
-        <a class="atras" href="javascript:history.back()">
+        <a class="atras" href="./jugarRanking.php">
             <img src="../media/flecha.png" alt="Volver" class="img-header">
         </a>
     </header>

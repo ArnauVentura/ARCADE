@@ -28,10 +28,6 @@ if (isset($_SESSION['nombre'])) {
         <a class="atras" href="javascript:history.back()">
             <img src="../media/flecha.png" alt="Volver" class="img-header">
         </a>
-        <form method="POST" action="../php/controllers.php">
-        <button type="submit" name="cerrar-sesion" class="boton-cerrar-sesion">
-            <img src="../media/cerrar-sesion.png" alt="Cerrar Sesión" class="img-header">
-        </button>
     </form>
     </header>
     <main>
@@ -72,10 +68,7 @@ if (isset($_SESSION['nombre'])) {
                 <img src="../media/img_quienes_somos/arnau.png" class="img-miembro" alt="imagen Arnau">
                 <h2 id="nombreArnau">Arnau Ventura</h2>
                 <p class="txt-miembro" id="descripcionArnau">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt 
-                    eu dolor non aliquam. Fusce sit amet dui odio. Cras lobortis, nunc vel 
-                    tincidunt lobortis, diam massa eleifend felis, ut luctus risus elit at 
-                    magna.
+                Me especializo en back-end y disfruto desarrollando sistemas robustos y eficientes. Este proyecto me ha permitido crear la lógica y la estructura que dan vida a un juego interactivo pensado para emocionar y divertir a los niños del IE Tres Fonts de Les Corts.
                 </p>
                 <a href="#" target="_blank">
                     <img src="../media/img_quienes_somos/linkedln.png" alt="Linkedln" class="img-logo-linkedln">

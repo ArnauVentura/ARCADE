@@ -179,14 +179,14 @@ function guardarPuntuacion(userId, juegoId, tiempoFormateado){
         })
         .then((data) => {
           if (data.success) {
-            alert(`¡Puntuación guardada con éxito! Tiempo: ${tiempoFormateado}`);
+            console.log(`¡Puntuación guardada con éxito! Tiempo: ${tiempoFormateado}`);
           } else {
-            alert(`Error al guardar la puntuación: ${data.message}`);
+            console.log(`Error al guardar la puntuación: ${data.message}`);
           }
         })
         .catch((error) => {
           console.error("Error al guardar la puntuación:", error);
-          alert("Ocurrió un error al intentar guardar tu puntuación.");
+          console.log("Ocurrió un error al intentar guardar tu puntuación.");
         });
 }
 
@@ -479,7 +479,6 @@ function mostrarModalVictoria(tiempoFormateado) {
     const { userId, juegoId } = usuarioData;
 
     document.getElementById("btnReiniciar").addEventListener("click", () => {
-        console.log("cliiiiiiiiiick");
         location.reload();
     });
 

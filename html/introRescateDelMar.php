@@ -38,12 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cerrar-sesion'])) {
     <main>
         <div class="elementos-centrados div-intro-juegos">
             <p class="p-mensaje" id="txtIntroDesi"> 
-                En el Delta del Llobregat, varios barcos han soltado mucha basura y el mar 
-                se ha ensuciado. Anna, con su traje de submarinista, se ha lanzado al agua 
-                para recoger toda esa basura para dejar el mar limpio y bonito otra vez. 
-                La basura va cayendo poco a poco hacia el fondo, y si no la atrapas a tiempo, 
-                ¡pierdes una vida! Al principio cae despacio, pero cada vez irá más rápido. 
-                Anna tiene 3 vidas para completar su misión ¡Necesita tu ayuda!
+                La basura va cayendo hacia el fondo, y si no la atrapas a tiempo, ¡pierdes una de las 3 vidas 
+                que tienes! Usa las flechas del teclado para mover a Anna hacia la izquierda o hacia la 
+                derecha y atrapa la basura antes de que sea tarde. Al principio caerá despacio, pero luego será 
+                más rápido, así que prepárate. ¡Ayuda a Anna a dejar el mar limpio y bonito otra vez!
             </p>
             <div class="conjunto-img-intro">
                 <div class="conjunto-img-basura">

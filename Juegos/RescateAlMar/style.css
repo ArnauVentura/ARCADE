@@ -113,6 +113,7 @@ main {
     font-family: "Handlee", cursive;
     font-size: 40px;
     margin-left: 100px;
+    color: black;
 }
 
 #mensajeTiempo{
@@ -120,6 +121,8 @@ main {
     font-size: 20px;
     font-weight: bold;
     font-family:"Inter";
+    color: black;
+
 }
 .v-botones{
     margin-top: 20px;

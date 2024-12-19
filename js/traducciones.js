@@ -24,7 +24,7 @@ const traducciones = {
         nombreDesi: "Desirée Romero",
         descripcionDesi: " Me especializo en front-end y disfruto creando interfaces atractivas y funcionales. Este proyecto me ha permitido diseñar un juego interactivo que emocione y divierta a los niños del IE Tres Fonts de Les Corts.",
         nombreArnau: "Arnau Ventura",
-        descripcionArnau: "Lorem ipsum dolor sit amet...",
+        descripcionArnau: " Me especializo en back-end y disfruto desarrollando sistemas robustos y eficientes. Este proyecto me ha permitido crear la lógica y la estructura que dan vida a un juego interactivo pensado para emocionar y divertir a los niños del IE Tres Fonts de Les Corts.",
         //INTRO JUEGOS
         //INTRO AL RIO TRONCOS
         tituloJuegoCarla: "AL RIO TRONCOS",
@@ -34,7 +34,7 @@ const traducciones = {
         txtIntroArnau:"Anna se dispone a entrar en el oscuro alcantarillado en busca de las llaves rotas para arreglar el flujo del agua. Ayudala ha encontrar todas en el menor tiempo possible haciendo uso de tu linterna! Usa el ratón para seleccionar la sala en la que buscar y para mover la linterna, para encontrar las llaves rotas hay que hacer clic encima de ellas. Mucha suerte!",
         //INTRO RESCATE AL MAR
         tituloJuegoDesi: "RESCATE AL MAR",
-        txtIntroDesi: "En el Delta del Llobregat, varios barcos han soltado mucha basura y el mar se ha ensuciado. Anna, con su traje de submarinista, se ha lanzado al agua para recoger toda esa basura para dejar el mar limpio y bonito otra vez. La basura va cayendo poco a poco hacia el fondo, y si no la atrapas a tiempo, ¡pierdes una vida! Al principio cae despacio, pero cada vez irá más rápido. Anna tiene 3 vidas para completar su misión ¡Necesita tu ayuda!",
+        txtIntroDesi: "La basura va cayendo hacia el fondo, y si no la atrapas a tiempo, ¡pierdes una de las 3 vidas que tienes! Usa las flechas del teclado para mover a Anna hacia la izquierda o hacia la derecha y atrapa la basura antes de que sea tarde. Al principio caerá despacio, pero luego será más rápido, así que prepárate. ¡Ayuda a Anna a dejar el mar limpio y bonito otra vez!",
         //JUEGOS
         //ARNAU
         textoJuego: "Selecciona una sala para buscar las llaves",
@@ -76,7 +76,7 @@ const traducciones = {
         nombreDesi: "Desirée Romero",
         descripcionDesi: "I specialize in front-end and enjoy creating attractive and functional interfaces. This project has allowed me to design an interactive game that excites and entertains the children of the IE Tres Fonts de Les Corts.",
         nombreArnau: "Arnau Ventura",
-        descripcionArnau: "Lorem ipsum dolor sit amet...",
+        descripcionArnau: "I specialize in back-end and enjoy developing robust and efficient systems. This project has allowed me to create the logic and structure that give life to an interactive game designed to excite and entertain the children of the IE Tres Fonts de Les Corts.",
         //INTRO JUEGOS
         //INTRO AL RIO TRONCOS
         tituloJuegoCarla: "TO THE RIVERS LOGS",
@@ -86,7 +86,7 @@ const traducciones = {
         txtIntroArnau: "Anna prepares to enter the dark sewer in search of the broken faucets to fix the water flow. Help her find them all in the shortest time possible using your flashlight! Use the mouse to select the room to search and to move the flashlight, to find the broken keys you have to click on them. Good luck!",
         //INTRO RESCATE AL MAR
         tituloJuegoDesi: "SEA RESCUE",
-        txtIntroDesi: "In the Llobregat Delta, several ships have released a lot of garbage and the sea has become dirty. Anna, with her diving suit, has jumped into the water to collect all that garbage to leave the sea clean and beautiful again. The garbage falls little by little to the bottom, and if you don't catch it in time, you lose a life! At first it falls slowly, but it will go faster and faster. Anna has 3 lives to complete her mission. She needs your help!",
+        txtIntroDesi: "The trash falls to the bottom, and if you don't catch it in time, you lose one of your 3 lives! what do you have! Use the arrow keys to move Anna left or right.Right and catch the trash before it's too late. At first it will fall slowly, but then it will be faster, so get ready. Help Anna make the sea clean and beautiful again!",
         //JUEGOS
         //ARNAU
         textoJuego: "Select a room to search for the keys",
@@ -129,7 +129,7 @@ const traducciones = {
         nombreDesi: "Desirée Romero",
         descripcionDesi: "M'especialitzo en front-end i gaudeixo creant interfícies atractives i funcionals. Aquest projecte m'ha permès dissenyar un joc interactiu que emocioni i diverteixi els nens de l'IE Tres Fonts de les Corts.",
         nombreArnau: "Arnau Ventura",
-        descripcionArnau: "Lorem ipsum dolor sit amet...",
+        descripcionArnau: "M'especialitzo en back-end i gaudeixo desenvolupant sistemes robustos i eficients. Aquest projecte m'ha permès crear la lògica i l'estructura que donen vida a un joc interactiu pensat per emocionar i divertir els nens de l'IE Tres Fonts de les Corts.",
         //INTRO JUEGOS
         //INTRO AL RIO TRONCOS
         tituloJuegoCarla: "AL RIU TRONCS",
@@ -139,7 +139,7 @@ const traducciones = {
         txtIntroArnau:"Anna es disposa a entrar al fosc clavegueram a la recerca de les claus trencades per arreglar el flux de l'aigua. Ajudeu-la ha trobar totes en el menor temps possible fent ús de la teva llanterna! Fes servir el ratolí per seleccionar la sala on buscar i per moure la llanterna, per trobar les claus trencades cal fer clic a sobre. Molta sort!",
         //INTRO RESCATE AL MAR
         tituloJuegoDesi: "RESCAT AL MAR",
-        txtIntroDesi: "Al Delta del Llobregat, diversos vaixells han deixat anar moltes escombraries i el mar s'ha embrutat. Anna, amb el seu vestit de submarinista, s'ha llançat a l'aigua per recollir totes aquestes escombraries per deixar el mar net i bonic una altra vegada. Les escombraries van caient a poc a poc cap al fons, i si no l'atrapes a temps, perds una vida! Al principi cau a poc a poc, però cada cop anirà més ràpid. Anna té 3 vides per completar la seva missió. Necessita la teva ajuda!",
+        txtIntroDesi: "Les escombraries van caient cap al fons, i si no l'atrapes a temps, perds una de les 3 vides que tens! Fes servir les fletxes del teclat per moure l'Anna cap a l'esquerra o cap a la dreta i atrapa les escombraries abans que sigui tard. Al principi caurà a poc a poc, però després serà més ràpid, així que prepara't. Ajuda l'Anna a deixar el mar net i bonic una altra vegada!",
         //JUEGOS
         //ARNAU
         textoJuego: "Selecciona una sala per cercar les claus",
